@@ -1,0 +1,1 @@
+Sitemap: https://dianethy.github.io/r4ds-fr/sitemap.xml
