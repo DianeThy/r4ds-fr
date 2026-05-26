@@ -1,23 +1,31 @@
+lang: fr
+
 project:
   type: book
   output-dir: _book
 
 book:
-  title: "R for Data Science (2e)"
+  title: "R pour la Science de Données (2e)"
   reader-mode: true
+  description: |
+    *Traducation française du livre "R pour la Science de Données (2e)" de Hadley Wickham, Mine
+    Çetinkaya-Rundel, et Garrett Grolemund.*
 
   page-footer:
     left: |
-      R for Data Science (2e) was written by Hadley Wickham, Mine
-      Çetinkaya-Rundel, and Garrett Grolemund.
+      R pour la Science de Données (2e) a été écrit par Hadley Wickham, Mine
+      Çetinkaya-Rundel, et Garrett Grolemund. Traduction française d'après
+      l'<a href="https://github.com/hadley/r4ds/">ouvrage original</a>.
     right: |
-      This book was built with <a href="https://quarto.org/">Quarto</a>.
+      Ce livre a été construit avec <a href="https://quarto.org/">Quarto</a>.
   cover-image: cover.jpg
   favicon: cover.jpg
-  site-url: https://r4ds.hadley.nz/
-  repo-url: https://github.com/hadley/r4ds/
+
+  site-url: https://dianethy.github.io/r4ds-fr/
+  repo-url: https://github.com/DianeThy/r4ds-fr/
   repo-branch: main
   repo-actions: [edit, issue]
+
   chapters:
     - index.qmd
 
@@ -78,7 +86,7 @@ format:
       - r4ds.scss
     code-link: true
 
-    author-meta: "Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund"
+    author-meta: "Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund"
     include-in-header: "plausible.html"
     callout-appearance: simple
 
