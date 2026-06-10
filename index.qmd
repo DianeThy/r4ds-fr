@@ -1,7 +1,7 @@
 # Bienvenue {.unnumbered}
 
-Ceci est le site de la 2e édition de **« R pour la science des données »**.
-Ce livre vous apprendra à faire de la science des données avec R : vous apprendrez à importer vos données dans R, à leur donner la structure la plus utile, à les transformer et à les visualiser.
+Ceci est le site de la 2e édition de **« R pour la Science de Données »**.
+Ce livre vous apprendra à faire de la science de données avec R : vous apprendrez à importer vos données dans R, à leur donner la structure la plus utile, à les transformer et à les visualiser.
 
 Dans ce livre, vous trouverez un ensemble de compétences pour la science de données.
 Tout comme un chimiste apprend à nettoyer des tubes à essai et à équiper un laboratoire, vous apprendrez à nettoyer des données et à construire des graphiques --- et bien d'autres choses encore.
@@ -34,5 +34,5 @@ En contribuant à ce livre, vous acceptez d'en respecter les termes.
 
 Cette traduction en français du livre "R pour la Science de Données (2e)" est un projet personnel de [Diane Thierry](https://www.linkedin.com/in/diane-thierry-b22099193/), visant à faciliter l'étude et l'appropriation de son contenu par la communauté R francophone. 
 
-La traduction a été réalisée à l'aide de l'IA générative Claude et reprise pour garantir une bonne cohérence d'ensemble. Si vous détectez des erreurs de traduction, merci d'ouvrir une *issue* ou une *pull request* sur [le repo dédié](https://github.com/DianeThy/r4ds-fr). 
+La traduction a été réalisée à l'aide de **Posit Assistant**, un assistant IA intégré à RStudio, puis reprise pour garantir la cohérence des phrases traduites. Les consignes de traduction suivies sont disponibles dans le fichier [`AGENTS.md`](https://github.com/DianeThy/r4ds-fr/blob/main/AGENTS.md), et le glossaire des termes techniques retenus dans [`GLOSSAIRE.md`](https://github.com/DianeThy/r4ds-fr/blob/main/GLOSSAIRE.md). Si vous détectez des erreurs de traduction, merci d'ouvrir une *issue* ou une *pull request* sur [le repo dédié](https://github.com/DianeThy/r4ds-fr). 
 

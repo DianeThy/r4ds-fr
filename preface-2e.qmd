@@ -1,24 +1,32 @@
 # Préface de la deuxième édition {.unnumbered}
 
-Bienvenue dans la deuxième édition de « R pour la science des données » !
+Bienvenue dans la deuxième édition de « R pour la science de données » !
 Il s'agit d'une refonte majeure de la première édition : nous avons retiré les contenus que nous ne jugeons plus utiles, ajouté ceux que nous aurions aimé inclure dans la première édition, et plus généralement mis à jour le texte et le code pour refléter l'évolution des bonnes pratiques.
-Nous sommes aussi très heureux d'accueillir une nouvelle co-autrice : Mine Çetinkaya-Rundel, pédagogue reconnue en science des données et l'une de nos collègues chez Posit (l'entreprise anciennement connue sous le nom de RStudio).
+Nous sommes aussi très heureux d'accueillir une nouvelle co-autrice : Mine Çetinkaya-Rundel, pédagogue reconnue en science de données et l'une de nos collègues chez Posit (l'entreprise anciennement connue sous le nom de RStudio).
+
 Voici un bref résumé des principaux changements :
 
--   La première partie du livre a été renommée « La partie complète ».
-    L'objectif de cette section est de vous donner les grandes lignes de la « partie complète » de la science des données avant de plonger dans les détails.
+-   La première partie du livre a été renommée « Whole game » (la vue d'ensemble).
+    L'objectif de cette section est de vous donner les contours généraux de la vue d'ensemble de la science de données avant de plonger dans les détails.
+    
 -   La deuxième partie du livre s'intitule « Visualiser ».
     Cette partie offre une couverture plus approfondie des outils et des bonnes pratiques de visualisation de données par rapport à la première édition.
-    Le meilleur endroit pour obtenir tous les détails reste le [livre ggplot2](http://ggplot2-book.org/), mais R4DS couvre désormais davantage des techniques les plus importantes.
+    Le meilleur endroit pour obtenir tous les détails reste le [livre ggplot2](http://ggplot2-book.org/), mais R4DS couvre désormais une grande partie des techniques les plus importantes.
+    
 -   La troisième partie du livre s'appelle maintenant « Transformer » et s'enrichit de nouveaux chapitres sur les nombres, les vecteurs logiques et les valeurs manquantes.
     Ces sujets faisaient auparavant partie du chapitre sur la transformation des données, mais nécessitaient bien plus de place pour en couvrir tous les détails.
+    
 -   La quatrième partie du livre s'appelle « Importer ».
-    Il s'agit d'un nouvel ensemble de chapitres qui va au-delà de la lecture de fichiers texte simples pour aborder le travail avec les tableurs, l'extraction de données depuis des bases de données, le travail avec les données volumineuses, la mise en forme rectangulaire de données hiérarchiques et l'extraction de données depuis des sites web.
+    Il s'agit d'un nouvel ensemble de chapitres qui va au-delà de la lecture de fichiers texte simples pour aborder le travail avec les tableurs, l'extraction de données depuis des bases de données, le travail avec le big data, la restructuration de données hiérarchiques, et l'extraction de données depuis des sites web.
+    
 -   La partie « Programmer » demeure, mais a été réécrite de fond en comble pour se concentrer sur les aspects les plus importants de l'écriture de fonctions et de l'itération.
     L'écriture de fonctions inclut désormais des détails sur la façon d'encapsuler des fonctions du tidyverse (en composant avec les défis de l'évaluation tidy), car cela est devenu bien plus facile et important ces dernières années.
-    Nous avons ajouté un nouveau chapitre sur les fonctions importantes de R de base que vous êtes susceptible de rencontrer dans du code R « pris dans la nature ».
--   La partie sur la modélisation a été supprimée.
+    Nous avons ajouté un nouveau chapitre sur les fonctions R base importantes que vous êtes susceptible de rencontrer dans du code R sauvage.
+    
+-   La partie « Modélisation » a été supprimée.
     Nous n'avons jamais eu assez de place pour rendre pleinement justice à la modélisation, et il existe désormais de bien meilleures ressources.
     Nous recommandons en général d'utiliser les packages [tidymodels](https://www.tidymodels.org/) et de lire [Tidy Modeling with R](https://www.tmwr.org/) de Max Kuhn et Julia Silge.
+    
 -   La partie « Communiquer » demeure, mais a été entièrement mise à jour pour mettre en avant [Quarto](https://quarto.org/) plutôt que R Markdown.
     Cette édition du livre a été rédigée avec Quarto, qui est clairement l'outil de l'avenir.
+    
