@@ -6,7 +6,7 @@ source("_common.R")
 ```
 
 La science de données est une discipline passionnante qui vous permet de transformer des données brutes en compréhension, perspectives et connaissances.
-L'objectif de « R pour la Science de Données » est de vous aider à apprendre les outils les plus importants de R pour faire de la science de données efficacement et de manière reproductible, tout en vous amusant 😃.
+L'objectif de « R pour la Science de Données » est de vous aider à maîtriser les outils les plus importants de R pour faire de la science de données efficacement et de manière reproductible, tout en vous amusant 😃.
 À la fin de ce livre, vous disposerez des outils nécessaires pour relever une grande variété de défis en science de données en tirant le meilleur parti de R.
 
 ## Ce que vous allez apprendre
@@ -36,15 +36,15 @@ Cela signifie généralement que vous prenez des données stockées dans un fich
 Si vous ne pouvez pas importer vos données dans R, vous ne pourrez pas faire de science de données !
 
 Une fois vos données importées, il est conseillé de les **nettoyer** (rendre propres/tidy).
-Nettoyer vos données signifie les stocker dans une forme cohérente qui correspond à la sémantique du jeu de données avec la manière dont il est stocké.
+Nettoyer vos données signifie les stocker dans une forme cohérente qui fait correspondre la sémantique du jeu de données et la manière dont il est enregistré.
 En bref, lorsque vos données sont propres, chaque colonne est une variable et chaque ligne est une observation.
-Les données propres sont importantes parce que leur structure cohérente vous permet de concentrer vos efforts sur la réponse aux questions relatives aux données, plutôt que de vous battre pour les mettre dans la bonne forme pour différentes fonctions.
+Les données propres sont importantes parce que leur structure cohérente vous permet de concentrer vos efforts sur la réponse à vos questions, plutôt que de vous battre pour les mettre dans la forme adaptée à différentes fonctions.
 
 Une fois que vous disposez de données propres, la prochaine étape habituelle est de les **transformer**.
-La transformation implique de restreindre aux observations d'intérêt (comme toutes les personnes dans une ville ou toutes les données de l'année dernière), créer de nouvelles variables qui sont des fonctions de variables existantes (comme le calcul de la vitesse à partir de la distance et du temps), et calculer un ensemble de statistiques résumées (comme des effectifs ou des moyennes).
-Le nettoyage et la transformation sont ensemble appelés **manipulation** de données, car mettre vos données dans une forme prête à utiliser ressemble souvent à un combat !
+La transformation implique de réduire le jeu de données aux observations utiles (comme toutes les personnes d'une ville particulière ou toutes les données de l'année dernière), de créer de nouvelles variables qui sont des fonctions de variables existantes (comme le calcul de la vitesse à partir de la distance et du temps), et de calculer un ensemble de statistiques résumées (comme des effectifs ou des moyennes).
+Ensemble, le nettoyage et la transformation sont appelés **manipulation** de données, car mettre vos données dans une forme prête à être utilisée ressemble souvent à un combat !
 
-Une fois que vous disposez de données propres avec les variables dont vous avez besoin, il existe deux principaux moteurs de génération de connaissances : la visualisation et la modélisation.
+Une fois que vous disposez de données propres avec les variables dont vous avez besoin, il existe deux manières principales de créer de la connaissance : la visualisation et la modélisation.
 Ces deux approches ont des forces et des faiblesses complémentaires, de sorte que toute analyse de données réelle alternera plusieurs fois entre les deux.
 
 **La visualisation** est une activité fondamentalement humaine.
@@ -60,23 +60,23 @@ Mais tout modèle repose sur des hypothèses, et par nature, un modèle ne peut 
 Cela signifie qu'un modèle ne peut pas fondamentalement vous surprendre.
 
 La dernière étape de la science de données est la **communication**, une partie absolument essentielle de tout projet d'analyse de données.
-Peu importe à quel point vos modèles et vos visualisations vous ont aidé à comprendre les données si vous ne pouvez pas aussi communiquer vos résultats à d'autres personnes.
+Peu importe à quel point vos modèles et vos visualisations vous ont aidé à comprendre les données si vous ne pouvez pas communiquer vos résultats à d'autres personnes.
 
 Tous ces outils s'articulent grâce à la **programmation**.
 La programmation est un outil transversal que vous utilisez dans presque toutes les parties d'un projet de science de données.
 Vous n'avez pas besoin d'être un programmeur expert pour réussir en tant que data scientist, mais apprendre davantage la programmation est bénéfique car devenir un meilleur programmeur vous permet d'automatiser les tâches courantes et résoudre de nouveaux problèmes avec plus de facilité.
 
-Vous utiliserez ces outils dans chaque projet de science de données, mais ils ne sont pas suffisants pour la plupart des projets.
+Vous utiliserez ces outils dans chaque projet de science de données, mais ils ne seront pas suffisants dans la plupart des cas.
 Il y a une règle approximative du 80/20 en jeu : vous pouvez traiter environ 80 % de chaque projet avec les outils que vous apprendrez dans ce livre, mais vous aurez besoin d'autres outils pour traiter les 20 % restants.
 Tout au long de ce livre, nous vous indiquerons des ressources pour en apprendre davantage.
 
-## Comment ce livre est organisé
+## Comment est organisé ce livre ?
 
-La description précédente des outils de la science de données est organisée globalement selon l'ordre dans lequel vous les utilisez dans une analyse (même si, bien sûr, vous les parcourrez plusieurs fois de manière itérative).
-D'après notre expérience, cependant, commencer par l'importation et l'ordonnancement des données est sous-optimal, car 80 % du temps c'est routinier et ennuyeux, et les 20 % restants c'est étrange et frustrant.
-C'est un mauvais point de départ pour apprendre un nouveau sujet !
+La description précédente des outils de la science de données est organisée selon l'ordre dans lequel vous les utilisez dans une analyse (même si, bien sûr, vous les parcourrez plusieurs fois de manière itérative).
+D'après notre expérience, cependant, commencer par l'importation et le nettoyage des données est sous-optimal, car 80 % du temps c'est routinier et ennuyeux, et les 20 % restants c'est étrange et frustrant.
+C'est une mauvaise façon de commencer à apprendre un nouveau sujet !
 À la place, nous commencerons par la visualisation et la transformation de données déjà importées et propres.
-Ainsi, lorsque vous importerez et ordonnerez vos propres données, votre motivation restera élevée car vous saurez que la peine en vaut l'effort.
+Ainsi, lorsque vous importerez et nettoierez vos propres données, votre motivation restera élevée car vous saurez que le jeu en vaut la chandelle.
 
 Dans chaque chapitre, nous essayons de suivre un schéma cohérent : commencer par quelques exemples motivants afin que vous puissiez voir la vue d'ensemble, puis plonger dans les détails.
 Chaque section du livre est accompagnée d'exercices pour vous aider à pratiquer ce que vous avez appris.

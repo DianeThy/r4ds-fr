@@ -30,6 +30,7 @@ Ce fichier recense les choix terminologiques retenus pour la traduction françai
 | double | double | |
 | logical | logique / booléen | Préférer « logique » pour le type R, « booléen » en contexte général |
 | tidy data | données propres | Ou « données tidy » si le contexte est technique |
+| tidy | nettoyer | |
 | wide format | format large | |
 | long format | format long | |
 | nested data | données imbriquées | |

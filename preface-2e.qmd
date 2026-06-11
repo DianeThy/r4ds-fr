@@ -6,8 +6,8 @@ Nous sommes aussi très heureux d'accueillir une nouvelle co-autrice : Mine Çet
 
 Voici un bref résumé des principaux changements :
 
--   La première partie du livre a été renommée « Whole game » (la vue d'ensemble).
-    L'objectif de cette section est de vous donner les contours généraux de la vue d'ensemble de la science de données avant de plonger dans les détails.
+-   La première partie du livre a été renommée « Vue d'ensemble ».
+    L'objectif de cette section est de vous donner les contours généraux de la science de données avant de plonger dans les détails.
     
 -   La deuxième partie du livre s'intitule « Visualiser ».
     Cette partie offre une couverture plus approfondie des outils et des bonnes pratiques de visualisation de données par rapport à la première édition.
