@@ -6,16 +6,16 @@ source("_common.R")
 ```
 
 Vous avez maintenant une certaine expérience en exécutant du code R.
-Nous ne vous avons pas donné beaucoup de détails, mais vous avez évidemment compris les bases, sinon vous auriez jeté ce livre par frustration !
-La frustration est naturelle quand vous commencez à programmer en R car c'est un véritable pointilleux en matière de ponctuation, et même un caractère mal placé peut le faire se plaindre.
+Nous ne vous avons pas donné beaucoup de détails, mais vous avez évidemment compris les bases, sinon vous auriez déjà jeté ce livre par frustration !
+La frustration est naturelle quand vous commencez à programmer en R, car R est extrêmement pointilleux en matière de ponctuation, et même un caractère mal placé peut provoquer une erreur.
 Mais même si vous devriez vous attendre à être un peu frustré, rassurez-vous en sachant que cette expérience est typique et temporaire : cela arrive à tout le monde, et la seule façon de s'en sortir est de continuer à essayer.
 
 Avant d'aller plus loin, assurons-nous que vous avez une base solide pour exécuter du code R et que vous connaissez certaines des fonctionnalités les plus utiles de RStudio.
 
 ## Les bases du codage
 
-Passons en revue quelques éléments que nous avons omis jusqu'à présent pour vous permettre de faire des graphiques aussi rapidement que possible.
-Vous pouvez utiliser R pour faire des calculs mathématiques de base :
+Passons en revue quelques éléments que nous avons omis jusqu'à présent pour que vous puissiez vous mettre à l'œuvre le plus vite possible.
+Vous pouvez utiliser R pour faire des calculs mathématiques basiques :
 
 ```{r}
 1 / 200 * 30
@@ -49,15 +49,15 @@ Toutes les instructions R où vous créez des objets, les instructions d'**affec
 
 ```{r}
 #| eval: false
-object_name <- value
+nom_objet <- valeur
 ```
 
-En lisant ce code, dites « object name gets value » (le nom de l'objet reçoit la valeur) dans votre tête.
+En lisant ce code, dites « le nom de l'objet prend la valeur » dans votre tête.
 
 Vous ferez beaucoup d'affectations, et `<-` est pénible à taper.
 Vous pouvez économiser du temps avec le raccourci clavier de RStudio : Alt + - (le signe moins).
 Notez que RStudio entoure automatiquement `<-` d'espaces, ce qui est une bonne pratique de formatage de code.
-Le code peut être difficile à lire dans les meilleures conditions, alors donnez un peu de repos à vos yeux et utilisez des espaces.
+Le code peut être difficile à lire quand tout va bien, alors donnez un peu de repos à vos yeux et utilisez des espaces.
 
 ## Commentaires
 
@@ -68,21 +68,21 @@ Nous inclurons parfois des commentaires dans les exemples expliquant ce qui se p
 Les commentaires peuvent être utiles pour décrire brièvement ce que le code suivant fait.
 
 ```{r}
-# create vector of primes
+# crée un vecteur de nombres premiers
 primes <- c(2, 3, 5, 7, 11, 13)
 
-# multiply primes by 2
+# multiplie primes par 2
 primes * 2
 ```
 
-Avec de courtes portions de code comme ceci, laisser un commentaire pour chaque ligne de code pourrait ne pas être nécessaire.
-Mais à mesure que le code que vous écrivez devient plus complexe, les commentaires peuvent vous économiser (et à vos collaborateurs) beaucoup de temps pour comprendre ce qui a été fait dans le code.
+Pour de courtes portions de code comme celle-ci, commenter pour chaque ligne de code n'est pas nécessaire.
+Mais à mesure que le code que vous écrivez devient plus complexe, les commentaires peuvent vous économiser (ainsi qu'à vos collaborateurs) beaucoup de temps pour comprendre ce qui a été fait.
 
 Utilisez les commentaires pour expliquer le *pourquoi* de votre code, pas le *comment* ou le *quoi*.
-Le *quoi* et le *comment* de votre code sont toujours possibles à comprendre, même si cela peut être fastidieux, en le lisant attentivement.
-Si vous décrivez chaque étape dans les commentaires et que vous modifiez ensuite le code, vous devrez vous souvenir de mettre à jour les commentaires également, sinon ce sera confus quand vous reviendrez à votre code à l'avenir.
+Le *quoi* et le *comment* de votre code sont toujours possibles à comprendre en lisant attentivement, même si cela peut être fastidieux.
+Si vous décrivez chaque étape dans les commentaires et que vous modifiez ensuite le code, vous devrez vous souvenir de mettre à jour les commentaires également, sinon ce sera confus quand vous reviendrez sur votre code à l'avenir.
 
-Comprendre le *pourquoi* quelque chose a été fait est beaucoup plus difficile, sinon impossible.
+Comprendre le *pourquoi* quelque chose a été fait est beaucoup plus difficile, voire impossible.
 Par exemple, `geom_smooth()` a un argument appelé `span`, qui contrôle la douceur de la courbe, avec des valeurs plus grandes donnant une courbe plus douce.
 Supposez que vous décidiez de changer la valeur de `span` de sa valeur par défaut de 0,75 à 0,9 : il est facile pour un futur lecteur de comprendre *quoi* se passe, mais à moins que vous ne notiez votre réflexion dans un commentaire, personne ne comprendra *pourquoi* vous avez changé la valeur par défaut.
 
@@ -92,17 +92,18 @@ Il n'y a aucun moyen de retrouver cette connaissance à partir du code lui-même
 ## Qu'y a-t-il dans un nom ? {#sec-whats-in-a-name}
 
 Les noms d'objets doivent commencer par une lettre et ne peuvent contenir que des lettres, des chiffres, `_` et `.`.
-Vous voulez que vos noms d'objets soient descriptifs, donc vous devrez adopter une convention pour plusieurs mots.
+Il faut que vos noms d'objets soient descriptifs, donc vous devrez adopter une convention pour plusieurs mots.
 Nous recommandons **snake_case**, où vous séparez les mots en minuscules avec `_`.
 
 ```{r}
 #| eval: false
-i_use_snake_case
-other_people_use.periods
-And_aFew.People_RENOUNCEconvention
+j_utilise_snake_case
+dAutresPersonnesUtilisentDesCamelCase
+d.autres.personnes.utilisent.des.points
+Et_d.Autres_RENONCENTauxconventions
 ```
 
-Nous reviendrons aux noms quand nous discuterons du style de code dans la @sec-workflow-style.
+Nous reviendrons aux noms quand nous discuterons du style de code dans le @sec-workflow-style.
 
 Vous pouvez inspecter un objet en tapant son nom :
 
@@ -113,15 +114,15 @@ x
 Faites une autre affectation :
 
 ```{r}
-this_is_a_really_long_name <- 2.5
+voila_un_nom_tres_long <- 2.5
 ```
 
-Pour inspecter cet objet, essayez la fonction de complétion de RStudio : tapez « this », appuyez sur TAB, ajoutez des caractères jusqu'à ce que vous ayez un préfixe unique, puis appuyez sur entrée.
+Pour inspecter cet objet, essayez la fonction de complétion de RStudio : tapez « voila », appuyez sur TAB, ajoutez des caractères jusqu'à ce que vous ayez un préfixe unique, puis appuyez sur entrée.
 
-Supposons que vous ayez fait une erreur et que la valeur de `this_is_a_really_long_name` devrait être 3,5 au lieu de 2,5.
+Supposons que vous ayez fait une erreur et que la valeur de `voila_un_nom_tres_long` devrait être 3,5 au lieu de 2,5.
 Vous pouvez utiliser un autre raccourci clavier pour vous aider à le corriger.
 Par exemple, vous pouvez appuyer sur ↑ pour amener la dernière commande que vous avez tapée et l'éditer.
-Ou, tapez « this » puis appuyez sur Cmd/Ctrl + ↑ pour lister toutes les commandes que vous avez tapées qui commencent par ces lettres.
+Ou, tapez « voila » puis appuyez sur Cmd/Ctrl + ↑ pour lister toutes les commandes que vous avez tapées qui commencent par ces lettres.
 Utilisez les touches fléchées pour naviguer, puis appuyez sur entrée pour retaper la commande.
 Changez 2,5 en 3,5 et relancez.
 
@@ -141,10 +142,10 @@ R_rocks
 #> Error: object 'R_rocks' not found
 ```
 
-Ceci illustre le contrat implicite entre vous et R : R fera les calculs fastidieux pour vous, mais en échange, vous devez être complètement précis dans vos instructions.
+Ceci illustre le contrat implicite entre vous et R : R fera les calculs fastidieux pour vous, mais en échange, vous devez être très précis dans vos instructions.
 Sinon, vous obtiendrez probablement une erreur qui dit que l'objet que vous cherchez n'a pas été trouvé.
-Les fautes de frappe importent ; R ne peut pas lire dans votre esprit et dire, « oh, ils voulaient probablement dire `r_rocks` quand ils ont tapé `r_rock` ».
-La casse importe ; de même, R ne peut pas lire dans votre esprit et dire, « oh, ils voulaient probablement dire `r_rocks` quand ils ont tapé `R_rocks` ».
+Les fautes de frappe importent ; R ne peut pas lire dans votre esprit et dire, « oh, il voulait probablement dire `r_rocks` quand il a tapé `r_rock` ».
+La casse importe ; de même, R ne peut pas lire dans votre esprit et dire, « oh, il voulait probablement dire `r_rocks` quand il a tapé `R_rocks` ».
 
 ## Appeler des fonctions
 
@@ -152,13 +153,13 @@ R a une grande collection de fonctions intégrées qui sont appelées comme ceci
 
 ```{r}
 #| eval: false
-function_name(argument1 = value1, argument2 = value2, ...)
+nom_fonction(argument1 = valeur1, argument2 = valeur2, ...)
 ```
 
 Essayons d'utiliser `seq()`, qui crée des **seq**uences régulières de nombres, et en passant, apprenons d'autres fonctionnalités utiles de RStudio.
 Tapez `se` et appuyez sur TAB.
 Une fenêtre contextuelle vous montre les complétions possibles.
-Spécifiez `seq()` en tapant plus (un `q`) pour lever l'ambiguïté ou en utilisant les flèches ↑/↓ pour sélectionner.
+Spécifiez `seq()` en écrivant un autre caractère (un `q`) pour lever l'ambiguïté ou en utilisant les flèches ↑/↓ pour sélectionner.
 Remarquez l'info-bulle flottante qui apparaît, vous rappelant les arguments et l'objectif de la fonction.
 Si vous voulez plus d'aide, appuyez sur F1 pour obtenir tous les détails dans l'onglet d'aide dans le volet inférieur droit.
 
@@ -178,7 +179,7 @@ Nous omettons souvent les noms des premiers arguments dans les appels de fonctio
 seq(1, 10)
 ```
 
-Tapez le code suivant et remarquez que RStudio vous fournit une assistance similaire avec les guillemets appairés :
+Tapez le code suivant et remarquez que RStudio vous fournit une assistance similaire avec les guillemets couplés :
 
 ```{r}
 x <- "hello world"
@@ -193,7 +194,7 @@ Si cela se produit, R vous montrera le caractère de continuation « + » :
 +
 ```
 
-Le `+` vous dit que R attend plus d'entrée ; il ne pense pas que vous avez terminé.
+Le `+` vous dit que R attend autre chose ; il pense que vous n'avez pas terminé.
 Généralement, cela signifie que vous avez oublié soit une `"` soit un `)`. Ajoutez la paire manquante, ou appuyez sur ÉCHAP pour abandonner l'expression et réessayez.
 
 Notez que l'onglet environnement dans le volet supérieur droit affiche tous les objets que vous avez créés :
@@ -217,7 +218,7 @@ knitr::include_graphics("screenshots/rstudio-env.png")
     ```
 
     Regardez attentivement !
-    (Cela peut sembler être un exercice sans intérêt, mais l'entraînement de votre cerveau à remarquer même la plus petite différence portera ses fruits quand vous programmerez.)
+    (Cela peut paraître sans intérêt, mais l'entraînement de votre cerveau à remarquer même la plus petite différence portera ses fruits quand vous programmerez.)
 
 2.  Ajustez chacune des commandes R suivantes pour qu'elles s'exécutent correctement :
 
@@ -250,5 +251,5 @@ knitr::include_graphics("screenshots/rstudio-env.png")
 
 ## Résumé
 
-Maintenant que vous en savez un peu plus sur le fonctionnement du code R et sur quelques conseils pour comprendre votre code quand vous y reviendrez à l'avenir.
-Dans le prochain chapitre, nous continuerons votre parcours en science de données en vous enseignant dplyr, le package tidyverse qui vous aide à transformer les données, qu'il s'agisse de sélectionner les variables importantes, de filtrer jusqu'aux lignes d'intérêt ou de calculer les statistiques résumées.
+Vous en savez maintenant un peu plus sur le fonctionnement du code R et les conseils pour comprendre votre code quand vous y reviendrez à l'avenir.
+Dans le prochain chapitre, nous continuerons votre parcours en science de données en vous enseignant dplyr, le package tidyverse qui vous aide à transformer les données, qu'il s'agisse de sélectionner les variables importantes, de filtrer jusqu'aux lignes utiles ou de calculer les statistiques résumées.

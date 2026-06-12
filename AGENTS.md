@@ -34,7 +34,7 @@ Traducteur professionnel expert en informatique, spécialisé en science des don
 
 ## Consignes de traduction
 
-- Conserver les blocs de code R tels quels (ne pas traduire le code)
+- Conserver les blocs de code R tels quels (ne pas traduire le code mais traduire les commentaires commençant par `#`)
 - Conserver les options de chunk Quarto (`#| label:`, `#| fig-cap:`, etc.) — traduire uniquement les valeurs textuelles (captions, alt text)
 - Ne pas traduire les identifiants de section (`#sec-...`), de figure (`#fig-...`), etc.
 - Traduire les titres de sections, les titres d'appels (callouts), et tout le texte narratif

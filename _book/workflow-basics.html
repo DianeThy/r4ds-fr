@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund">
 <meta name="description" content="Traducation française du livre “R pour la Science de Données (2e)” de Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund.">
-<title>2&nbsp; Workflow: basics – R pour la Science de Données (2e)</title>
+<title>2&nbsp; Flux de travail : les bases – R pour la Science de Données (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-basics.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-basics.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -403,17 +403,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
    
   <ul>
-<li><a href="#coding-basics" id="toc-coding-basics" class="nav-link active" data-scroll-target="#coding-basics"><span class="header-section-number">2.1</span> Coding basics</a></li>
-  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">2.2</span> Comments</a></li>
-  <li><a href="#sec-whats-in-a-name" id="toc-sec-whats-in-a-name" class="nav-link" data-scroll-target="#sec-whats-in-a-name"><span class="header-section-number">2.3</span> What’s in a name?</a></li>
-  <li><a href="#calling-functions" id="toc-calling-functions" class="nav-link" data-scroll-target="#calling-functions"><span class="header-section-number">2.4</span> Calling functions</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.5</span> Exercises</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.6</span> Summary</a></li>
+<li><a href="#les-bases-du-codage" id="toc-les-bases-du-codage" class="nav-link active" data-scroll-target="#les-bases-du-codage"><span class="header-section-number">2.1</span> Les bases du codage</a></li>
+  <li><a href="#commentaires" id="toc-commentaires" class="nav-link" data-scroll-target="#commentaires"><span class="header-section-number">2.2</span> Commentaires</a></li>
+  <li><a href="#sec-whats-in-a-name" id="toc-sec-whats-in-a-name" class="nav-link" data-scroll-target="#sec-whats-in-a-name"><span class="header-section-number">2.3</span> Qu’y a-t-il dans un nom ?</a></li>
+  <li><a href="#appeler-des-fonctions" id="toc-appeler-des-fonctions" class="nav-link" data-scroll-target="#appeler-des-fonctions"><span class="header-section-number">2.4</span> Appeler des fonctions</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">2.5</span> Exercices</a></li>
+  <li><a href="#r%C3%A9sum%C3%A9" id="toc-résumé" class="nav-link" data-scroll-target="#r%C3%A9sum%C3%A9"><span class="header-section-number">2.6</span> Résumé</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/DianeThy/r4ds-fr/edit/main/workflow-basics.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/DianeThy/r4ds-fr/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-basics.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-workflow-basics" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-basics.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-workflow-basics" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></span></h1>
 </div>
 
 
@@ -427,11 +427,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>You now have some experience running R code. We didn’t give you many details, but you’ve obviously figured out the basics, or you would’ve thrown this book away in frustration! Frustration is natural when you start programming in R because it is such a stickler for punctuation, and even one character out of place can cause it to complain. But while you should expect to be a little frustrated, take comfort in that this experience is typical and temporary: it happens to everyone, and the only way to get over it is to keep trying.</p>
-<p>Before we go any further, let’s ensure you’ve got a solid foundation in running R code and that you know some of the most helpful RStudio features.</p>
-<section id="coding-basics" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="coding-basics">
-<span class="header-section-number">2.1</span> Coding basics</h2>
-<p>Let’s review some basics we’ve omitted so far in the interest of getting you plotting as quickly as possible. You can use R to do basic math calculations:</p>
+</header><p>Vous avez maintenant une certaine expérience en exécutant du code R. Nous ne vous avons pas donné beaucoup de détails, mais vous avez évidemment compris les bases, sinon vous auriez déjà jeté ce livre par frustration ! La frustration est naturelle quand vous commencez à programmer en R, car R est extrêmement pointilleux en matière de ponctuation, et même un caractère mal placé peut le faire se plaindre. Mais même si vous devriez vous attendre à être un peu frustré, rassurez-vous en sachant que cette expérience est typique et temporaire : cela arrive à tout le monde, et la seule façon de s’en sortir est de continuer à essayer.</p>
+<p>Avant d’aller plus loin, assurons-nous que vous avez une base solide pour exécuter du code R et que vous connaissez certaines des fonctionnalités les plus utiles de RStudio.</p>
+<section id="les-bases-du-codage" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="les-bases-du-codage">
+<span class="header-section-number">2.1</span> Les bases du codage</h2>
+<p>Passons en revue quelques éléments que nous avons omis jusqu’à présent pour vous permettre de faire des graphiques aussi rapidement que possible. Vous pouvez utiliser R pour faire des calculs mathématiques de base :</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">/</span> <span class="fl">200</span> <span class="op">*</span> <span class="fl">30</span></span>
 <span><span class="co">#&gt; [1] 0.15</span></span>
@@ -440,32 +440,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="va">pi</span> <span class="op">/</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can create new objects with the assignment operator <code>&lt;-</code>:</p>
+<p>Vous pouvez créer de nouveaux objets avec l’opérateur d’affectation <code>&lt;-</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span> <span class="op">*</span> <span class="fl">4</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that the value of <code>x</code> is not printed, it’s just stored. If you want to view the value, type <code>x</code> in the console.</p>
-<p>You can <strong>c</strong>ombine multiple elements into a vector with <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>:</p>
+<p>Notez que la valeur de <code>x</code> n’est pas affichée, elle est juste stockée. Si vous voulez voir la valeur, tapez <code>x</code> dans la console.</p>
+<p>Vous pouvez <strong>c</strong>ombiner plusieurs éléments dans un vecteur avec <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">primes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">11</span>, <span class="fl">13</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>And basic arithmetic on vectors is applied to every element of the vector:</p>
+<p>Et l’arithmétique de base sur les vecteurs est appliquée à chaque élément du vecteur :</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">primes</span> <span class="op">*</span> <span class="fl">2</span></span>
 <span><span class="co">#&gt; [1]  4  6 10 14 22 26</span></span>
 <span><span class="va">primes</span> <span class="op">-</span> <span class="fl">1</span></span>
 <span><span class="co">#&gt; [1]  1  2  4  6 10 12</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>All R statements where you create objects, <strong>assignment</strong> statements, have the same form:</p>
+<p>Toutes les instructions R où vous créez des objets, les instructions d’<strong>affectation</strong>, ont la même forme :</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">object_name</span> <span class="op">&lt;-</span> <span class="va">value</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>When reading that code, say “object name gets value” in your head.</p>
-<p>You will make lots of assignments, and <code>&lt;-</code> is a pain to type. You can save time with RStudio’s keyboard shortcut: Alt + - (the minus sign). Notice that RStudio automatically surrounds <code>&lt;-</code> with spaces, which is a good code formatting practice. Code can be miserable to read on a good day, so giveyoureyesabreak and use spaces.</p>
-</section><section id="comments" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="comments">
-<span class="header-section-number">2.2</span> Comments</h2>
-<p>R will ignore any text after <code>#</code> for that line. This allows you to write <strong>comments</strong>, text that is ignored by R but read by other humans. We’ll sometimes include comments in examples explaining what’s happening with the code.</p>
-<p>Comments can be helpful for briefly describing what the following code does.</p>
+<p>En lisant ce code, dites « object name gets value » (le nom de l’objet reçoit la valeur) dans votre tête.</p>
+<p>Vous ferez beaucoup d’affectations, et <code>&lt;-</code> est pénible à taper. Vous pouvez économiser du temps avec le raccourci clavier de RStudio : Alt + - (le signe moins). Notez que RStudio entoure automatiquement <code>&lt;-</code> d’espaces, ce qui est une bonne pratique de formatage de code. Le code peut être difficile à lire dans les meilleures conditions, alors donnez un peu de repos à vos yeux et utilisez des espaces.</p>
+</section><section id="commentaires" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="commentaires">
+<span class="header-section-number">2.2</span> Commentaires</h2>
+<p>R ignorera tout texte après <code>#</code> pour cette ligne. Cela vous permet d’écrire des <strong>commentaires</strong>, du texte qui est ignoré par R mais lu par d’autres humains. Nous inclurons parfois des commentaires dans les exemples expliquant ce qui se passe avec le code.</p>
+<p>Les commentaires peuvent être utiles pour décrire brièvement ce que le code suivant fait.</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create vector of primes</span></span>
 <span><span class="va">primes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">11</span>, <span class="fl">13</span><span class="op">)</span></span>
@@ -474,92 +474,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">primes</span> <span class="op">*</span> <span class="fl">2</span></span>
 <span><span class="co">#&gt; [1]  4  6 10 14 22 26</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>With short pieces of code like this, leaving a comment for every single line of code might not be necessary. But as the code you’re writing gets more complex, comments can save you (and your collaborators) a lot of time figuring out what was done in the code.</p>
-<p>Use comments to explain the <em>why</em> of your code, not the <em>how</em> or the <em>what</em>. The <em>what</em> and <em>how</em> of your code are always possible to figure out, even if it might be tedious, by carefully reading it. If you describe every step in the comments, and then change the code, you will have to remember to update the comments as well or it will be confusing when you return to your code in the future.</p>
-<p>Figuring out <em>why</em> something was done is much more difficult, if not impossible. For example, <code>geom_smooth()</code> has an argument called <code>span</code>, which controls the smoothness of the curve, with larger values yielding a smoother curve. Suppose you decide to change the value of <code>span</code> from its default of 0.75 to 0.9: it’s easy for a future reader to understand <em>what</em> is happening, but unless you note your thinking in a comment, no one will understand <em>why</em> you changed the default.</p>
-<p>For data analysis code, use comments to explain your overall plan of attack and record important insights as you encounter them. There’s no way to re-capture this knowledge from the code itself.</p>
+<p>Avec de courtes portions de code comme ceci, laisser un commentaire pour chaque ligne de code pourrait ne pas être nécessaire. Mais à mesure que le code que vous écrivez devient plus complexe, les commentaires peuvent vous économiser (et à vos collaborateurs) beaucoup de temps pour comprendre ce qui a été fait dans le code.</p>
+<p>Utilisez les commentaires pour expliquer le <em>pourquoi</em> de votre code, pas le <em>comment</em> ou le <em>quoi</em>. Le <em>quoi</em> et le <em>comment</em> de votre code sont toujours possibles à comprendre, même si cela peut être fastidieux, en le lisant attentivement. Si vous décrivez chaque étape dans les commentaires et que vous modifiez ensuite le code, vous devrez vous souvenir de mettre à jour les commentaires également, sinon ce sera confus quand vous reviendrez à votre code à l’avenir.</p>
+<p>Comprendre le <em>pourquoi</em> quelque chose a été fait est beaucoup plus difficile, sinon impossible. Par exemple, <code>geom_smooth()</code> a un argument appelé <code>span</code>, qui contrôle la douceur de la courbe, avec des valeurs plus grandes donnant une courbe plus douce. Supposez que vous décidiez de changer la valeur de <code>span</code> de sa valeur par défaut de 0,75 à 0,9 : il est facile pour un futur lecteur de comprendre <em>quoi</em> se passe, mais à moins que vous ne notiez votre réflexion dans un commentaire, personne ne comprendra <em>pourquoi</em> vous avez changé la valeur par défaut.</p>
+<p>Pour le code d’analyse de données, utilisez les commentaires pour expliquer votre plan d’attaque global et enregistrer les aperçus importants au fur et à mesure que vous les rencontrez. Il n’y a aucun moyen de retrouver cette connaissance à partir du code lui-même.</p>
 </section><section id="sec-whats-in-a-name" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="sec-whats-in-a-name">
-<span class="header-section-number">2.3</span> What’s in a name?</h2>
-<p>Object names must start with a letter and can only contain letters, numbers, <code>_</code>, and <code>.</code>. You want your object names to be descriptive, so you’ll need to adopt a convention for multiple words. We recommend <strong>snake_case</strong>, where you separate lowercase words with <code>_</code>.</p>
+<span class="header-section-number">2.3</span> Qu’y a-t-il dans un nom ?</h2>
+<p>Les noms d’objets doivent commencer par une lettre et ne peuvent contenir que des lettres, des chiffres, <code>_</code> et <code>.</code>. Vous voulez que vos noms d’objets soient descriptifs, donc vous devrez adopter une convention pour plusieurs mots. Nous recommandons <strong>snake_case</strong>, où vous séparez les mots en minuscules avec <code>_</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">i_use_snake_case</span></span>
-<span><span class="va">otherPeopleUseCamelCase</span></span>
-<span><span class="va">some.people.use.periods</span></span>
+<span><span class="va">other_people_use.periods</span></span>
 <span><span class="va">And_aFew.People_RENOUNCEconvention</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We’ll return to names again when we discuss code style in <a href="workflow-style.html" class="quarto-xref"><span>Chapitre 4</span></a>.</p>
-<p>You can inspect an object by typing its name:</p>
+<p>Nous reviendrons aux noms quand nous discuterons du style de code dans la <a href="workflow-style.html" class="quarto-xref"><span>Chapitre 4</span></a>.</p>
+<p>Vous pouvez inspecter un objet en tapant son nom :</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span></span>
 <span><span class="co">#&gt; [1] 12</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Make another assignment:</p>
+<p>Faites une autre affectation :</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">this_is_a_really_long_name</span> <span class="op">&lt;-</span> <span class="fl">2.5</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To inspect this object, try out RStudio’s completion facility: type “this”, press TAB, add characters until you have a unique prefix, then press return.</p>
-<p>Let’s assume you made a mistake, and that the value of <code>this_is_a_really_long_name</code> should be 3.5, not 2.5. You can use another keyboard shortcut to help you fix it. For example, you can press ↑ to bring the last command you typed and edit it. Or, type “this” then press Cmd/Ctrl + ↑ to list all the commands you’ve typed that start with those letters. Use the arrow keys to navigate, then press enter to retype the command. Change 2.5 to 3.5 and rerun.</p>
-<p>Make yet another assignment:</p>
+<p>Pour inspecter cet objet, essayez la fonction de complétion de RStudio : tapez « this », appuyez sur TAB, ajoutez des caractères jusqu’à ce que vous ayez un préfixe unique, puis appuyez sur entrée.</p>
+<p>Supposons que vous ayez fait une erreur et que la valeur de <code>this_is_a_really_long_name</code> devrait être 3,5 au lieu de 2,5. Vous pouvez utiliser un autre raccourci clavier pour vous aider à le corriger. Par exemple, vous pouvez appuyer sur ↑ pour amener la dernière commande que vous avez tapée et l’éditer. Ou, tapez « this » puis appuyez sur Cmd/Ctrl + ↑ pour lister toutes les commandes que vous avez tapées qui commencent par ces lettres. Utilisez les touches fléchées pour naviguer, puis appuyez sur entrée pour retaper la commande. Changez 2,5 en 3,5 et relancez.</p>
+<p>Faites encore une autre affectation :</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">r_rocks</span> <span class="op">&lt;-</span> <span class="fl">2</span><span class="op">^</span><span class="fl">3</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s try to inspect it:</p>
+<p>Essayons de l’inspecter :</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">r_rock</span></span>
 <span><span class="co">#&gt; Error: object 'r_rock' not found</span></span>
 <span><span class="va">R_rocks</span></span>
 <span><span class="co">#&gt; Error: object 'R_rocks' not found</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This illustrates the implied contract between you and R: R will do the tedious computations for you, but in exchange, you must be completely precise in your instructions. If not, you’re likely to get an error that says the object you’re looking for was not found. Typos matter; R can’t read your mind and say, “oh, they probably meant <code>r_rocks</code> when they typed <code>r_rock</code>”. Case matters; similarly, R can’t read your mind and say, “oh, they probably meant <code>r_rocks</code> when they typed <code>R_rocks</code>”.</p>
-</section><section id="calling-functions" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="calling-functions">
-<span class="header-section-number">2.4</span> Calling functions</h2>
-<p>R has a large collection of built-in functions that are called like this:</p>
+<p>Ceci illustre le contrat implicite entre vous et R : R fera les calculs fastidieux pour vous, mais en échange, vous devez être complètement précis dans vos instructions. Sinon, vous obtiendrez probablement une erreur qui dit que l’objet que vous cherchez n’a pas été trouvé. Les fautes de frappe importent ; R ne peut pas lire dans votre esprit et dire, « oh, ils voulaient probablement dire <code>r_rocks</code> quand ils ont tapé <code>r_rock</code> ». La casse importe ; de même, R ne peut pas lire dans votre esprit et dire, « oh, ils voulaient probablement dire <code>r_rocks</code> quand ils ont tapé <code>R_rocks</code> ».</p>
+</section><section id="appeler-des-fonctions" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="appeler-des-fonctions">
+<span class="header-section-number">2.4</span> Appeler des fonctions</h2>
+<p>R a une grande collection de fonctions intégrées qui sont appelées comme ceci :</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span>argument1 <span class="op">=</span> <span class="va">value1</span>, argument2 <span class="op">=</span> <span class="va">value2</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s try using <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, which makes regular <strong>seq</strong>uences of numbers, and while we’re at it, learn more helpful features of RStudio. Type <code>se</code> and hit TAB. A popup shows you possible completions. Specify <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> by typing more (a <code>q</code>) to disambiguate or by using ↑/↓ arrows to select. Notice the floating tooltip that pops up, reminding you of the function’s arguments and purpose. If you want more help, press F1 to get all the details in the help tab in the lower right pane.</p>
-<p>When you’ve selected the function you want, press TAB again. RStudio will add matching opening (<code>(</code>) and closing (<code>)</code>) parentheses for you. Type the name of the first argument, <code>from</code>, and set it equal to <code>1</code>. Then, type the name of the second argument, <code>to</code>, and set it equal to <code>10</code>. Finally, hit return.</p>
+<p>Essayons d’utiliser <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, qui crée des <strong>seq</strong>uences régulières de nombres, et en passant, apprenons d’autres fonctionnalités utiles de RStudio. Tapez <code>se</code> et appuyez sur TAB. Une fenêtre contextuelle vous montre les complétions possibles. Spécifiez <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> en tapant plus (un <code>q</code>) pour lever l’ambiguïté ou en utilisant les flèches ↑/↓ pour sélectionner. Remarquez l’info-bulle flottante qui apparaît, vous rappelant les arguments et l’objectif de la fonction. Si vous voulez plus d’aide, appuyez sur F1 pour obtenir tous les détails dans l’onglet d’aide dans le volet inférieur droit.</p>
+<p>Quand vous avez sélectionné la fonction que vous voulez, appuyez à nouveau sur TAB. RStudio ajoutera des parenthèses ouvrantes (<code>(</code>) et fermantes (<code>)</code>) correspondantes pour vous. Tapez le nom du premier argument, <code>from</code>, et définissez-le égal à <code>1</code>. Puis, tapez le nom du deuxième argument, <code>to</code>, et définissez-le égal à <code>10</code>. Enfin, appuyez sur entrée.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We often omit the names of the first several arguments in function calls, so we can rewrite this as follows:</p>
+<p>Nous omettons souvent les noms des premiers arguments dans les appels de fonction, donc nous pouvons réécrire ceci comme suit :</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1]  1  2  3  4  5  6  7  8  9 10</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Type the following code and notice that RStudio provides similar assistance with the paired quotation marks:</p>
+<p>Tapez le code suivant et remarquez que RStudio vous fournit une assistance similaire avec les guillemets appairés :</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="st">"hello world"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Quotation marks and parentheses must always come in a pair. RStudio does its best to help you, but it’s still possible to mess up and end up with a mismatch. If this happens, R will show you the continuation character “+”:</p>
+<p>Les guillemets et les parenthèses doivent toujours venir par paires. RStudio fait de son mieux pour vous aider, mais il est toujours possible de se tromper et de finir avec une inadéquation. Si cela se produit, R vous montrera le caractère de continuation « + » :</p>
 <pre><code>&gt; x &lt;- "hello
 +</code></pre>
-<p>The <code>+</code> tells you that R is waiting for more input; it doesn’t think you’re done yet. Usually, this means you’ve forgotten either a <code>"</code> or a <code>)</code>. Either add the missing pair, or press ESCAPE to abort the expression and try again.</p>
-<p>Note that the environment tab in the upper right pane displays all of the objects that you’ve created:</p>
+<p>Le <code>+</code> vous dit que R attend plus d’entrée ; il ne pense pas que vous avez terminé. Généralement, cela signifie que vous avez oublié soit une <code>"</code> soit un <code>)</code>. Ajoutez la paire manquante, ou appuyez sur ÉCHAP pour abandonner l’expression et réessayez.</p>
+<p>Notez que l’onglet environnement dans le volet supérieur droit affiche tous les objets que vous avez créés :</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="screenshots/rstudio-env.png" class="img-fluid figure-img" alt="Environment tab of RStudio which shows r_rocks, this_is_a_really_long_name,  x, and y in the Global Environment." width="778"></p>
+<figure class="figure"><p><img src="screenshots/rstudio-env.png" class="img-fluid figure-img" alt="L'onglet Environment de RStudio qui affiche r_rocks, this_is_a_really_long_name, x et y dans l'environnement global." width="778"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="exercises" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">2.5</span> Exercises</h2>
+</section><section id="exercices" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="exercices">
+<span class="header-section-number">2.5</span> Exercices</h2>
 <ol type="1">
 <li>
-<p>Why does this code not work?</p>
+<p>Pourquoi ce code ne fonctionne-t-il pas ?</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_variable</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
 <span><span class="va">my_varıable</span></span>
 <span><span class="co">#&gt; Error:</span></span>
 <span><span class="co">#&gt; ! object 'my_varıable' not found</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Look carefully! (This may seem like an exercise in pointlessness, but training your brain to notice even the tiniest difference will pay off when programming.)</p>
+<p>Regardez attentivement ! (Cela peut sembler être un exercice sans intérêt, mais l’entraînement de votre cerveau à remarquer même la plus petite différence portera ses fruits quand vous programmerez.)</p>
 </li>
 <li>
-<p>Tweak each of the following R commands so that they run correctly:</p>
+<p>Ajustez chacune des commandes R suivantes pour qu’elles s’exécutent correctement :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">libary</span>(todyverse)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -568,9 +567,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </li>
-<li><p>Press Option + Shift + K / Alt + Shift + K. What happens? How can you get to the same place using the menus?</p></li>
+<li><p>Appuyez sur Option + Maj + K / Alt + Maj + K. Que se passe-t-il ? Comment pouvez-vous arriver au même endroit en utilisant les menus ?</p></li>
 <li>
-<p>Let’s revisit an exercise from the <a href="data-visualize.html#sec-ggsave" class="quarto-xref"><span>Section 1.6</span></a>. Run the following lines of code. Which of the two plots is saved as <code>mpg-plot.png</code>? Why?</p>
+<p>Revisitez un exercice de la <a href="data-visualize.html#sec-ggsave" class="quarto-xref"><span>Section 1.6</span></a>. Exécutez les lignes de code suivantes. Lequel des deux graphiques est enregistré sous <code>mpg-plot.png</code> ? Pourquoi ?</p>
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_bar_plot</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">mpg</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></span>
@@ -579,9 +578,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu">ggsave</span><span class="op">(</span>filename <span class="op">=</span> <span class="st">"mpg-plot.png"</span>, plot <span class="op">=</span> <span class="va">my_bar_plot</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </li>
-</ol></section><section id="summary" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="summary">
-<span class="header-section-number">2.6</span> Summary</h2>
-<p>Now that you’ve learned a little more about how R code works, and some tips to help you understand your code when you come back to it in the future. In the next chapter, we’ll continue your data science journey by teaching you about dplyr, the tidyverse package that helps you transform data, whether it’s selecting important variables, filtering down to rows of interest, or computing summary statistics.</p>
+</ol></section><section id="résumé" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="résumé">
+<span class="header-section-number">2.6</span> Résumé</h2>
+<p>Maintenant que vous en savez un peu plus sur le fonctionnement du code R et sur quelques conseils pour comprendre votre code quand vous y reviendrez à l’avenir. Dans le prochain chapitre, nous continuerons votre parcours en science de données en vous enseignant dplyr, le package tidyverse qui vous aide à transformer les données, qu’il s’agisse de sélectionner les variables importantes, de filtrer jusqu’aux lignes d’intérêt ou de calculer les statistiques résumées.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

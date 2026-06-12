@@ -82,7 +82,7 @@ Dans chaque chapitre, nous essayons de suivre un schéma cohérent : commencer p
 Chaque section du livre est accompagnée d'exercices pour vous aider à pratiquer ce que vous avez appris.
 Même s'il peut être tentant de sauter les exercices, il n'y a pas de meilleure façon d'apprendre qu'en pratiquant sur des problèmes réels.
 
-## Ce que vous n'apprendrez pas
+## Ce que vous n'allez pas apprendre
 
 Il existe plusieurs sujets importants que ce livre ne couvre pas.
 Nous pensons qu'il est important de rester résolument concentré sur l'essentiel pour vous permettre d'être opérationnel aussi rapidement que possible.
