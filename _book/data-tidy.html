@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund">
 <meta name="description" content="Traducation française du livre “R pour la Science de Données (2e)” de Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund.">
-<title>5&nbsp; Data tidying – R pour la Science de Données (2e)</title>
+<title>5&nbsp; Nettoyage des données – R pour la Science de Données (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-tidy.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-tidy.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage des données</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -173,25 +173,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Transformation de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-tidy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage des données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -406,36 +406,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a>
   <ul class="collapse">
-<li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">5.1.1</span> Prerequisites</a></li>
+<li><a href="#conditions-pr%C3%A9alables" id="toc-conditions-préalables" class="nav-link" data-scroll-target="#conditions-pr%C3%A9alables"><span class="header-section-number">5.1.1</span> Conditions préalables</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-tidy-data" id="toc-sec-tidy-data" class="nav-link" data-scroll-target="#sec-tidy-data"><span class="header-section-number">5.2</span> Tidy data</a>
+<a href="#sec-tidy-data" id="toc-sec-tidy-data" class="nav-link" data-scroll-target="#sec-tidy-data"><span class="header-section-number">5.2</span> Données propres</a>
   <ul class="collapse">
-<li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.2.1</span> Exercises</a></li>
+<li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5.2.1</span> Exercices</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-pivoting" id="toc-sec-pivoting" class="nav-link" data-scroll-target="#sec-pivoting"><span class="header-section-number">5.3</span> Lengthening data</a>
+<a href="#sec-pivoting" id="toc-sec-pivoting" class="nav-link" data-scroll-target="#sec-pivoting"><span class="header-section-number">5.3</span> Allonger les données</a>
   <ul class="collapse">
-<li><a href="#sec-billboard" id="toc-sec-billboard" class="nav-link" data-scroll-target="#sec-billboard"><span class="header-section-number">5.3.1</span> Data in column names</a></li>
-  <li><a href="#how-does-pivoting-work" id="toc-how-does-pivoting-work" class="nav-link" data-scroll-target="#how-does-pivoting-work"><span class="header-section-number">5.3.2</span> How does pivoting work?</a></li>
-  <li><a href="#many-variables-in-column-names" id="toc-many-variables-in-column-names" class="nav-link" data-scroll-target="#many-variables-in-column-names"><span class="header-section-number">5.3.3</span> Many variables in column names</a></li>
-  <li><a href="#data-and-variable-names-in-the-column-headers" id="toc-data-and-variable-names-in-the-column-headers" class="nav-link" data-scroll-target="#data-and-variable-names-in-the-column-headers"><span class="header-section-number">5.3.4</span> Data and variable names in the column headers</a></li>
+<li><a href="#sec-billboard" id="toc-sec-billboard" class="nav-link" data-scroll-target="#sec-billboard"><span class="header-section-number">5.3.1</span> Données dans les noms de colonnes</a></li>
+  <li><a href="#comment-fonctionne-le-pivot" id="toc-comment-fonctionne-le-pivot" class="nav-link" data-scroll-target="#comment-fonctionne-le-pivot"><span class="header-section-number">5.3.2</span> Comment fonctionne le pivot ?</a></li>
+  <li><a href="#plusieurs-variables-dans-les-noms-de-colonnes" id="toc-plusieurs-variables-dans-les-noms-de-colonnes" class="nav-link" data-scroll-target="#plusieurs-variables-dans-les-noms-de-colonnes"><span class="header-section-number">5.3.3</span> Plusieurs variables dans les noms de colonnes</a></li>
+  <li><a href="#noms-de-donn%C3%A9es-et-de-variables-dans-les-en-t%C3%AAtes-de-colonnes" id="toc-noms-de-données-et-de-variables-dans-les-en-têtes-de-colonnes" class="nav-link" data-scroll-target="#noms-de-donn%C3%A9es-et-de-variables-dans-les-en-t%C3%AAtes-de-colonnes"><span class="header-section-number">5.3.4</span> Noms de données et de variables dans les en-têtes de colonnes</a></li>
   </ul>
 </li>
   <li>
-<a href="#widening-data" id="toc-widening-data" class="nav-link" data-scroll-target="#widening-data"><span class="header-section-number">5.4</span> Widening data</a>
+<a href="#%C3%A9largir-les-donn%C3%A9es" id="toc-élargir-les-données" class="nav-link" data-scroll-target="#%C3%A9largir-les-donn%C3%A9es"><span class="header-section-number">5.4</span> Élargir les données</a>
   <ul class="collapse">
-<li><a href="#how-does-pivot_wider-work" id="toc-how-does-pivot_wider-work" class="nav-link" data-scroll-target="#how-does-pivot_wider-work"><span class="header-section-number">5.4.1</span> How does <code>pivot_wider()</code> work?</a></li>
+<li><a href="#comment-fonctionne-pivot_wider" id="toc-comment-fonctionne-pivot_wider" class="nav-link" data-scroll-target="#comment-fonctionne-pivot_wider"><span class="header-section-number">5.4.1</span> Comment fonctionne <code>pivot_wider()</code> ?</a></li>
   </ul>
 </li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.5</span> Summary</a></li>
+  <li><a href="#r%C3%A9sum%C3%A9" id="toc-résumé" class="nav-link" data-scroll-target="#r%C3%A9sum%C3%A9"><span class="header-section-number">5.5</span> Résumé</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/DianeThy/r4ds-fr/edit/main/data-tidy.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/DianeThy/r4ds-fr/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-tidy.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-data-tidy" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-tidy.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage des données</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-data-tidy" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage des données</span></span></h1>
 </div>
 
 
@@ -452,25 +452,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header><section id="introduction" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">5.1</span> Introduction</h2>
 <blockquote class="blockquote">
-<p>“Happy families are all alike; every unhappy family is unhappy in its own way.”<br>
-— Leo Tolstoy</p>
+<p>« Les familles heureuses se ressemblent toutes ; chaque famille malheureuse est malheureuse à sa manière. »<br>
+— Leo Tolstoï</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>“Tidy datasets are all alike, but every messy dataset is messy in its own way.”<br>
+<p>« Les jeux de données propres se ressemblent tous, mais chaque jeu de données désordonné est désordonné à sa manière. »<br>
 — Hadley Wickham</p>
 </blockquote>
-<p>In this chapter, you will learn a consistent way to organize your data in R using a system called <strong>tidy data</strong>. Getting your data into this format requires some work up front, but that work pays off in the long term. Once you have tidy data and the tidy tools provided by packages in the tidyverse, you will spend much less time munging data from one representation to another, allowing you to spend more time on the data questions you care about.</p>
-<p>In this chapter, you’ll first learn the definition of tidy data and see it applied to a simple toy dataset. Then we’ll dive into the primary tool you’ll use for tidying data: pivoting. Pivoting allows you to change the form of your data without changing any of the values.</p>
-<section id="prerequisites" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="prerequisites">
-<span class="header-section-number">5.1.1</span> Prerequisites</h3>
-<p>In this chapter, we’ll focus on tidyr, a package that provides a bunch of tools to help tidy up your messy datasets. tidyr is a member of the core tidyverse.</p>
+<p>Dans ce chapitre, vous apprendrez une façon cohérente d’organiser vos données en R en utilisant un système appelé <strong>données propres</strong>. Mettre vos données dans ce format nécessite du travail initialement, mais ce travail s’avère payant à long terme. Une fois que vous avez des données propres et les outils tidyverse fournis par les packages du tidyverse, vous passerez beaucoup moins de temps à manipuler les données d’une représentation à une autre, ce qui vous permettra de passer plus de temps sur les questions de données qui vous préoccupent.</p>
+<p>Dans ce chapitre, vous apprendrez d’abord la définition des données propres et la verrez appliquée à un simple jeu de données d’exemple. Ensuite, nous plongerons dans l’outil principal que vous utiliserez pour nettoyer les données : le pivot. Le pivot vous permet de modifier la forme de vos données sans changer les valeurs.</p>
+<section id="conditions-préalables" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="conditions-préalables">
+<span class="header-section-number">5.1.1</span> Conditions préalables</h3>
+<p>Dans ce chapitre, nous nous concentrerons sur tidyr, un package qui fournit un tas d’outils pour aider à nettoyer vos jeux de données désordonnés. tidyr est un membre du tidyverse principal.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>From this chapter on, we’ll suppress the loading message from <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>.</p>
+<p>À partir de ce chapitre, nous supprimerons le message de chargement de <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>.</p>
 </section></section><section id="sec-tidy-data" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="sec-tidy-data">
-<span class="header-section-number">5.2</span> Tidy data</h2>
-<p>You can represent the same underlying data in multiple ways. The example below shows the same data organized in three different ways. Each dataset shows the same values of four variables: <em>country</em>, <em>year</em>, <em>population</em>, and number of documented <em>cases</em> of TB (tuberculosis), but each dataset organizes the values in a different way.</p>
+<span class="header-section-number">5.2</span> Données propres</h2>
+<p>Vous pouvez représenter les mêmes données sous-jacentes de plusieurs façons. L’exemple ci-dessous montre les mêmes données organisées de trois façons différentes. Chaque jeu de données montre les mêmes valeurs de quatre variables : <em>pays</em>, <em>année</em>, <em>population</em>, et nombre de cas documentés de TB (tuberculose), mais chaque jeu de données organise les valeurs de manière différente.</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">table1</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
@@ -506,34 +506,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 5 China        1999 212258/1272915272</span></span>
 <span><span class="co">#&gt; 6 China        2000 213766/1280428583</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>These are all representations of the same underlying data, but they are not equally easy to use. One of them, <code>table1</code>, will be much easier to work with inside the tidyverse because it’s <strong>tidy</strong>.</p>
-<p>There are three interrelated rules that make a dataset tidy:</p>
+<p>Ce sont toutes des représentations des mêmes données sous-jacentes, mais elles ne sont pas également faciles à utiliser. L’une d’elles, <code>table1</code>, sera beaucoup plus facile à utiliser dans le tidyverse car elle est <strong>propre</strong>.</p>
+<p>Il y a trois règles interdépendantes qui rendent un jeu de données propre :</p>
 <ol type="1">
-<li>Each variable is a column; each column is a variable.</li>
-<li>Each observation is a row; each row is an observation.</li>
-<li>Each value is a cell; each cell is a single value.</li>
+<li>Chaque variable est une colonne ; chaque colonne est une variable.</li>
+<li>Chaque observation est une ligne ; chaque ligne est une observation.</li>
+<li>Chaque valeur est une cellule ; chaque cellule est une seule valeur.</li>
 </ol>
-<p><a href="#fig-tidy-structure" class="quarto-xref">Figure&nbsp;<span>5.1</span></a> shows the rules visually.</p>
+<p><a href="#fig-tidy-structure" class="quarto-xref">Figure&nbsp;<span>5.1</span></a> montre les règles visuellement.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-tidy-structure" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three panels, each representing a tidy data frame. The first panel shows that each variable is a column. The second panel shows that each observation is a row. The third panel shows that each value is a cell.">
+<div id="fig-tidy-structure" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Trois panneaux, chacun représentant un data frame propre. Le premier panneau montre que chaque variable est une colonne. Le deuxième panneau montre que chaque observation est une ligne. Le troisième panneau montre que chaque valeur est une cellule.">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-tidy-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/tidy-1.png" class="img-fluid figure-img" alt="Three panels, each representing a tidy data frame. The first panel shows that each variable is a column. The second panel shows that each observation is a row. The third panel shows that each value is a cell." width="683">
+<img src="images/tidy-1.png" class="img-fluid figure-img" alt="Trois panneaux, chacun représentant un data frame propre. Le premier panneau montre que chaque variable est une colonne. Le deuxième panneau montre que chaque observation est une ligne. Le troisième panneau montre que chaque valeur est une cellule." width="683">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tidy-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: The following three rules make a dataset tidy: variables are columns, observations are rows, and values are cells.
+Figure&nbsp;5.1: Les trois règles suivantes rendent un jeu de données propre : les variables sont des colonnes, les observations sont des lignes, et les valeurs sont des cellules.
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p>Why ensure that your data is tidy? There are two main advantages:</p>
+<p>Pourquoi vous assurer que vos données sont propres ? Il y a deux principaux avantages :</p>
 <ol type="1">
-<li><p>There’s a general advantage to picking one consistent way of storing data. If you have a consistent data structure, it’s easier to learn the tools that work with it because they have an underlying uniformity.</p></li>
-<li><p>There’s a specific advantage to placing variables in columns because it allows R’s vectorized nature to shine. As you learned in <a href="data-transform.html#sec-mutate" class="quarto-xref"><span>Section 3.3.1</span></a> and <a href="data-transform.html#sec-summarize" class="quarto-xref"><span>Section 3.5.2</span></a>, most built-in R functions work with vectors of values. That makes transforming tidy data feel particularly natural.</p></li>
+<li><p>Il y a un avantage général à choisir une seule façon cohérente de stocker les données. Si vous avez une structure de données cohérente, il est plus facile d’apprendre les outils qui fonctionnent avec elle car ils ont une uniformité sous-jacente.</p></li>
+<li><p>Il y a un avantage spécifique à placer les variables dans les colonnes car cela permet à la nature vectorisée de R de briller. Comme vous l’avez appris dans <a href="data-transform.html#sec-mutate" class="quarto-xref"><span>Section 3.3.1</span></a> et <a href="data-transform.html#sec-summarize" class="quarto-xref"><span>Section 3.5.2</span></a>, la plupart des fonctions R intégrées fonctionnent avec des vecteurs de valeurs. Cela rend la transformation de données propres particulièrement naturelle.</p></li>
 </ol>
-<p>dplyr, ggplot2, and all the other packages in the tidyverse are designed to work with tidy data. Here are a few small examples showing how you might work with <code>table1</code>.</p>
+<p>dplyr, ggplot2, et tous les autres packages du tidyverse sont conçus pour fonctionner avec des données propres. Voici quelques petits exemples montrant comment vous pourriez travailler avec <code>table1</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Compute rate per 10,000</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculer le taux par 10 000</span></span>
 <span><span class="va">table1</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rate <span class="op">=</span> <span class="va">cases</span> <span class="op">/</span> <span class="va">population</span> <span class="op">*</span> <span class="fl">10000</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 5</span></span>
@@ -546,7 +546,7 @@ Figure&nbsp;5.1: The following three rules make a dataset tidy: variables are co
 <span><span class="co">#&gt; 5 China        1999 212258 1272915272 1.67 </span></span>
 <span><span class="co">#&gt; 6 China        2000 213766 1280428583 1.67</span></span>
 <span></span>
-<span><span class="co"># Compute total cases per year</span></span>
+<span><span class="co"># Calculer le total des cas par année</span></span>
 <span><span class="va">table1</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>total_cases <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">cases</span><span class="op">)</span><span class="op">)</span></span>
@@ -556,44 +556,44 @@ Figure&nbsp;5.1: The following three rules make a dataset tidy: variables are co
 <span><span class="co">#&gt; 1  1999      250740</span></span>
 <span><span class="co">#&gt; 2  2000      296920</span></span>
 <span></span>
-<span><span class="co"># Visualize changes over time</span></span>
+<span><span class="co"># Visualiser les changements au fil du temps</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">table1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">cases</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">country</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">country</span>, shape <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1999</span>, <span class="fl">2000</span><span class="op">)</span><span class="op">)</span> <span class="co"># x-axis breaks at 1999 and 2000</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1999</span>, <span class="fl">2000</span><span class="op">)</span><span class="op">)</span> <span class="co"># les tirets sur l'axe des x en 1999 et 2000</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="data-tidy_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" alt="This figure shows the number of cases in 1999 and 2000 for  Afghanistan, Brazil, and China, with year on the x-axis and number  of cases on the y-axis. Each point on the plot represents the number  of cases in a given country in a given year. The points for each country are differentiated from others by color and shape and connected with a line, resulting in three, non-parallel, non-intersecting lines. The numbers of cases in China are highest for both 1999 and 2000, with values above 200,000 for both years. The number of cases in Brazil is approximately 40,000 in 1999 and approximately 75,000 in 2000. The numbers of cases in Afghanistan are lowest for both 1999 and 2000, with values that appear to be very close to 0 on this scale." width="480"></p>
+<figure class="figure"><p><img src="data-tidy_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" alt="Cette figure montre le nombre de cas en 1999 et 2000 pour  l'Afghanistan, le Brésil et la Chine, avec l'année sur l'axe des x et le nombre  de cas sur l'axe des y. Chaque point du graphique représente le nombre  de cas dans un pays donné dans une année donnée. Les points pour chaque pays se distinguent des autres par la couleur et la forme et sont connectés avec une ligne, ce qui donne trois lignes non parallèles et non intersectantes. Les nombres de cas en Chine sont les plus élevés pour 1999 et 2000, avec des valeurs supérieures à 200 000 pour les deux années. Le nombre de cas au Brésil est approximativement 40 000 en 1999 et approximativement 75 000 en 2000. Les nombres de cas en Afghanistan sont les plus bas pour 1999 et 2000, avec des valeurs qui semblent être très proches de 0 sur cette échelle." width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<section id="exercises" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">5.2.1</span> Exercises</h3>
+<section id="exercices" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="exercices">
+<span class="header-section-number">5.2.1</span> Exercices</h3>
 <ol type="1">
-<li><p>For each of the sample tables, describe what each observation and each column represents.</p></li>
+<li><p>Pour chacune des tables d’exemple, décrivez ce que chaque observation et chaque colonne représente.</p></li>
 <li>
-<p>Sketch out the process you’d use to calculate the <code>rate</code> for <code>table2</code> and <code>table3</code>. You will need to perform four operations:</p>
+<p>Esquissez le processus que vous utiliseriez pour calculer le <code>taux</code> pour <code>table2</code> et <code>table3</code>. Vous devrez effectuer quatre opérations :</p>
 <ol type="a">
-<li>Extract the number of TB cases per country per year.</li>
-<li>Extract the matching population per country per year.</li>
-<li>Divide cases by population, and multiply by 10000.</li>
-<li>Store back in the appropriate place.</li>
+<li>Extraire le nombre de cas de TB par pays par année.</li>
+<li>Extraire la population correspondante par pays par année.</li>
+<li>Diviser les cas par la population, et multiplier par 10 000.</li>
+<li>Stocker au bon endroit.</li>
 </ol>
-<p>You haven’t yet learned all the functions you’d need to actually perform these operations, but you should still be able to think through the transformations you’d need.</p>
+<p>Vous n’avez pas encore appris toutes les fonctions que vous auriez besoin d’utiliser pour effectuer réellement ces opérations, mais vous devriez quand même être capable de réfléchir aux transformations que vous auriez besoin.</p>
 </li>
 </ol></section></section><section id="sec-pivoting" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="sec-pivoting">
-<span class="header-section-number">5.3</span> Lengthening data</h2>
-<p>The principles of tidy data might seem so obvious that you wonder if you’ll ever encounter a dataset that isn’t tidy. Unfortunately, however, most real data is untidy. There are two main reasons:</p>
+<span class="header-section-number">5.3</span> Allonger les données</h2>
+<p>Les principes des données propres peuvent sembler si évidents que vous vous demandez si vous rencontrerez jamais un jeu de données qui n’est pas propre. Malheureusement, cependant, la plupart des données réelles ne sont pas propres. Il y a deux principales raisons :</p>
 <ol type="1">
-<li><p>Data is often organized to facilitate some goal other than analysis. For example, it’s common for data to be structured to make data entry, not analysis, easy.</p></li>
-<li><p>Most people aren’t familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a lot of time working with data.</p></li>
+<li><p>Les données sont souvent organisées pour faciliter un objectif autre que l’analyse. Par exemple, il est courant que les données soient structurées pour faciliter la saisie des données, et non l’analyse.</p></li>
+<li><p>La plupart des gens ne sont pas familiers avec les principes des données propres, et il est difficile de les dériver vous-même sauf si vous passez beaucoup de temps à travailler avec des données.</p></li>
 </ol>
-<p>This means that most real analyses will require at least a little tidying. You’ll begin by figuring out what the underlying variables and observations are. Sometimes this is easy; other times you’ll need to consult with the people who originally generated the data. Next, you’ll <strong>pivot</strong> your data into a tidy form, with variables in the columns and observations in the rows.</p>
-<p>tidyr provides two functions for pivoting data: <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> and <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code>. We’ll first start with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> because it’s the most common case. Let’s dive into some examples.</p>
+<p>Cela signifie que la plupart des analyses réelles nécessiteront au moins un peu de nettoyage. Vous commencerez par déterminer quelles sont les variables et observations sous-jacentes. Parfois, c’est facile ; d’autres fois, vous devrez consulter les personnes qui ont généré les données à l’origine. Ensuite, vous <strong>pivoter</strong> vos données dans une forme propre, avec les variables dans les colonnes et les observations dans les lignes.</p>
+<p>tidyr fournit deux fonctions pour pivoter les données : <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> et <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code>. Nous commencerons d’abord par <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> car c’est le cas le plus courant. Allons nous plonger dans quelques exemples.</p>
 <section id="sec-billboard" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-billboard">
-<span class="header-section-number">5.3.1</span> Data in column names</h3>
-<p>The <code>billboard</code> dataset records the billboard rank of songs in the year 2000:</p>
+<span class="header-section-number">5.3.1</span> Données dans les noms de colonnes</h3>
+<p>Le jeu de données <code>billboard</code> enregistre le classement billboard des chansons en l’année 2000 :</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">billboard</span></span>
 <span><span class="co">#&gt; # A tibble: 317 × 79</span></span>
@@ -608,8 +608,8 @@ Figure&nbsp;5.1: The following three rules make a dataset tidy: variables are co
 <span><span class="co">#&gt; # ℹ 311 more rows</span></span>
 <span><span class="co">#&gt; # ℹ 71 more variables: wk6 &lt;dbl&gt;, wk7 &lt;dbl&gt;, wk8 &lt;dbl&gt;, wk9 &lt;dbl&gt;, …</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this dataset, each observation is a song. The first three columns (<code>artist</code>, <code>track</code> and <code>date.entered</code>) are variables that describe the song. Then we have 76 columns (<code>wk1</code>-<code>wk76</code>) that describe the rank of the song in each week<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Here, the column names are one variable (the <code>week</code>) and the cell values are another (the <code>rank</code>).</p>
-<p>To tidy this data, we’ll use <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>:</p>
+<p>Dans ce jeu de données, chaque observation est une chanson. Les trois premières colonnes (<code>artist</code>, <code>track</code> et <code>date.entered</code>) sont des variables qui décrivent la chanson. Ensuite, nous avons 76 colonnes (<code>wk1</code>-<code>wk76</code>) qui décrivent le classement de la chanson dans chaque semaine<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Ici, les noms de colonnes sont une variable (la <code>semaine</code>) et les valeurs des cellules en sont une autre (le <code>classement</code>).</p>
+<p>Pour nettoyer ces données, nous utiliserons <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">billboard</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
@@ -632,17 +632,17 @@ Figure&nbsp;5.1: The following three rules make a dataset tidy: variables are co
 <span><span class="co">#&gt; 10 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk10     NA</span></span>
 <span><span class="co">#&gt; # ℹ 24,082 more rows</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After the data, there are three key arguments:</p>
+<p>Après les données, il y a trois arguments clés :</p>
 <ul>
 <li>
-<code>cols</code> specifies which columns need to be pivoted, i.e.&nbsp;which columns aren’t variables. This argument uses the same syntax as <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> so here we could use <code>!c(artist, track, date.entered)</code> or <code>starts_with("wk")</code>.</li>
+<code>cols</code> spécifie les colonnes qui doivent être pivotées, c’est-à-dire les colonnes qui ne sont pas des variables. Cet argument utilise la même syntaxe que <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> donc ici nous pourrions utiliser <code>!c(artist, track, date.entered)</code> ou <code>starts_with("wk")</code>.</li>
 <li>
-<code>names_to</code> names the variable stored in the column names, we named that variable <code>week</code>.</li>
+<code>names_to</code> nomme la variable stockée dans les noms de colonnes, nous avons nommé cette variable <code>week</code>.</li>
 <li>
-<code>values_to</code> names the variable stored in the cell values, we named that variable <code>rank</code>.</li>
+<code>values_to</code> nomme la variable stockée dans les valeurs des cellules, nous avons nommé cette variable <code>rank</code>.</li>
 </ul>
-<p>Note that in the code <code>"week"</code> and <code>"rank"</code> are quoted because those are new variables we’re creating, they don’t yet exist in the data when we run the <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> call.</p>
-<p>Now let’s turn our attention to the resulting, longer data frame. What happens if a song is in the top 100 for less than 76 weeks? Take 2 Pac’s “Baby Don’t Cry”, for example. The above output suggests that it was only in the top 100 for 7 weeks, and all the remaining weeks are filled in with missing values. These <code>NA</code>s don’t really represent unknown observations; they were forced to exist by the structure of the dataset<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, so we can ask <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> to get rid of them by setting <code>values_drop_na = TRUE</code>:</p>
+<p>Notez que dans le code <code>"week"</code> et <code>"rank"</code> sont entre guillemets car ce sont de nouvelles variables que nous créons, elles n’existent pas encore dans les données quand nous exécutons l’appel <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>.</p>
+<p>Maintenant, tournons notre attention vers le data frame résultant, plus long. Que se passe-t-il si une chanson est dans le top 100 pendant moins de 76 semaines ? Prenez par exemple « Baby Don’t Cry » de 2 Pac. La sortie ci-dessus suggère qu’elle ne figurait que dans le top 100 pendant 7 semaines, et toutes les semaines restantes sont remplies de valeurs manquantes. Ces <code>NA</code>s ne représentent pas vraiment des observations inconnues ; elles ont été forcées d’exister par la structure du jeu de données<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, nous pouvons donc demander à <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> de s’en débarrasser en définissant <code>values_drop_na = TRUE</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">billboard</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
@@ -662,9 +662,9 @@ Figure&nbsp;5.1: The following three rules make a dataset tidy: variables are co
 <span><span class="co">#&gt; 6 2 Pac  Baby Don't Cry (Keep... 2000-02-26   wk6      94</span></span>
 <span><span class="co">#&gt; # ℹ 5,301 more rows</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The number of rows is now much lower, indicating that many rows with <code>NA</code>s were dropped.</p>
-<p>You might also wonder what happens if a song is in the top 100 for more than 76 weeks? We can’t tell from this data, but you might guess that additional columns <code>wk77</code>, <code>wk78</code>, … would be added to the dataset.</p>
-<p>This data is now tidy, but we could make future computation a bit easier by converting values of <code>week</code> from character strings to numbers using <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code><a href="https://readr.tidyverse.org/reference/parse_number.html">readr::parse_number()</a></code>. <code><a href="https://readr.tidyverse.org/reference/parse_number.html">parse_number()</a></code> is a handy function that will extract the first number from a string, ignoring all other text.</p>
+<p>Le nombre de lignes est maintenant beaucoup plus faible, ce qui indique que beaucoup de lignes avec <code>NA</code>s ont été supprimées.</p>
+<p>Vous pourriez aussi vous demander ce qui se passe si une chanson est dans le top 100 pendant plus de 76 semaines ? Nous ne pouvons pas le dire à partir de ces données, mais vous pourriez deviner que des colonnes supplémentaires <code>wk77</code>, <code>wk78</code>, … seraient ajoutées au jeu de données.</p>
+<p>Ces données sont maintenant propres, mais nous pourrions faciliter les calculs futurs en convertissant les valeurs de <code>week</code> de chaînes de caractères en nombres à l’aide de <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> et de <code><a href="https://readr.tidyverse.org/reference/parse_number.html">readr::parse_number()</a></code>. <code><a href="https://readr.tidyverse.org/reference/parse_number.html">parse_number()</a></code> est une fonction pratique qui extraira le premier nombre d’une chaîne, en ignorant tout le reste du texte.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">billboard_longer</span> <span class="op">&lt;-</span> <span class="va">billboard</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
@@ -688,26 +688,26 @@ Figure&nbsp;5.1: The following three rules make a dataset tidy: variables are co
 <span><span class="co">#&gt; 6 2 Pac  Baby Don't Cry (Keep... 2000-02-26       6    94</span></span>
 <span><span class="co">#&gt; # ℹ 5,301 more rows</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now that we have all the week numbers in one variable and all the rank values in another, we’re in a good position to visualize how song ranks vary over time. The code is shown below and the result is in <a href="#fig-billboard-ranks" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>. We can see that very few songs stay in the top 100 for more than 20 weeks.</p>
+<p>Maintenant que nous avons tous les numéros de semaine dans une variable et toutes les valeurs de classement dans une autre, nous sommes dans une bonne position pour visualiser comment les classements des chansons varient au fil du temps. Le code est présenté ci-dessous et le résultat se trouve dans <a href="#fig-billboard-ranks" class="quarto-xref">Figure&nbsp;<span>5.2</span></a>. Nous pouvons voir que très peu de chansons restent dans le top 100 pendant plus de 20 semaines.</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">billboard_longer</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">week</span>, y <span class="op">=</span> <span class="va">rank</span>, group <span class="op">=</span> <span class="va">track</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_reverse</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-billboard-ranks" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A line plot with week on the x-axis and rank on the y-axis, where each line represents a song. Most songs appear to start at a high rank, rapidly accelerate to a low rank, and then decay again. There are surprisingly few tracks in the region when week is >20 and rank is >50.">
+<div id="fig-billboard-ranks" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Un graphique linéaire avec la semaine sur l'axe des x et le classement sur l'axe des y, où chaque ligne représente une chanson. La plupart des chansons semblent commencer avec un classement élevé, accélérer rapidement vers un classement bas, puis se désintégrer à nouveau. Il y a surprenamment peu de pistes dans la région quand la semaine est > 20 et le classement est > 50.">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-billboard-ranks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="data-tidy_files/figure-html/fig-billboard-ranks-1.png" class="img-fluid figure-img" alt="A line plot with week on the x-axis and rank on the y-axis, where each line represents a song. Most songs appear to start at a high rank, rapidly accelerate to a low rank, and then decay again. There are surprisingly few tracks in the region when week is >20 and rank is >50." width="576">
+<img src="data-tidy_files/figure-html/fig-billboard-ranks-1.png" class="img-fluid figure-img" alt="Un graphique linéaire avec la semaine sur l'axe des x et le classement sur l'axe des y, où chaque ligne représente une chanson. La plupart des chansons semblent commencer avec un classement élevé, accélérer rapidement vers un classement bas, puis se désintégrer à nouveau. Il y a surprenamment peu de pistes dans la région quand la semaine est > 20 et le classement est > 50." width="576">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-billboard-ranks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: A line plot showing how the rank of a song changes over time.
+Figure&nbsp;5.2: Un graphique linéaire montrant comment le classement d’une chanson change au fil du temps.
 </figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="how-does-pivoting-work" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="how-does-pivoting-work">
-<span class="header-section-number">5.3.2</span> How does pivoting work?</h3>
-<p>Now that you’ve seen how we can use pivoting to reshape our data, let’s take a little time to gain some intuition about what pivoting does to the data. Let’s start with a very simple dataset to make it easier to see what’s happening. Suppose we have three patients with <code>id</code>s A, B, and C, and we take two blood pressure measurements on each patient. We’ll create the data with <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>, a handy function for constructing small tibbles by hand:</p>
+</section><section id="comment-fonctionne-le-pivot" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="comment-fonctionne-le-pivot">
+<span class="header-section-number">5.3.2</span> Comment fonctionne le pivot ?</h3>
+<p>Maintenant que vous avez vu comment nous pouvons utiliser le pivot pour restructurer nos données, prenons un peu de temps pour acquérir une intuition sur ce que le pivot fait aux données. Commençons par un jeu de données très simple pour faciliter la visualisation. Supposons que nous ayons trois patients avec les <code>id</code>s A, B et C, et nous prenons deux mesures de la pression artérielle sur chaque patient. Nous créerons les données avec <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>, une fonction pratique pour construire de petits tibbles à la main :</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">id</span>,  <span class="op">~</span><span class="va">bp1</span>, <span class="op">~</span><span class="va">bp2</span>,</span>
@@ -716,7 +716,7 @@ Figure&nbsp;5.2: A line plot showing how the rank of a song changes over time.
 <span>   <span class="st">"C"</span>,  <span class="fl">120</span>,  <span class="fl">125</span></span>
 <span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We want our new dataset to have three variables: <code>id</code> (already exists), <code>measurement</code> (the column names), and <code>value</code> (the cell values). To achieve this, we need to pivot <code>df</code> longer:</p>
+<p>Nous voulons que notre nouveau jeu de données ait trois variables : <code>id</code> (existe déjà), <code>measurement</code> (les noms de colonnes), et <code>value</code> (les valeurs des cellules). Pour atteindre cet objectif, nous devons faire un pivot plus long de <code>df</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
@@ -734,48 +734,48 @@ Figure&nbsp;5.2: A line plot showing how the rank of a song changes over time.
 <span><span class="co">#&gt; 5 C     bp1           120</span></span>
 <span><span class="co">#&gt; 6 C     bp2           125</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>How does the reshaping work? It’s easier to see if we think about it column by column. As shown in <a href="#fig-pivot-variables" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>, the values in a column that was already a variable in the original dataset (<code>id</code>) need to be repeated, once for each column that is pivoted.</p>
+<p>Comment fonctionne la restructuration ? C’est plus facile à voir si nous y pensons colonne par colonne. Comme montré dans <a href="#fig-pivot-variables" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>, les valeurs dans une colonne qui était déjà une variable dans le jeu de données original (<code>id</code>) doivent être répétées, une fois pour chaque colonne qui est pivotée.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pivot-variables" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram showing how `pivot_longer()` transforms a simple dataset, using color to highlight how the values in the `id` column (&quot;A&quot;, &quot;B&quot;, &quot;C&quot;) are each repeated twice in the output because there are two columns being pivoted (&quot;bp1&quot; and &quot;bp2&quot;).">
+<div id="fig-pivot-variables" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Un diagramme montrant comment `pivot_longer()` transforme un simple jeu de données, utilisant la couleur pour mettre en évidence comment les valeurs dans la colonne `id` (« A », « B », « C ») sont chacune répétées deux fois dans la sortie parce qu'il y a deux colonnes à pivoter (« bp1 » et « bp2 »).">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pivot-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/tidy-data/variables.png" class="img-fluid figure-img" alt="A diagram showing how `pivot_longer()` transforms a simple dataset, using color to highlight how the values in the `id` column (&quot;A&quot;, &quot;B&quot;, &quot;C&quot;) are each repeated twice in the output because there are two columns being pivoted (&quot;bp1&quot; and &quot;bp2&quot;)." width="515">
+<img src="diagrams/tidy-data/variables.png" class="img-fluid figure-img" alt="Un diagramme montrant comment `pivot_longer()` transforme un simple jeu de données, utilisant la couleur pour mettre en évidence comment les valeurs dans la colonne `id` (« A », « B », « C ») sont chacune répétées deux fois dans la sortie parce qu'il y a deux colonnes à pivoter (« bp1 » et « bp2 »)." width="515">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pivot-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: Columns that are already variables need to be repeated, once for each column that is pivoted.
+Figure&nbsp;5.3: Les colonnes qui sont déjà des variables doivent être répétées, une fois pour chaque colonne qui est pivotée.
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p>The column names become values in a new variable, whose name is defined by <code>names_to</code>, as shown in <a href="#fig-pivot-names" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>. They need to be repeated once for each row in the original dataset.</p>
+<p>Les noms de colonnes deviennent des valeurs dans une nouvelle variable, dont le nom est défini par <code>names_to</code>, comme le montre <a href="#fig-pivot-names" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>. Ils doivent être répétés une fois pour chaque ligne du jeu de données original.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pivot-names" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram showing how `pivot_longer()` transforms a simple data set, using color to highlight how column names (&quot;bp1&quot; and  &quot;bp2&quot;) become the values in a new `measurement` column. They are repeated three times because there were three rows in the input.">
+<div id="fig-pivot-names" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Un diagramme montrant comment `pivot_longer()` transforme un simple jeu de données, utilisant la couleur pour mettre en évidence comment les noms de colonnes (« bp1 » et  « bp2 ») deviennent les valeurs dans une nouvelle colonne `measurement`. Ils sont répétés trois fois parce qu'il y avait trois lignes dans l'entrée.">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pivot-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/tidy-data/column-names.png" class="img-fluid figure-img" alt="A diagram showing how `pivot_longer()` transforms a simple data set, using color to highlight how column names (&quot;bp1&quot; and  &quot;bp2&quot;) become the values in a new `measurement` column. They are repeated three times because there were three rows in the input." width="515">
+<img src="diagrams/tidy-data/column-names.png" class="img-fluid figure-img" alt="Un diagramme montrant comment `pivot_longer()` transforme un simple jeu de données, utilisant la couleur pour mettre en évidence comment les noms de colonnes (« bp1 » et  « bp2 ») deviennent les valeurs dans une nouvelle colonne `measurement`. Ils sont répétés trois fois parce qu'il y avait trois lignes dans l'entrée." width="515">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pivot-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.4: The column names of pivoted columns become values in a new column. The values need to be repeated once for each row of the original dataset.
+Figure&nbsp;5.4: Les noms de colonnes des colonnes pivotées deviennent des valeurs dans une nouvelle colonne. Les valeurs doivent être répétées une fois pour chaque ligne du jeu de données original.
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p>The cell values also become values in a new variable, with a name defined by <code>values_to</code>. They are unwound row by row. <a href="#fig-pivot-values" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> illustrates the process.</p>
+<p>Les valeurs des cellules deviennent aussi des valeurs dans une nouvelle variable, avec un nom défini par <code>values_to</code>. Elles sont déroulées ligne par ligne. <a href="#fig-pivot-values" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> illustre le processus.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pivot-values" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram showing how `pivot_longer()` transforms data, using color to highlight how the cell values (blood pressure measurements) become the values in a new `value` column. They are unwound row-by-row, so the original rows (100,120), then (140,115), then (120,125), become  a column running from 100 to 125.">
+<div id="fig-pivot-values" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Un diagramme montrant comment `pivot_longer()` transforme les données, utilisant la couleur pour mettre en évidence comment les valeurs des cellules (mesures de pression artérielle) deviennent les valeurs dans une nouvelle colonne `value`. Elles sont déroulées ligne par ligne, donc les lignes originales (100,120), puis (140,115), puis (120,125), deviennent  une colonne s'exécutant de 100 à 125.">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pivot-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/tidy-data/cell-values.png" class="img-fluid figure-img" alt="A diagram showing how `pivot_longer()` transforms data, using color to highlight how the cell values (blood pressure measurements) become the values in a new `value` column. They are unwound row-by-row, so the original rows (100,120), then (140,115), then (120,125), become  a column running from 100 to 125." width="515">
+<img src="diagrams/tidy-data/cell-values.png" class="img-fluid figure-img" alt="Un diagramme montrant comment `pivot_longer()` transforme les données, utilisant la couleur pour mettre en évidence comment les valeurs des cellules (mesures de pression artérielle) deviennent les valeurs dans une nouvelle colonne `value`. Elles sont déroulées ligne par ligne, donc les lignes originales (100,120), puis (140,115), puis (120,125), deviennent  une colonne s'exécutant de 100 à 125." width="515">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pivot-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.5: The number of values is preserved (not repeated), but unwound row-by-row.
+Figure&nbsp;5.5: Le nombre de valeurs est préservé (pas répété), mais déroulé ligne par ligne.
 </figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="many-variables-in-column-names" class="level3" data-number="5.3.3"><h3 data-number="5.3.3" class="anchored" data-anchor-id="many-variables-in-column-names">
-<span class="header-section-number">5.3.3</span> Many variables in column names</h3>
-<p>A more challenging situation occurs when you have multiple pieces of information crammed into the column names, and you would like to store these in separate new variables. For example, take the <code>who2</code> dataset, the source of <code>table1</code> and friends that you saw above:</p>
+</section><section id="plusieurs-variables-dans-les-noms-de-colonnes" class="level3" data-number="5.3.3"><h3 data-number="5.3.3" class="anchored" data-anchor-id="plusieurs-variables-dans-les-noms-de-colonnes">
+<span class="header-section-number">5.3.3</span> Plusieurs variables dans les noms de colonnes</h3>
+<p>Une situation plus difficile se produit quand vous avez plusieurs informations entassées dans les noms de colonnes, et vous voudriez les stocker dans des variables nouvelles séparées. Par exemple, prenez le jeu de données <code>who2</code>, la source de <code>table1</code> et compagnie que vous avez vu ci-dessus :</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">who2</span></span>
 <span><span class="co">#&gt; # A tibble: 7,240 × 58</span></span>
@@ -790,8 +790,8 @@ Figure&nbsp;5.5: The number of values is preserved (not repeated), but unwound r
 <span><span class="co">#&gt; # ℹ 7,234 more rows</span></span>
 <span><span class="co">#&gt; # ℹ 51 more variables: sp_m_5564 &lt;dbl&gt;, sp_m_65 &lt;dbl&gt;, sp_f_014 &lt;dbl&gt;, …</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This dataset, collected by the World Health Organisation, records information about tuberculosis diagnoses. There are two columns that are already variables and are easy to interpret: <code>country</code> and <code>year</code>. They are followed by 56 columns like <code>sp_m_014</code>, <code>ep_m_4554</code>, and <code>rel_m_3544</code>. If you stare at these columns for long enough, you’ll notice there’s a pattern. Each column name is made up of three pieces separated by <code>_</code>. The first piece, <code>sp</code>/<code>rel</code>/<code>ep</code>, describes the method used for the diagnosis, the second piece, <code>m</code>/<code>f</code> is the <code>gender</code> (coded as a binary variable in this dataset), and the third piece, <code>014</code>/<code>1524</code>/<code>2534</code>/<code>3544</code>/<code>4554</code>/<code>5564</code>/<code>65</code> is the <code>age</code> range (<code>014</code> represents 0-14, for example).</p>
-<p>So in this case we have six pieces of information recorded in <code>who2</code>: the country and the year (already columns); the method of diagnosis, the gender category, and the age range category (contained in the other column names); and the count of patients in that category (cell values). To organize these six pieces of information in six separate columns, we use <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> with a vector of column names for <code>names_to</code> and instructors for splitting the original variable names into pieces for <code>names_sep</code> as well as a column name for <code>values_to</code>:</p>
+<p>Ce jeu de données, collecté par l’Organisation mondiale de la santé, enregistre des informations sur les diagnostics de tuberculose. Il y a deux colonnes qui sont déjà des variables et sont faciles à interpréter : <code>country</code> et <code>year</code>. Elles sont suivies de 56 colonnes comme <code>sp_m_014</code>, <code>ep_m_4554</code>, et <code>rel_m_3544</code>. Si vous regardez ces colonnes assez longtemps, vous remarquerez qu’il y a un modèle. Chaque nom de colonne est composé de trois éléments séparés par <code>_</code>. Le premier élément, <code>sp</code>/<code>rel</code>/<code>ep</code>, décrit la méthode utilisée pour le diagnostic, le deuxième élément, <code>m</code>/<code>f</code> est le <code>sexe</code> (codé comme une variable binaire dans ce jeu de données), et le troisième élément, <code>014</code>/<code>1524</code>/<code>2534</code>/<code>3544</code>/<code>4554</code>/<code>5564</code>/<code>65</code> est la plage d’<code>âge</code> (<code>014</code> représente 0-14, par exemple).</p>
+<p>Donc dans ce cas nous avons six éléments d’information enregistrés dans <code>who2</code> : le pays et l’année (déjà des colonnes) ; la méthode de diagnostic, la catégorie de sexe, et la catégorie de plage d’âge (contenues dans les autres noms de colonnes) ; et le nombre de patients dans cette catégorie (valeurs des cellules). Pour organiser ces six éléments d’information en six colonnes séparées, nous utilisons <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> avec un vecteur de noms de colonnes pour <code>names_to</code> et des instructions pour diviser les noms de variables originaux en éléments pour <code>names_sep</code> ainsi qu’un nom de colonne pour <code>values_to</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">who2</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
@@ -811,23 +811,23 @@ Figure&nbsp;5.5: The number of values is preserved (not repeated), but unwound r
 <span><span class="co">#&gt; 6 Afghanistan  1980 sp        m      5564     NA</span></span>
 <span><span class="co">#&gt; # ℹ 405,434 more rows</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>An alternative to <code>names_sep</code> is <code>names_pattern</code>, which you can use to extract variables from more complicated naming scenarios, once you’ve learned about regular expressions in <a href="regexps.html" class="quarto-xref"><span>Chapitre 15</span></a>.</p>
-<p>Conceptually, this is only a minor variation on the simpler case you’ve already seen. <a href="#fig-pivot-multiple-names" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> shows the basic idea: now, instead of the column names pivoting into a single column, they pivot into multiple columns. You can imagine this happening in two steps (first pivoting and then separating) but under the hood it happens in a single step because that’s faster.</p>
+<p>Une alternative à <code>names_sep</code> est <code>names_pattern</code>, que vous pouvez utiliser pour extraire des variables de scénarios de nommage plus compliqués, une fois que vous avez appris les expressions régulières dans <a href="regexps.html" class="quarto-xref"><span>Chapitre 15</span></a>.</p>
+<p>Conceptuellement, ce n’est qu’une variation mineure du cas plus simple que vous avez déjà vu. <a href="#fig-pivot-multiple-names" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> montre l’idée de base : maintenant, au lieu que les noms de colonnes se pivotent dans une seule colonne, ils se pivotent dans plusieurs colonnes. Vous pouvez imaginer que cela se produit en deux étapes (d’abord pivoter puis séparer) mais sous le capot cela se produit en une seule étape parce que c’est plus rapide.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pivot-multiple-names" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram that uses color to illustrate how supplying `names_sep`  and multiple `names_to` creates multiple variables in the output. The input has variable names &quot;x_1&quot; and &quot;y_2&quot; which are split up by &quot;_&quot; to create name and number columns in the output. This is is similar case with a single `names_to`, but what would have been a single output variable is now separated into multiple variables.">
+<div id="fig-pivot-multiple-names" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Un diagramme qui utilise la couleur pour illustrer comment fournir `names_sep`  et plusieurs `names_to` crée plusieurs variables dans la sortie. L'entrée a des noms de variables « x_1 » et « y_2 » qui sont divisés par « _ » pour créer des colonnes de nom et de nombre dans la sortie. C'est un cas similaire avec un seul `names_to`, mais ce qui aurait été une seule variable de sortie est maintenant séparé en plusieurs variables.">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pivot-multiple-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/tidy-data/multiple-names.png" class="img-fluid figure-img" alt="A diagram that uses color to illustrate how supplying `names_sep`  and multiple `names_to` creates multiple variables in the output. The input has variable names &quot;x_1&quot; and &quot;y_2&quot; which are split up by &quot;_&quot; to create name and number columns in the output. This is is similar case with a single `names_to`, but what would have been a single output variable is now separated into multiple variables." width="524">
+<img src="diagrams/tidy-data/multiple-names.png" class="img-fluid figure-img" alt="Un diagramme qui utilise la couleur pour illustrer comment fournir `names_sep`  et plusieurs `names_to` crée plusieurs variables dans la sortie. L'entrée a des noms de variables « x_1 » et « y_2 » qui sont divisés par « _ » pour créer des colonnes de nom et de nombre dans la sortie. C'est un cas similaire avec un seul `names_to`, mais ce qui aurait été une seule variable de sortie est maintenant séparé en plusieurs variables." width="524">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pivot-multiple-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.6: Pivoting columns with multiple pieces of information in the names means that each column name now fills in values in multiple output columns.
+Figure&nbsp;5.6: Pivoter les colonnes avec plusieurs éléments d’information dans les noms signifie que chaque nom de colonne remplit maintenant les valeurs dans plusieurs colonnes de sortie.
 </figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="data-and-variable-names-in-the-column-headers" class="level3" data-number="5.3.4"><h3 data-number="5.3.4" class="anchored" data-anchor-id="data-and-variable-names-in-the-column-headers">
-<span class="header-section-number">5.3.4</span> Data and variable names in the column headers</h3>
-<p>The next step up in complexity is when the column names include a mix of variable values and variable names. For example, take the <code>household</code> dataset:</p>
+</section><section id="noms-de-données-et-de-variables-dans-les-en-têtes-de-colonnes" class="level3" data-number="5.3.4"><h3 data-number="5.3.4" class="anchored" data-anchor-id="noms-de-données-et-de-variables-dans-les-en-têtes-de-colonnes">
+<span class="header-section-number">5.3.4</span> Noms de données et de variables dans les en-têtes de colonnes</h3>
+<p>L’étape suivante en complexité est quand les noms de colonnes incluent un mélange de valeurs de variables et de noms de variables. Par exemple, prenez le jeu de données <code>household</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">household</span></span>
 <span><span class="co">#&gt; # A tibble: 5 × 5</span></span>
@@ -839,7 +839,7 @@ Figure&nbsp;5.6: Pivoting columns with multiple pieces of information in the nam
 <span><span class="co">#&gt; 4      4 2004-10-10 2009-08-27 Craig       Khai       </span></span>
 <span><span class="co">#&gt; 5      5 2000-12-05 2005-02-28 Parker      Gracie</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This dataset contains data about five families, with the names and dates of birth of up to two children. The new challenge in this dataset is that the column names contain the names of two variables (<code>dob</code>, <code>name</code>) and the values of another (<code>child</code>, with values 1 or 2). To solve this problem we again need to supply a vector to <code>names_to</code> but this time we use the special <code>".value"</code> sentinel; this isn’t the name of a variable but a unique value that tells <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> to do something different. This overrides the usual <code>values_to</code> argument to use the first component of the pivoted column name as a variable name in the output.</p>
+<p>Ce jeu de données contient des données sur cinq familles, avec les noms et dates de naissance jusqu’à deux enfants. Le nouveau défi dans ce jeu de données est que les noms de colonnes contiennent les noms de deux variables (<code>dob</code>, <code>name</code>) et les valeurs d’une autre (<code>child</code>, avec les valeurs 1 ou 2). Pour résoudre ce problème, nous devons à nouveau fournir un vecteur à <code>names_to</code> mais cette fois nous utilisons la sentinelle spéciale <code>".value"</code> ; ce n’est pas le nom d’une variable mais une valeur unique qui dit à <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> de faire quelque chose de différent. Cela remplace l’argument usuel <code>values_to</code> pour utiliser le premier composant du nom de colonne pivotée comme nom de variable dans la sortie.</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">household</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
@@ -859,24 +859,24 @@ Figure&nbsp;5.6: Pivoting columns with multiple pieces of information in the nam
 <span><span class="co">#&gt; 6      4 child1 2004-10-10 Craig</span></span>
 <span><span class="co">#&gt; # ℹ 3 more rows</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We again use <code>values_drop_na = TRUE</code>, since the shape of the input forces the creation of explicit missing variables (e.g., for families with only one child).</p>
-<p><a href="#fig-pivot-names-and-values" class="quarto-xref">Figure&nbsp;<span>5.7</span></a> illustrates the basic idea with a simpler example. When you use <code>".value"</code> in <code>names_to</code>, the column names in the input contribute to both values and variable names in the output.</p>
+<p>Nous utilisons à nouveau <code>values_drop_na = TRUE</code>, puisque la forme de l’entrée force la création de variables manquantes explicites (par exemple, pour les familles avec un seul enfant).</p>
+<p><a href="#fig-pivot-names-and-values" class="quarto-xref">Figure&nbsp;<span>5.7</span></a> illustre l’idée de base avec un exemple plus simple. Quand vous utilisez <code>".value"</code> dans <code>names_to</code>, les noms de colonnes dans l’entrée contribuent à la fois aux valeurs et aux noms de variables dans la sortie.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-pivot-names-and-values" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A diagram that uses color to illustrate how the special &quot;.value&quot; sentinel works. The input has names &quot;x_1&quot;, &quot;x_2&quot;, &quot;y_1&quot;, and &quot;y_2&quot;, and we want to use the first component (&quot;x&quot;, &quot;y&quot;) as a variable name and the second (&quot;1&quot;, &quot;2&quot;) as the value for a new &quot;num&quot; column.">
+<div id="fig-pivot-names-and-values" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Un diagramme qui utilise la couleur pour illustrer comment la sentinelle spéciale « .value » fonctionne. L'entrée a les noms « x_1 », « x_2 », « y_1 », et « y_2 », et nous voulons utiliser le premier composant (« x », « y ») comme nom de variable et le second (« 1 », « 2 ») comme la valeur d'une nouvelle colonne « num ».">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pivot-names-and-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="diagrams/tidy-data/names-and-values.png" class="img-fluid figure-img" alt="A diagram that uses color to illustrate how the special &quot;.value&quot; sentinel works. The input has names &quot;x_1&quot;, &quot;x_2&quot;, &quot;y_1&quot;, and &quot;y_2&quot;, and we want to use the first component (&quot;x&quot;, &quot;y&quot;) as a variable name and the second (&quot;1&quot;, &quot;2&quot;) as the value for a new &quot;num&quot; column." width="474">
+<img src="diagrams/tidy-data/names-and-values.png" class="img-fluid figure-img" alt="Un diagramme qui utilise la couleur pour illustrer comment la sentinelle spéciale « .value » fonctionne. L'entrée a les noms « x_1 », « x_2 », « y_1 », et « y_2 », et nous voulons utiliser le premier composant (« x », « y ») comme nom de variable et le second (« 1 », « 2 ») comme la valeur d'une nouvelle colonne « num »." width="474">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pivot-names-and-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits the column names into two components: the first part determines the output column name (<code>x</code> or <code>y</code>), and the second part determines the value of the <code>num</code> column.
+Figure&nbsp;5.7: Pivoter avec <code>names_to = c(".value", "num")</code> divise les noms de colonnes en deux composants : la première partie détermine le nom de la colonne de sortie (<code>x</code> ou <code>y</code>), et la deuxième partie détermine la valeur de la colonne <code>num</code>.
 </figcaption></figure>
 </div>
 </div>
 </div>
-</section></section><section id="widening-data" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="widening-data">
-<span class="header-section-number">5.4</span> Widening data</h2>
-<p>So far we’ve used <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> to solve the common class of problems where values have ended up in column names. Next we’ll pivot (HA HA) to <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code>, which makes datasets <strong>wider</strong> by increasing columns and reducing rows and helps when one observation is spread across multiple rows. This seems to arise less commonly in the wild, but it does seem to crop up a lot when dealing with governmental data.</p>
-<p>We’ll start by looking at <code>cms_patient_experience</code>, a dataset from the Centers of Medicare and Medicaid services that collects data about patient experiences:</p>
+</section></section><section id="élargir-les-données" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="élargir-les-données">
+<span class="header-section-number">5.4</span> Élargir les données</h2>
+<p>Jusqu’à présent, nous avons utilisé <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> pour résoudre la classe commune de problèmes où les valeurs ont fini dans les noms de colonnes. Ensuite, nous pivoter (HA HA) vers <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code>, qui rend les jeux de données <strong>plus larges</strong> en augmentant les colonnes et en réduisant les lignes et aide quand une observation est répartie sur plusieurs lignes. Cela semble surgir moins couramment dans la nature, mais cela semble surgir beaucoup quand on traite des données gouvernementales.</p>
+<p>Nous commencerons par regarder <code>cms_patient_experience</code>, un jeu de données des Centers for Medicare and Medicaid Services qui collecte des données sur les expériences des patients :</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cms_patient_experience</span></span>
 <span><span class="co">#&gt; # A tibble: 500 × 5</span></span>
@@ -890,7 +890,7 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; 6 0446157747 USC CARE MEDICAL GROUP INC CAHPS_GRP_12 CAHPS for MIPS…       24</span></span>
 <span><span class="co">#&gt; # ℹ 494 more rows</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The core unit being studied is an organization, but each organization is spread across six rows, with one row for each measurement taken in the survey organization. We can see the complete set of values for <code>measure_cd</code> and <code>measure_title</code> by using <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code>:</p>
+<p>L’unité centrale étudiée est une organisation, mais chaque organisation est répartie sur six lignes, avec une ligne pour chaque mesure prise dans l’enquête organisationnelle. Nous pouvons voir l’ensemble complet des valeurs pour <code>measure_cd</code> et <code>measure_title</code> en utilisant <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cms_patient_experience</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">measure_cd</span>, <span class="va">measure_title</span><span class="op">)</span></span>
@@ -904,8 +904,8 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; 5 CAHPS_GRP_8  CAHPS for MIPS SSM: Courteous and Helpful Office Staff        </span></span>
 <span><span class="co">#&gt; 6 CAHPS_GRP_12 CAHPS for MIPS SSM: Stewardship of Patient Resources</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Neither of these columns will make particularly great variable names: <code>measure_cd</code> doesn’t hint at the meaning of the variable and <code>measure_title</code> is a long sentence containing spaces. We’ll use <code>measure_cd</code> as the source for our new column names for now, but in a real analysis you might want to create your own variable names that are both short and meaningful.</p>
-<p><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> has the opposite interface to <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>: instead of choosing new column names, we need to provide the existing columns that define the values (<code>values_from</code>) and the column name (<code>names_from</code>):</p>
+<p>Aucune de ces colonnes ne fera de particulièrement bons noms de variables : <code>measure_cd</code> n’indique pas le sens de la variable et <code>measure_title</code> est une longue phrase contenant des espaces. Nous utiliserons <code>measure_cd</code> comme source pour nos nouveaux noms de colonnes pour l’instant, mais dans une analyse réelle, vous pourriez vouloir créer vos propres noms de variables qui sont à la fois courts et significatifs.</p>
+<p><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> a l’interface opposée à <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> : au lieu de choisir de nouveaux noms de colonnes, nous devons fournir les colonnes existantes qui définissent les valeurs (<code>values_from</code>) et le nom de la colonne (<code>names_from</code>) :</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cms_patient_experience</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span></span>
@@ -924,7 +924,7 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; # ℹ 494 more rows</span></span>
 <span><span class="co">#&gt; # ℹ 4 more variables: CAHPS_GRP_3 &lt;dbl&gt;, CAHPS_GRP_5 &lt;dbl&gt;, …</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The output doesn’t look quite right; we still seem to have multiple rows for each organization. That’s because, we also need to tell <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> which column or columns have values that uniquely identify each row; in this case those are the variables starting with <code>"org"</code>:</p>
+<p>La sortie ne semble pas tout à fait correcte ; nous semblons toujours avoir plusieurs lignes pour chaque organisation. C’est parce que nous devons aussi dire à <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> quelle colonne ou colonnes ont des valeurs qui identifient uniquement chaque ligne ; dans ce cas ce sont les variables commençant par <code>"org"</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cms_patient_experience</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span></span>
@@ -944,10 +944,10 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; # ℹ 89 more rows</span></span>
 <span><span class="co">#&gt; # ℹ 2 more variables: CAHPS_GRP_8 &lt;dbl&gt;, CAHPS_GRP_12 &lt;dbl&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This gives us the output that we’re looking for.</p>
-<section id="how-does-pivot_wider-work" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="how-does-pivot_wider-work">
-<span class="header-section-number">5.4.1</span> How does <code>pivot_wider()</code> work?</h3>
-<p>To understand how <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> works, let’s again start with a very simple dataset. This time we have two patients with <code>id</code>s A and B, we have three blood pressure measurements on patient A and two on patient B:</p>
+<p>Cela nous donne la sortie que nous cherchions.</p>
+<section id="comment-fonctionne-pivot_wider" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="comment-fonctionne-pivot_wider">
+<span class="header-section-number">5.4.1</span> Comment fonctionne <code>pivot_wider()</code> ?</h3>
+<p>Pour comprendre comment <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> fonctionne, commençons à nouveau par un jeu de données très simple. Cette fois, nous avons deux patients avec les <code>id</code>s A et B, nous avons trois mesures de pression artérielle sur le patient A et deux sur le patient B :</p>
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">id</span>, <span class="op">~</span><span class="va">measurement</span>, <span class="op">~</span><span class="va">value</span>,</span>
@@ -958,7 +958,7 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span>  <span class="st">"A"</span>,        <span class="st">"bp3"</span>,    <span class="fl">105</span></span>
 <span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We’ll take the values from the <code>value</code> column and the names from the <code>measurement</code> column:</p>
+<p>Nous prendrons les valeurs de la colonne <code>value</code> et les noms de la colonne <code>measurement</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span></span>
@@ -971,14 +971,14 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; 1 A       100   120   105</span></span>
 <span><span class="co">#&gt; 2 B       140   115    NA</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To begin the process <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> needs to first figure out what will go in the rows and columns. The new column names will be the unique values of <code>measurement</code>.</p>
+<p>Pour commencer le processus, <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> doit d’abord déterminer ce qui ira dans les lignes et les colonnes. Les nouveaux noms de colonnes seront les valeurs uniques de <code>measurement</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">measurement</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "bp1" "bp2" "bp3"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>By default, the rows in the output are determined by all the variables that aren’t going into the new names or values. These are called the <code>id_cols</code>. Here there is only one column, but in general there can be any number.</p>
+<p>Par défaut, les lignes dans la sortie sont déterminées par toutes les variables qui ne vont pas dans les nouveaux noms ou valeurs. Ce sont appelés les <code>id_cols</code>. Ici, il n’y a qu’une seule colonne, mais en général il peut y en avoir n’importe quel nombre.</p>
 <div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">!</span><span class="va">measurement</span> <span class="op">&amp;</span> <span class="op">!</span><span class="va">value</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -989,7 +989,7 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; 1 A    </span></span>
 <span><span class="co">#&gt; 2 B</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> then combines these results to generate an empty data frame:</p>
+<p><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> combine ensuite ces résultats pour générer un data frame vide :</p>
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">!</span><span class="va">measurement</span> <span class="op">&amp;</span> <span class="op">!</span><span class="va">value</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1001,8 +1001,8 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; 1 A     NA    NA    NA   </span></span>
 <span><span class="co">#&gt; 2 B     NA    NA    NA</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>It then fills in all the missing values using the data in the input. In this case, not every cell in the output has a corresponding value in the input as there’s no third blood pressure measurement for patient B, so that cell remains missing. We’ll come back to this idea that <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> can “make” missing values in <a href="missing-values.html" class="quarto-xref"><span>Chapitre 18</span></a>.</p>
-<p>You might also wonder what happens if there are multiple rows in the input that correspond to one cell in the output. The example below has two rows that correspond to <code>id</code> “A” and <code>measurement</code> “bp1”:</p>
+<p>Il remplit ensuite toutes les valeurs manquantes à l’aide des données dans l’entrée. Dans ce cas, pas toutes les cellules dans la sortie ont une valeur correspondante dans l’entrée car il n’y a pas de troisième mesure de pression artérielle pour le patient B, donc cette cellule reste manquante. Nous reviendrons à cette idée que <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> peut « créer » des valeurs manquantes dans <a href="missing-values.html" class="quarto-xref"><span>Chapitre 18</span></a>.</p>
+<p>Vous pourriez aussi vous demander ce qui se passe s’il y a plusieurs lignes dans l’entrée qui correspondent à une cellule dans la sortie. L’exemple ci-dessous a deux lignes qui correspondent à <code>id</code> « A » et <code>measurement</code> « bp1 » :</p>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">id</span>, <span class="op">~</span><span class="va">measurement</span>, <span class="op">~</span><span class="va">value</span>,</span>
@@ -1013,7 +1013,7 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span>  <span class="st">"B"</span>,        <span class="st">"bp2"</span>,    <span class="fl">115</span></span>
 <span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If we attempt to pivot this we get an output that contains list-columns, which you’ll learn more about in <a href="rectangling.html" class="quarto-xref"><span>Chapitre 23</span></a>:</p>
+<p>Si nous essayons de pivoter cela, nous obtenons une sortie qui contient des colonnes de listes, dont vous en apprendrez plus dans <a href="rectangling.html" class="quarto-xref"><span>Chapitre 23</span></a> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span></span>
@@ -1034,7 +1034,7 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt; 1 A     &lt;dbl [2]&gt; &lt;dbl [1]&gt;</span></span>
 <span><span class="co">#&gt; 2 B     &lt;dbl [1]&gt; &lt;dbl [1]&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Since you don’t know how to work with this sort of data yet, you’ll want to follow the hint in the warning to figure out where the problem is:</p>
+<p>Puisque vous ne savez pas encore comment travailler avec ce type de données, vous voudrez suivre l’indice dans l’avertissement pour déterminer où se trouve le problème :</p>
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">measurement</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1045,19 +1045,19 @@ Figure&nbsp;5.7: Pivoting with <code>names_to = c(".value", "num")</code> splits
 <span><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;       &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1 A     bp1             2</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>It’s then up to you to figure out what’s gone wrong with your data and either repair the underlying damage or use your grouping and summarizing skills to ensure that each combination of row and column values only has a single row.</p>
-</section></section><section id="summary" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="summary">
-<span class="header-section-number">5.5</span> Summary</h2>
-<p>In this chapter you learned about tidy data: data that has variables in columns and observations in rows. Tidy data makes working in the tidyverse easier, because it’s a consistent structure understood by most functions, the main challenge is transforming the data from whatever structure you receive it in to a tidy format. To that end, you learned about <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> and <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> which allow you to tidy up many untidy datasets. The examples we presented here are a selection of those from <code><a href="https://tidyr.tidyverse.org/articles/pivot.html">vignette("pivot", package = "tidyr")</a></code>, so if you encounter a problem that this chapter doesn’t help you with, that vignette is a good place to try next.</p>
-<p>Another challenge is that, for a given dataset, it can be impossible to label the longer or the wider version as the “tidy” one. This is partly a reflection of our definition of tidy data, where we said tidy data has one variable in each column, but we didn’t actually define what a variable is (and it’s surprisingly hard to do so). It’s totally fine to be pragmatic and to say a variable is whatever makes your analysis easiest. So if you’re stuck figuring out how to do some computation, consider switching up the organisation of your data; don’t be afraid to untidy, transform, and re-tidy as needed!</p>
-<p>If you enjoyed this chapter and want to learn more about the underlying theory, you can learn more about the history and theoretical underpinnings in the <a href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a> paper published in the Journal of Statistical Software.</p>
-<p>Now that you’re writing a substantial amount of R code, it’s time to learn more about organizing your code into files and directories. In the next chapter, you’ll learn all about the advantages of scripts and projects, and some of the many tools that they provide to make your life easier.</p>
+<p>C’est alors à vous de déterminer ce qui s’est mal passé avec vos données et soit de réparer les dommages sous-jacents, soit d’utiliser vos compétences en regroupement et résumé pour vous assurer que chaque combinaison de valeurs de lignes et de colonnes n’a qu’une seule ligne.</p>
+</section></section><section id="résumé" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="résumé">
+<span class="header-section-number">5.5</span> Résumé</h2>
+<p>Dans ce chapitre, vous avez appris les données propres : des données qui ont des variables dans les colonnes et des observations dans les lignes. Les données propres rendent le travail dans le tidyverse plus facile, car c’est une structure cohérente comprise par la plupart des fonctions, le défi principal est de transformer les données de la structure que vous la recevez en un format propre. À cette fin, vous avez appris <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> et <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> qui vous permettent de nettoyer beaucoup de jeux de données désordonnés. Les exemples que nous avons présentés ici sont une sélection de ceux de <code><a href="https://tidyr.tidyverse.org/articles/pivot.html">vignette("pivot", package = "tidyr")</a></code>, donc si vous rencontrez un problème que ce chapitre ne vous aide pas, cette vignette est un bon endroit pour essayer ensuite.</p>
+<p>Un autre défi est que, pour un jeu de données donné, il peut être impossible d’étiqueter la version plus longue ou plus large comme « propre ». C’est en partie le reflet de notre définition des données propres, où nous avons dit que les données propres ont une variable dans chaque colonne, mais nous n’avons pas réellement défini ce qu’est une variable (et c’est étonnamment difficile à faire). C’est totalement acceptable d’être pragmatique et de dire qu’une variable est tout ce qui rend votre analyse plus facile. Donc si vous êtes bloqué sur la façon de faire un calcul, considérez de changer l’organisation de vos données ; n’ayez pas peur de dés-nettoyer, transformer, et re-nettoyer selon les besoins !</p>
+<p>Si vous avez aimé ce chapitre et que vous voulez en savoir plus sur la théorie sous-jacente, vous pouvez en apprendre plus sur l’histoire et les fondements théoriques dans le document <a href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a> publié dans le Journal of Statistical Software.</p>
+<p>Maintenant que vous écrivez une quantité substantielle de code R, il est temps d’en apprendre plus sur l’organisation de votre code en fichiers et répertoires. Dans le chapitre suivant, vous apprendrez tous les avantages des scripts et des projets, et certains des nombreux outils qu’ils fournissent pour faciliter votre vie.</p>
 
 
 </section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
-<li id="fn1"><p>The song will be included as long as it was in the top 100 at some point in 2000, and is tracked for up to 72 weeks after it appears.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>We’ll come back to this idea in <a href="missing-values.html" class="quarto-xref"><span>Chapitre 18</span></a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>La chanson sera incluse tant qu’elle était dans le top 100 à un moment donné en 2000, et est suivie jusqu’à 72 semaines après son apparition.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Nous reviendrons à cette idée dans <a href="missing-values.html" class="quarto-xref"><span>Chapitre 18</span></a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1475,8 +1475,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./workflow-style.html" class="pagination-link" aria-label="Workflow: code style">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span>
+      <a href="./workflow-style.html" class="pagination-link" aria-label="Flux de travail : style de code">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
