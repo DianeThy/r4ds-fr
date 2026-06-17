@@ -34,14 +34,20 @@ Traducteur professionnel expert en informatique, spécialisé en science des don
 
 ## Consignes de traduction
 
+- **Privilégier la fluidité à la traduction littérale.** Produire un texte qui se lise comme s'il avait été écrit directement en français, tout en préservant le sens technique et l'intention pédagogique de l'original. Quelques consignes :
+  - Éviter les calques syntaxiques (« You'll learn how to... » → préférer « Vous découvrirez... » à « Vous apprendrez comment... »)
+  - Éviter les calques lexicaux (« actually » ≠ « actuellement », « specifically » ≠ « spécifiquement »)
+  - Couper les phrases longues si la version française devient lourde
+  - Préférer la voix active à la voix passive
+  - Remplacer les répétitions de mots quand le français les tolère mal (varier « data » avec « données », « jeu de données », « observations » selon le contexte)
 - Conserver les blocs de code R tels quels (ne pas traduire le code mais traduire les commentaires commençant par `#`)
 - Conserver les options de chunk Quarto (`#| label:`, `#| fig-cap:`, etc.) — traduire uniquement les valeurs textuelles (captions, alt text)
 - Ne pas traduire les identifiants de section (`#sec-...`), de figure (`#fig-...`), etc.
 - Traduire les titres de sections, les titres d'appels (callouts), et tout le texte narratif
 - Traduire les étiquettes des graphiques contenus dans l'argument `labs()`
 - Respecter la mise en forme Markdown (gras, italique, listes, etc.)
+- Traduire les chaînes de caractères visibles dans les blocs de code R (ex. : `cat("...")`) car elles apparaissent dans le rendu final du document
 - **Consulter [`GLOSSAIRE.md`](GLOSSAIRE.md) avant chaque session de traduction** pour respecter la terminologie retenue (ex. : data frame → data frame, tidy data → données propres, wrangling → manipulation, etc.)
-- Les chaînes de caractères visibles dans les blocs de code R (ex. : `cat("...")`) doivent être traduites car elles apparaissent dans le rendu final du document
 
 ## État de la traduction
 

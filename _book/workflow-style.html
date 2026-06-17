@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund">
 <meta name="description" content="Traducation française du livre “R pour la Science de Données (2e)” de Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund.">
-<title>4&nbsp; Workflow : style de code – R pour la Science de Données (2e)</title>
+<title>4&nbsp; Flux de travail : style de code – R pour la Science de Données (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-style.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow : style de code</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-style.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -185,19 +185,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-style.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow : style de code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Flux de travail : scripts et projets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -413,8 +413,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/DianeThy/r4ds-fr/edit/main/workflow-style.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/DianeThy/r4ds-fr/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-style.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow : style de code</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-workflow-style" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow : style de code</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./workflow-style.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-workflow-style" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></span></h1>
 </div>
 
 
@@ -428,8 +428,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Un bon style de code est comme une ponctuation correcte : vous pouvez vous en passer, mais cela rend les choses beaucoup plus faciles à lire. Même si vous êtes un très nouveau programmeur, c’est une bonne idée de travailler sur votre style de code. L’utilisation d’un style cohérent facilite la lecture de votre travail par d’autres personnes (y compris vous-même dans le futur !) et est particulièrement importante si vous avez besoin d’aide de quelqu’un d’autre. Ce chapitre présentera les points les plus importants du <a href="https://style.tidyverse.org">guide de style tidyverse</a>, qui est utilisé tout au long de ce livre.</p>
-<p>Styler votre code semblera un peu fastidieux au début, mais si vous le pratiquez, cela deviendra rapidement une seconde nature. De plus, il existe d’excellents outils pour remodeler rapidement le code existant, comme le package <a href="https://styler.r-lib.org"><strong>styler</strong></a> par Lorenz Walthert. Une fois que vous l’avez installé avec <code>install.packages("styler")</code>, un moyen facile de l’utiliser est via la <strong>palette de commandes</strong> d’RStudio. La palette de commandes vous permet d’utiliser n’importe quelle commande RStudio intégrée et de nombreux addins fournis par les packages. Ouvrez la palette en appuyant sur Cmd/Ctrl + Shift + P, puis tapez « styler » pour voir tous les raccourcis offerts par styler. <a href="#fig-styler" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> montre les résultats.</p>
+</header><p>Un bon style de code c’est comme une ponctuation correcte : vous pouvez vous en passer, mais cela rend les choses beaucoup plus faciles à lire. Même si vous êtes un programmeur novice, c’est une bonne chose de travailler votre style de code. L’utilisation d’un style cohérent facilite la lecture de votre travail par d’autres personnes (y compris vous-même dans le futur !) et est particulièrement importante si vous avez besoin de l’aide de quelqu’un d’autre. Ce chapitre présentera les points les plus importants du <a href="https://style.tidyverse.org">guide de style tidyverse</a>, qui est utilisé tout au long de ce livre.</p>
+<p>Mettre en forme votre code vous semblera un peu fastidieux au début, mais avec un peu de pratique, cela deviendra vite une seconde nature. De plus, il existe d’excellents outils pour remodeler rapidement le code existant, comme le package <a href="https://styler.r-lib.org"><strong>styler</strong></a> par Lorenz Walthert. Une fois que vous l’avez installé avec <code>install.packages("styler")</code>, un moyen facile de l’utiliser est via la <strong>palette de commandes</strong> d’RStudio. La palette de commandes vous permet d’utiliser n’importe quelle commande RStudio intégrée et de nombreux addins fournis par les packages. Ouvrez la palette en appuyant sur Cmd/Ctrl + Shift + P, puis tapez « styler » pour voir tous les raccourcis offerts par styler. La <a href="#fig-styler" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> montre les résultats.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-styler" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Capture d'écran montrant la palette de commandes après avoir tapé « styler », affichant les quatre outils de style fournis par le package.">
@@ -437,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="screenshots/rstudio-palette.png" class="img-fluid figure-img" alt="Capture d'écran montrant la palette de commandes après avoir tapé « styler », affichant les quatre outils de style fournis par le package." width="638">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-styler-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaque commande RStudio en utilisant uniquement le clavier.
+Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaque commande en utilisant uniquement le clavier.
 </figcaption></figure>
 </div>
 </div>
@@ -449,7 +449,7 @@ Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaq
 </div>
 <section id="noms" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="noms">
 <span class="header-section-number">4.1</span> Noms</h2>
-<p>Nous avons brièvement parlé des noms dans <a href="workflow-basics.html#sec-whats-in-a-name" class="quarto-xref"><span>Section 2.3</span></a>. Rappelez-vous que les noms de variables (ceux créés par <code>&lt;-</code> et ceux créés par <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>) doivent utiliser uniquement des lettres minuscules, des chiffres et <code>_</code>. Utilisez <code>_</code> pour séparer les mots dans un nom.</p>
+<p>Nous avons brièvement parlé des noms dans la <a href="workflow-basics.html#sec-whats-in-a-name" class="quarto-xref"><span>Section 2.3</span></a>. Rappelez-vous que les noms de variables (ceux créés par <code>&lt;-</code> et ceux créés par <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>) doivent utiliser uniquement des lettres minuscules, des chiffres et <code>_</code>. Utilisez <code>_</code> pour séparer les mots dans un nom.</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Visez ceci :</span></span>
 <span><span class="va">short_flights</span> <span class="op">&lt;-</span> <span class="va">flights</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">air_time</span> <span class="op">&lt;</span> <span class="fl">60</span><span class="op">)</span></span>
@@ -457,8 +457,8 @@ Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaq
 <span><span class="co"># Évitez ceci :</span></span>
 <span><span class="va">SHORTFLIGHTS</span> <span class="op">&lt;-</span> <span class="va">flights</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">air_time</span> <span class="op">&lt;</span> <span class="fl">60</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>En règle générale, il est préférable de préférer les noms longs et descriptifs qui sont faciles à comprendre plutôt que les noms concis qui sont rapides à taper. Les noms courts économisent relativement peu de temps lors de l’écriture du code (surtout parce que l’autocomplétion vous aidera à terminer la saisie), mais cela peut prendre du temps quand vous revenez à un ancien code et que vous êtes forcé de démêler une abréviation cryptique.</p>
-<p>Si vous avez un tas de noms pour des choses connexes, faites de votre mieux pour être cohérent. Il est facile que des incohérences surgissent quand vous oubliez une convention précédente, donc ne vous en voulez pas si vous devez revenir en arrière et renommer les choses. En général, si vous avez un tas de variables qui sont une variation sur un thème, il est préférable de leur donner un préfixe commun plutôt qu’un suffixe commun car l’autocomplétion fonctionne mieux au début d’une variable.</p>
+<p>En règle générale, il est préférable de préférer les noms longs et descriptifs qui sont faciles à comprendre plutôt que les noms concis qui sont rapides à taper. Les noms courts économisent relativement peu de temps lors de l’écriture du code (surtout parce que l’autocomplétion vous aidera à terminer la saisie), mais cela peut prendre du temps quand vous revenez à un ancien code et que vous êtes forcé de démêler une abréviation énigmatique.</p>
+<p>Si vous avez beaucoup de noms pour des choses connexes, faites de votre mieux pour être cohérent. Il est facile que des incohérences surgissent quand vous oubliez une convention précédente, donc ne vous en voulez pas si vous devez revenir en arrière et renommer les choses. En général, si vous avez beaucoup de variables qui sont des variations d’un même thème, il est préférable de leur donner un préfixe commun plutôt qu’un suffixe commun car l’autocomplétion fonctionne mieux au début d’une variable.</p>
 </section><section id="espaces" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="espaces">
 <span class="header-section-number">4.2</span> Espaces</h2>
 <p>Mettez des espaces de chaque côté des opérateurs mathématiques à l’exception de <code>^</code> (c’est-à-dire <code>+</code>, <code>-</code>, <code>==</code>, <code>&lt;</code>, …), et autour de l’opérateur d’affectation (<code>&lt;-</code>).</p>
@@ -488,7 +488,7 @@ Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaq
 </div>
 </section><section id="sec-pipes" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="sec-pipes">
 <span class="header-section-number">4.3</span> Pipes</h2>
-<p><code>|&gt;</code> devrait toujours avoir un espace avant lui et devrait généralement être la dernière chose sur une ligne. Cela rend plus facile d’ajouter de nouvelles étapes, de réorganiser les étapes existantes, de modifier les éléments dans une étape, et d’avoir une vue de 10 000 pieds en parcourant les verbes du côté gauche.</p>
+<p><code>|&gt;</code> devrait toujours avoir un espace avant et devrait généralement être la dernière chose sur une ligne. Cela rend plus facile l’ajout de nouvelles étapes, la réorganisation des étapes existantes, la modification des éléments dans une étape, et permet d’avoir une vue d’ensemble en parcourant rapidement les verbes affichés à gauche.</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Visez ceci</span></span>
 <span><span class="va">flights</span> <span class="op">|&gt;</span>  </span>
@@ -498,7 +498,7 @@ Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaq
 <span><span class="co"># Évitez ceci</span></span>
 <span><span class="va">flights</span><span class="op">|&gt;</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">arr_delay</span><span class="op">)</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">tailnum</span><span class="op">)</span><span class="op">)</span><span class="op">|&gt;</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">dest</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Si la fonction dans laquelle vous faites du piping a des arguments nommés (comme <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> ou <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>), mettez chaque argument sur une nouvelle ligne. Si la fonction n’a pas d’arguments nommés (comme <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> ou <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>), gardez tout sur une ligne sauf si cela ne tient pas, auquel cas vous devriez mettre chaque argument sur sa propre ligne.</p>
+<p>Si la fonction à laquelle vous transmettez des données via le pipe comporte des arguments nommés (comme <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> ou <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>), mettez chaque argument sur une nouvelle ligne. Si la fonction n’a pas d’arguments nommés (comme <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> ou <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>), gardez tout sur une ligne sauf si cela ne tient pas, auquel cas vous devriez mettre chaque argument sur sa propre ligne.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Visez ceci</span></span>
 <span><span class="va">flights</span> <span class="op">|&gt;</span>  </span>
@@ -541,19 +541,19 @@ Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaq
 <span>  n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>C’est acceptable de contourner certaines de ces règles si votre pipeline tient facilement sur une ligne. Mais selon notre expérience collective, il est courant que les petits extraits deviennent plus longs, donc vous économiserez généralement du temps à long terme en commençant par tout l’espace vertical dont vous avez besoin.</p>
+<p>C’est acceptable de contourner certaines de ces règles si votre pipeline tient facilement sur une ligne. Mais selon notre expérience collective, il est courant que les petits extraits deviennent plus longs, donc vous économiserez généralement du temps à long terme en insérant l’espace vertical dont vous avez besoin au début de la ligne.</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cela tient compactement sur une ligne</span></span>
 <span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Bien que cela prenne 4 fois autant de lignes, c'est facilement extensible à </span></span>
+<span><span class="co"># Bien que cela prenne 4 fois plus de lignes, c'est facilement extensible à </span></span>
 <span><span class="co"># plus de variables et plus d'étapes à l'avenir</span></span>
 <span><span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>    y <span class="op">=</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Enfin, méfiez-vous d’écrire très longs pipelines, disons plus de 10-15 lignes. Essayez de les diviser en sous-tâches plus petites, en donnant à chaque tâche un nom informatif. Les noms aideront à indiquer au lecteur ce qui se passe et rendront plus facile de vérifier que les résultats intermédiaires sont comme prévu. Chaque fois que vous pouvez donner à quelque chose un nom informatif, vous devriez donner à quelque chose un nom informatif, par exemple lorsque vous modifiez fondamentalement la structure des données, par exemple après un pivot ou un résumé. Ne vous attendez pas à bien faire du premier coup ! Cela signifie diviser les longs pipelines s’il y a des états intermédiaires qui peuvent obtenir de bons noms.</p>
+<p>Enfin, évitez d’écrire de très longs pipelines, disons plus de 10-15 lignes. Essayez de les diviser en sous-tâches plus petites, en donnant à chaque tâche un nom informatif. Les noms aideront à indiquer au lecteur ce qui se passe et rendront plus facile la vérification des résultats intermédiaires. Chaque fois que vous pouvez donner un nom évocateur à quelque chose, vous devriez le faire, par exemple lorsque vous modifiez fondamentalement la structure des données, après un pivot ou un résumé. Ne vous attendez pas à bien faire du premier coup ! Cela signifie diviser les longs pipelines s’il y a des états intermédiaires qui peuvent obtenir de bons noms.</p>
 </section><section id="ggplot2" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="ggplot2">
 <span class="header-section-number">4.4</span> ggplot2</h2>
 <p>Les mêmes règles de base qui s’appliquent au pipe s’appliquent également à ggplot2 ; traitez simplement <code>+</code> de la même manière que <code>|&gt;</code>.</p>
@@ -594,7 +594,7 @@ Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaq
 <span></span>
 <span><span class="co"># Tracer les données ------------------------------------</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>RStudio fournit un raccourci clavier pour créer ces en-têtes (Cmd/Ctrl + Shift + R), et les affichera dans la liste déroulante de navigation de code en bas à gauche de l’éditeur, comme indiqué dans <a href="#fig-rstudio-sections" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>.</p>
+<p>RStudio fournit un raccourci clavier pour créer ces en-têtes (Cmd/Ctrl + Shift + R), et les affichera dans la liste déroulante de navigation de code en bas à gauche de l’éditeur, comme indiqué dans la <a href="#fig-rstudio-sections" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-rstudio-sections" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -602,7 +602,7 @@ Figure&nbsp;4.1: La palette de commandes d’RStudio facilite l’accès à chaq
 <img src="screenshots/rstudio-nav.png" class="img-fluid figure-img" width="125">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-sections-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Après avoir ajouté des commentaires de section à votre script, vous pouvez facilement naviguer vers eux en utilisant l’outil de navigation de code dans le bas-left de l’éditeur de script.
+Figure&nbsp;4.2: Après avoir ajouté des commentaires de section à votre script, vous pouvez facilement naviguer entre eux en utilisant l’outil de navigation de code en bas à gauche de l’éditeur de script.
 </figcaption></figure>
 </div>
 </div>
@@ -623,8 +623,8 @@ Figure&nbsp;4.2: Après avoir ajouté des commentaires de section à votre scrip
 </li>
 </ol></section><section id="résumé" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="résumé">
 <span class="header-section-number">4.7</span> Résumé</h2>
-<p>Dans ce chapitre, vous avez appris les principes les plus importants du style de code. Ceux-ci peuvent sembler être un ensemble de règles arbitraires au départ (parce que c’est le cas !) mais au fil du temps, à mesure que vous écrivez plus de code et que vous partagez du code avec plus de personnes, vous verrez à quel point un style cohérent est important. Et n’oubliez pas le package styler : c’est un excellent moyen d’améliorer rapidement la qualité du code mal formaté.</p>
-<p>Dans le chapitre suivant, nous revenons aux outils de science des données, en apprenant les données propres. Les données propres sont une façon cohérente d’organiser vos data frames qui est utilisée tout au long du tidyverse. Cette cohérence rend votre vie plus facile car une fois que vous avez des données propres, cela fonctionne simplement avec la grande majorité des fonctions tidyverse. Bien sûr, la vie n’est jamais facile, et la plupart des jeux de données que vous rencontrerez dans la nature ne seront pas déjà propres. Donc nous vous enseignerons aussi comment utiliser le package tidyr pour nettoyer vos données désordonnées.</p>
+<p>Dans ce chapitre, vous avez appris les principes les plus importants du style de code. Ceux-ci peuvent sembler arbitraires au départ (parce que c’est le cas !) mais au fil du temps, à mesure que vous écrivez plus de code et que vous partagez du code avec plus de personnes, vous verrez à quel point un style cohérent est important. Et n’oubliez pas le package styler : c’est un excellent moyen d’améliorer rapidement la qualité du code mal formaté.</p>
+<p>Dans le chapitre suivant, nous revenons aux outils de science des données, en apprenant les données propres (tidy). Les données propres sont une façon cohérente d’organiser vos data frames qui est utilisée tout au long du tidyverse. Cette cohérence vous facilite la vie, car une fois que vos données sont propres, elles fonctionnent tout simplement avec la grande majorité des fonctions de tidyverse. Bien sûr, la vie n’est jamais facile, et la plupart des jeux de données que vous rencontrerez ne seront pas propres. Donc nous vous enseignerons aussi comment utiliser le package tidyr pour nettoyer vos données désordonnées.</p>
 
 
 </section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
@@ -1052,8 +1052,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data-tidy.html" class="pagination-link" aria-label="Data tidying">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./data-tidy.html" class="pagination-link" aria-label="Nettoyage de données">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage de données</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund">
 <meta name="description" content="Traducation française du livre “R pour la Science de Données (2e)” de Hadley Wickham, Mine Çetinkaya-Rundel, et Garrett Grolemund.">
-<title>7&nbsp; Data import – R pour la Science de Données (2e)</title>
+<title>7&nbsp; Importation de données – R pour la Science de Données (2e)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-import.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data import</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-import.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importation de données</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -173,37 +173,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Transformation de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Flux de travail : scripts et projets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-import.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importation de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -406,35 +406,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a>
   <ul class="collapse">
-<li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">7.1.1</span> Prerequisites</a></li>
+<li><a href="#pr%C3%A9requis" id="toc-prérequis" class="nav-link" data-scroll-target="#pr%C3%A9requis"><span class="header-section-number">7.1.1</span> Prérequis</a></li>
   </ul>
 </li>
   <li>
-<a href="#reading-data-from-a-file" id="toc-reading-data-from-a-file" class="nav-link" data-scroll-target="#reading-data-from-a-file"><span class="header-section-number">7.2</span> Reading data from a file</a>
+<a href="#lire-les-donn%C3%A9es-depuis-un-fichier" id="toc-lire-les-données-depuis-un-fichier" class="nav-link" data-scroll-target="#lire-les-donn%C3%A9es-depuis-un-fichier"><span class="header-section-number">7.2</span> Lire les données depuis un fichier</a>
   <ul class="collapse">
-<li><a href="#practical-advice" id="toc-practical-advice" class="nav-link" data-scroll-target="#practical-advice"><span class="header-section-number">7.2.1</span> Practical advice</a></li>
-  <li><a href="#other-arguments" id="toc-other-arguments" class="nav-link" data-scroll-target="#other-arguments"><span class="header-section-number">7.2.2</span> Other arguments</a></li>
-  <li><a href="#other-file-types" id="toc-other-file-types" class="nav-link" data-scroll-target="#other-file-types"><span class="header-section-number">7.2.3</span> Other file types</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.2.4</span> Exercises</a></li>
+<li><a href="#conseils-pratiques" id="toc-conseils-pratiques" class="nav-link" data-scroll-target="#conseils-pratiques"><span class="header-section-number">7.2.1</span> Conseils pratiques</a></li>
+  <li><a href="#autres-arguments" id="toc-autres-arguments" class="nav-link" data-scroll-target="#autres-arguments"><span class="header-section-number">7.2.2</span> Autres arguments</a></li>
+  <li><a href="#autres-types-de-fichiers" id="toc-autres-types-de-fichiers" class="nav-link" data-scroll-target="#autres-types-de-fichiers"><span class="header-section-number">7.2.3</span> Autres types de fichiers</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7.2.4</span> Exercices</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-col-types" id="toc-sec-col-types" class="nav-link" data-scroll-target="#sec-col-types"><span class="header-section-number">7.3</span> Controlling column types</a>
+<a href="#sec-col-types" id="toc-sec-col-types" class="nav-link" data-scroll-target="#sec-col-types"><span class="header-section-number">7.3</span> Contrôler les types de colonnes</a>
   <ul class="collapse">
-<li><a href="#guessing-types" id="toc-guessing-types" class="nav-link" data-scroll-target="#guessing-types"><span class="header-section-number">7.3.1</span> Guessing types</a></li>
-  <li><a href="#missing-values-column-types-and-problems" id="toc-missing-values-column-types-and-problems" class="nav-link" data-scroll-target="#missing-values-column-types-and-problems"><span class="header-section-number">7.3.2</span> Missing values, column types, and problems</a></li>
-  <li><a href="#column-types" id="toc-column-types" class="nav-link" data-scroll-target="#column-types"><span class="header-section-number">7.3.3</span> Column types</a></li>
+<li><a href="#deviner-les-types" id="toc-deviner-les-types" class="nav-link" data-scroll-target="#deviner-les-types"><span class="header-section-number">7.3.1</span> Deviner les types</a></li>
+  <li><a href="#valeurs-manquantes-types-de-colonnes-et-probl%C3%A8mes" id="toc-valeurs-manquantes-types-de-colonnes-et-problèmes" class="nav-link" data-scroll-target="#valeurs-manquantes-types-de-colonnes-et-probl%C3%A8mes"><span class="header-section-number">7.3.2</span> Valeurs manquantes, types de colonnes et problèmes</a></li>
+  <li><a href="#types-de-colonnes" id="toc-types-de-colonnes" class="nav-link" data-scroll-target="#types-de-colonnes"><span class="header-section-number">7.3.3</span> Types de colonnes</a></li>
   </ul>
 </li>
-  <li><a href="#sec-readr-directory" id="toc-sec-readr-directory" class="nav-link" data-scroll-target="#sec-readr-directory"><span class="header-section-number">7.4</span> Reading data from multiple files</a></li>
-  <li><a href="#sec-writing-to-a-file" id="toc-sec-writing-to-a-file" class="nav-link" data-scroll-target="#sec-writing-to-a-file"><span class="header-section-number">7.5</span> Writing to a file</a></li>
-  <li><a href="#data-entry" id="toc-data-entry" class="nav-link" data-scroll-target="#data-entry"><span class="header-section-number">7.6</span> Data entry</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7.7</span> Summary</a></li>
+  <li><a href="#sec-readr-directory" id="toc-sec-readr-directory" class="nav-link" data-scroll-target="#sec-readr-directory"><span class="header-section-number">7.4</span> Importer les données de plusieurs fichiers</a></li>
+  <li><a href="#sec-writing-to-a-file" id="toc-sec-writing-to-a-file" class="nav-link" data-scroll-target="#sec-writing-to-a-file"><span class="header-section-number">7.5</span> Exporter un fichier</a></li>
+  <li><a href="#saisie-de-donn%C3%A9es" id="toc-saisie-de-données" class="nav-link" data-scroll-target="#saisie-de-donn%C3%A9es"><span class="header-section-number">7.6</span> Saisie de données</a></li>
+  <li><a href="#r%C3%A9sum%C3%A9" id="toc-résumé" class="nav-link" data-scroll-target="#r%C3%A9sum%C3%A9"><span class="header-section-number">7.7</span> Résumé</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/DianeThy/r4ds-fr/edit/main/data-import.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/DianeThy/r4ds-fr/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-import.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data import</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-data-import" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data import</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./whole-game.html">Vue d’ensemble</a></li><li class="breadcrumb-item"><a href="./data-import.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importation de données</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-data-import" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importation de données</span></span></h1>
 </div>
 
 
@@ -450,17 +450,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><section id="introduction" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">7.1</span> Introduction</h2>
-<p>Working with data provided by R packages is a great way to learn data science tools, but you want to apply what you’ve learned to your own data at some point. In this chapter, you’ll learn the basics of reading data files into R.</p>
-<p>Specifically, this chapter will focus on reading plain-text rectangular files. We’ll start with practical advice for handling features like column names, types, and missing data. You will then learn about reading data from multiple files at once and writing data from R to a file. Finally, you’ll learn how to handcraft data frames in R.</p>
-<section id="prerequisites" class="level3" data-number="7.1.1"><h3 data-number="7.1.1" class="anchored" data-anchor-id="prerequisites">
-<span class="header-section-number">7.1.1</span> Prerequisites</h3>
-<p>In this chapter, you’ll learn how to load flat files in R with the <strong>readr</strong> package, which is part of the core tidyverse.</p>
+<p>Travailler avec les données fournies par les packages R est un excellent moyen de se familiariser avec les outils de science des données, mais à un moment donné, vous aurez envie de mettre en pratique ce que vous avez appris sur vos propres données. Ce chapitre vous montre les bases de l’import de fichiers de données dans R.</p>
+<p>Nous nous concentrerons tout particulièrement sur l’import de fichiers tabulaires. Nous commencerons par des conseils pratiques pour gérer des caractéristiques comme les noms de colonnes, les types et les valeurs manquantes. Vous apprendrez ensuite à importer les données de plusieurs fichiers à la fois et à exporter des données de R dans un fichier. Enfin, vous verrez comment créer des data frames manuellement dans R.</p>
+<section id="prérequis" class="level3" data-number="7.1.1"><h3 data-number="7.1.1" class="anchored" data-anchor-id="prérequis">
+<span class="header-section-number">7.1.1</span> Prérequis</h3>
+<p>Dans ce chapitre, vous découvrirez comment charger des fichiers classiques dans R avec le package <strong>readr</strong>, qui fait partie du tidyverse.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="reading-data-from-a-file" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="reading-data-from-a-file">
-<span class="header-section-number">7.2</span> Reading data from a file</h2>
-<p>To begin, we’ll focus on the most common rectangular data file type: CSV, which is short for comma-separated values. Here is what a simple CSV file looks like. The first row, commonly called the header row, gives the column names, and the following six rows provide the data. The columns are separated, aka delimited, by commas.</p>
+</section></section><section id="lire-les-données-depuis-un-fichier" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="lire-les-données-depuis-un-fichier">
+<span class="header-section-number">7.2</span> Lire les données depuis un fichier</h2>
+<p>Pour commencer, nous nous concentrerons sur le type de fichier de données tabulaire le plus courant : le CSV (comma-separated values). Voici à quoi ressemble un fichier CSV simple. La première ligne, généralement appelée ligne d’en-tête, donne les noms des colonnes, et les six lignes suivantes contiennent les données. Les colonnes sont séparées, c’est-à-dire délimitées, par des virgules.</p>
 <div class="cell">
 <pre><code>Student ID,Full Name,favourite.food,mealPlan,AGE
 1,Sunil Huffmann,Strawberry yoghurt,Lunch only,4
@@ -470,11 +470,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5,Chidiegwu Dunkel,Pizza,Breakfast and lunch,five
 6,Güvenç Attila,Ice cream,Lunch only,6</code></pre>
 </div>
-<p><a href="#tbl-students-table" class="quarto-xref">Table&nbsp;<span>7.1</span></a> shows a representation of the same data as a table.</p>
+<p>La <a href="#tbl-students-table" class="quarto-xref">Table&nbsp;<span>7.1</span></a> montre une représentation des mêmes données sous forme de tableau.</p>
 <div class="cell">
 <div id="tbl-students-table" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-students-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.1: Data from the students.csv file as a table.
+Table&nbsp;7.1: Données du fichier students.csv présentées sous forme de tableau.
 </figcaption><div aria-describedby="tbl-students-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
@@ -542,7 +542,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 </figure>
 </div>
 </div>
-<p>We can read this file into R using <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>. The first argument is the most important: the path to the file. You can think about the path as the address of the file: the file is called <code>students.csv</code> and it lives in the <code>data</code> folder.</p>
+<p>Nous pouvons importer ce fichier dans R en utilisant <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>. Le premier argument est le plus important : le chemin vers le fichier. Vous pouvez considérez le chemin comme l’adresse du fichier : le fichier s’appelle <code>students.csv</code> et il se trouve dans le dossier <code>data</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/students.csv"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 6 Columns: 5</span></span>
@@ -554,14 +554,14 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The code above will work if you have the <code>students.csv</code> file in a <code>data</code> folder in your project. You can download the <code>students.csv</code> file from <a href="https://pos.it/r4ds-students-csv" class="uri">https://pos.it/r4ds-students-csv</a> or you can read it directly from that URL with:</p>
+<p>Le code ci-dessus fonctionnera si votre fichier <code>students.csv</code> se trouve dans le dossier <code>data</code> de votre projet. Vous pouvez télécharger le fichier <code>students.csv</code> depuis <a href="https://pos.it/r4ds-students-csv" class="uri">https://pos.it/r4ds-students-csv</a> ou l’importer directement à partir de cette URL avec :</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://pos.it/r4ds-students-csv"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>When you run <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, it prints out a message telling you the number of rows and columns of data, the delimiter that was used, and the column specifications (names of columns organized by the type of data the column contains). It also prints out some information about retrieving the full column specification and how to quiet this message. This message is an integral part of readr, and we’ll return to it in <a href="#sec-col-types" class="quarto-xref"><span>Section 7.3</span></a>.</p>
-<section id="practical-advice" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="practical-advice">
-<span class="header-section-number">7.2.1</span> Practical advice</h3>
-<p>Once you read data in, the first step usually involves transforming it in some way to make it easier to work with in the rest of your analysis. Let’s take another look at the <code>students</code> data with that in mind.</p>
+<p>Quand vous exécutez <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, cela affiche un message indiquant le nombre de lignes et de colonnes des données, le séparateur utilisé, et les spécifications des colonnes (noms des colonnes organisés par type de données). Cela affiche également des informations sur la manière d’obtenir la spécification complète de la colonne et sur la façon de désactiver ce message. Ce message fait partie intégrante de readr, et nous en reparlerons en <a href="#sec-col-types" class="quarto-xref"><span>Section 7.3</span></a>.</p>
+<section id="conseils-pratiques" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="conseils-pratiques">
+<span class="header-section-number">7.2.1</span> Conseils pratiques</h3>
+<p>Une fois que vous avez importé les données, la première étape consiste généralement à les transformer d’une manière ou d’une autre pour les rendre plus faciles à manipuler pour le reste de votre analyse. Jetons un nouveau coup d’œil aux données <code>students</code> en gardant cela à l’esprit.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 5</span></span>
@@ -574,7 +574,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 5            5 Chidiegwu Dunkel Pizza              Breakfast and lunch five </span></span>
 <span><span class="co">#&gt; 6            6 Güvenç Attila    Ice cream          Lunch only          6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In the <code>favourite.food</code> column, there are a bunch of food items, and then the character string <code>N/A</code>, which should have been a real <code>NA</code> that R will recognize as “not available”. This is something we can address using the <code>na</code> argument. By default, <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> only recognizes empty strings (<code>""</code>) in this dataset as <code>NA</code>s, and we want it to also recognize the character string <code>"N/A"</code>.</p>
+<p>Dans la colonne <code>favourite.food</code>, on trouve plusieurs aliments ainsi que la chaîne de caractères <code>N/A</code> qui devrait être un vrai <code>NA</code> que R reconnaît comme « not available ». Nous pouvons régler ce problème en utilisant l’argument <code>na</code>. Par défaut, la fonction <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> reconnaît uniquement les chaînes vides (<code>""</code>) comme valeurs manquantes <code>NA</code>, mais nous voulons qu’elle reconnaisse aussi la chaîne de caractères <code>"N/A"</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/students.csv"</span>, na <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"N/A"</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -589,7 +589,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 5            5 Chidiegwu Dunkel Pizza              Breakfast and lunch five </span></span>
 <span><span class="co">#&gt; 6            6 Güvenç Attila    Ice cream          Lunch only          6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You might also notice that the <code>Student ID</code> and <code>Full Name</code> columns are surrounded by backticks. That’s because they contain spaces, breaking R’s usual rules for variable names; they’re <strong>non-syntactic</strong> names. To refer to these variables, you need to surround them with backticks, <code>`</code>:</p>
+<p>Vous remarquerez peut-être aussi que les colonnes <code>Student ID</code> et <code>Full Name</code> sont entourées de backticks. C’est parce qu’elles contiennent des espaces, ce qui enfreint les règles habituelles de R pour les noms de variables ; ce sont des noms <strong>non syntaxiques</strong>. Pour faire référence à ces variables, vous devez les entourer de backticks, <code>`</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span></span>
@@ -606,7 +606,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch five </span></span>
 <span><span class="co">#&gt; 6          6 Güvenç Attila    Ice cream          Lunch only          6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>An alternative approach is to use <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html">janitor::clean_names()</a></code> to use some heuristics to turn them all into snake case at once<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Une autre approche consiste à utiliser <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html">janitor::clean_names()</a></code> qui applique quelques règles afin de les transformer toutes en snake_case en une seule opération<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">|&gt;</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 5</span></span>
@@ -619,7 +619,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch five </span></span>
 <span><span class="co">#&gt; 6          6 Güvenç Attila    Ice cream          Lunch only          6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Another common task after reading in data is to consider variable types. For example, <code>meal_plan</code> is a categorical variable with a known set of possible values, which in R should be represented as a factor:</p>
+<p>Une autre tâche courante après l’import des données est de vérifier les types de variables. Par exemple, <code>meal_plan</code> est une variable catégorielle avec un ensemble connu de valeurs possibles, qui en R devrait être présentée comme un facteur :</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -634,8 +634,8 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch five </span></span>
 <span><span class="co">#&gt; 6          6 Güvenç Attila    Ice cream          Lunch only          6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that the values in the <code>meal_plan</code> variable have stayed the same, but the type of variable denoted underneath the variable name has changed from character (<code>&lt;chr&gt;</code>) to factor (<code>&lt;fct&gt;</code>). You’ll learn more about factors in <a href="factors.html" class="quarto-xref"><span>Chapitre 16</span></a>.</p>
-<p>Before you analyze these data, you’ll probably want to fix the <code>age</code> column. Currently, <code>age</code> is a character variable because one of the observations is typed out as <code>five</code> instead of a numeric <code>5</code>. We discuss the details of fixing this issue in <a href="spreadsheets.html" class="quarto-xref"><span>Chapitre 20</span></a>.</p>
+<p>Notez que les valeurs de la variable <code>meal_plan</code> sont restées identiques, mais le type de variable indiqué sous le nom de la variable a changé, passant de caractère (<code>&lt;chr&gt;</code>) à facteur (<code>&lt;fct&gt;</code>). Vous en apprendrez plus sur les facteurs dans le <a href="factors.html" class="quarto-xref"><span>Chapitre 16</span></a>.</p>
+<p>Avant d’analyser ces données, vous devrez corriger la colonne <code>age</code>. Actuellement, <code>age</code> est une variable caractère parce que l’une des observations est écrite sous forme textuelle <code>five</code> au lieu du nombre <code>5</code>. Nous discuterons des détails de la résolution de ce problème dans le <a href="spreadsheets.html" class="quarto-xref"><span>Chapitre 20</span></a>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">&lt;-</span> <span class="va">students</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -655,10 +655,10 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch     5</span></span>
 <span><span class="co">#&gt; 6          6 Güvenç Attila    Ice cream          Lunch only              6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>A new function here is <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code>, which has three arguments. The first argument <code>test</code> should be a logical vector. The result will contain the value of the second argument, <code>yes</code>, when <code>test</code> is <code>TRUE</code>, and the value of the third argument, <code>no</code>, when it is <code>FALSE</code>. Here we’re saying if <code>age</code> is the character string <code>"five"</code>, make it <code>"5"</code>, and if not leave it as <code>age</code>. You will learn more about <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code> and logical vectors in <a href="logicals.html" class="quarto-xref"><span>Chapitre 12</span></a>.</p>
-</section><section id="other-arguments" class="level3" data-number="7.2.2"><h3 data-number="7.2.2" class="anchored" data-anchor-id="other-arguments">
-<span class="header-section-number">7.2.2</span> Other arguments</h3>
-<p>There are a couple of other important arguments that we need to mention, and they’ll be easier to demonstrate if we first show you a handy trick: <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> can read text strings that you’ve created and formatted like a CSV file:</p>
+<p>Une nouvelle fonction ici est <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code>, qui a trois arguments. Le premier argument <code>test</code> doit être un vecteur logique. Le résultat contiendra la valeur du deuxième argument, <code>yes</code>, quand <code>test</code> est <code>TRUE</code>, et la valeur du troisième argument, <code>no</code>, quand il est <code>FALSE</code>. Ici, nous disons que si <code>age</code> est la chaîne <code>"five"</code>, nous la remplaçons par <code>"5"</code>, sinon nous la laissons telle quelle. Vous en apprendrez plus sur <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code> et les vecteurs logiques dans le <a href="logicals.html" class="quarto-xref"><span>Chapitre 12</span></a>.</p>
+</section><section id="autres-arguments" class="level3" data-number="7.2.2"><h3 data-number="7.2.2" class="anchored" data-anchor-id="autres-arguments">
+<span class="header-section-number">7.2.2</span> Autres arguments</h3>
+<p>Il y a quelques autres arguments importants que nous devons mentionner, ils seront plus faciles à démontrer si nous vous montrons d’abord une astuce : <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> peut lire les chaînes de texte que vous avez créées et formatées comme un fichier CSV :</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span></span>
 <span>  <span class="st">"a,b,c</span></span>
@@ -679,7 +679,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 1     1     2     3</span></span>
 <span><span class="co">#&gt; 2     4     5     6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Usually, <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> uses the first line of the data for the column names, which is a very common convention. But it’s not uncommon for a few lines of metadata to be included at the top of the file. You can use <code>skip = n</code> to skip the first <code>n</code> lines or use <code>comment = "#"</code> to drop all lines that start with (e.g.) <code>#</code>:</p>
+<p>Généralement, <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> utilise la première ligne des données pour les noms de colonnes, c’est une convention très courante. Mais il arrive souvent que quelques lignes de métadonnées se trouvent au début du fichier. Vous pouvez utiliser <code>skip = n</code> pour ignorer les <code>n</code> premières lignes ou utiliser <code>comment = "#"</code> pour supprimer toutes les lignes commençant par (par exemple) <code>#</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span></span>
 <span>  <span class="st">"The first line of metadata</span></span>
@@ -704,7 +704,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1     1     2     3</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In other cases, the data might not have column names. You can use <code>col_names = FALSE</code> to tell <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> not to treat the first row as headings and instead label them sequentially from <code>X1</code> to <code>Xn</code>:</p>
+<p>Dans d’autres cas, les données pourraient ne pas avoir de noms de colonnes. Vous pouvez utiliser <code>col_names = FALSE</code> pour dire à <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> de ne pas traiter la première ligne comme des en-têtes et de les étiqueter séquentiellement de <code>X1</code> à <code>Xn</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span></span>
 <span>  <span class="st">"1,2,3</span></span>
@@ -717,7 +717,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 1     1     2     3</span></span>
 <span><span class="co">#&gt; 2     4     5     6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Alternatively, you can pass <code>col_names</code> a character vector which will be used as the column names:</p>
+<p>Autrement, vous pouvez passer à <code>col_names</code> un vecteur de caractères qui sera utilisé comme noms de colonnes :</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span></span>
 <span>  <span class="st">"1,2,3</span></span>
@@ -730,31 +730,31 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 1     1     2     3</span></span>
 <span><span class="co">#&gt; 2     4     5     6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>These arguments are all you need to know to read the majority of CSV files that you’ll encounter in practice. (For the rest, you’ll need to carefully inspect your <code>.csv</code> file and read the documentation for <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>’s many other arguments.)</p>
-</section><section id="other-file-types" class="level3" data-number="7.2.3"><h3 data-number="7.2.3" class="anchored" data-anchor-id="other-file-types">
-<span class="header-section-number">7.2.3</span> Other file types</h3>
-<p>Once you’ve mastered <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, using readr’s other functions is straightforward; it’s just a matter of knowing which function to reach for:</p>
+<p>Ces arguments suffisent pour lire la plupart des fichiers CSV que vous rencontrerez dans la pratique. (Pour les autres, vous devrez examiner attentivement votre fichier <code>.csv</code> et consulter la documentation des nombreux autres arguments de <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.)</p>
+</section><section id="autres-types-de-fichiers" class="level3" data-number="7.2.3"><h3 data-number="7.2.3" class="anchored" data-anchor-id="autres-types-de-fichiers">
+<span class="header-section-number">7.2.3</span> Autres types de fichiers</h3>
+<p>Une fois que vous maîtrisez <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, l’utilisation des autres fonctions de readr est directe ; il est simplement question de savoir quelle fonction utiliser :</p>
 <ul>
-<li><p><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv2()</a></code> reads semicolon-separated files. These use <code>;</code> instead of <code>,</code> to separate fields and are common in countries that use <code>,</code> as the decimal marker.</p></li>
-<li><p><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> reads tab-delimited files.</p></li>
-<li><p><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> reads in files with any delimiter, attempting to automatically guess the delimiter if you don’t specify it.</p></li>
-<li><p><code><a href="https://readr.tidyverse.org/reference/read_fwf.html">read_fwf()</a></code> reads fixed-width files. You can specify fields by their widths with <code><a href="https://readr.tidyverse.org/reference/read_fwf.html">fwf_widths()</a></code> or by their positions with <code><a href="https://readr.tidyverse.org/reference/read_fwf.html">fwf_positions()</a></code>.</p></li>
-<li><p><code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code> reads a common variation of fixed-width files where columns are separated by white space.</p></li>
-<li><p><code><a href="https://readr.tidyverse.org/reference/read_log.html">read_log()</a></code> reads Apache-style log files.</p></li>
-</ul></section><section id="exercises" class="level3" data-number="7.2.4"><h3 data-number="7.2.4" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">7.2.4</span> Exercises</h3>
+<li><p><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv2()</a></code> lit les fichiers séparés par des points-virgules. Ils utilisent <code>;</code> au lieu de <code>,</code> pour séparer les champs et sont courants dans les pays qui utilisent <code>,</code> comme séparateur décimal.</p></li>
+<li><p><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> lit les fichiers délimités par des tabulations.</p></li>
+<li><p><code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> lit les fichiers avec n’importe quel séparateur, en essayant de deviner automatiquement le séparateur si vous ne le spécifiez pas.</p></li>
+<li><p><code><a href="https://readr.tidyverse.org/reference/read_fwf.html">read_fwf()</a></code> lit les fichiers de largeur fixe. Vous pouvez spécifier les champs par leur largeur avec <code><a href="https://readr.tidyverse.org/reference/read_fwf.html">fwf_widths()</a></code> ou par leur position avec <code><a href="https://readr.tidyverse.org/reference/read_fwf.html">fwf_positions()</a></code>.</p></li>
+<li><p><code><a href="https://readr.tidyverse.org/reference/read_table.html">read_table()</a></code> lit une variante courante des fichiers de largeur fixe où les colonnes sont séparées par des espaces.</p></li>
+<li><p><code><a href="https://readr.tidyverse.org/reference/read_log.html">read_log()</a></code> lit les fichiers journaux au format Apache.</p></li>
+</ul></section><section id="exercices" class="level3" data-number="7.2.4"><h3 data-number="7.2.4" class="anchored" data-anchor-id="exercices">
+<span class="header-section-number">7.2.4</span> Exercices</h3>
 <ol type="1">
-<li><p>What function would you use to read a file where fields were separated with “|”?</p></li>
-<li><p>Apart from <code>file</code>, <code>skip</code>, and <code>comment</code>, what other arguments do <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> and <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> have in common?</p></li>
-<li><p>What are the most important arguments to <code><a href="https://readr.tidyverse.org/reference/read_fwf.html">read_fwf()</a></code>?</p></li>
+<li><p>Quelle fonction utiliseriez-vous pour lire un fichier où les champs sont séparés par « | » ?</p></li>
+<li><p>Hormis <code>file</code>, <code>skip</code> et <code>comment</code>, quels autres arguments ont en commun <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> et <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> ?</p></li>
+<li><p>Quels sont les arguments les plus importants de <code><a href="https://readr.tidyverse.org/reference/read_fwf.html">read_fwf()</a></code> ?</p></li>
 <li>
-<p>Sometimes strings in a CSV file contain commas. To prevent them from causing problems, they need to be surrounded by a quoting character, like <code>"</code> or <code>'</code>. By default, <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> assumes that the quoting character will be <code>"</code>. To read the following text into a data frame, what argument to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> do you need to specify?</p>
+<p>Parfois, les chaînes d’un fichier CSV contiennent des virgules. Pour éviter qu’elles ne causent de problèmes, elles doivent être entourées d’un guillemet, comme <code>"</code> ou <code>'</code>. Par défaut, <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> suppose que le guillemet sera <code>"</code>. Pour lire le texte suivant dans un data frame, quel argument de <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> devez-vous spécifier ?</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"x,y\n1,'a,b'"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </li>
 <li>
-<p>Identify what is wrong with each of the following inline CSV files. What happens when you run the code?</p>
+<p>Identifiez ce qui ne va pas avec chacun des fichiers CSV en ligne suivants. Qu’arrive-t-il quand vous exécutez le code ?</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"a,b\n1,2,3\n4,5,6"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"a,b,c\n1,2\n1,2,3,4"</span><span class="op">)</span></span>
@@ -764,12 +764,12 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 </div>
 </li>
 <li>
-<p>Practice referring to non-syntactic names in the following data frame by:</p>
+<p>Entraînez-vous à faire référence à des noms non syntaxiques dans le data frame suivant en :</p>
 <ol type="a">
-<li>Extracting the variable called <code>1</code>.</li>
-<li>Plotting a scatterplot of <code>1</code> vs.&nbsp;<code>2</code>.</li>
-<li>Creating a new column called <code>3</code>, which is <code>2</code> divided by <code>1</code>.</li>
-<li>Renaming the columns to <code>one</code>, <code>two</code>, and <code>three</code>.</li>
+<li>Extrayant la variable appelée <code>1</code>.</li>
+<li>Créant un nuage de points avec <code>1</code> en x et <code>2</code> en y.</li>
+<li>Créant une nouvelle colonne appelée <code>3</code>, qui est <code>2</code> divisée par <code>1</code>.</li>
+<li>Renommant les colonnes en <code>one</code>, <code>two</code> et <code>three</code>.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">annoying</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
@@ -779,18 +779,18 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 </div>
 </li>
 </ol></section></section><section id="sec-col-types" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="sec-col-types">
-<span class="header-section-number">7.3</span> Controlling column types</h2>
-<p>A CSV file doesn’t contain any information about the type of each variable (i.e.&nbsp;whether it’s a logical, number, string, etc.), so readr will try to guess the type. This section describes how the guessing process works, how to resolve some common problems that cause it to fail, and, if needed, how to supply the column types yourself. Finally, we’ll mention a few general strategies that are useful if readr is failing catastrophically and you need to get more insight into the structure of your file.</p>
-<section id="guessing-types" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="guessing-types">
-<span class="header-section-number">7.3.1</span> Guessing types</h3>
-<p>readr uses a heuristic to figure out the column types. For each column, it pulls the values of 1,000 rows<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> spaced evenly from the first row to the last, ignoring missing values. It then works through the following questions:</p>
+<span class="header-section-number">7.3</span> Contrôler les types de colonnes</h2>
+<p>Un fichier CSV ne contient aucune information sur le type de chaque variable (c’est-à-dire si c’est un logique, un nombre, une chaîne de caractères, etc.), donc readr tentera de deviner le type. Cette section décrit comment ce processus fonctionne, comment résoudre certains problèmes courants qui le font échouer, et, si nécessaire, comment fournir vous-même les types de colonnes. Enfin, nous mentionnerons quelques stratégies générales utiles si readr échoue et que vous avez besoin d’avoir un meilleur aperçu de la structure de votre fichier.</p>
+<section id="deviner-les-types" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="deviner-les-types">
+<span class="header-section-number">7.3.1</span> Deviner les types</h3>
+<p>readr utilise une heuristique pour déterminer les types de colonnes. Pour chaque colonne, elle extrait les valeurs de 1 000 lignes<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> espacées uniformément de la première à la dernière ligne, en ignorant les valeurs manquantes. Elle parcourt ensuite les questions suivantes :</p>
 <ul>
-<li>Does it contain only <code>F</code>, <code>T</code>, <code>FALSE</code>, or <code>TRUE</code> (ignoring case)? If so, it’s a logical.</li>
-<li>Does it contain only numbers (e.g., <code>1</code>, <code>-4.5</code>, <code>5e6</code>, <code>Inf</code>)? If so, it’s a number.</li>
-<li>Does it match the ISO8601 standard? If so, it’s a date or date-time. (We’ll return to date-times in more detail in <a href="datetimes.html#sec-creating-datetimes" class="quarto-xref"><span>Section 17.2</span></a>).</li>
-<li>Otherwise, it must be a string.</li>
+<li>Contient-elle uniquement <code>F</code>, <code>T</code>, <code>FALSE</code> ou <code>TRUE</code> (en ignorant la casse) ? Si oui, c’est un logique (logical).</li>
+<li>Contient-elle uniquement des nombres (par exemple, <code>1</code>, <code>-4.5</code>, <code>5e6</code>, <code>Inf</code>) ? Si oui, c’est un nombre (number).</li>
+<li>Correspond-elle à la norme ISO8601 ? Si oui, c’est une date ou une date/heure. (Nous reviendrons sur les dates/heures plus en détail dans la <a href="datetimes.html#sec-creating-datetimes" class="quarto-xref"><span>Section 17.2</span></a>).</li>
+<li>Sinon, ce doit être une chaîne de caractères (string).</li>
 </ul>
-<p>You can see that behavior in action in this simple example:</p>
+<p>Vous pouvez observer ce comportement en action dans cet exemple simple :</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">  logical,numeric,date,string</span></span>
@@ -805,11 +805,11 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 2 FALSE       4.5 2021-02-15 def   </span></span>
 <span><span class="co">#&gt; 3 TRUE      Inf   2021-02-16 ghi</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This heuristic works well if you have a clean dataset, but in real life, you’ll encounter a selection of weird and beautiful failures.</p>
-</section><section id="missing-values-column-types-and-problems" class="level3" data-number="7.3.2"><h3 data-number="7.3.2" class="anchored" data-anchor-id="missing-values-column-types-and-problems">
-<span class="header-section-number">7.3.2</span> Missing values, column types, and problems</h3>
-<p>The most common way column detection fails is that a column contains unexpected values, and you get a character column instead of a more specific type. One of the most common causes for this is a missing value, recorded using something other than the <code>NA</code> that readr expects.</p>
-<p>Take this simple 1 column CSV file as an example:</p>
+<p>Cette heuristique fonctionne bien si vous avez un jeu de données propre, mais en réalité, vous serez confrontés à de nombreux échecs.</p>
+</section><section id="valeurs-manquantes-types-de-colonnes-et-problèmes" class="level3" data-number="7.3.2"><h3 data-number="7.3.2" class="anchored" data-anchor-id="valeurs-manquantes-types-de-colonnes-et-problèmes">
+<span class="header-section-number">7.3.2</span> Valeurs manquantes, types de colonnes et problèmes</h3>
+<p>La cause la plus fréquente d’échec de la détection des colonnes est la présence de valeurs inattendues dans une colonne, ce qui conduit à obtenir une colonne de type « caractère » au lieu d’un type plus spécifique. L’une des causes les plus courantes de ce problème est une valeur manquante enregistrée différemment de <code>NA</code>, que le package readr attend.</p>
+<p>Prenez cet exemple simple de fichier CSV à 1 colonne :</p>
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">simple_csv</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st">  x</span></span>
@@ -818,7 +818,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="st">  20</span></span>
 <span><span class="st">  30"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If we read it without any additional arguments, <code>x</code> becomes a character column:</p>
+<p>Si nous la lisons sans arguments supplémentaires, <code>x</code> devient une colonne caractère :</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">simple_csv</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 4 × 1</span></span>
@@ -829,7 +829,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 3 20   </span></span>
 <span><span class="co">#&gt; 4 30</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this very small case, you can easily see the missing value <code>.</code>. But what happens if you have thousands of rows with only a few missing values represented by <code>.</code>s sprinkled among them? One approach is to tell readr that <code>x</code> is a numeric column, and then see where it fails. You can do that with the <code>col_types</code> argument, which takes a named list where the names match the column names in the CSV file:</p>
+<p>Dans ce très petit cas, vous pouvez facilement voir la valeur manquante <code>.</code>. Mais que se passe-t-il si vous avez des milliers de lignes avec seulement quelques valeurs manquantes représentées par des <code>.</code> disséminés parmi elles ? Une approche consiste à dire à readr que <code>x</code> est une colonne numérique, puis à voir où elle échoue. Vous pouvez faire cela avec l’argument <code>col_types</code>, qui prend une liste nommée où les noms correspondent aux noms de colonnes du fichier CSV :</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span></span>
 <span>  <span class="va">simple_csv</span>, </span>
@@ -840,15 +840,15 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt;   dat &lt;- vroom(...)</span></span>
 <span><span class="co">#&gt;   problems(dat)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> reports that there was a problem, and tells us we can find out more with <code><a href="https://readr.tidyverse.org/reference/problems.html">problems()</a></code>:</p>
+<p>Maintenant <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> signale qu’il y a eu un problème, et nous dit que nous pouvons en savoir plus avec <code><a href="https://readr.tidyverse.org/reference/problems.html">problems()</a></code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/problems.html">problems</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 1 × 5</span></span>
 <span><span class="co">#&gt;     row   col expected actual file                                          </span></span>
 <span><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                                         </span></span>
-<span><span class="co">#&gt; 1     3     1 a double .      /tmp/Rtmp2KTDhy/vroom-chr-to-file-d46721cba3c2</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; 1     3     1 a double .      /tmp/Rtmp9BujpM/vroom-chr-to-file-1b3d853bbf5c</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This tells us that there was a problem in row 3, col 1 where readr expected a double but got a <code>.</code>. That suggests this dataset uses <code>.</code> for missing values. So then we set <code>na = "."</code>, the automatic guessing succeeds, giving us the numeric column that we want:</p>
+<p>Cela nous indique qu’il y a eu un problème à la ligne 3, colonne 1, où readr attendait un double mais a trouvé un <code>.</code>. Cela suggère que ce jeu de données utilise <code>.</code> pour les valeurs manquantes. Nous fixons donc <code>na = "."</code>, la détection automatique réussit, nous donnant la colonne numérique que nous voulions :</p>
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">simple_csv</span>, na <span class="op">=</span> <span class="st">"."</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 4 × 1</span></span>
@@ -859,24 +859,24 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 3    20</span></span>
 <span><span class="co">#&gt; 4    30</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="column-types" class="level3" data-number="7.3.3"><h3 data-number="7.3.3" class="anchored" data-anchor-id="column-types">
-<span class="header-section-number">7.3.3</span> Column types</h3>
-<p>readr provides a total of nine column types for you to use:</p>
+</section><section id="types-de-colonnes" class="level3" data-number="7.3.3"><h3 data-number="7.3.3" class="anchored" data-anchor-id="types-de-colonnes">
+<span class="header-section-number">7.3.3</span> Types de colonnes</h3>
+<p>readr offre un total de neuf types de colonnes pour votre utilisation :</p>
 <ul>
 <li>
-<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_logical()</a></code> and <code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_double()</a></code> read logicals and real numbers. They’re relatively rarely needed (except as above), since readr will usually guess them for you.</li>
+<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_logical()</a></code> et <code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_double()</a></code> lisent les variables logiques et les nombres réels. Ces fonctions sont rarement nécessaires (sauf comme ci-dessus), car readr les devinera généralement automatiquement.</li>
 <li>
-<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_integer()</a></code> reads integers. We seldom distinguish integers and doubles in this book because they’re functionally equivalent, but reading integers explicitly can occasionally be useful because they occupy half the memory of doubles.</li>
+<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_integer()</a></code> lit les entiers. Nous faisons rarement la distinction entre entiers et doubles dans ce livre car ils sont fonctionnellement équivalents, mais lire explicitement les entiers peut parfois être utile car ils occupent la moitié de la mémoire des doubles.</li>
 <li>
-<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_character()</a></code> reads strings. This can be useful to specify explicitly when you have a column that is a numeric identifier, i.e., long series of digits that identifies an object but doesn’t make sense to apply mathematical operations to. Examples include phone numbers, social security numbers, credit card numbers, etc.</li>
+<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_character()</a></code> lit les chaînes de caractères. C’est utile de les spécifier explicitement quand vous avez un identifiant numérique dans une colonne, c’est-à-dire une série de chiffres qui identifie un objet mais sur lequel il n’est pas pertinent d’appliquer des opérations mathématiques. Les exemples incluent les numéros de téléphone, les numéros de sécurité sociale, les numéros de carte de crédit, etc.</li>
 <li>
-<code><a href="https://readr.tidyverse.org/reference/parse_factor.html">col_factor()</a></code>, <code><a href="https://readr.tidyverse.org/reference/parse_datetime.html">col_date()</a></code>, and <code><a href="https://readr.tidyverse.org/reference/parse_datetime.html">col_datetime()</a></code> create factors, dates, and date-times respectively; you’ll learn more about those when we get to those data types in <a href="factors.html" class="quarto-xref"><span>Chapitre 16</span></a> and <a href="datetimes.html" class="quarto-xref"><span>Chapitre 17</span></a>.</li>
+<code><a href="https://readr.tidyverse.org/reference/parse_factor.html">col_factor()</a></code>, <code><a href="https://readr.tidyverse.org/reference/parse_datetime.html">col_date()</a></code> et <code><a href="https://readr.tidyverse.org/reference/parse_datetime.html">col_datetime()</a></code> créent respectivement des facteurs, des dates et des dates/heures ; vous en apprendrez plus sur ceux-ci quand nous arriverons à ces types de données en <a href="factors.html" class="quarto-xref"><span>Chapitre 16</span></a> et <a href="datetimes.html" class="quarto-xref"><span>Chapitre 17</span></a>.</li>
 <li>
-<code><a href="https://readr.tidyverse.org/reference/parse_number.html">col_number()</a></code> is a permissive numeric parser that will ignore non-numeric components, and is particularly useful for currencies. You’ll learn more about it in <a href="numbers.html" class="quarto-xref"><span>Chapitre 13</span></a>.</li>
+<code><a href="https://readr.tidyverse.org/reference/parse_number.html">col_number()</a></code> est un analyseur numérique permissif qui ignorera les composantes non numériques, et est particulièrement utile pour les devises. Vous en apprendrez plus dans le <a href="numbers.html" class="quarto-xref"><span>Chapitre 13</span></a>.</li>
 <li>
-<code><a href="https://readr.tidyverse.org/reference/col_skip.html">col_skip()</a></code> skips a column so it’s not included in the result, which can be useful for speeding up reading the data if you have a large CSV file and you only want to use some of the columns.</li>
+<code><a href="https://readr.tidyverse.org/reference/col_skip.html">col_skip()</a></code> ignore une colonne afin qu’elle ne soit pas incluse dans le résultat, ce qui peut être utile pour accélérer la lecture des données si vous avez un gros fichier CSV et que vous ne voulez utiliser que certaines colonnes.</li>
 </ul>
-<p>It’s also possible to override the default heuristic that guesses types by switching from <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> to <code><a href="https://readr.tidyverse.org/reference/cols.html">cols()</a></code> and specifying <code>.default</code>:</p>
+<p>Il est aussi possible de remplacer l’heuristique par défaut qui devine les types en passant de <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> à <code><a href="https://readr.tidyverse.org/reference/cols.html">cols()</a></code> et en spécifiant <code>.default</code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">another_csv</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
 <span><span class="st">x,y,z</span></span>
@@ -891,7 +891,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span></span>
 <span><span class="co">#&gt; 1 1     2     3</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Another useful helper is <code><a href="https://readr.tidyverse.org/reference/cols.html">cols_only()</a></code> which will read in only the columns you specify:</p>
+<p>Un autre paramètre utile est <code><a href="https://readr.tidyverse.org/reference/cols.html">cols_only()</a></code> qui ne lira que les colonnes que vous spécifiez :</p>
 <div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span></span>
 <span>  <span class="va">another_csv</span>,</span>
@@ -903,8 +903,8 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 1 1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="sec-readr-directory" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="sec-readr-directory">
-<span class="header-section-number">7.4</span> Reading data from multiple files</h2>
-<p>Sometimes your data is split across multiple files instead of being contained in a single file. For example, you might have sales data for multiple months, with each month’s data in a separate file: <code>01-sales.csv</code> for January, <code>02-sales.csv</code> for February, and <code>03-sales.csv</code> for March. With <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> you can read these data in at once and stack them on top of each other in a single data frame.</p>
+<span class="header-section-number">7.4</span> Importer les données de plusieurs fichiers</h2>
+<p>Parfois, vos données sont réparties entre plusieurs fichiers au lieu d’être contenus en un seul. Par exemple, vous pourriez avoir les données de ventes de plusieurs mois, avec les données de chaque mois dans un fichier séparé : <code>01-sales.csv</code> pour janvier, <code>02-sales.csv</code> pour février, et <code>03-sales.csv</code> pour mars. Avec <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, vous pouvez lire ces données en une seule fois et les empiler les unes sur les autres dans un seul data frame.</p>
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sales_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"data/01-sales.csv"</span>, <span class="st">"data/02-sales.csv"</span>, <span class="st">"data/03-sales.csv"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">sales_files</span>, id <span class="op">=</span> <span class="st">"file"</span><span class="op">)</span></span>
@@ -919,7 +919,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 6 data/01-sales.csv January  2019     2  3987     6</span></span>
 <span><span class="co">#&gt; # ℹ 13 more rows</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once again, the code above will work if you have the CSV files in a <code>data</code> folder in your project. You can download these files from <a href="https://pos.it/r4ds-01-sales" class="uri">https://pos.it/r4ds-01-sales</a>, <a href="https://pos.it/r4ds-02-sales" class="uri">https://pos.it/r4ds-02-sales</a>, and <a href="https://pos.it/r4ds-03-sales" class="uri">https://pos.it/r4ds-03-sales</a> or you can read them directly with:</p>
+<p>Encore une fois, le code ci-dessus fonctionnera si vous avez les fichiers CSV dans un dossier <code>data</code> de votre projet. Vous pouvez télécharger ces fichiers depuis <a href="https://pos.it/r4ds-01-sales" class="uri">https://pos.it/r4ds-01-sales</a>, <a href="https://pos.it/r4ds-02-sales" class="uri">https://pos.it/r4ds-02-sales</a>, et <a href="https://pos.it/r4ds-03-sales" class="uri">https://pos.it/r4ds-03-sales</a> ou vous pouvez les importer directement avec :</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sales_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"https://pos.it/r4ds-01-sales"</span>,</span>
@@ -928,20 +928,20 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">sales_files</span>, id <span class="op">=</span> <span class="st">"file"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>id</code> argument adds a new column called <code>file</code> to the resulting data frame that identifies the file the data come from. This is especially helpful in circumstances where the files you’re reading in do not have an identifying column that can help you trace the observations back to their original sources.</p>
-<p>If you have many files you want to read in, it can get cumbersome to write out their names as a list. Instead, you can use the base <code><a href="https://rdrr.io/r/base/list.files.html">list.files()</a></code> function to find the files for you by matching a pattern in the file names. You’ll learn more about these patterns in <a href="regexps.html" class="quarto-xref"><span>Chapitre 15</span></a>.</p>
+<p>L’argument <code>id</code> ajoute une nouvelle colonne appelée <code>file</code> au data frame résultant qui identifie le fichier d’où proviennent les données. C’est particulièrement utile dans les cas où les fichiers que vous lisez n’ont pas de colonne d’identification qui puisse vous aider à retracer les observations jusqu’à leurs sources d’origine.</p>
+<p>Si vous avez de nombreux fichiers à importer, ça peut être long de les lister un à un. Vous pouvez alors utiliser la fonction <code><a href="https://rdrr.io/r/base/list.files.html">list.files()</a></code> pour trouver les fichiers avec une caractéristique commune (pattern) dans les noms de fichiers. Vous en apprendrez plus sur ces patterns dans le <a href="regexps.html" class="quarto-xref"><span>Chapitre 15</span></a>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sales_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="st">"data"</span>, pattern <span class="op">=</span> <span class="st">"sales\\.csv$"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">sales_files</span></span>
 <span><span class="co">#&gt; [1] "data/01-sales.csv" "data/02-sales.csv" "data/03-sales.csv"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="sec-writing-to-a-file" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="sec-writing-to-a-file">
-<span class="header-section-number">7.5</span> Writing to a file</h2>
-<p>readr also comes with two useful functions for writing data back to disk: <code><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv()</a></code> and <code><a href="https://readr.tidyverse.org/reference/write_delim.html">write_tsv()</a></code>. The most important arguments to these functions are <code>x</code> (the data frame to save) and <code>file</code> (the location to save it). You can also specify how missing values are written with <code>na</code>, and if you want to <code>append</code> to an existing file.</p>
+<span class="header-section-number">7.5</span> Exporter un fichier</h2>
+<p>readr propose aussi deux fonctions utiles pour écrire / exporter les données sur le disque : <code><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv()</a></code> et <code><a href="https://readr.tidyverse.org/reference/write_delim.html">write_tsv()</a></code>. Les arguments les plus importants de ces fonctions sont <code>x</code> (le data frame à exporter) et <code>file</code> (l’endroit où il sera enregistré). Vous pouvez aussi spécifier comment les valeurs manquantes sont écrites avec <code>na</code>, et si vous voulez ajouter des données à la fin d’un fichier existant (avec <code>append</code>).</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">students</span>, <span class="st">"students.csv"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now let’s read that csv file back in. Note that the variable type information that you just set up is lost when you save to CSV because you’re starting over with reading from a plain text file again:</p>
+<p>Maintenant, relisons ce fichier csv. Notez que les informations du type de variable que vous veniez de configurer sont perdues quand vous exportez au format CSV, car vous lisez les données à partir d’un fichier texte brut :</p>
 <div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 5</span></span>
@@ -965,10 +965,10 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch     5</span></span>
 <span><span class="co">#&gt; 6          6 Güvenç Attila    Ice cream          Lunch only              6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This makes CSVs a little unreliable for caching interim results—you need to recreate the column specification every time you load in. There are two main alternatives:</p>
+<p>Cela rend les CSV peu fiables pour sauvegarder des résultats intermédiaires — vous devez spécifier le typage des colonnes chaque fois que vous chargez les données. Il y a deux principales alternatives :</p>
 <ol type="1">
 <li>
-<p><code><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds()</a></code> and <code><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds()</a></code> are uniform wrappers around the base functions <code><a href="https://rdrr.io/r/base/readRDS.html">readRDS()</a></code> and <code><a href="https://rdrr.io/r/base/readRDS.html">saveRDS()</a></code>. These store data in R’s custom binary format called RDS. This means that when you reload the object, you are loading the <em>exact same</em> R object that you stored.</p>
+<p><code><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds()</a></code> et <code><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds()</a></code> sont des wrappers standards des fonctions de base <code><a href="https://rdrr.io/r/base/readRDS.html">readRDS()</a></code> et <code><a href="https://rdrr.io/r/base/readRDS.html">saveRDS()</a></code>. Elles stockent les données dans le format binaire personnalisé de R appelé RDS. Cela signifie que quand vous rechargez l’objet, vous chargez <em>exactement le même</em> objet R que vous venez d’exporter.</p>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">write_rds</a></span><span class="op">(</span><span class="va">students</span>, <span class="st">"students.rds"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="st">"students.rds"</span><span class="op">)</span></span>
@@ -984,7 +984,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 </div>
 </li>
 <li>
-<p>The arrow package allows you to read and write parquet files, a fast binary file format that can be shared across programming languages. We’ll return to arrow in more depth in <a href="arrow.html" class="quarto-xref"><span>Chapitre 22</span></a>.</p>
+<p>Le package arrow vous permet de lire et d’écrire des fichiers parquet, un format de fichier binaire rapide qui peut être partagé entre les langages de programmation. Nous reviendrons à arrow plus en détail dans le <a href="arrow.html" class="quarto-xref"><span>Chapitre 22</span></a>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/apache/arrow/">arrow</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://arrow.apache.org/docs/r/reference/write_parquet.html">write_parquet</a></span><span class="op">(</span><span class="va">students</span>, <span class="st">"students.parquet"</span><span class="op">)</span></span>
@@ -1001,10 +1001,10 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 </div>
 </li>
 </ol>
-<p>Parquet tends to be much faster than RDS and is usable outside of R, but does require the arrow package.</p>
-</section><section id="data-entry" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="data-entry">
-<span class="header-section-number">7.6</span> Data entry</h2>
-<p>Sometimes you’ll need to assemble a tibble “by hand” doing a little data entry in your R script. There are two useful functions to help you do this which differ in whether you layout the tibble by columns or by rows. <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> works by column:</p>
+<p>Parquet est beaucoup plus rapide que RDS et est utilisable en dehors de R, mais nécessite le package arrow.</p>
+</section><section id="saisie-de-données" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="saisie-de-données">
+<span class="header-section-number">7.6</span> Saisie de données</h2>
+<p>Parfois, vous aurez besoin d’assembler un tibble « manuellement » en faisant un peu de saisie de données dans votre script R. Il y a deux fonctions utiles pour vous aider à le faire, qui diffèrent selon la manière dont vous spécifiez votre tibble, par colonnes ou par lignes. <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> fonctionne par colonne :</p>
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">5</span><span class="op">)</span>, </span>
@@ -1018,7 +1018,7 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 2     2 m      0.83</span></span>
 <span><span class="co">#&gt; 3     5 g      0.6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Laying out the data by column can make it hard to see how the rows are related, so an alternative is <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>, short for <strong>tr</strong>ansposed t<strong>ibble</strong>, which lets you lay out your data row by row. <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code> is customized for data entry in code: column headings start with <code>~</code> and entries are separated by commas. This makes it possible to lay out small amounts of data in an easy to read form:</p>
+<p>La disposition par colonne complique la comparaison des lignes, donc une alternative est <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>, abréviation de <strong>tr</strong>ansposed <strong>tibble</strong> (tibble transposé), qui vous permet de disposer vos données ligne par ligne. <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code> est personnalisée pour la saisie de données dans le code : les en-têtes de colonnes commencent par <code>~</code> et les entrées sont séparées par des virgules. Cela permet de présenter de petites quantités de données sous une forme facile à lire :</p>
 <div class="cell">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">x</span>, <span class="op">~</span><span class="va">y</span>, <span class="op">~</span><span class="va">z</span>,</span>
@@ -1033,16 +1033,16 @@ Table&nbsp;7.1: Data from the students.csv file as a table.
 <span><span class="co">#&gt; 2     2 m      0.83</span></span>
 <span><span class="co">#&gt; 3     5 g      0.6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="summary" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="summary">
-<span class="header-section-number">7.7</span> Summary</h2>
-<p>In this chapter, you’ve learned how to load CSV files with <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> and to do your own data entry with <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> and <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>. You’ve learned how csv files work, some of the problems you might encounter, and how to overcome them. We’ll come to data import a few times in this book: <a href="spreadsheets.html" class="quarto-xref"><span>Chapitre 20</span></a> from Excel and Google Sheets, <a href="databases.html" class="quarto-xref"><span>Chapitre 21</span></a> will show you how to load data from databases, <a href="arrow.html" class="quarto-xref"><span>Chapitre 22</span></a> from parquet files, <a href="rectangling.html" class="quarto-xref"><span>Chapitre 23</span></a> from JSON, and <a href="webscraping.html" class="quarto-xref"><span>Chapitre 24</span></a> from websites.</p>
-<p>We’re just about at the end of this section of the book, but there’s one important last topic to cover: how to get help. So in the next chapter, you’ll learn some good places to look for help, how to create a reprex to maximize your chances of getting good help, and some general advice on keeping up with the world of R.</p>
+</section><section id="résumé" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="résumé">
+<span class="header-section-number">7.7</span> Résumé</h2>
+<p>Dans ce chapitre, vous avez appris à charger des fichiers CSV avec <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> et à faire votre propre saisie de données avec <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> et <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>. Vous avez appris comment les fichiers CSV fonctionnent, certains problèmes que vous pourriez rencontrer et comment les surmonter. Nous reviendrons à l’importation de données à plusieurs reprises dans ce livre : le <a href="spreadsheets.html" class="quarto-xref"><span>Chapitre 20</span></a> pour les fichiers Excel et Google Sheets, le <a href="databases.html" class="quarto-xref"><span>Chapitre 21</span></a> vous montrera comment charger les données depuis les bases de données, le <a href="arrow.html" class="quarto-xref"><span>Chapitre 22</span></a> pour les fichiers parquet, le <a href="rectangling.html" class="quarto-xref"><span>Chapitre 23</span></a> pour le JSON, et le <a href="webscraping.html" class="quarto-xref"><span>Chapitre 24</span></a> pour les sites web.</p>
+<p>Nous approchons de la fin de cette section du livre, mais il y a un dernier sujet important à couvrir : comment obtenir de l’aide. Dans le prochain chapitre, vous découvrirez de bons endroits où chercher de l’aide, comment créer un reprex pour maximiser vos chances d’obtenir une bonne aide, et quelques conseils généraux pour rester à jour avec le monde de R.</p>
 
 
 </section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
-<li id="fn1"><p>The <a href="http://sfirke.github.io/janitor/">janitor</a> package is not part of the tidyverse, but it offers handy functions for data cleaning and works well within data pipelines that use <code>|&gt;</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>You can override the default of 1000 with the <code>guess_max</code> argument.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Le package <a href="http://sfirke.github.io/janitor/">janitor</a> ne fait pas partie du tidyverse, mais il offre des fonctions pratiques pour le nettoyage des données et s’intègre bien dans les pipelines en utilisant <code>|&gt;</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Vous pouvez remplacer la valeur par défaut de 1000 avec l’argument <code>guess_max</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1460,8 +1460,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./workflow-scripts.html" class="pagination-link" aria-label="Workflow: scripts and projects">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span>
+      <a href="./workflow-scripts.html" class="pagination-link" aria-label="Flux de travail : scripts et projets">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Flux de travail : scripts et projets</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

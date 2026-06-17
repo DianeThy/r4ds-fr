@@ -1,4 +1,4 @@
-# Data import {#sec-data-import}
+# Importation de données {#sec-data-import}
 
 ```{r}
 #| echo: false
@@ -7,17 +7,17 @@ source("_common.R")
 
 ## Introduction
 
-Working with data provided by R packages is a great way to learn data science tools, but you want to apply what you've learned to your own data at some point.
-In this chapter, you'll learn the basics of reading data files into R.
+Travailler avec les données fournies par les packages R est un excellent moyen de se familiariser avec les outils de science des données, mais à un moment donné, vous aurez envie de mettre en pratique ce que vous avez appris sur vos propres données.
+Ce chapitre vous montre les bases de l'import de fichiers de données dans R.
 
-Specifically, this chapter will focus on reading plain-text rectangular files.
-We'll start with practical advice for handling features like column names, types, and missing data.
-You will then learn about reading data from multiple files at once and writing data from R to a file.
-Finally, you'll learn how to handcraft data frames in R.
+Nous nous concentrerons tout particulièrement sur l'import de fichiers tabulaires.
+Nous commencerons par des conseils pratiques pour gérer des caractéristiques comme les noms de colonnes, les types et les valeurs manquantes.
+Vous apprendrez ensuite à importer les données de plusieurs fichiers à la fois et à exporter des données de R dans un fichier.
+Enfin, vous verrez comment créer des data frames manuellement dans R.
 
-### Prerequisites
+### Prérequis
 
-In this chapter, you'll learn how to load flat files in R with the **readr** package, which is part of the core tidyverse.
+Dans ce chapitre, vous découvrirez comment charger des fichiers classiques dans R avec le package **readr**, qui fait partie du tidyverse.
 
 ```{r}
 #| label: setup
@@ -25,12 +25,12 @@ In this chapter, you'll learn how to load flat files in R with the **readr** pac
 library(tidyverse)
 ```
 
-## Reading data from a file
+## Lire les données depuis un fichier
 
-To begin, we'll focus on the most common rectangular data file type: CSV, which is short for comma-separated values.
-Here is what a simple CSV file looks like.
-The first row, commonly called the header row, gives the column names, and the following six rows provide the data.
-The columns are separated, aka delimited, by commas.
+Pour commencer, nous nous concentrerons sur le type de fichier de données tabulaire le plus courant : le CSV (comma-separated values).
+Voici à quoi ressemble un fichier CSV simple.
+La première ligne, généralement appelée ligne d'en-tête, donne les noms des colonnes, et les six lignes suivantes contiennent les données.
+Les colonnes sont séparées, c'est-à-dire délimitées, par des virgules.
 
 ```{r}
 #| echo: false
@@ -39,50 +39,50 @@ The columns are separated, aka delimited, by commas.
 read_lines("data/students.csv") |> cat(sep = "\n")
 ```
 
-@tbl-students-table shows a representation of the same data as a table.
+La @tbl-students-table montre une représentation des mêmes données sous forme de tableau.
 
 ```{r}
 #| label: tbl-students-table
 #| echo: false
 #| message: false
-#| tbl-cap: Data from the students.csv file as a table.
+#| tbl-cap: Données du fichier students.csv présentées sous forme de tableau.
 read_csv("data/students.csv") |>
   knitr::kable()
 ```
 
-We can read this file into R using `read_csv()`.
-The first argument is the most important: the path to the file.
-You can think about the path as the address of the file: the file is called `students.csv` and it lives in the `data` folder.
+Nous pouvons importer ce fichier dans R en utilisant `read_csv()`.
+Le premier argument est le plus important : le chemin vers le fichier.
+Vous pouvez considérez le chemin comme l'adresse du fichier : le fichier s'appelle `students.csv` et il se trouve dans le dossier `data`.
 
 ```{r}
 #| message: true
 students <- read_csv("data/students.csv")
 ```
 
-The code above will work if you have the `students.csv` file in a `data` folder in your project.
-You can download the `students.csv` file from <https://pos.it/r4ds-students-csv> or you can read it directly from that URL with:
+Le code ci-dessus fonctionnera si votre fichier `students.csv` se trouve dans le dossier `data` de votre projet.
+Vous pouvez télécharger le fichier `students.csv` depuis <https://pos.it/r4ds-students-csv> ou l'importer directement à partir de cette URL avec :
 
 ```{r}
 #| eval: false
 students <- read_csv("https://pos.it/r4ds-students-csv")
 ```
 
-When you run `read_csv()`, it prints out a message telling you the number of rows and columns of data, the delimiter that was used, and the column specifications (names of columns organized by the type of data the column contains).
-It also prints out some information about retrieving the full column specification and how to quiet this message.
-This message is an integral part of readr, and we'll return to it in @sec-col-types.
+Quand vous exécutez `read_csv()`, cela affiche un message indiquant le nombre de lignes et de colonnes des données, le séparateur utilisé, et les spécifications des colonnes (noms des colonnes organisés par type de données).
+Cela affiche également des informations sur la manière d'obtenir la spécification complète de la colonne et sur la façon de désactiver ce message.
+Ce message fait partie intégrante de readr, et nous en reparlerons en @sec-col-types.
 
-### Practical advice
+### Conseils pratiques
 
-Once you read data in, the first step usually involves transforming it in some way to make it easier to work with in the rest of your analysis.
-Let's take another look at the `students` data with that in mind.
+Une fois que vous avez importé les données, la première étape consiste généralement à les transformer d'une manière ou d'une autre pour les rendre plus faciles à manipuler pour le reste de votre analyse.
+Jetons un nouveau coup d'œil aux données `students` en gardant cela à l'esprit.
 
 ```{r}
 students
 ```
 
-In the `favourite.food` column, there are a bunch of food items, and then the character string `N/A`, which should have been a real `NA` that R will recognize as "not available".
-This is something we can address using the `na` argument.
-By default, `read_csv()` only recognizes empty strings (`""`) in this dataset as `NA`s, and we want it to also recognize the character string `"N/A"`.
+Dans la colonne `favourite.food`, on trouve plusieurs aliments ainsi que la chaîne de caractères `N/A` qui devrait être un vrai `NA` que R reconnaît comme « not available ».
+Nous pouvons régler ce problème en utilisant l'argument `na`.
+Par défaut, la fonction `read_csv()` reconnaît uniquement les chaînes vides (`""`) comme valeurs manquantes `NA`, mais nous voulons qu'elle reconnaisse aussi la chaîne de caractères `"N/A"`.
 
 ```{r}
 #| message: false
@@ -91,9 +91,9 @@ students <- read_csv("data/students.csv", na = c("N/A", ""))
 students
 ```
 
-You might also notice that the `Student ID` and `Full Name` columns are surrounded by backticks.
-That's because they contain spaces, breaking R's usual rules for variable names; they're **non-syntactic** names.
-To refer to these variables, you need to surround them with backticks, `` ` ``:
+Vous remarquerez peut-être aussi que les colonnes `Student ID` et `Full Name` sont entourées de backticks.
+C'est parce qu'elles contiennent des espaces, ce qui enfreint les règles habituelles de R pour les noms de variables ; ce sont des noms **non syntaxiques**.
+Pour faire référence à ces variables, vous devez les entourer de backticks, `` ` `` :
 
 ```{r}
 students |> 
@@ -103,17 +103,17 @@ students |>
   )
 ```
 
-An alternative approach is to use `janitor::clean_names()` to use some heuristics to turn them all into snake case at once[^data-import-1].
+Une autre approche consiste à utiliser `janitor::clean_names()` qui applique quelques règles afin de les transformer toutes en snake_case en une seule opération[^data-import-1].
 
-[^data-import-1]: The [janitor](http://sfirke.github.io/janitor/) package is not part of the tidyverse, but it offers handy functions for data cleaning and works well within data pipelines that use `|>`.
+[^data-import-1]: Le package [janitor](http://sfirke.github.io/janitor/) ne fait pas partie du tidyverse, mais il offre des fonctions pratiques pour le nettoyage des données et s'intègre bien dans les pipelines en utilisant `|>`.
 
 ```{r}
 #| message: false
 students |> janitor::clean_names()
 ```
 
-Another common task after reading in data is to consider variable types.
-For example, `meal_plan` is a categorical variable with a known set of possible values, which in R should be represented as a factor:
+Une autre tâche courante après l'import des données est de vérifier les types de variables.
+Par exemple, `meal_plan` est une variable catégorielle avec un ensemble connu de valeurs possibles, qui en R devrait être présentée comme un facteur :
 
 ```{r}
 students |>
@@ -121,12 +121,12 @@ students |>
   mutate(meal_plan = factor(meal_plan))
 ```
 
-Note that the values in the `meal_plan` variable have stayed the same, but the type of variable denoted underneath the variable name has changed from character (`<chr>`) to factor (`<fct>`).
-You'll learn more about factors in @sec-factors.
+Notez que les valeurs de la variable `meal_plan` sont restées identiques, mais le type de variable indiqué sous le nom de la variable a changé, passant de caractère (`<chr>`) à facteur (`<fct>`).
+Vous en apprendrez plus sur les facteurs dans le @sec-factors.
 
-Before you analyze these data, you'll probably want to fix the `age` column.
-Currently, `age` is a character variable because one of the observations is typed out as `five` instead of a numeric `5`.
-We discuss the details of fixing this issue in @sec-import-spreadsheets.
+Avant d'analyser ces données, vous devrez corriger la colonne `age`.
+Actuellement, `age` est une variable caractère parce que l'une des observations est écrite sous forme textuelle `five` au lieu du nombre `5`.
+Nous discuterons des détails de la résolution de ce problème dans le @sec-import-spreadsheets.
 
 ```{r}
 students <- students |>
@@ -139,15 +139,15 @@ students <- students |>
 students
 ```
 
-A new function here is `if_else()`, which has three arguments.
-The first argument `test` should be a logical vector.
-The result will contain the value of the second argument, `yes`, when `test` is `TRUE`, and the value of the third argument, `no`, when it is `FALSE`.
-Here we're saying if `age` is the character string `"five"`, make it `"5"`, and if not leave it as `age`.
-You will learn more about `if_else()` and logical vectors in @sec-logicals.
+Une nouvelle fonction ici est `if_else()`, qui a trois arguments.
+Le premier argument `test` doit être un vecteur logique.
+Le résultat contiendra la valeur du deuxième argument, `yes`, quand `test` est `TRUE`, et la valeur du troisième argument, `no`, quand il est `FALSE`.
+Ici, nous disons que si `age` est la chaîne `"five"`, nous la remplaçons par `"5"`, sinon nous la laissons telle quelle.
+Vous en apprendrez plus sur `if_else()` et les vecteurs logiques dans le @sec-logicals.
 
-### Other arguments
+### Autres arguments
 
-There are a couple of other important arguments that we need to mention, and they'll be easier to demonstrate if we first show you a handy trick: `read_csv()` can read text strings that you've created and formatted like a CSV file:
+Il y a quelques autres arguments importants que nous devons mentionner, ils seront plus faciles à démontrer si nous vous montrons d'abord une astuce : `read_csv()` peut lire les chaînes de texte que vous avez créées et formatées comme un fichier CSV :
 
 ```{r}
 #| message: false
@@ -158,9 +158,9 @@ read_csv(
 )
 ```
 
-Usually, `read_csv()` uses the first line of the data for the column names, which is a very common convention.
-But it's not uncommon for a few lines of metadata to be included at the top of the file.
-You can use `skip = n` to skip the first `n` lines or use `comment = "#"` to drop all lines that start with (e.g.) `#`:
+Généralement, `read_csv()` utilise la première ligne des données pour les noms de colonnes, c'est une convention très courante.
+Mais il arrive souvent que quelques lignes de métadonnées se trouvent au début du fichier.
+Vous pouvez utiliser `skip = n` pour ignorer les `n` premières lignes ou utiliser `comment = "#"` pour supprimer toutes les lignes commençant par (par exemple) `#` :
 
 ```{r}
 #| message: false
@@ -180,8 +180,8 @@ read_csv(
 )
 ```
 
-In other cases, the data might not have column names.
-You can use `col_names = FALSE` to tell `read_csv()` not to treat the first row as headings and instead label them sequentially from `X1` to `Xn`:
+Dans d'autres cas, les données pourraient ne pas avoir de noms de colonnes.
+Vous pouvez utiliser `col_names = FALSE` pour dire à `read_csv()` de ne pas traiter la première ligne comme des en-têtes et de les étiqueter séquentiellement de `X1` à `Xn` :
 
 ```{r}
 #| message: false
@@ -192,7 +192,7 @@ read_csv(
 )
 ```
 
-Alternatively, you can pass `col_names` a character vector which will be used as the column names:
+Autrement, vous pouvez passer à `col_names` un vecteur de caractères qui sera utilisé comme noms de colonnes :
 
 ```{r}
 #| message: false
@@ -203,46 +203,46 @@ read_csv(
 )
 ```
 
-These arguments are all you need to know to read the majority of CSV files that you'll encounter in practice.
-(For the rest, you'll need to carefully inspect your `.csv` file and read the documentation for `read_csv()`'s many other arguments.)
+Ces arguments suffisent pour lire la plupart des fichiers CSV que vous rencontrerez dans la pratique.
+(Pour les autres, vous devrez examiner attentivement votre fichier `.csv` et consulter la documentation des nombreux autres arguments de `read_csv()`.)
 
-### Other file types
+### Autres types de fichiers
 
-Once you've mastered `read_csv()`, using readr's other functions is straightforward; it's just a matter of knowing which function to reach for:
+Une fois que vous maîtrisez `read_csv()`, l'utilisation des autres fonctions de readr est directe ; il est simplement question de savoir quelle fonction utiliser :
 
--   `read_csv2()` reads semicolon-separated files.
-    These use `;` instead of `,` to separate fields and are common in countries that use `,` as the decimal marker.
+-   `read_csv2()` lit les fichiers séparés par des points-virgules.
+    Ils utilisent `;` au lieu de `,` pour séparer les champs et sont courants dans les pays qui utilisent `,` comme séparateur décimal.
 
--   `read_tsv()` reads tab-delimited files.
+-   `read_tsv()` lit les fichiers délimités par des tabulations.
 
--   `read_delim()` reads in files with any delimiter, attempting to automatically guess the delimiter if you don't specify it.
+-   `read_delim()` lit les fichiers avec n'importe quel séparateur, en essayant de deviner automatiquement le séparateur si vous ne le spécifiez pas.
 
--   `read_fwf()` reads fixed-width files.
-    You can specify fields by their widths with `fwf_widths()` or by their positions with `fwf_positions()`.
+-   `read_fwf()` lit les fichiers de largeur fixe.
+    Vous pouvez spécifier les champs par leur largeur avec `fwf_widths()` ou par leur position avec `fwf_positions()`.
 
--   `read_table()` reads a common variation of fixed-width files where columns are separated by white space.
+-   `read_table()` lit une variante courante des fichiers de largeur fixe où les colonnes sont séparées par des espaces.
 
--   `read_log()` reads Apache-style log files.
+-   `read_log()` lit les fichiers journaux au format Apache.
 
-### Exercises
+### Exercices
 
-1.  What function would you use to read a file where fields were separated with "\|"?
+1.  Quelle fonction utiliseriez-vous pour lire un fichier où les champs sont séparés par « | » ?
 
-2.  Apart from `file`, `skip`, and `comment`, what other arguments do `read_csv()` and `read_tsv()` have in common?
+2.  Hormis `file`, `skip` et `comment`, quels autres arguments ont en commun `read_csv()` et `read_tsv()` ?
 
-3.  What are the most important arguments to `read_fwf()`?
+3.  Quels sont les arguments les plus importants de `read_fwf()` ?
 
-4.  Sometimes strings in a CSV file contain commas.
-    To prevent them from causing problems, they need to be surrounded by a quoting character, like `"` or `'`. By default, `read_csv()` assumes that the quoting character will be `"`.
-    To read the following text into a data frame, what argument to `read_csv()` do you need to specify?
+4.  Parfois, les chaînes d'un fichier CSV contiennent des virgules.
+    Pour éviter qu'elles ne causent de problèmes, elles doivent être entourées d'un guillemet, comme `"` ou `'`. Par défaut, `read_csv()` suppose que le guillemet sera `"`.
+    Pour lire le texte suivant dans un data frame, quel argument de `read_csv()` devez-vous spécifier ?
 
     ```{r}
     #| eval: false
     "x,y\n1,'a,b'"
     ```
 
-5.  Identify what is wrong with each of the following inline CSV files.
-    What happens when you run the code?
+5.  Identifiez ce qui ne va pas avec chacun des fichiers CSV en ligne suivants.
+    Qu'arrive-t-il quand vous exécutez le code ?
 
     ```{r}
     #| eval: false
@@ -253,12 +253,12 @@ Once you've mastered `read_csv()`, using readr's other functions is straightforw
     read_csv("a;b\n1;3")
     ```
 
-6.  Practice referring to non-syntactic names in the following data frame by:
+6.  Entraînez-vous à faire référence à des noms non syntaxiques dans le data frame suivant en :
 
-    a.  Extracting the variable called `1`.
-    b.  Plotting a scatterplot of `1` vs. `2`.
-    c.  Creating a new column called `3`, which is `2` divided by `1`.
-    d.  Renaming the columns to `one`, `two`, and `three`.
+    a.  Extrayant la variable appelée `1`.
+    b.  Créant un nuage de points avec `1` en x et `2` en y.
+    c.  Créant une nouvelle colonne appelée `3`, qui est `2` divisée par `1`.
+    d.  Renommant les colonnes en `one`, `two` et `three`.
 
     ```{r}
     annoying <- tibble(
@@ -267,26 +267,26 @@ Once you've mastered `read_csv()`, using readr's other functions is straightforw
     )
     ```
 
-## Controlling column types {#sec-col-types}
+## Contrôler les types de colonnes {#sec-col-types}
 
-A CSV file doesn't contain any information about the type of each variable (i.e. whether it's a logical, number, string, etc.), so readr will try to guess the type.
-This section describes how the guessing process works, how to resolve some common problems that cause it to fail, and, if needed, how to supply the column types yourself.
-Finally, we'll mention a few general strategies that are useful if readr is failing catastrophically and you need to get more insight into the structure of your file.
+Un fichier CSV ne contient aucune information sur le type de chaque variable (c'est-à-dire si c'est un logique, un nombre, une chaîne de caractères, etc.), donc readr tentera de deviner le type.
+Cette section décrit comment ce processus fonctionne, comment résoudre certains problèmes courants qui le font échouer, et, si nécessaire, comment fournir vous-même les types de colonnes.
+Enfin, nous mentionnerons quelques stratégies générales utiles si readr échoue et que vous avez besoin d'avoir un meilleur aperçu de la structure de votre fichier.
 
-### Guessing types
+### Deviner les types
 
-readr uses a heuristic to figure out the column types.
-For each column, it pulls the values of 1,000 rows[^data-import-2] spaced evenly from the first row to the last, ignoring missing values.
-It then works through the following questions:
+readr utilise une heuristique pour déterminer les types de colonnes.
+Pour chaque colonne, elle extrait les valeurs de 1 000 lignes[^data-import-2] espacées uniformément de la première à la dernière ligne, en ignorant les valeurs manquantes.
+Elle parcourt ensuite les questions suivantes :
 
-[^data-import-2]: You can override the default of 1000 with the `guess_max` argument.
+[^data-import-2]: Vous pouvez remplacer la valeur par défaut de 1000 avec l'argument `guess_max`.
 
--   Does it contain only `F`, `T`, `FALSE`, or `TRUE` (ignoring case)? If so, it's a logical.
--   Does it contain only numbers (e.g., `1`, `-4.5`, `5e6`, `Inf`)? If so, it's a number.
--   Does it match the ISO8601 standard? If so, it's a date or date-time. (We'll return to date-times in more detail in @sec-creating-datetimes).
--   Otherwise, it must be a string.
+-   Contient-elle uniquement `F`, `T`, `FALSE` ou `TRUE` (en ignorant la casse) ? Si oui, c'est un logique (logical).
+-   Contient-elle uniquement des nombres (par exemple, `1`, `-4.5`, `5e6`, `Inf`) ? Si oui, c'est un nombre (number).
+-   Correspond-elle à la norme ISO8601 ? Si oui, c'est une date ou une date/heure. (Nous reviendrons sur les dates/heures plus en détail dans la @sec-creating-datetimes).
+-   Sinon, ce doit être une chaîne de caractères (string).
 
-You can see that behavior in action in this simple example:
+Vous pouvez observer ce comportement en action dans cet exemple simple :
 
 ```{r}
 #| message: false
@@ -298,14 +298,13 @@ read_csv("
 ")
 ```
 
-This heuristic works well if you have a clean dataset, but in real life, you'll encounter a selection of weird and beautiful failures.
+Cette heuristique fonctionne bien si vous avez un jeu de données propre, mais en réalité, vous serez confrontés à de nombreux échecs.
 
-### Missing values, column types, and problems
+### Valeurs manquantes, types de colonnes et problèmes
 
-The most common way column detection fails is that a column contains unexpected values, and you get a character column instead of a more specific type.
-One of the most common causes for this is a missing value, recorded using something other than the `NA` that readr expects.
+La cause la plus fréquente d'échec de la détection des colonnes est la présence de valeurs inattendues dans une colonne, ce qui conduit à obtenir une colonne de type « caractère » au lieu d'un type plus spécifique. L'une des causes les plus courantes de ce problème est une valeur manquante enregistrée différemment de `NA`, que le package readr attend.
 
-Take this simple 1 column CSV file as an example:
+Prenez cet exemple simple de fichier CSV à 1 colonne :
 
 ```{r}
 simple_csv <- "
@@ -316,17 +315,17 @@ simple_csv <- "
   30"
 ```
 
-If we read it without any additional arguments, `x` becomes a character column:
+Si nous la lisons sans arguments supplémentaires, `x` devient une colonne caractère :
 
 ```{r}
 #| message: false
 read_csv(simple_csv)
 ```
 
-In this very small case, you can easily see the missing value `.`.
-But what happens if you have thousands of rows with only a few missing values represented by `.`s sprinkled among them?
-One approach is to tell readr that `x` is a numeric column, and then see where it fails.
-You can do that with the `col_types` argument, which takes a named list where the names match the column names in the CSV file:
+Dans ce très petit cas, vous pouvez facilement voir la valeur manquante `.`.
+Mais que se passe-t-il si vous avez des milliers de lignes avec seulement quelques valeurs manquantes représentées par des `.` disséminés parmi elles ?
+Une approche consiste à dire à readr que `x` est une colonne numérique, puis à voir où elle échoue.
+Vous pouvez faire cela avec l'argument `col_types`, qui prend une liste nommée où les noms correspondent aux noms de colonnes du fichier CSV :
 
 ```{r}
 df <- read_csv(
@@ -335,33 +334,33 @@ df <- read_csv(
 )
 ```
 
-Now `read_csv()` reports that there was a problem, and tells us we can find out more with `problems()`:
+Maintenant `read_csv()` signale qu'il y a eu un problème, et nous dit que nous pouvons en savoir plus avec `problems()` :
 
 ```{r}
 problems(df)
 ```
 
-This tells us that there was a problem in row 3, col 1 where readr expected a double but got a `.`.
-That suggests this dataset uses `.` for missing values.
-So then we set `na = "."`, the automatic guessing succeeds, giving us the numeric column that we want:
+Cela nous indique qu'il y a eu un problème à la ligne 3, colonne 1, où readr attendait un double mais a trouvé un `.`.
+Cela suggère que ce jeu de données utilise `.` pour les valeurs manquantes.
+Nous fixons donc `na = "."`, la détection automatique réussit, nous donnant la colonne numérique que nous voulions :
 
 ```{r}
 #| message: false
 read_csv(simple_csv, na = ".")
 ```
 
-### Column types
+### Types de colonnes
 
-readr provides a total of nine column types for you to use:
+readr offre un total de neuf types de colonnes pour votre utilisation :
 
--   `col_logical()` and `col_double()` read logicals and real numbers. They're relatively rarely needed (except as above), since readr will usually guess them for you.
--   `col_integer()` reads integers. We seldom distinguish integers and doubles in this book because they're functionally equivalent, but reading integers explicitly can occasionally be useful because they occupy half the memory of doubles.
--   `col_character()` reads strings. This can be useful to specify explicitly when you have a column that is a numeric identifier, i.e., long series of digits that identifies an object but doesn't make sense to apply mathematical operations to. Examples include phone numbers, social security numbers, credit card numbers, etc.
--   `col_factor()`, `col_date()`, and `col_datetime()` create factors, dates, and date-times respectively; you'll learn more about those when we get to those data types in @sec-factors and @sec-dates-and-times.
--   `col_number()` is a permissive numeric parser that will ignore non-numeric components, and is particularly useful for currencies. You'll learn more about it in @sec-numbers.
--   `col_skip()` skips a column so it's not included in the result, which can be useful for speeding up reading the data if you have a large CSV file and you only want to use some of the columns.
+-   `col_logical()` et `col_double()` lisent les variables logiques et les nombres réels. Ces fonctions sont rarement nécessaires (sauf comme ci-dessus), car readr les devinera généralement automatiquement.
+-   `col_integer()` lit les entiers. Nous faisons rarement la distinction entre entiers et doubles dans ce livre car ils sont fonctionnellement équivalents, mais lire explicitement les entiers peut parfois être utile car ils occupent la moitié de la mémoire des doubles.
+-   `col_character()` lit les chaînes de caractères. C'est utile de les spécifier explicitement quand vous avez un identifiant numérique dans une colonne, c'est-à-dire une série de chiffres qui identifie un objet mais sur lequel il n'est pas pertinent d'appliquer des opérations mathématiques. Les exemples incluent les numéros de téléphone, les numéros de sécurité sociale, les numéros de carte de crédit, etc.
+-   `col_factor()`, `col_date()` et `col_datetime()` créent respectivement des facteurs, des dates et des dates/heures ; vous en apprendrez plus sur ceux-ci quand nous arriverons à ces types de données en @sec-factors et @sec-dates-and-times.
+-   `col_number()` est un analyseur numérique permissif qui ignorera les composantes non numériques, et est particulièrement utile pour les devises. Vous en apprendrez plus dans le @sec-numbers.
+-   `col_skip()` ignore une colonne afin qu'elle ne soit pas incluse dans le résultat, ce qui peut être utile pour accélérer la lecture des données si vous avez un gros fichier CSV et que vous ne voulez utiliser que certaines colonnes.
 
-It's also possible to override the default heuristic that guesses types by switching from `list()` to `cols()` and specifying `.default`:
+Il est aussi possible de remplacer l'heuristique par défaut qui devine les types en passant de `list()` à `cols()` et en spécifiant `.default` :
 
 ```{r}
 another_csv <- "
@@ -374,7 +373,7 @@ read_csv(
 )
 ```
 
-Another useful helper is `cols_only()` which will read in only the columns you specify:
+Un autre paramètre utile est `cols_only()` qui ne lira que les colonnes que vous spécifiez :
 
 ```{r}
 read_csv(
@@ -383,11 +382,11 @@ read_csv(
 )
 ```
 
-## Reading data from multiple files {#sec-readr-directory}
+## Importer les données de plusieurs fichiers {#sec-readr-directory}
 
-Sometimes your data is split across multiple files instead of being contained in a single file.
-For example, you might have sales data for multiple months, with each month's data in a separate file: `01-sales.csv` for January, `02-sales.csv` for February, and `03-sales.csv` for March.
-With `read_csv()` you can read these data in at once and stack them on top of each other in a single data frame.
+Parfois, vos données sont réparties entre plusieurs fichiers au lieu d'être contenus en un seul.
+Par exemple, vous pourriez avoir les données de ventes de plusieurs mois, avec les données de chaque mois dans un fichier séparé : `01-sales.csv` pour janvier, `02-sales.csv` pour février, et `03-sales.csv` pour mars.
+Avec `read_csv()`, vous pouvez lire ces données en une seule fois et les empiler les unes sur les autres dans un seul data frame.
 
 ```{r}
 #| message: false
@@ -395,8 +394,8 @@ sales_files <- c("data/01-sales.csv", "data/02-sales.csv", "data/03-sales.csv")
 read_csv(sales_files, id = "file")
 ```
 
-Once again, the code above will work if you have the CSV files in a `data` folder in your project.
-You can download these files from <https://pos.it/r4ds-01-sales>, <https://pos.it/r4ds-02-sales>, and <https://pos.it/r4ds-03-sales> or you can read them directly with:
+Encore une fois, le code ci-dessus fonctionnera si vous avez les fichiers CSV dans un dossier `data` de votre projet.
+Vous pouvez télécharger ces fichiers depuis <https://pos.it/r4ds-01-sales>, <https://pos.it/r4ds-02-sales>, et <https://pos.it/r4ds-03-sales> ou vous pouvez les importer directement avec :
 
 ```{r}
 #| eval: false
@@ -408,31 +407,31 @@ sales_files <- c(
 read_csv(sales_files, id = "file")
 ```
 
-The `id` argument adds a new column called `file` to the resulting data frame that identifies the file the data come from.
-This is especially helpful in circumstances where the files you're reading in do not have an identifying column that can help you trace the observations back to their original sources.
+L'argument `id` ajoute une nouvelle colonne appelée `file` au data frame résultant qui identifie le fichier d'où proviennent les données.
+C'est particulièrement utile dans les cas où les fichiers que vous lisez n'ont pas de colonne d'identification qui puisse vous aider à retracer les observations jusqu'à leurs sources d'origine.
 
-If you have many files you want to read in, it can get cumbersome to write out their names as a list.
-Instead, you can use the base `list.files()` function to find the files for you by matching a pattern in the file names.
-You'll learn more about these patterns in @sec-regular-expressions.
+Si vous avez de nombreux fichiers à importer, ça peut être long de les lister un à un.
+Vous pouvez alors utiliser la fonction `list.files()` pour trouver les fichiers avec une caractéristique commune (pattern) dans les noms de fichiers.
+Vous en apprendrez plus sur ces patterns dans le @sec-regular-expressions.
 
 ```{r}
 sales_files <- list.files("data", pattern = "sales\\.csv$", full.names = TRUE)
 sales_files
 ```
 
-## Writing to a file {#sec-writing-to-a-file}
+## Exporter un fichier {#sec-writing-to-a-file}
 
-readr also comes with two useful functions for writing data back to disk: `write_csv()` and `write_tsv()`.
-The most important arguments to these functions are `x` (the data frame to save) and `file` (the location to save it).
-You can also specify how missing values are written with `na`, and if you want to `append` to an existing file.
+readr propose aussi deux fonctions utiles pour écrire / exporter les données sur le disque : `write_csv()` et `write_tsv()`.
+Les arguments les plus importants de ces fonctions sont `x` (le data frame à exporter) et `file` (l'endroit où il sera enregistré).
+Vous pouvez aussi spécifier comment les valeurs manquantes sont écrites avec `na`, et si vous voulez ajouter des données à la fin d'un fichier existant (avec `append`).
 
 ```{r}
 #| eval: false
 write_csv(students, "students.csv")
 ```
 
-Now let's read that csv file back in.
-Note that the variable type information that you just set up is lost when you save to CSV because you're starting over with reading from a plain text file again:
+Maintenant, relisons ce fichier csv.
+Notez que les informations du type de variable que vous veniez de configurer sont perdues quand vous exportez au format CSV, car vous lisez les données à partir d'un fichier texte brut :
 
 ```{r}
 #| warning: false
@@ -442,20 +441,20 @@ write_csv(students, "students-2.csv")
 read_csv("students-2.csv")
 ```
 
-This makes CSVs a little unreliable for caching interim results---you need to recreate the column specification every time you load in.
-There are two main alternatives:
+Cela rend les CSV peu fiables pour sauvegarder des résultats intermédiaires — vous devez spécifier le typage des colonnes chaque fois que vous chargez les données.
+Il y a deux principales alternatives :
 
-1.  `write_rds()` and `read_rds()` are uniform wrappers around the base functions `readRDS()` and `saveRDS()`.
-    These store data in R's custom binary format called RDS.
-    This means that when you reload the object, you are loading the *exact same* R object that you stored.
+1.  `write_rds()` et `read_rds()` sont des wrappers standards des fonctions de base `readRDS()` et `saveRDS()`.
+    Elles stockent les données dans le format binaire personnalisé de R appelé RDS.
+    Cela signifie que quand vous rechargez l'objet, vous chargez *exactement le même* objet R que vous venez d'exporter.
 
     ```{r}
     write_rds(students, "students.rds")
     read_rds("students.rds")
     ```
 
-2.  The arrow package allows you to read and write parquet files, a fast binary file format that can be shared across programming languages.
-    We'll return to arrow in more depth in @sec-arrow.
+2.  Le package arrow vous permet de lire et d'écrire des fichiers parquet, un format de fichier binaire rapide qui peut être partagé entre les langages de programmation.
+    Nous reviendrons à arrow plus en détail dans le @sec-arrow.
 
     ```{r}
     #| eval: false
@@ -473,7 +472,7 @@ There are two main alternatives:
     #> 6          6 Güvenç Attila    Ice cream          Lunch only              6
     ```
 
-Parquet tends to be much faster than RDS and is usable outside of R, but does require the arrow package.
+Parquet est beaucoup plus rapide que RDS et est utilisable en dehors de R, mais nécessite le package arrow.
 
 ```{r}
 #| include: false
@@ -481,11 +480,11 @@ file.remove("students-2.csv")
 file.remove("students.rds")
 ```
 
-## Data entry
+## Saisie de données
 
-Sometimes you'll need to assemble a tibble "by hand" doing a little data entry in your R script.
-There are two useful functions to help you do this which differ in whether you layout the tibble by columns or by rows.
-`tibble()` works by column:
+Parfois, vous aurez besoin d'assembler un tibble « manuellement » en faisant un peu de saisie de données dans votre script R.
+Il y a deux fonctions utiles pour vous aider à le faire, qui diffèrent selon la manière dont vous spécifiez votre tibble, par colonnes ou par lignes.
+`tibble()` fonctionne par colonne :
 
 ```{r}
 tibble(
@@ -495,9 +494,9 @@ tibble(
 )
 ```
 
-Laying out the data by column can make it hard to see how the rows are related, so an alternative is `tribble()`, short for **tr**ansposed t**ibble**, which lets you lay out your data row by row.
-`tribble()` is customized for data entry in code: column headings start with `~` and entries are separated by commas.
-This makes it possible to lay out small amounts of data in an easy to read form:
+La disposition par colonne complique la comparaison des lignes, donc une alternative est `tribble()`, abréviation de **tr**ansposed **tibble** (tibble transposé), qui vous permet de disposer vos données ligne par ligne.
+`tribble()` est personnalisée pour la saisie de données dans le code : les en-têtes de colonnes commencent par `~` et les entrées sont séparées par des virgules.
+Cela permet de présenter de petites quantités de données sous une forme facile à lire :
 
 ```{r}
 tribble(
@@ -508,11 +507,11 @@ tribble(
 )
 ```
 
-## Summary
+## Résumé
 
-In this chapter, you've learned how to load CSV files with `read_csv()` and to do your own data entry with `tibble()` and `tribble()`.
-You've learned how csv files work, some of the problems you might encounter, and how to overcome them.
-We'll come to data import a few times in this book: @sec-import-spreadsheets from Excel and Google Sheets, @sec-import-databases will show you how to load data from databases, @sec-arrow from parquet files, @sec-rectangling from JSON, and @sec-scraping from websites.
+Dans ce chapitre, vous avez appris à charger des fichiers CSV avec `read_csv()` et à faire votre propre saisie de données avec `tibble()` et `tribble()`.
+Vous avez appris comment les fichiers CSV fonctionnent, certains problèmes que vous pourriez rencontrer et comment les surmonter.
+Nous reviendrons à l'importation de données à plusieurs reprises dans ce livre : dans le @sec-import-spreadsheets pour les fichiers Excel et Google Sheets, le @sec-import-databases vous montrera comment charger les données depuis les bases de données, dans le @sec-arrow pour les fichiers parquet, le @sec-rectangling pour le JSON, et le @sec-scraping pour les sites web.
 
-We're just about at the end of this section of the book, but there's one important last topic to cover: how to get help.
-So in the next chapter, you'll learn some good places to look for help, how to create a reprex to maximize your chances of getting good help, and some general advice on keeping up with the world of R.
+Nous approchons de la fin de cette section du livre, mais il y a un dernier sujet important à couvrir : comment obtenir de l'aide.
+Dans le prochain chapitre, vous découvrirez les bons endroits pour chercher de l'aide, comment créer un reprex pour maximiser vos chances d'obtenir une aide efficace, et quelques conseils généraux pour rester à jour dans l'univers R.
