@@ -103,7 +103,7 @@ students |>
   )
 ```
 
-Une autre approche consiste à utiliser `janitor::clean_names()` qui applique quelques règles afin de les transformer toutes en snake_case en une seule opération[^data-import-1].
+Une autre approche consiste à utiliser `janitor::clean_names()` qui applique quelques règles afin de transformer les noms de colonnes en snake_case en une seule opération[^data-import-1].
 
 [^data-import-1]: Le package [janitor](http://sfirke.github.io/janitor/) ne fait pas partie du tidyverse, mais il offre des fonctions pratiques pour le nettoyage des données et s'intègre bien dans les pipelines en utilisant `|>`.
 
@@ -113,7 +113,7 @@ students |> janitor::clean_names()
 ```
 
 Une autre tâche courante après l'import des données est de vérifier les types de variables.
-Par exemple, `meal_plan` est une variable catégorielle avec un ensemble connu de valeurs possibles, qui en R devrait être présentée comme un facteur :
+Par exemple, `meal_plan` est une variable catégorique avec un ensemble connu de valeurs possibles, qui en R devrait être typée comme un facteur :
 
 ```{r}
 students |>
@@ -354,7 +354,7 @@ read_csv(simple_csv, na = ".")
 readr offre un total de neuf types de colonnes pour votre utilisation :
 
 -   `col_logical()` et `col_double()` lisent les variables logiques et les nombres réels. Ces fonctions sont rarement nécessaires (sauf comme ci-dessus), car readr les devinera généralement automatiquement.
--   `col_integer()` lit les entiers. Nous faisons rarement la distinction entre entiers et doubles dans ce livre car ils sont fonctionnellement équivalents, mais lire explicitement les entiers peut parfois être utile car ils occupent la moitié de la mémoire des doubles.
+-   `col_integer()` lit les entiers. Nous faisons rarement la distinction entre entiers et doubles dans ce livre car ils sont fonctionnellement équivalents, mais lire explicitement les entiers peut parfois être utile car ils occupent moitié moins de mémoire que les doubles.
 -   `col_character()` lit les chaînes de caractères. C'est utile de les spécifier explicitement quand vous avez un identifiant numérique dans une colonne, c'est-à-dire une série de chiffres qui identifie un objet mais sur lequel il n'est pas pertinent d'appliquer des opérations mathématiques. Les exemples incluent les numéros de téléphone, les numéros de sécurité sociale, les numéros de carte de crédit, etc.
 -   `col_factor()`, `col_date()` et `col_datetime()` créent respectivement des facteurs, des dates et des dates/heures ; vous en apprendrez plus sur ceux-ci quand nous arriverons à ces types de données en @sec-factors et @sec-dates-and-times.
 -   `col_number()` est un analyseur numérique permissif qui ignorera les composantes non numériques, et est particulièrement utile pour les devises. Vous en apprendrez plus dans le @sec-numbers.
@@ -511,7 +511,7 @@ tribble(
 
 Dans ce chapitre, vous avez appris à charger des fichiers CSV avec `read_csv()` et à faire votre propre saisie de données avec `tibble()` et `tribble()`.
 Vous avez appris comment les fichiers CSV fonctionnent, certains problèmes que vous pourriez rencontrer et comment les surmonter.
-Nous reviendrons à l'importation de données à plusieurs reprises dans ce livre : dans le @sec-import-spreadsheets pour les fichiers Excel et Google Sheets, le @sec-import-databases vous montrera comment charger les données depuis les bases de données, dans le @sec-arrow pour les fichiers parquet, le @sec-rectangling pour le JSON, et le @sec-scraping pour les sites web.
+Nous reviendrons sur l'importation de données à plusieurs reprises dans ce livre : dans le @sec-import-spreadsheets pour les fichiers Excel et Google Sheets, le @sec-import-databases vous montrera comment charger les données depuis les bases de données, dans le @sec-arrow pour les fichiers parquet, dans le @sec-rectangling pour le JSON, et dans le @sec-scraping pour les sites web.
 
 Nous approchons de la fin de cette section du livre, mais il y a un dernier sujet important à couvrir : comment obtenir de l'aide.
 Dans le prochain chapitre, vous découvrirez les bons endroits pour chercher de l'aide, comment créer un reprex pour maximiser vos chances d'obtenir une aide efficace, et quelques conseils généraux pour rester à jour dans l'univers R.

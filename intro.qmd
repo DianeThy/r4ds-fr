@@ -20,7 +20,7 @@ Notre modèle des étapes d'un projet de science de données typique ressemble �
 #| echo: false
 #| fig-cap: |
 #|   Dans notre modèle du processus de science de données, vous commencez par importer
-#|   et ordonner vos données. Ensuite, vous les comprenez grâce à un cycle itératif de
+#|   et nettoyer vos données. Ensuite, vous les comprenez grâce à un cycle itératif de
 #|   transformation, visualisation et modélisation. Vous terminez le processus
 #|   en communiquant vos résultats à d'autres personnes.
 #| fig-alt: |
@@ -45,10 +45,10 @@ La transformation implique de réduire le jeu de données aux observations utile
 Ensemble, le nettoyage et la transformation sont appelés **manipulation** de données, car mettre vos données dans une forme prête à être utilisée ressemble souvent à un combat !
 
 Une fois que vous disposez de données propres avec les variables dont vous avez besoin, il existe deux manières principales de créer de la connaissance : la visualisation et la modélisation.
-Ces deux approches ont des forces et des faiblesses complémentaires, de sorte que toute analyse de données réelle alternera plusieurs fois entre les deux.
+Ces deux approches ont chacune leurs forces et leurs faiblesses, de sorte que toute analyse de données réelle alternera plusieurs fois entre les deux.
 
 **La visualisation** est une activité fondamentalement humaine.
-Une bonne visualisation vous montrera des choses que vous n'attendiez pas ou soulèvera de nouvelles questions sur les données.
+Une bonne visualisation vous montrera des choses que vous n'attendiez pas, ou soulèvera de nouvelles questions sur les données.
 Une bonne visualisation peut aussi suggérer que vous posez la mauvaise question ou que vous devez collecter des données différentes.
 Les visualisations peuvent vous surprendre, mais elles ne passent pas particulièrement bien à l'échelle car elles nécessitent un être humain pour les interpréter.
 
@@ -74,7 +74,7 @@ Tout au long de ce livre, nous vous indiquerons des ressources pour en apprendre
 
 La description précédente des outils de la science de données est organisée selon l'ordre dans lequel vous les utilisez dans une analyse (même si, bien sûr, vous les parcourrez plusieurs fois de manière itérative).
 D'après notre expérience, cependant, commencer par l'importation et le nettoyage des données est sous-optimal, car 80 % du temps c'est routinier et ennuyeux, et les 20 % restants c'est étrange et frustrant.
-C'est une mauvaise façon de commencer à apprendre un nouveau sujet !
+Ce n'est pas la bonne façon de commencer à apprendre un nouveau sujet !
 À la place, nous commencerons par la visualisation et la transformation de données déjà importées et propres.
 Ainsi, lorsque vous importerez et nettoierez vos propres données, votre motivation restera élevée car vous saurez que le jeu en vaut la chandelle.
 
@@ -196,7 +196,7 @@ En d'autres termes, le complément du tidyverse n'est pas le « messyverse » ma
 À mesure que vous vous attaquerez à davantage de projets de science de données avec R, vous apprendrez de nouveaux packages et de nouvelles façons de penser les données.
 
 Nous utiliserons de nombreux packages extérieurs au tidyverse dans ce livre.
-Par exemple, nous utiliserons les packages suivants car ils fournissent des jeux de données intéressants pour travailler lors de l'apprentissage de R :
+Par exemple, nous utiliserons les packages suivants car ils fournissent des jeux de données intéressants pour travailler en apprenant R :
 
 ```{r}
 #| eval: false

@@ -60,9 +60,9 @@ Le faire régulièrement est un excellent moyen de s'assurer que vous avez inté
 Nous vous recommandons de toujours commencer votre script par les packages dont vous avez besoin.
 De cette façon, si vous partagez votre code avec d'autres, ils peuvent facilement voir quels packages ils doivent installer.
 Notez cependant que vous ne devez jamais inclure `install.packages()` dans un script que vous partagez.
-C'est malhonnête de remettre un script qui modifiera quelque chose sur l'ordinateur d'une autre personne sans qu'elle ne soit prudente !
+C'est malhonnête d'envoyer un script susceptible de modifier quelque chose sur l'ordinateur de quelqu'un d'autre s'il ne fait pas attention !
 
-En travaillant les chapitres futurs, nous vous recommandons vivement de commencer dans l'éditeur de scripts et de pratiquer vos raccourcis clavier.
+En étudiant les chapitres futurs, nous vous recommandons vivement de pratiquer dans l'éditeur de scripts et d'utiliser les raccourcis clavier.
 Avec le temps, l'envoi de code à la console de cette façon deviendra si naturel que vous n'y penserez même pas.
 
 ### Diagnostiques de RStudio
@@ -111,7 +111,7 @@ RStudio enregistre automatiquement le contenu de l'éditeur de scripts quand vou
 Néanmoins, c'est mieux d'éviter Untitled1, Untitled2, Untitled3, etc. et de sauvegarder vos scripts avec des noms explicites.
 
 Il peut être tentant de nommer vos fichiers `code.R` ou `monscript.R`, mais vous devriez réfléchir un peu plus avant de choisir un nom pour votre fichier.
-Trois principes importants pour le nommage des fichiers sont les suivants :
+Les trois principes importants pour le nommage des fichiers sont les suivants :
 
 1.  Les noms de fichiers doivent être **lisibles par une machine** : évitez les espaces, les symboles et les caractères spéciaux. Ne comptez pas sur la distinction entre majuscules et minuscules pour distinguer les fichiers.
 2.  Les noms de fichiers doivent être **lisibles par un humain** : utilisez les noms de fichiers pour décrire ce qui est dans le fichier.
@@ -133,7 +133,7 @@ temp.txt
 
 Il y a ici une variété de problèmes : il est difficile de trouver quel fichier exécuter en premier, les noms de fichiers contiennent des espaces, il y a deux fichiers portant le même nom mais avec une capitalisation différente (`finalreport` vs. `FinalReport`[^workflow-scripts-1]), et certains noms ne décrivent pas leur contenu (`run-first` et `temp`).
 
-[^workflow-scripts-1]: Sans parler du fait que vous tentez le sort en utilisant « final » dans le nom 😆 La bande dessinée Piled Higher and Deeper a une [vignette amusante à ce sujet](https://phdcomics.com/comics/archive.php?comicid=1531).
+[^workflow-scripts-1]: Sans parler du fait que vous jouez avec le feu en utilisant « final » dans le nom 😆 La bande dessinée Piled Higher and Deeper a une [vignette amusante à ce sujet](https://phdcomics.com/comics/archive.php?comicid=1531).
 
 Voici une meilleure façon de nommer et d'organiser le même ensemble de fichiers :
 
@@ -157,7 +157,7 @@ Si vous avez beaucoup de fichiers dans un répertoire, il est recommandé d'amé
 
 Un jour, vous devrez quitter R, faire autre chose, et revenir à votre analyse plus tard.
 Un jour, vous travaillerez sur plusieurs analyses simultanément et vous voudrez les garder séparées.
-Un jour, vous devrez apporter des données du monde extérieur dans R et envoyer des résultats numériques et des figures de R vers le monde extérieur.
+Un jour, vous devrez importer des données du monde extérieur dans R et envoyer des résultats numériques et des figures de R vers le monde extérieur.
 
 Pour gérer ces situations de la vie réelle, vous devez prendre deux décisions :
 
@@ -265,8 +265,7 @@ Cliquez sur File \> New Project, puis suivez les étapes indiquées dans la @fig
 #|   Pour créer un nouveau projet : (en haut) d'abord cliquez sur 
 #|   New Directory, puis (au milieu) cliquez sur New Project, puis 
 #|   (en bas) remplissez le nom du répertoire (du projet), choisissez un bon 
-#|   sous-répertoire pour son emplacement et cliquez sur  
-#|   Create Project.
+#|   sous-répertoire pour son emplacement et cliquez sur Create Project.
 #| fig-alt: |
 #|   Trois captures d'écran du menu Nouveau Projet (New Project). Dans la première 
 #|   capture d'écran, la fenêtre Créer un Projet (Create Project) est affichée et 
@@ -281,7 +280,7 @@ knitr::include_graphics("diagrams/new-project.png")
 ```
 
 Appelez votre projet `r4ds` et réfléchissez attentivement au sous-répertoire dans lequel vous placez le projet.
-Si vous ne le stockez pas quelque part de sensé, il sera difficile de le trouver à l'avenir !
+Si vous ne le stockez pas à un endroit sensé, il vous sera difficile de le retrouver !
 
 Une fois ce processus terminé, vous obtiendrez un nouveau projet RStudio juste pour ce livre.
 Vérifiez que la « maison » de votre projet est le répertoire de travail actuel :
@@ -325,7 +324,7 @@ Si vous enregistrez rigoureusement les figures dans les fichiers **avec du code 
 
 À l'intérieur d'un projet, vous ne devez utiliser que des chemins relatifs, pas des chemins absolus.
 Quelle est la différence ?
-Un chemin relatif est relatif au répertoire de travail, c'est-à-dire la maison du projet.
+Un chemin relatif est relatif au répertoire de travail, c'est-à-dire à la maison du projet.
 Quand Hadley a écrit `data/diamonds.csv` ci-dessus, c'était un raccourci pour `/Users/hadley/Documents/r4ds/data/diamonds.csv`.
 Mais surtout, si Mine exécutait ce code sur son ordinateur, il pointerait vers `/Users/Mine/Documents/r4ds/data/diamonds.csv`.
 C'est pourquoi les chemins relatifs sont importants : ils fonctionnent indépendamment de l'endroit où le dossier du projet R se trouve.
@@ -335,7 +334,7 @@ Ils sont différents selon votre système d'exploitation.
 Sur Windows, ils commencent par une lettre de lecteur (par ex., `C:`) ou deux anti-slashs (par ex., `\\servername`) et sur Mac/Linux, ils commencent par un slash « / » (par ex., `/users/hadley`).
 Vous ne devriez **jamais** utiliser de chemins absolus dans vos scripts, car ils gênent le partage : personne d'autre n'aura exactement la même configuration de répertoires que vous.
 
-Il y a une autre différence importante entre systèmes d'exploitation : la façon dont vous séparez les composants du chemin.
+Il y a une autre différence importante entre systèmes d'exploitation : la façon dont sont séparés les composants du chemin.
 Mac et Linux utilisent des slashs (par ex., `data/diamonds.csv`) et Windows utilise des anti-slashs (par ex., `data\diamonds.csv`).
 R peut fonctionner avec l'un ou l'autre type (peu importe la plateforme sur laquelle vous êtes actuellement), mais malheureusement, les anti-slashs signifient quelque chose différent pour R, et pour obtenir un seul anti-slash dans le chemin, vous devez en écrire deux !
 C'est très frustrant, c'est pourquoi nous recommandons d'utiliser toujours le style Linux/Mac avec des slashs.

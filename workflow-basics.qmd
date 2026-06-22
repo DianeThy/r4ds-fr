@@ -5,9 +5,9 @@
 source("_common.R")
 ```
 
-Vous avez maintenant une certaine expérience en exécutant du code R.
+Vous avez maintenant une certaine expérience dans l'exécution de code R.
 Nous ne vous avons pas donné beaucoup de détails, mais vous avez évidemment compris les bases, sinon vous auriez déjà jeté ce livre par frustration !
-La frustration est naturelle quand vous commencez à programmer en R, car R est extrêmement pointilleux en matière de ponctuation, et même un caractère mal placé peut provoquer une erreur.
+La frustration est naturelle quand vous commencez à programmer en R, car R est extrêmement pointilleux en matière de ponctuation, et un simple caractère mal placé peut provoquer une erreur.
 Mais même si vous devriez vous attendre à être un peu frustré, rassurez-vous en sachant que cette expérience est typique et temporaire : cela arrive à tout le monde, et la seule façon de s'en sortir est de continuer à essayer.
 
 Avant d'aller plus loin, assurons-nous que vous avez une base solide pour exécuter du code R et que vous connaissez certaines des fonctionnalités les plus utiles de RStudio.
@@ -57,7 +57,7 @@ En lisant ce code, dites « le nom de l'objet prend la valeur » dans votre têt
 Vous ferez beaucoup d'affectations, et `<-` est pénible à taper.
 Vous pouvez économiser du temps avec le raccourci clavier de RStudio : Alt + - (le signe moins).
 Notez que RStudio entoure automatiquement `<-` d'espaces, ce qui est une bonne pratique de formatage de code.
-Le code peut être difficile à lire quand tout va bien, alors donnez un peu de repos à vos yeux et utilisez des espaces.
+Le code peut être difficile à lire même quand tout va bien, alors donnez un peu de repos à vos yeux et utilisez des espaces.
 
 ## Commentaires
 
@@ -75,11 +75,11 @@ primes <- c(2, 3, 5, 7, 11, 13)
 primes * 2
 ```
 
-Pour de courtes portions de code comme celle-ci, commenter pour chaque ligne de code n'est pas nécessaire.
+Pour de courtes portions de code comme celle-ci, commenter chaque ligne de code n'est pas nécessaire.
 Mais à mesure que le code que vous écrivez devient plus complexe, les commentaires peuvent vous économiser (ainsi qu'à vos collaborateurs) beaucoup de temps pour comprendre ce qui a été fait.
 
 Utilisez les commentaires pour expliquer le *pourquoi* de votre code, pas le *comment* ou le *quoi*.
-Le *quoi* et le *comment* de votre code sont toujours possibles à comprendre en lisant attentivement, même si cela peut être fastidieux.
+Le *quoi* et le *comment* de votre code sont toujours devinables en lisant attentivement le code, même si cela peut être fastidieux.
 Si vous décrivez chaque étape dans les commentaires et que vous modifiez ensuite le code, vous devrez vous souvenir de mettre à jour les commentaires également, sinon ce sera confus quand vous reviendrez sur votre code à l'avenir.
 
 Comprendre le *pourquoi* quelque chose a été fait est beaucoup plus difficile, voire impossible.
@@ -164,9 +164,9 @@ Remarquez l'info-bulle flottante qui apparaît, vous rappelant les arguments et 
 Si vous voulez plus d'aide, appuyez sur F1 pour obtenir tous les détails dans l'onglet d'aide dans le volet inférieur droit.
 
 Quand vous avez sélectionné la fonction que vous voulez, appuyez à nouveau sur TAB.
-RStudio ajoutera des parenthèses ouvrantes (`(`) et fermantes (`)`) correspondantes pour vous.
-Tapez le nom du premier argument, `from`, et définissez-le égal à `1`.
-Puis, tapez le nom du deuxième argument, `to`, et définissez-le égal à `10`.
+RStudio ajoutera les parenthèses ouvrantes (`(`) et fermantes (`)`) correspondantes pour vous.
+Tapez le nom du premier argument, `from`, et définissez-le à `1`.
+Puis, tapez le nom du deuxième argument, `to`, et définissez-le à `10`.
 Enfin, appuyez sur entrée.
 
 ```{r}

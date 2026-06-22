@@ -38,7 +38,7 @@ Quatre chapitres se concentrent sur les outils de la science de données :
 -   Avant de pouvoir transformer et visualiser vos données, vous devez d'abord importer vos données dans R.
     Dans la section @sec-data-import, vous apprendrez les bases de l'importation de fichiers `.csv` dans R.
 
-Entrelacés parmi ces chapitres se trouvent quatre autres chapitres qui se concentrent sur votre flux de travail R.
+Entrelacés parmi ces chapitres se trouvent quatre autres chapitres qui se concentrent sur votre flux de travail (workflow) R.
 Dans les sections @sec-workflow-basics, @sec-workflow-style et @sec-workflow-scripts-projects, vous apprendrez les bonnes pratiques de flux de travail pour écrire et organiser votre code R.
 Ceux-ci vous prépareront à la réussite à long terme, car ils vous donneront les outils pour rester organisé quand vous vous attaquerez à des projets réels.
 Enfin, la section @sec-workflow-getting-help vous apprendra comment obtenir de l'aide et continuer à apprendre.

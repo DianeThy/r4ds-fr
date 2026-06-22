@@ -8,7 +8,7 @@ source("_common.R")
 ## Introduction
 
 La visualisation est un outil important pour acquérir de la connaissance, mais il est rare que les données soient exactement sous la bonne forme pour créer le graphique souhaité.
-Vous devrez souvent créer de nouvelles variables ou des statistiques pour répondre à vos questions avec vos données, vous voudrez peut-être simplement renommer les variables ou réorganiser les observations pour rendre les données un peu plus faciles à manipuler.
+Vous devrez souvent créer de nouvelles variables ou des statistiques pour répondre à vos questions avec vos données, vous devrez peut-être simplement renommer les variables ou réorganiser les observations pour rendre les données un peu plus faciles à manipuler.
 Vous apprendrez à faire tout cela (et bien plus !) dans ce chapitre, qui vous présentera la transformation de données à l'aide du package **dplyr** et un nouveau jeu de données sur les vols qui ont décollé de New York City en 2013.
 
 L'objectif de ce chapitre est de vous donner un aperçu de tous les outils clés pour transformer un data frame.
@@ -133,7 +133,7 @@ flights |>
 
 Nous reviendrons sur ces comparaisons et opérateurs logiques plus en détail dans le @sec-logicals.
 
-Quand vous exécutez `filter()`, dplyr exécute l'opération de filtrage, en créant un nouveau data frame, puis l'affiche.
+Quand vous exécutez `filter()`, dplyr exécute l'opération de filtrage en créant un nouveau data frame, puis l'affiche.
 Cela ne modifie pas le jeu de données existant `flights` car les fonctions dplyr ne modifient jamais leurs entrées.
 Pour enregistrer le résultat, vous devez utiliser l'opérateur d'affectation, `<-` :
 
@@ -202,7 +202,7 @@ flights |>
   distinct(origin, dest)
 ```
 
-Alternativement, si vous voulez conserver les autres colonnes lors du filtrage pour des lignes uniques, vous pouvez utiliser l'option `.keep_all = TRUE`.
+Autrement, si vous voulez conserver les autres colonnes lors du filtrage pour des lignes uniques, vous pouvez utiliser l'option `.keep_all = TRUE`.
 
 ```{r}
 flights |> 
@@ -239,8 +239,8 @@ flights |>
 
 4.  Y a-t-il eu un vol tous les jours de 2013 ?
 
-5.  Quels vols ont voyagé la distance la plus longue ?
-    Lesquels ont voyagé la distance la plus courte ?
+5.  Quels vols ont voyagé sur la distance la plus longue ?
+    Lesquels ont voyagé sur la distance la plus courte ?
 
 6.  Est-ce que l'ordre dans lequel vous avez utilisé `filter()` et `arrange()` importe si vous les utilisez tous les deux ?
     Pourquoi ou pourquoi pas ?
@@ -264,7 +264,7 @@ flights |>
   )
 ```
 
-Par défaut, `mutate()` ajoute de nouvelles colonnes sur le côté droit de votre jeu de données, ce qui rend difficile de voir le résultat ici.
+Par défaut, `mutate()` ajoute de nouvelles colonnes sur le côté droit de votre jeu de données, il est donc difficile de voir le résultat ici.
 Nous pouvons utiliser l'argument `.before` pour ajouter les variables sur le côté gauche à la place[^data-transform-2] :
 
 [^data-transform-2]: Rappelez-vous que dans RStudio, le moyen le plus facile de voir un jeu de données avec beaucoup de colonnes est `View()`.
@@ -279,7 +279,7 @@ flights |>
 ```
 
 Le `.` indique que `.before` est un argument de la fonction, pas le nom d'une troisième nouvelle variable que nous créons.
-Vous pouvez également utiliser `.after` pour ajouter la nouvelle colonne après une certaine variable, et dans les deux `.before` et `.after` vous pouvez utiliser le nom de la variable au lieu de sa position.
+Vous pouvez également utiliser `.after` pour ajouter la nouvelle colonne après une certaine variable, et dans les deux cas `.before` et `.after` vous pouvez utiliser le nom de la variable au lieu de sa position.
 Par exemple, nous pourrions ajouter les nouvelles variables après `day` :
 
 ```{r}
@@ -292,7 +292,7 @@ flights |>
   )
 ```
 
-Alternativement, vous pouvez contrôler les variables conservées avec l'argument `.keep`.
+Vous pouvez aussi contrôler les variables conservées avec l'argument `.keep`.
 Un argument particulièrement utile est `"used"` qui spécifie que nous ne conservons que les colonnes qui ont été impliquées ou créées dans l'étape `mutate()`.
 Par exemple, la sortie suivante contiendra uniquement les variables `dep_delay`, `arr_delay`, `air_time`, `gain`, `hours`, et `gain_per_hour`.
 
@@ -364,7 +364,7 @@ Voir `?select` pour plus de détails.
 Une fois que vous connaissez les expressions régulières (le sujet du @sec-regular-expressions), vous pourrez également utiliser `matches()` pour sélectionner des variables qui correspondent à un modèle.
 
 Vous pouvez renommer des variables pendant que vous appliquez `select()` en utilisant `=`.
-Le nouveau nom apparaît sur le côté gauche de `=`, et l'ancienne variable apparaît sur le côté droit :
+Le nouveau nom apparaît sur le côté gauche de `=`, et l'ancien nom apparaît sur le côté droit :
 
 ```{r}
 flights |> 
@@ -423,7 +423,7 @@ ggplot(flights, aes(x = air_time - airtime2)) + geom_histogram()
 1.  Comparez `dep_time`, `sched_dep_time`, et `dep_delay`.
     Comment vous attendriez-vous à ce que ces trois nombres soient liés ?
 
-2.  Réfléchissez à autant de façons que possible de sélectionner `dep_time`, `dep_delay`, `arr_time`, et `arr_delay` à partir de `flights`.
+2.  Réfléchissez à autant de façons possibles de sélectionner `dep_time`, `dep_delay`, `arr_time`, et `arr_delay` à partir de `flights`.
 
 3.  Que se passe-t-il si vous spécifiez le nom de la même variable plusieurs fois dans un appel `select()` ?
 
@@ -539,8 +539,8 @@ Cela a permis à l'implémentation de base de se débarrasser des fonctionnalit�
 
 ## Groupes
 
-Jusqu'à présent, vous avez appris les fonctions qui marchent avec les lignes et les colonnes.
-dplyr devient encore plus puissant lorsque vous ajoutez la capacité à travailler avec des groupes.
+Jusqu'à présent, vous avez appris les fonctions qui s'appliquent sur les lignes et les colonnes.
+dplyr devient encore plus puissant lorsqu'on ajoute la capacité à travailler avec des groupes.
 Dans cette section, nous nous concentrerons sur les fonctions les plus importantes : `group_by()`, `summarize()`, et la famille de fonctions slice.
 
 ### `group_by()`
@@ -558,7 +558,7 @@ Cela signifie que les opérations suivantes fonctionneront maintenant « par moi
 
 ### `summarize()` {#sec-summarize}
 
-L'opération groupée la plus importante est un résumé, qui, s'il est utilisé pour calculer une seule statistique résumée, réduit le data frame pour avoir une seule ligne pour chaque groupe.
+L'opération groupée la plus importante est un résumé, qui, s'il est utilisé pour calculer une seule statistique résumée, réduit le data frame pour avoir une seule ligne par groupe.
 Dans dplyr, cette opération est effectuée par `summarize()`[^data-transform-3], comme le montre l'exemple suivant, qui calcule le délai de départ moyen par mois :
 
 [^data-transform-3]: Ou `summarise()`, si vous préférez l'anglais britannique.
@@ -596,7 +596,7 @@ flights |>
   )
 ```
 
-Les moyennes et les comptes peuvent vous mener très loin en science des données !
+Les moyennes et les comptes peuvent vous mener très loin en science de données !
 
 ### Les fonctions `slice_`
 
@@ -712,13 +712,13 @@ flights |>
 `.by` fonctionne avec tous les verbes et présente l'avantage de ne pas devoir utiliser l'argument `.groups` pour supprimer le message de groupement ou `ungroup()` quand vous avez fini.
 
 Nous ne nous sommes pas concentrés sur cette syntaxe dans ce chapitre parce qu'elle était très nouvelle quand nous avons écrit le livre.
-Nous voulions la mentionner parce que nous pensons qu'elle a beaucoup de promesse et qu'elle sera probablement très populaire.
+Nous voulions la mentionner parce que nous pensons qu'elle a un beau potentiel et qu'elle sera probablement très populaire.
 Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](https://www.tidyverse.org/blog/2023/02/dplyr-1-1-0-per-operation-grouping/).
 
 ### Exercices
 
 1.  Quel transporteur a les pires retards moyens ?
-    Défi : Pouvez-vous démêler les effets des mauvais aéroports par rapport aux mauvais transporteurs ?
+    Défi : parviendrez-vous à distinguer les effets liés aux aéroports peu performants de ceux liés aux compagnies aériennes peu performantes ?
     Pourquoi ou pourquoi pas ?
     (Conseil : pensez à `flights |> group_by(carrier, dest) |> summarize(n())`)
 
@@ -742,7 +742,7 @@ Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](htt
     )
     ```
 
-    a.  Écrivez à quoi vous pensez que la sortie ressemblera, puis vérifiez si vous aviez raison, et décrivez ce que `group_by()` fait.
+    a.  Notez à quoi, selon vous, ressemblera le résultat final puis vérifiez si vous aviez raison, et décrivez ce que `group_by()` fait.
 
         ```{r}
         #| eval: false 
@@ -750,7 +750,7 @@ Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](htt
           group_by(y)
         ```
 
-    b.  Écrivez à quoi vous pensez que la sortie ressemblera, puis vérifiez si vous aviez raison, et décrivez ce que `arrange()` fait.
+    b.  Notez à quoi, selon vous, ressemblera le résultat final puis vérifiez si vous aviez raison, et décrivez ce que `arrange()` fait.
         Aussi, commentez en quoi c'est différent du `group_by()` de la question (a).
 
         ```{r}
@@ -759,7 +759,7 @@ Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](htt
           arrange(y)
         ```
 
-    c.  Écrivez à quoi vous pensez que la sortie ressemblera, puis vérifiez si vous aviez raison, et décrivez ce que le pipeline fait.
+    c.  Notez à quoi, selon vous, ressemblera le résultat final puis vérifiez si vous aviez raison, et décrivez ce que le pipeline fait.
 
         ```{r}
         #| eval: false
@@ -768,7 +768,7 @@ Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](htt
           summarize(mean_x = mean(x))
         ```
 
-    d.  Écrivez à quoi vous pensez que la sortie ressemblera, puis vérifiez si vous aviez raison, et décrivez ce que le pipeline fait.
+    d.  Notez à quoi, selon vous, ressemblera le résultat final puis vérifiez si vous aviez raison, et décrivez ce que le pipeline fait.
         Ensuite, commentez ce que le message dit.
 
         ```{r}
@@ -778,7 +778,7 @@ Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](htt
           summarize(mean_x = mean(x))
         ```
 
-    e.  Écrivez à quoi vous pensez que la sortie ressemblera, puis vérifiez si vous aviez raison, et décrivez ce que le pipeline fait.
+    e.  Notez à quoi, selon vous, ressemblera le résultat final puis vérifiez si vous aviez raison, et décrivez ce que le pipeline fait.
         En quoi la sortie est-elle différente de celle de la question (d) ?
 
         ```{r}
@@ -788,7 +788,7 @@ Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](htt
           summarize(mean_x = mean(x), .groups = "drop")
         ```
 
-    f.  Écrivez à quoi vous pensez que les sorties ressembleront, puis vérifiez si vous aviez raison, et décrivez ce que chaque pipeline fait.
+    f.  Notez à quoi, selon vous, ressembleront les résultats finaux puis vérifiez si vous aviez raison, et décrivez ce que chaque pipeline fait.
         En quoi les sorties des deux pipelines sont-elles différentes ?
 
         ```{r}
@@ -804,9 +804,9 @@ Vous pouvez en apprendre plus à ce sujet dans le [blog post de dplyr 1.1.0](htt
 
 ## Étude de cas : agrégats et taille d'échantillon {#sec-sample-size}
 
-Chaque fois que vous faites une agrégation, c'est toujours une bonne idée d'inclure un compte (`n()`).
+Chaque fois que vous faites une agrégation, c'est toujours bien d'inclure un compte (`n()`).
 De cette façon, vous pouvez vous assurer que vous ne tirez pas de conclusions basées sur une très petite quantité de données.
-Nous allons le démontrer avec des données de baseball du package **Lahman**.
+Nous allons le démontrer avec des données de baseball contenues dans le package **Lahman**.
 Plus précisément, nous comparerons la proportion de coups réussis (H) réalisés par un joueur par rapport au nombre de fois où il tente de mettre la balle en jeu (AB) :
 
 ```{r}
@@ -854,7 +854,7 @@ batters |>
   arrange(desc(performance))
 ```
 
-Vous trouverez une bonne explication de ce problème et comment le surmonter à <http://varianceexplained.org/r/empirical_bayes_baseball/> et <https://www.evanmiller.org/how-not-to-sort-by-average-rating.html>.
+Vous trouverez une bonne explication de ce problème et comment le surmonter sur <http://varianceexplained.org/r/empirical_bayes_baseball/> et <https://www.evanmiller.org/how-not-to-sort-by-average-rating.html>.
 
 ## Résumé
 

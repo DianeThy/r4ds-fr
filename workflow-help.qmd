@@ -109,7 +109,7 @@ Il y a trois choses que vous devez inclure pour rendre votre exemple reproductib
 
     Plus votre code est court, plus il est facile à comprendre et plus il est facile à corriger.
 
-Terminez en vérifiant que vous avez réellement créé un exemple reproductible en commençant une nouvelle session R et en copiant / collant votre script.
+Terminez la vérification que vous avez réellement créé un exemple reproductible en commençant une nouvelle session R et en copiant / collant votre script.
 
 Il n'est pas facile de créer des reprex, et il vous faudra de la pratique pour apprendre à créer de bons et minimaux reprex.
 Cependant, apprendre à poser des questions qui incluent du code et investir du temps pour le rendre reproductible, continuera à payer au fur et à mesure que vous apprendrez et maîtriserez R.
@@ -127,4 +127,4 @@ Ce chapitre conclut la partie « Vue d'ensemble » du livre.
 Vous avez vu les parties les plus importantes du processus de science de données : la visualisation, la transformation, le nettoyage et l'importation.
 Maintenant que vous avez une vision globale de l'ensemble du processus, nous commençerons à entrer plus dans les détails.
 
-La partie suivante du livre, « Visualisation », approfondit la grammaire des graphiques et la création de visualisations de données avec ggplot2, elle montre comment utiliser les outils que vous avez découvert jusqu'à présent pour mener une analyse exploratoire des données, et introduit les bonnes pratiques pour créer des graphiques à des fins de communication.
+La partie suivante du livre, « Visualiser », approfondit la grammaire des graphiques et la création de visualisations de données avec ggplot2, elle montre comment utiliser les outils que vous avez découvert jusqu'à présent pour mener une analyse exploratoire des données, et introduit les bonnes pratiques pour créer des graphiques à des fins de communication.

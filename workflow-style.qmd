@@ -5,7 +5,7 @@
 source("_common.R")
 ```
 
-Un bon style de code c'est comme une ponctuation correcte : vous pouvez vous en passer, mais cela rend les choses beaucoup plus faciles à lire.
+Un bon style de code est comme une ponctuation correcte : vous pouvez vous en passer, mais cela rend les choses beaucoup plus faciles à lire.
 Même si vous êtes un programmeur novice, c'est une bonne chose de travailler votre style de code.
 L'utilisation d'un style cohérent facilite la lecture de votre travail par d'autres personnes (y compris vous-même dans le futur !) et est particulièrement importante si vous avez besoin de l'aide de quelqu'un d'autre.
 Ce chapitre présentera les points les plus importants du [guide de style tidyverse](https://style.tidyverse.org), qui est utilisé tout au long de ce livre.
@@ -54,7 +54,7 @@ short_flights <- flights |> filter(air_time < 60)
 SHORTFLIGHTS <- flights |> filter(air_time < 60)
 ```
 
-En règle générale, il est préférable de préférer les noms longs et descriptifs qui sont faciles à comprendre plutôt que les noms concis qui sont rapides à taper.
+En règle générale, il vaut mieux préférer les noms longs et descriptifs qui sont faciles à comprendre plutôt que les noms concis qui sont rapides à taper.
 Les noms courts économisent relativement peu de temps lors de l'écriture du code (surtout parce que l'autocomplétion vous aidera à terminer la saisie), mais cela peut prendre du temps quand vous revenez à un ancien code et que vous êtes forcé de démêler une abréviation énigmatique.
 
 Si vous avez beaucoup de noms pour des choses connexes, faites de votre mieux pour être cohérent.
@@ -75,7 +75,7 @@ z<-( a + b ) ^ 2/d
 ```
 
 Ne mettez pas d'espaces à l'intérieur ou à l'extérieur des parenthèses pour les appels de fonction réguliers.
-Mettez toujours un espace après une virgule, comme en anglais standard.
+Mettez toujours un espace après une virgule, comme en français standard.
 
 ```{r}
 #| eval: false
@@ -86,7 +86,7 @@ mean(x, na.rm = TRUE)
 mean (x ,na.rm=TRUE)
 ```
 
-C'est acceptable d'ajouter des espaces supplémentaires si cela améliore l'alignement.
+Il est possible d'ajouter des espaces supplémentaires si cela améliore l'alignement.
 Par exemple, si vous créez plusieurs variables dans `mutate()`, vous pourriez vouloir ajouter des espaces pour que tous les `=` s'alignent.[^workflow-style-1]
 Cela rend le code plus facile à parcourir.
 
@@ -232,7 +232,7 @@ flights |>
 ```
 
 Attention à la transition de `|>` à `+`.
-Nous souhaitons que cette transition ne soit pas nécessaire, mais malheureusement, ggplot2 a été écrit avant la découverte du pipe.
+Nous aimerions que cette transition ne soit pas nécessaire, mais malheureusement, ggplot2 a été écrit avant la découverte du pipe.
 
 ## Commentaires de section
 
@@ -259,7 +259,7 @@ knitr::include_graphics("screenshots/rstudio-nav.png")
 
 ## Exercices
 
-1.  Reformatez les pipelines suivants en suivant les directives ci-dessus.
+1.  Reformatez les pipelines suivants en respectant les directives ci-dessus.
 
     ```{r}
     #| eval: false

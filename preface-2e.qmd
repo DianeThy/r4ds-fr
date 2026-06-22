@@ -1,7 +1,7 @@
 # Préface de la deuxième édition {.unnumbered}
 
 Bienvenue dans la deuxième édition de « R pour la science de données » !
-Il s'agit d'une refonte majeure de la première édition : nous avons retiré les contenus que nous ne jugeons plus utiles, ajouté ceux que nous aurions aimé inclure dans la première édition, et plus généralement mis à jour le texte et le code pour refléter l'évolution des bonnes pratiques.
+Il s'agit d'une refonte majeure de la première édition : nous avons retiré les contenus que nous ne jugions plus utiles, ajouté ceux que nous aurions aimé inclure dans la première édition, et plus généralement mis à jour le texte et le code pour refléter l'évolution des bonnes pratiques.
 Nous sommes aussi très heureux d'accueillir une nouvelle co-autrice : Mine Çetinkaya-Rundel, pédagogue reconnue en science de données et l'une de nos collègues chez Posit (l'entreprise anciennement connue sous le nom de RStudio).
 
 Voici un bref résumé des principaux changements :
@@ -21,11 +21,11 @@ Voici un bref résumé des principaux changements :
     
 -   La partie « Programmer » demeure, mais a été réécrite de fond en comble pour se concentrer sur les aspects les plus importants de l'écriture de fonctions et de l'itération.
     L'écriture de fonctions inclut désormais des détails sur la façon d'encapsuler des fonctions du tidyverse (en composant avec les défis de l'évaluation tidy), car cela est devenu bien plus facile et important ces dernières années.
-    Nous avons ajouté un nouveau chapitre sur les fonctions R base importantes que vous êtes susceptible de rencontrer dans du code R sauvage.
+    Nous avons ajouté un nouveau chapitre sur les fonctions de R base importantes que vous êtes susceptible de rencontrer dans du code R sauvage.
     
 -   La partie « Modélisation » a été supprimée.
     Nous n'avons jamais eu assez de place pour rendre pleinement justice à la modélisation, et il existe désormais de bien meilleures ressources.
-    Nous recommandons en général d'utiliser les packages [tidymodels](https://www.tidymodels.org/) et de lire [Tidy Modeling with R](https://www.tmwr.org/) de Max Kuhn et Julia Silge.
+    Nous recommandons d'utiliser les packages [tidymodels](https://www.tidymodels.org/) et de lire [Tidy Modeling with R](https://www.tmwr.org/) de Max Kuhn et Julia Silge.
     
 -   La partie « Communiquer » demeure, mais a été entièrement mise à jour pour mettre en avant [Quarto](https://quarto.org/) plutôt que R Markdown.
     Cette édition du livre a été rédigée avec Quarto, qui est clairement l'outil de l'avenir.

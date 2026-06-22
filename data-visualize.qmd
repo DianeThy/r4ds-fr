@@ -44,7 +44,7 @@ library(tidyverse)
 
 Vous n'avez besoin d'installer un package qu'une seule fois, mais vous devez le charger chaque fois que vous démarrez une nouvelle session.
 
-En plus de tidyverse, nous utiliserons également le package **palmerpenguins**, qui inclut le jeu de données `penguins` contenant les mesures du corps des manchots sur trois îles de l'archipel de Palmer, et le package ggthemes, qui offre une palette de couleurs sûre pour les daltoniens.
+En plus du tidyverse, nous utiliserons le package **palmerpenguins**, qui inclut le jeu de données `penguins` contenant les mesures du corps des manchots sur trois îles de l'archipel de Palmer, et le package ggthemes, qui offre une palette de couleurs sûre pour les daltoniens.
 
 ```{r}
 library(palmerpenguins)
@@ -67,7 +67,7 @@ Créons des visualisations que nous pouvons utiliser pour répondre à ces quest
 ### Le data frame `penguins`
 
 Vous pouvez tester vos réponses à ces questions avec le **data frame** `penguins` trouvé dans palmerpenguins (a.k.a. `palmerpenguins::penguins`).
-Un data frame est une collection rectangulaire de variables (dans les colonnes) et d'observations (dans les lignes).
+Un data frame est une collection tabulaire de variables (dans les colonnes) et d'observations (dans les lignes).
 `penguins` contient `r nrow(penguins)` observations collectées et mises à disposition par le Dr Kristen Gorman et la Palmer Station, Antarctica LTER[^data-visualize-2].
 
 [^data-visualize-2]: Horst AM, Hill AP, Gorman KB (2020).
@@ -90,7 +90,7 @@ Pour faciliter la discussion, définissons quelques termes :
 -   **Les données tabulaires** sont un ensemble de valeurs, chacune associée à une variable et une observation.
     Les données tabulaires sont *propres* si chaque valeur est placée dans sa propre « cellule », chaque variable dans sa propre colonne et chaque observation dans sa propre ligne.
 
-Dans ce contexte, une variable fait référence à un attribut de tous les manchots, et une observation fait référence à tous les attributs d'un seul manchot.
+Dans ce contexte, une variable fait référence à un seul attribut de tous les manchots, et une observation fait référence à tous les attributs d'un seul manchot.
 
 Tapez le nom du data frame dans la console et R affichera un aperçu de son contenu.
 Notez qu'il dit `tibble` en haut de cet aperçu.
@@ -204,8 +204,8 @@ ggplot(
   geom_point()
 ```
 
-Maintenant nous avons quelque chose qui ressemble à ce que nous pourrions penser comme un « nuage de points ».
-Il ne correspond pas encore à notre graphique « objectif ultime », mais en utilisant ce graphique, nous pouvons commencer à répondre à la question qui a motivé notre exploration : « À quoi ressemble la relation entre la longueur de nageoire et la masse corporelle ? » La relation semble être positive (à mesure que la longueur de nageoire augmente, la masse corporelle aussi), assez linéaire (les points sont regroupés autour d'une ligne plutôt qu'une courbe) et modérément forte (il n'y a pas trop de dispersion autour d'une telle ligne).
+Nous avons désormais quelque chose qui ressemble à un nuage de points.
+Ce n'est pas encore notre graphique « objectif ultime », mais en utilisant ce graphique, nous pouvons commencer à répondre à la question qui a motivé notre exploration : « À quoi ressemble la relation entre la longueur de nageoire et la masse corporelle ? » La relation semble être positive (à mesure que la longueur de nageoire augmente, la masse corporelle aussi), assez linéaire (les points sont regroupés autour d'une ligne plutôt qu'une courbe) et modérément forte (il n'y a pas trop de dispersion autour d'une telle ligne).
 Les manchots avec des nageoires plus longues ont généralement une plus grande masse corporelle.
 
 Avant d'ajouter d'autres couches à ce graphique, arrêtons-nous un moment et examinons le message d'avertissement que nous avons reçu :
@@ -214,20 +214,20 @@ Avant d'ajouter d'autres couches à ce graphique, arrêtons-nous un moment et ex
 
 Nous voyons ce message parce qu'il y a deux manchots dans notre jeu de données avec des valeurs manquantes de masse corporelle et/ou de longueur de nageoire, et ggplot2 n'a aucun moyen de les représenter sur le graphique sans ces deux valeurs.
 Comme R, ggplot2 souscrit à la philosophie selon laquelle les valeurs manquantes ne doivent jamais disparaître silencieusement.
-Ce type d'avertissement est probablement l'un des types d'avertissements les plus courants que vous verrez lorsque vous travaillez avec des données réelles -- les valeurs manquantes sont un problème très courant et vous en apprendrez davantage tout au long du livre, particulièrement dans le @sec-missing-values.
+Ce type d'avertissement est probablement l'un des types d'avertissements les plus courants que vous verrez lorsque vous travaillerez avec des données réelles -- les valeurs manquantes sont un problème très courant et vous en apprendrez davantage tout au long du livre, particulièrement dans le @sec-missing-values.
 Pour les graphiques restants de ce chapitre, nous supprimerons cet avertissement afin qu'il ne soit pas affiché à côté de chaque graphique que nous faisons.
 
 ### Ajouter des esthétiques et des couches {#sec-adding-aesthetics-layers}
 
-Les nuages de points sont utiles pour afficher la relation entre deux variables numériques, mais il est toujours bon d'être sceptique face à toute relation apparente entre deux variables et de se demander s'il y a d'autres variables qui expliquent ou changent la nature de cette relation apparente.
+Les nuages de points sont utiles pour afficher la relation entre deux variables numériques, mais il est toujours bon d'être sceptique face à toute relation apparente entre deux variables et se demander s'il y a d'autres variables qui expliquent ou changent la nature de cette relation apparente.
 Par exemple, la relation entre la longueur de nageoire et la masse corporelle diffère-t-elle selon l'espèce ?
 Incorporons l'espèce dans notre graphique et voyons si cela révèle des informations supplémentaires sur la relation apparente entre ces variables.
 Nous ferons cela en représentant les espèces avec des points de couleurs différentes.
 
 Pour y parvenir, devrons-nous modifier l'esthétique ou la geom ?
 Si vous avez deviné « dans le mappage esthétique, à l'intérieur de `aes()` », vous commencez déjà à acquérir le coup de main pour créer des visualisations de données avec ggplot2 !
-Et sinon, ne vous inquiétez pas.
-Tout au long du livre, vous ferez beaucoup plus de ggplots et aurez beaucoup plus d'occasions de vérifier votre intuition en les faisant.
+Sinon, ne vous inquiétez pas.
+Tout au long de ce livre, vous ferez beaucoup plus de ggplots et aurez beaucoup plus d'occasions de vérifier votre intuition en les faisant.
 
 ```{r}
 #| warning: false
@@ -315,7 +315,7 @@ ggplot(
 
 Notez que la légende est automatiquement mise à jour pour refléter les différentes formes des points également.
 
-Et enfin, nous pouvons améliorer les étiquettes (noms) de notre graphique en utilisant la fonction `labs()` dans une nouvelle couche.
+Enfin, nous pouvons améliorer les étiquettes (noms) de notre graphique en utilisant la fonction `labs()` dans une nouvelle couche.
 Certains arguments de `labs()` sont explicites : `title` ajoute un titre et `subtitle` ajoute un sous-titre au graphique.
 D'autres arguments correspondent aux mappages esthétiques, `x` est l'étiquette de l'axe des x, `y` est l'étiquette de l'axe des y, et `color` et `shape` définissent l'étiquette de la légende.
 De plus, nous pouvons améliorer la palette de couleurs pour qu'elle soit sûre pour les daltoniens avec la fonction `scale_color_colorblind()` du package ggthemes.
@@ -477,7 +477,7 @@ La manière dont vous visualisez la distribution d'une variable dépend du type 
 
 Une variable est **catégorique** si elle ne peut prendre qu'une seule d'un petit ensemble de valeurs.
 Pour examiner la distribution d'une variable catégorique, vous pouvez utiliser un diagramme en barres.
-La hauteur des barres affiche le nombre d'observations qui se sont produites avec chaque valeur `x`.
+La hauteur des barres affiche le nombre d'observations pour chaque valeur `x`.
 
 ```{r}
 #| fig-alt: |
@@ -488,7 +488,7 @@ ggplot(penguins, aes(x = species)) +
   geom_bar()
 ```
 
-Dans les diagrammes en barres de variables catégoriques avec des niveaux non ordonnés, comme `species` (espèce de manchot) ci-dessus, il est souvent préférable de réorganiser les barres en fonction de leurs fréquences.
+Dans les diagrammes en barres de variables catégoriques avec des niveaux non ordonnés, comme `species` (espèce de manchot) ci-dessus, il est souvent préférable de réorganiser les barres en fonction de leur fréquence.
 Pour ce faire, vous devez transformer la variable en facteur (manière dont R traite les données catégoriques) et puis réorganiser les niveaux de ce facteur.
 
 ```{r}
@@ -508,7 +508,7 @@ Vous apprendrez davantage sur les facteurs et les fonctions pour traiter les fac
 Une variable est **numérique** (ou quantitative) si elle peut prendre une multitude de valeurs numériques, et s'il est possible d'ajouter, soustraire ou faire la moyenne avec ces valeurs.
 Les variables numériques peuvent être continues ou discrètes.
 
-Une visualisation couramment utilisée pour les distributions de variables continues est un histogramme.
+Une visualisation couramment utilisée pour les distributions de variables continues est l'histogramme.
 
 ```{r}
 #| warning: false
@@ -522,8 +522,8 @@ ggplot(penguins, aes(x = body_mass_g)) +
 Un histogramme divise l'axe des x en classes (bins) équidistantes, puis utilise la hauteur d'une barre pour afficher le nombre d'observations qui tombent dans chaque classe.
 Dans le graphique ci-dessus, la barre la plus haute montre que 39 observations ont une valeur `body_mass_g` entre 3 500 et 3 700 grammes, qui sont les bords gauche et droit de la barre.
 
-Vous pouvez définir la largeur des intervalles (classes) dans un histogramme avec l'argument binwidth, qui est mesuré dans les unités de la variable `x`.
-Vous devriez toujours explorer une variété de binwidths lors du travail avec des histogrammes, car différents binwidths peuvent révéler différents motifs.
+Vous pouvez définir la largeur des classes dans un histogramme avec l'argument binwidth, qui est mesuré dans les unités de la variable `x`.
+Vous devrez toujours explorer une variété de binwidths lors du travail avec des histogrammes, car différents binwidths peuvent révéler différents motifs.
 Dans les graphiques ci-dessous, un binwidth de 20 est trop étroit ; ça montre trop de barres et rend difficile la détermination de la forme de la distribution.
 De même, un binwidth de 2 000 est trop élevé ; ça montre toutes les données en seulement trois barres et rend également difficile la détermination de la forme de la distribution.
 Un binwidth de 200 offre un équilibre judicieux.
@@ -543,7 +543,7 @@ ggplot(penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 2000)
 ```
 
-Une visualisation alternative pour les distributions de variables numériques est une courbe de densité.
+Une visualisation alternative pour les distributions de variables numériques est la courbe de densité.
 Une courbe de densité est une version lissée d'un histogramme et une alternative pratique, particulièrement pour les données continues qui proviennent d'une distribution lisse sous-jacente.
 Nous n'allons pas nous attarder sur la façon dont `geom_density()` estime la densité (vous pouvez en lire plus dans la documentation de la fonction), mais expliquons comment la courbe de densité est dessinée avec une analogie.
 Imaginez un histogramme fait de blocs de bois.
@@ -585,7 +585,7 @@ ggplot(penguins, aes(x = body_mass_g)) +
 ## Visualiser les relations
 
 Pour visualiser une relation, nous avons besoin d'au moins deux variables mappées aux esthétiques d'un graphique.
-Dans les sections suivantes, vous apprendrez les graphiques couramment utilisés pour visualiser les relations entre deux variables ou plus et les geoms utilisés pour les créer.
+Dans les sections suivantes, vous découvrirez les graphiques couramment utilisés pour visualiser les relations entre deux variables ou plus et les geoms utilisés pour les créer.
 
 ### Une variable numérique et une variable catégorique
 
@@ -629,7 +629,7 @@ ggplot(penguins, aes(x = species, y = body_mass_g)) +
   geom_boxplot()
 ```
 
-Alternativement, nous pouvons faire des courbes de densité avec `geom_density()`.
+Nous pouvons aussi faire des courbes de densité avec `geom_density()`.
 
 ```{r}
 #| warning: false
@@ -692,7 +692,7 @@ ggplot(penguins, aes(x = island, fill = species)) +
 ```
 
 En créant ces diagrammes en barres, nous mappons la variable qui sera séparée en barres à l'esthétique `x`, et la variable qui changera les couleurs à l'intérieur des barres à l'esthétique `fill`.
-Malheureusement, ggplot2 nomme l'axe y avec « count » par défaut, mais nous pouvons le contourner en ajoutant une couche `labs()` où nous spécifions le nom de l'axe y comme « proportion ».
+Malheureusement, ggplot2 nomme l'axe y avec « count » par défaut, mais nous pouvons le modifier en ajoutant une couche `labs()` où nous spécifions le nom de l'axe y comme « proportion ».
 
 ```{r}
 #| fig-alt: |
@@ -761,7 +761,7 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
   facet_wrap(~island)
 ```
 
-Vous apprendrez à connaître beaucoup d'autres geoms pour visualiser les distributions de variables et les relations entre elles dans le @sec-layers.
+Vous apprendrez beaucoup d'autres geoms pour visualiser les distributions de variables et les relations entre elles dans le @sec-layers.
 
 ### Exercices
 
@@ -860,11 +860,11 @@ Vous apprendrez davantage sur Quarto dans le @sec-quarto.
 
 Au fur et à mesure que vous commencez à exécuter du code R, vous êtes susceptible de rencontrer des problèmes.
 Ne vous inquiétez pas --- cela arrive à tout le monde.
-Nous avons tous écrit du code R pendant des années, mais chaque jour, nous écrivons toujours du code qui ne fonctionne pas du premier coup !
+Nous avons tous écrit du code R pendant des années, mais ça nous arrive encore d'écrire du code qui ne fonctionne pas du premier coup !
 
 Commencez par comparer soigneusement le code que vous exécutez avec le code du livre.
 R est extrêmement pointilleux, et un caractère mal placé peut faire toute la différence.
-Assurez-vous que chaque `(` est appairé avec un `)` et chaque `"` est appairé avec un autre `"`.
+Assurez-vous que chaque `(` est appairé avec `)` et chaque `"` est appairé avec un autre `"`.
 Parfois, vous exécutez le code et rien ne se passe.
 Vérifiez le côté gauche de votre console : si c'est un `+`, cela signifie que R ne pense pas que vous ayez écrit une expression complète et il attend que vous la terminiez.
 Dans ce cas, il est généralement facile de recommencer à zéro en appuyant sur ÉCHAP pour abandonner le traitement de la commande actuelle.

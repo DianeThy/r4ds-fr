@@ -14,8 +14,8 @@ source("_common.R")
 > --- Hadley Wickham
 
 Dans ce chapitre, vous apprendrez une méthode cohérente pour organiser vos données dans R à l'aide d'un système appelé **tidy data** (données propres).
-Mettre vos données dans ce format nécessite du travail initialement, mais ce travail s'avère payant à long terme.
-Une fois que vous avez des données propres et des outils fournis par les packages du tidyverse, vous passerez beaucoup moins de temps à manipuler les données d'une forme à une autre, ce qui vous permettra de passer plus de temps sur les questions relatives aux données qui vous intéressent.
+Mettre vos données dans ce format nécessite du travail à court terme, mais ce travail s'avère payant à long terme.
+Une fois que vous avez des données propres et les outils fournis par les packages du tidyverse, vous passerez beaucoup moins de temps à manipuler les données d'une forme à une autre, ce qui vous permettra de passer plus de temps sur les questions relatives aux données qui vous intéressent.
 
 Dans ce chapitre, vous apprendrez d'abord la définition des données propres et la verrez appliquée à un simple jeu de données d'exemple.
 Ensuite, nous plongerons dans l'outil principal que vous utiliserez pour nettoyer les données : le pivot.
@@ -133,13 +133,13 @@ ggplot(table1, aes(x = year, y = cases)) +
 ## Allonger les données {#sec-pivoting}
 
 Les principes des données propres peuvent sembler si évidents que vous vous demandez si vous rencontrerez jamais un jeu de données qui n'est pas propre.
-Malheureusement, cependant, la plupart des données réelles ne sont pas propres.
+Malheureusement, la plupart des données réelles ne sont pas propres.
 Il y a deux principales raisons :
 
 1.  Les données sont souvent organisées pour faciliter un objectif autre que l'analyse.
     Par exemple, il est courant que les données soient structurées pour faciliter la saisie des données, et non l'analyse.
 
-2.  La plupart des gens ne sont pas familiers avec les principes des données propres, et il est difficile de les dériver vous-même sauf si vous passez beaucoup de temps à travailler avec des données.
+2.  La plupart des gens ne sont pas familiers avec les principes des données propres, et il est difficile de les deviner vous-même sauf si vous passez beaucoup de temps à travailler avec des données.
 
 Cela signifie que la plupart des analyses réelles nécessiteront au moins un peu de nettoyage.
 Vous commencerez par déterminer quelles sont les variables et observations sous-jacentes.
@@ -179,8 +179,8 @@ billboard |>
 Après avoir spécifié les données, il y a trois arguments clés :
 
 -   `cols` spécifie les colonnes qui doivent être pivotées, c'est-à-dire les colonnes qui ne sont pas des variables. Cet argument utilise la même syntaxe que `select()` donc ici nous pourrions utiliser `!c(artist, track, date.entered)` ou `starts_with("wk")`.
--   `names_to` nomme la variable stockée dans les noms de colonnes, nous avons nommé cette variable `week`.
--   `values_to` nomme la variable stockée dans les valeurs des cellules, nous avons nommé cette variable `rank`.
+-   `names_to` nomme la variable qui stocke les noms de colonnes, nous avons nommé cette variable `week`.
+-   `values_to` nomme la variable qui stocke les valeurs des cellules, nous avons nommé cette variable `rank`.
 
 Notez que dans le code, `"week"` et `"rank"` sont entre guillemets car ce sont de nouvelles variables que nous créons, elles n'existent pas encore dans les données quand nous exécutons l'appel `pivot_longer()`.
 
@@ -190,7 +190,7 @@ Prenez par exemple « Baby Don't Cry » de 2 Pac.
 La sortie ci-dessus suggère qu'elle ne figurait dans le top 100 que pendant 7 semaines, et toutes les semaines restantes sont remplies de valeurs manquantes.
 Ces `NA`s ne représentent pas vraiment des observations inconnues ; elles ont été forcées d'exister par la structure du jeu de données[^data-tidy-2], nous pouvons donc demander à `pivot_longer()` de s'en débarrasser en définissant `values_drop_na = TRUE` :
 
-[^data-tidy-2]: Nous reviendrons à cette idée en @sec-missing-values.
+[^data-tidy-2]: Nous reviendrons sur cette idée en @sec-missing-values.
 
 ```{r}
 billboard |> 
@@ -225,14 +225,14 @@ billboard_longer <- billboard |>
 billboard_longer
 ```
 
-Maintenant que nous avons tous les numéros de semaine dans une variable et toutes les valeurs de classement dans une autre, nous sommes dans une bonne position pour visualiser comment les classements des chansons varient au fil du temps.
+Maintenant que nous avons tous les numéros de semaine dans une variable et toutes les valeurs de classement dans une autre, nous sommes dans de bonnes conditions pour visualiser comment les classements des chansons varient au fil du temps.
 Le code est présenté ci-dessous et le résultat se trouve en @fig-billboard-ranks.
 Nous pouvons voir que très peu de chansons restent dans le top 100 pendant plus de 20 semaines.
 
 ```{r}
 #| label: fig-billboard-ranks
 #| fig-cap: |
-#|   Un graphique linéaire montrant comment le classement d'une chanson change au fil du temps.
+#|   Un graphique linéaire montrant comment le classement d'une chanson évolue au fil du temps.
 #| fig-alt: |
 #|   Un graphique linéaire avec la semaine sur l'axe des x et le classement sur l'axe des y, où
 #|   chaque ligne représente une chanson. La plupart des chansons semblent commencer avec un classement élevé,
@@ -274,7 +274,7 @@ df |>
 ```
 
 Comment fonctionne la restructuration ?
-C'est plus facile à voir si nous y pensons colonne par colonne.
+C'est plus facile à voir si nous pensons colonne par colonne.
 Comme montré en @fig-pivot-variables, les valeurs dans une colonne qui était déjà une variable dans le jeu de données original (`id`) doivent être répétées, une fois pour chaque colonne qui est pivotée.
 
 ```{r}
@@ -336,7 +336,7 @@ Par exemple, prenez le jeu de données `who2`, la source de `table1` et des autr
 who2
 ```
 
-Ce jeu de données, collecté par l'Organisation mondiale de la santé, enregistre des informations sur les diagnostics de tuberculose.
+Ce jeu de données, collecté par l'Organisation Mondiale de la Santé, enregistre des informations sur les diagnostics de tuberculose.
 Il y a deux colonnes qui sont déjà des variables et sont faciles à interpréter : `country` et `year`.
 Elles sont suivies de 56 colonnes comme `sp_m_014`, `ep_m_4554`, et `rel_m_3544`.
 Si vous regardez ces colonnes assez longtemps, vous remarquerez qu'il y a un modèle.
@@ -507,7 +507,7 @@ df |>
 ```
 
 Par défaut, les lignes dans la sortie sont déterminées par toutes les variables qui ne vont pas dans les nouveaux noms ou valeurs.
-Ce sont appelés les `id_cols`.
+On les appelle les `id_cols`.
 Ici, il n'y a qu'une seule colonne, mais en général, il peut y en avoir autant qu'on veut.
 
 ```{r}
@@ -543,7 +543,7 @@ df <- tribble(
 )
 ```
 
-Si nous essayons de pivoter cela, nous obtenons une sortie qui contient des listes, dont vous en apprendrez plus dans le @sec-rectangling :
+Si nous essayons de pivoter cela, nous obtenons une sortie qui contient des listes, sur lesquelles vous en apprendrez plus dans le @sec-rectangling :
 
 ```{r}
 df |>
@@ -562,7 +562,7 @@ df |>
   filter(n > 1)
 ```
 
-C'est ensuite à vous de déterminer ce qui ne va pas avec vos données et, soit de réparer le problème sous-jacent, soit d'utiliser vos compétences en matière de regroupement et de synthèse pour vous assurer que chaque combinaison de valeurs de lignes et de colonnes n'apparaît que dans une seule ligne.
+C'est ensuite à vous de déterminer ce qui ne va pas dans vos données et, soit de réparer le problème sous-jacent, soit d'utiliser vos compétences en matière de regroupement et de synthèse pour vous assurer que chaque combinaison de valeurs de lignes et de colonnes n'apparaît que dans une seule ligne.
 
 ## Résumé
 
@@ -573,7 +573,7 @@ Les exemples que nous avons présentés ici sont une sélection de ceux de `vign
 
 Un autre défi est que, pour un data frame donné, il peut être impossible de qualifier la version plus longue ou plus large de « propre ».
 C'est en partie le reflet de notre définition des données propres, où nous avons dit que les données propres ont une variable dans chaque colonne, mais nous n'avons pas réellement défini ce qu'est une variable (et c'est étonnamment difficile à faire).
-C'est totalement acceptable d'être pragmatique et de dire qu'une variable est tout ce qui rend votre analyse plus facile.
+C'est totalement normal d'être pragmatique et de dire qu'une variable est tout ce qui rend votre analyse plus facile.
 Donc si vous êtes bloqué sur la façon de faire un calcul, pensez à changer l'organisation de vos données ; n'ayez pas peur de dés-nettoyer, transformer, et re-nettoyer selon les besoins !
 
 Si vous avez aimé ce chapitre et que vous voulez en savoir plus sur la théorie sous-jacente, vous pouvez en apprendre plus sur l'histoire et les fondements théoriques dans le document [Tidy Data](https://www.jstatsoft.org/article/view/v059i10) publié dans le Journal of Statistical Software.
