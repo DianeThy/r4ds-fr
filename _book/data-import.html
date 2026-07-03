@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Flux de travail : obtenir de l’aide</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./visualize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Visualize</span></a>
+ <span class="menu-text">Visualiser</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -606,7 +606,7 @@ Table&nbsp;7.1: Données du fichier students.csv présentées sous forme de tabl
 <span><span class="co">#&gt; 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch five </span></span>
 <span><span class="co">#&gt; 6          6 Güvenç Attila    Ice cream          Lunch only          6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Une autre approche consiste à utiliser <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html">janitor::clean_names()</a></code> qui applique quelques règles afin de les transformer toutes en snake_case en une seule opération<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Une autre approche consiste à utiliser <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html">janitor::clean_names()</a></code> qui applique quelques règles afin de transformer les noms de colonnes en snake_case en une seule opération<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">|&gt;</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 5</span></span>
@@ -619,7 +619,7 @@ Table&nbsp;7.1: Données du fichier students.csv présentées sous forme de tabl
 <span><span class="co">#&gt; 5          5 Chidiegwu Dunkel Pizza              Breakfast and lunch five </span></span>
 <span><span class="co">#&gt; 6          6 Güvenç Attila    Ice cream          Lunch only          6</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Une autre tâche courante après l’import des données est de vérifier les types de variables. Par exemple, <code>meal_plan</code> est une variable catégorielle avec un ensemble connu de valeurs possibles, qui en R devrait être présentée comme un facteur :</p>
+<p>Une autre tâche courante après l’import des données est de vérifier les types de variables. Par exemple, <code>meal_plan</code> est une variable catégorique avec un ensemble connu de valeurs possibles, qui en R devrait être typée comme un facteur :</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">students</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -846,7 +846,7 @@ Table&nbsp;7.1: Données du fichier students.csv présentées sous forme de tabl
 <span><span class="co">#&gt; # A tibble: 1 × 5</span></span>
 <span><span class="co">#&gt;     row   col expected actual file                                          </span></span>
 <span><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                                         </span></span>
-<span><span class="co">#&gt; 1     3     1 a double .      /tmp/Rtmp9BujpM/vroom-chr-to-file-1b3d853bbf5c</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; 1     3     1 a double .      /tmp/RtmpJOLPcv/vroom-chr-to-file-8ba359a4dc36</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Cela nous indique qu’il y a eu un problème à la ligne 3, colonne 1, où readr attendait un double mais a trouvé un <code>.</code>. Cela suggère que ce jeu de données utilise <code>.</code> pour les valeurs manquantes. Nous fixons donc <code>na = "."</code>, la détection automatique réussit, nous donnant la colonne numérique que nous voulions :</p>
 <div class="cell">
@@ -866,7 +866,7 @@ Table&nbsp;7.1: Données du fichier students.csv présentées sous forme de tabl
 <li>
 <code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_logical()</a></code> et <code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_double()</a></code> lisent les variables logiques et les nombres réels. Ces fonctions sont rarement nécessaires (sauf comme ci-dessus), car readr les devinera généralement automatiquement.</li>
 <li>
-<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_integer()</a></code> lit les entiers. Nous faisons rarement la distinction entre entiers et doubles dans ce livre car ils sont fonctionnellement équivalents, mais lire explicitement les entiers peut parfois être utile car ils occupent la moitié de la mémoire des doubles.</li>
+<code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_integer()</a></code> lit les entiers. Nous faisons rarement la distinction entre entiers et doubles dans ce livre car ils sont fonctionnellement équivalents, mais lire explicitement les entiers peut parfois être utile car ils occupent moitié moins de mémoire que les doubles.</li>
 <li>
 <code><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_character()</a></code> lit les chaînes de caractères. C’est utile de les spécifier explicitement quand vous avez un identifiant numérique dans une colonne, c’est-à-dire une série de chiffres qui identifie un objet mais sur lequel il n’est pas pertinent d’appliquer des opérations mathématiques. Les exemples incluent les numéros de téléphone, les numéros de sécurité sociale, les numéros de carte de crédit, etc.</li>
 <li>
@@ -1035,8 +1035,8 @@ Table&nbsp;7.1: Données du fichier students.csv présentées sous forme de tabl
 </div>
 </section><section id="résumé" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="résumé">
 <span class="header-section-number">7.7</span> Résumé</h2>
-<p>Dans ce chapitre, vous avez appris à charger des fichiers CSV avec <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> et à faire votre propre saisie de données avec <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> et <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>. Vous avez appris comment les fichiers CSV fonctionnent, certains problèmes que vous pourriez rencontrer et comment les surmonter. Nous reviendrons à l’importation de données à plusieurs reprises dans ce livre : le <a href="spreadsheets.html" class="quarto-xref"><span>Chapitre 20</span></a> pour les fichiers Excel et Google Sheets, le <a href="databases.html" class="quarto-xref"><span>Chapitre 21</span></a> vous montrera comment charger les données depuis les bases de données, le <a href="arrow.html" class="quarto-xref"><span>Chapitre 22</span></a> pour les fichiers parquet, le <a href="rectangling.html" class="quarto-xref"><span>Chapitre 23</span></a> pour le JSON, et le <a href="webscraping.html" class="quarto-xref"><span>Chapitre 24</span></a> pour les sites web.</p>
-<p>Nous approchons de la fin de cette section du livre, mais il y a un dernier sujet important à couvrir : comment obtenir de l’aide. Dans le prochain chapitre, vous découvrirez de bons endroits où chercher de l’aide, comment créer un reprex pour maximiser vos chances d’obtenir une bonne aide, et quelques conseils généraux pour rester à jour avec le monde de R.</p>
+<p>Dans ce chapitre, vous avez appris à charger des fichiers CSV avec <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> et à faire votre propre saisie de données avec <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> et <code><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble()</a></code>. Vous avez appris comment les fichiers CSV fonctionnent, certains problèmes que vous pourriez rencontrer et comment les surmonter. Nous reviendrons sur l’importation de données à plusieurs reprises dans ce livre : dans le <a href="spreadsheets.html" class="quarto-xref"><span>Chapitre 20</span></a> pour les fichiers Excel et Google Sheets, le <a href="databases.html" class="quarto-xref"><span>Chapitre 21</span></a> vous montrera comment charger les données depuis les bases de données, dans le <a href="arrow.html" class="quarto-xref"><span>Chapitre 22</span></a> pour les fichiers parquet, dans le <a href="rectangling.html" class="quarto-xref"><span>Chapitre 23</span></a> pour le JSON, et dans le <a href="webscraping.html" class="quarto-xref"><span>Chapitre 24</span></a> pour les sites web.</p>
+<p>Nous approchons de la fin de cette section du livre, mais il y a un dernier sujet important à couvrir : comment obtenir de l’aide. Dans le prochain chapitre, vous découvrirez les bons endroits pour chercher de l’aide, comment créer un reprex pour maximiser vos chances d’obtenir une aide efficace, et quelques conseils généraux pour rester à jour dans l’univers R.</p>
 
 
 </section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
@@ -1465,8 +1465,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./workflow-help.html" class="pagination-link" aria-label="Workflow: getting help">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workflow-help.html" class="pagination-link" aria-label="Flux de travail : obtenir de l'aide">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Flux de travail : obtenir de l’aide</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

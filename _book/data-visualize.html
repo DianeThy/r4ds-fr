@@ -173,43 +173,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Transformation de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Flux de travail : scripts et projets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importation de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Flux de travail : obtenir de l’aide</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./visualize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Visualize</span></a>
+ <span class="menu-text">Visualiser</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -494,7 +494,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vous n’avez besoin d’installer un package qu’une seule fois, mais vous devez le charger chaque fois que vous démarrez une nouvelle session.</p>
-<p>En plus de tidyverse, nous utiliserons également le package <strong>palmerpenguins</strong>, qui inclut le jeu de données <code>penguins</code> contenant les mesures du corps des manchots sur trois îles de l’archipel de Palmer, et le package ggthemes, qui offre une palette de couleurs sûre pour les daltoniens.</p>
+<p>En plus du tidyverse, nous utiliserons le package <strong>palmerpenguins</strong>, qui inclut le jeu de données <code>penguins</code> contenant les mesures du corps des manchots sur trois îles de l’archipel de Palmer, et le package ggthemes, qui offre une palette de couleurs sûre pour les daltoniens.</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -510,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="le-data-frame-penguins" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="le-data-frame-penguins">
 <span class="header-section-number">1.2.1</span> Le data frame <code>penguins</code>
 </h3>
-<p>Vous pouvez tester vos réponses à ces questions avec le <strong>data frame</strong> <code>penguins</code> trouvé dans palmerpenguins (a.k.a. <code><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">palmerpenguins::penguins</a></code>). Un data frame est une collection rectangulaire de variables (dans les colonnes) et d’observations (dans les lignes). <code>penguins</code> contient 344 observations collectées et mises à disposition par le Dr Kristen Gorman et la Palmer Station, Antarctica LTER<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>Vous pouvez tester vos réponses à ces questions avec le <strong>data frame</strong> <code>penguins</code> trouvé dans palmerpenguins (a.k.a. <code><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">palmerpenguins::penguins</a></code>). Un data frame est une collection tabulaire de variables (dans les colonnes) et d’observations (dans les lignes). <code>penguins</code> contient 344 observations collectées et mises à disposition par le Dr Kristen Gorman et la Palmer Station, Antarctica LTER<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p>Pour faciliter la discussion, définissons quelques termes :</p>
 <ul>
 <li><p>Une <strong>variable</strong> est une quantité, une qualité ou une propriété que vous pouvez mesurer.</p></li>
@@ -518,7 +518,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Une <strong>observation</strong> est un ensemble de mesures faites dans des conditions similaires (vous faites généralement toutes les mesures d’une observation au même moment et sur le même objet). Une observation contiendra plusieurs valeurs, chacune associée à une variable différente. Nous désignerons parfois une observation comme un point de données.</p></li>
 <li><p><strong>Les données tabulaires</strong> sont un ensemble de valeurs, chacune associée à une variable et une observation. Les données tabulaires sont <em>propres</em> si chaque valeur est placée dans sa propre « cellule », chaque variable dans sa propre colonne et chaque observation dans sa propre ligne.</p></li>
 </ul>
-<p>Dans ce contexte, une variable fait référence à un attribut de tous les manchots, et une observation fait référence à tous les attributs d’un seul manchot.</p>
+<p>Dans ce contexte, une variable fait référence à un seul attribut de tous les manchots, et une observation fait référence à tous les attributs d’un seul manchot.</p>
 <p>Tapez le nom du data frame dans la console et R affichera un aperçu de son contenu. Notez qu’il dit <code>tibble</code> en haut de cet aperçu. Dans le tidyverse, nous utilisons des data frames spéciaux appelés <strong>tibbles</strong> dont vous apprendrez davantage bientôt.</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span></span>
@@ -611,16 +611,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Maintenant nous avons quelque chose qui ressemble à ce que nous pourrions penser comme un « nuage de points ». Il ne correspond pas encore à notre graphique « objectif ultime », mais en utilisant ce graphique, nous pouvons commencer à répondre à la question qui a motivé notre exploration : « À quoi ressemble la relation entre la longueur de nageoire et la masse corporelle ? » La relation semble être positive (à mesure que la longueur de nageoire augmente, la masse corporelle aussi), assez linéaire (les points sont regroupés autour d’une ligne plutôt qu’une courbe) et modérément forte (il n’y a pas trop de dispersion autour d’une telle ligne). Les manchots avec des nageoires plus longues ont généralement une plus grande masse corporelle.</p>
+<p>Nous avons désormais quelque chose qui ressemble à un nuage de points. Ce n’est pas encore notre graphique « objectif ultime », mais en utilisant ce graphique, nous pouvons commencer à répondre à la question qui a motivé notre exploration : « À quoi ressemble la relation entre la longueur de nageoire et la masse corporelle ? » La relation semble être positive (à mesure que la longueur de nageoire augmente, la masse corporelle aussi), assez linéaire (les points sont regroupés autour d’une ligne plutôt qu’une courbe) et modérément forte (il n’y a pas trop de dispersion autour d’une telle ligne). Les manchots avec des nageoires plus longues ont généralement une plus grande masse corporelle.</p>
 <p>Avant d’ajouter d’autres couches à ce graphique, arrêtons-nous un moment et examinons le message d’avertissement que nous avons reçu :</p>
 <blockquote class="blockquote">
 <p>Removed 2 rows containing missing values (<code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>).</p>
 </blockquote>
-<p>Nous voyons ce message parce qu’il y a deux manchots dans notre jeu de données avec des valeurs manquantes de masse corporelle et/ou de longueur de nageoire, et ggplot2 n’a aucun moyen de les représenter sur le graphique sans ces deux valeurs. Comme R, ggplot2 souscrit à la philosophie selon laquelle les valeurs manquantes ne doivent jamais disparaître silencieusement. Ce type d’avertissement est probablement l’un des types d’avertissements les plus courants que vous verrez lorsque vous travaillez avec des données réelles – les valeurs manquantes sont un problème très courant et vous en apprendrez davantage tout au long du livre, particulièrement dans le <a href="missing-values.html" class="quarto-xref"><span>Chapitre 18</span></a>. Pour les graphiques restants de ce chapitre, nous supprimerons cet avertissement afin qu’il ne soit pas affiché à côté de chaque graphique que nous faisons.</p>
+<p>Nous voyons ce message parce qu’il y a deux manchots dans notre jeu de données avec des valeurs manquantes de masse corporelle et/ou de longueur de nageoire, et ggplot2 n’a aucun moyen de les représenter sur le graphique sans ces deux valeurs. Comme R, ggplot2 souscrit à la philosophie selon laquelle les valeurs manquantes ne doivent jamais disparaître silencieusement. Ce type d’avertissement est probablement l’un des types d’avertissements les plus courants que vous verrez lorsque vous travaillerez avec des données réelles – les valeurs manquantes sont un problème très courant et vous en apprendrez davantage tout au long du livre, particulièrement dans le <a href="missing-values.html" class="quarto-xref"><span>Chapitre 18</span></a>. Pour les graphiques restants de ce chapitre, nous supprimerons cet avertissement afin qu’il ne soit pas affiché à côté de chaque graphique que nous faisons.</p>
 </section><section id="sec-adding-aesthetics-layers" class="level3" data-number="1.2.4"><h3 data-number="1.2.4" class="anchored" data-anchor-id="sec-adding-aesthetics-layers">
 <span class="header-section-number">1.2.4</span> Ajouter des esthétiques et des couches</h3>
-<p>Les nuages de points sont utiles pour afficher la relation entre deux variables numériques, mais il est toujours bon d’être sceptique face à toute relation apparente entre deux variables et de se demander s’il y a d’autres variables qui expliquent ou changent la nature de cette relation apparente. Par exemple, la relation entre la longueur de nageoire et la masse corporelle diffère-t-elle selon l’espèce ? Incorporons l’espèce dans notre graphique et voyons si cela révèle des informations supplémentaires sur la relation apparente entre ces variables. Nous ferons cela en représentant les espèces avec des points de couleurs différentes.</p>
-<p>Pour y parvenir, devrons-nous modifier l’esthétique ou la geom ? Si vous avez deviné « dans le mappage esthétique, à l’intérieur de <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> », vous commencez déjà à acquérir le coup de main pour créer des visualisations de données avec ggplot2 ! Et sinon, ne vous inquiétez pas. Tout au long du livre, vous ferez beaucoup plus de ggplots et aurez beaucoup plus d’occasions de vérifier votre intuition en les faisant.</p>
+<p>Les nuages de points sont utiles pour afficher la relation entre deux variables numériques, mais il est toujours bon d’être sceptique face à toute relation apparente entre deux variables et se demander s’il y a d’autres variables qui expliquent ou changent la nature de cette relation apparente. Par exemple, la relation entre la longueur de nageoire et la masse corporelle diffère-t-elle selon l’espèce ? Incorporons l’espèce dans notre graphique et voyons si cela révèle des informations supplémentaires sur la relation apparente entre ces variables. Nous ferons cela en représentant les espèces avec des points de couleurs différentes.</p>
+<p>Pour y parvenir, devrons-nous modifier l’esthétique ou la geom ? Si vous avez deviné « dans le mappage esthétique, à l’intérieur de <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> », vous commencez déjà à acquérir le coup de main pour créer des visualisations de données avec ggplot2 ! Sinon, ne vous inquiétez pas. Tout au long de ce livre, vous ferez beaucoup plus de ggplots et aurez beaucoup plus d’occasions de vérifier votre intuition en les faisant.</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">penguins</span>,</span>
@@ -684,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Notez que la légende est automatiquement mise à jour pour refléter les différentes formes des points également.</p>
-<p>Et enfin, nous pouvons améliorer les étiquettes (noms) de notre graphique en utilisant la fonction <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> dans une nouvelle couche. Certains arguments de <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> sont explicites : <code>title</code> ajoute un titre et <code>subtitle</code> ajoute un sous-titre au graphique. D’autres arguments correspondent aux mappages esthétiques, <code>x</code> est l’étiquette de l’axe des x, <code>y</code> est l’étiquette de l’axe des y, et <code>color</code> et <code>shape</code> définissent l’étiquette de la légende. De plus, nous pouvons améliorer la palette de couleurs pour qu’elle soit sûre pour les daltoniens avec la fonction <code><a href="http://jrnold.github.io/ggthemes/reference/colorblind.html">scale_color_colorblind()</a></code> du package ggthemes.</p>
+<p>Enfin, nous pouvons améliorer les étiquettes (noms) de notre graphique en utilisant la fonction <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> dans une nouvelle couche. Certains arguments de <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> sont explicites : <code>title</code> ajoute un titre et <code>subtitle</code> ajoute un sous-titre au graphique. D’autres arguments correspondent aux mappages esthétiques, <code>x</code> est l’étiquette de l’axe des x, <code>y</code> est l’étiquette de l’axe des y, et <code>color</code> et <code>shape</code> définissent l’étiquette de la légende. De plus, nous pouvons améliorer la palette de couleurs pour qu’elle soit sûre pour les daltoniens avec la fonction <code><a href="http://jrnold.github.io/ggthemes/reference/colorblind.html">scale_color_colorblind()</a></code> du package ggthemes.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">penguins</span>,</span>
@@ -793,7 +793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>La manière dont vous visualisez la distribution d’une variable dépend du type de variable : catégorique ou numérique.</p>
 <section id="une-variable-catégorique" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="une-variable-catégorique">
 <span class="header-section-number">1.4.1</span> Une variable catégorique</h3>
-<p>Une variable est <strong>catégorique</strong> si elle ne peut prendre qu’une seule d’un petit ensemble de valeurs. Pour examiner la distribution d’une variable catégorique, vous pouvez utiliser un diagramme en barres. La hauteur des barres affiche le nombre d’observations qui se sont produites avec chaque valeur <code>x</code>.</p>
+<p>Une variable est <strong>catégorique</strong> si elle ne peut prendre qu’une seule d’un petit ensemble de valeurs. Pour examiner la distribution d’une variable catégorique, vous pouvez utiliser un diagramme en barres. La hauteur des barres affiche le nombre d’observations pour chaque valeur <code>x</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -804,7 +804,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Dans les diagrammes en barres de variables catégoriques avec des niveaux non ordonnés, comme <code>species</code> (espèce de manchot) ci-dessus, il est souvent préférable de réorganiser les barres en fonction de leurs fréquences. Pour ce faire, vous devez transformer la variable en facteur (manière dont R traite les données catégoriques) et puis réorganiser les niveaux de ce facteur.</p>
+<p>Dans les diagrammes en barres de variables catégoriques avec des niveaux non ordonnés, comme <code>species</code> (espèce de manchot) ci-dessus, il est souvent préférable de réorganiser les barres en fonction de leur fréquence. Pour ce faire, vous devez transformer la variable en facteur (manière dont R traite les données catégoriques) et puis réorganiser les niveaux de ce facteur.</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_inorder.html">fct_infreq</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -819,7 +819,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section><section id="une-variable-numérique" class="level3" data-number="1.4.2"><h3 data-number="1.4.2" class="anchored" data-anchor-id="une-variable-numérique">
 <span class="header-section-number">1.4.2</span> Une variable numérique</h3>
 <p>Une variable est <strong>numérique</strong> (ou quantitative) si elle peut prendre une multitude de valeurs numériques, et s’il est possible d’ajouter, soustraire ou faire la moyenne avec ces valeurs. Les variables numériques peuvent être continues ou discrètes.</p>
-<p>Une visualisation couramment utilisée pour les distributions de variables continues est un histogramme.</p>
+<p>Une visualisation couramment utilisée pour les distributions de variables continues est l’histogramme.</p>
 <div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -831,7 +831,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Un histogramme divise l’axe des x en classes (bins) équidistantes, puis utilise la hauteur d’une barre pour afficher le nombre d’observations qui tombent dans chaque classe. Dans le graphique ci-dessus, la barre la plus haute montre que 39 observations ont une valeur <code>body_mass_g</code> entre 3 500 et 3 700 grammes, qui sont les bords gauche et droit de la barre.</p>
-<p>Vous pouvez définir la largeur des intervalles (classes) dans un histogramme avec l’argument binwidth, qui est mesuré dans les unités de la variable <code>x</code>. Vous devriez toujours explorer une variété de binwidths lors du travail avec des histogrammes, car différents binwidths peuvent révéler différents motifs. Dans les graphiques ci-dessous, un binwidth de 20 est trop étroit ; ça montre trop de barres et rend difficile la détermination de la forme de la distribution. De même, un binwidth de 2 000 est trop élevé ; ça montre toutes les données en seulement trois barres et rend également difficile la détermination de la forme de la distribution. Un binwidth de 200 offre un équilibre judicieux.</p>
+<p>Vous pouvez définir la largeur des classes dans un histogramme avec l’argument binwidth, qui est mesuré dans les unités de la variable <code>x</code>. Vous devrez toujours explorer une variété de binwidths lors du travail avec des histogrammes, car différents binwidths peuvent révéler différents motifs. Dans les graphiques ci-dessous, un binwidth de 20 est trop étroit ; ça montre trop de barres et rend difficile la détermination de la forme de la distribution. De même, un binwidth de 2 000 est trop élevé ; ça montre toutes les données en seulement trois barres et rend également difficile la détermination de la forme de la distribution. Un binwidth de 200 offre un équilibre judicieux.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -846,7 +846,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Une visualisation alternative pour les distributions de variables numériques est une courbe de densité. Une courbe de densité est une version lissée d’un histogramme et une alternative pratique, particulièrement pour les données continues qui proviennent d’une distribution lisse sous-jacente. Nous n’allons pas nous attarder sur la façon dont <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code> estime la densité (vous pouvez en lire plus dans la documentation de la fonction), mais expliquons comment la courbe de densité est dessinée avec une analogie. Imaginez un histogramme fait de blocs de bois. Ensuite, imaginez que vous laissiez tomber une longue spaghetti cuite sur celui-ci. La forme que la spaghetti prendra une fois disposée sur les blocs peut être pensée comme la forme de la courbe de densité. Elle montre moins de détails qu’un histogramme mais permet de saisir rapidement la forme de la distribution, particulièrement en ce qui concerne les modes et l’asymétrie.</p>
+<p>Une visualisation alternative pour les distributions de variables numériques est la courbe de densité. Une courbe de densité est une version lissée d’un histogramme et une alternative pratique, particulièrement pour les données continues qui proviennent d’une distribution lisse sous-jacente. Nous n’allons pas nous attarder sur la façon dont <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code> estime la densité (vous pouvez en lire plus dans la documentation de la fonction), mais expliquons comment la courbe de densité est dessinée avec une analogie. Imaginez un histogramme fait de blocs de bois. Ensuite, imaginez que vous laissiez tomber une longue spaghetti cuite sur celui-ci. La forme que la spaghetti prendra une fois disposée sur les blocs peut être pensée comme la forme de la courbe de densité. Elle montre moins de détails qu’un histogramme mais permet de saisir rapidement la forme de la distribution, particulièrement en ce qui concerne les modes et l’asymétrie.</p>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -877,7 +877,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Faites un histogramme de la variable <code>carat</code> dans le jeu de données <code>diamonds</code> qui est disponible quand vous chargez le package tidyverse. Expérimentez avec différents binwidths. Quel binwidth révèle les motifs les plus intéressants ?</p></li>
 </ol></section></section><section id="visualiser-les-relations" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="visualiser-les-relations">
 <span class="header-section-number">1.5</span> Visualiser les relations</h2>
-<p>Pour visualiser une relation, nous avons besoin d’au moins deux variables mappées aux esthétiques d’un graphique. Dans les sections suivantes, vous apprendrez les graphiques couramment utilisés pour visualiser les relations entre deux variables ou plus et les geoms utilisés pour les créer.</p>
+<p>Pour visualiser une relation, nous avons besoin d’au moins deux variables mappées aux esthétiques d’un graphique. Dans les sections suivantes, vous découvrirez les graphiques couramment utilisés pour visualiser les relations entre deux variables ou plus et les geoms utilisés pour les créer.</p>
 <section id="une-variable-numérique-et-une-variable-catégorique" class="level3" data-number="1.5.1"><h3 data-number="1.5.1" class="anchored" data-anchor-id="une-variable-numérique-et-une-variable-catégorique">
 <span class="header-section-number">1.5.1</span> Une variable numérique et une variable catégorique</h3>
 <p>Pour visualiser la relation entre une variable numérique et une variable catégorique, nous pouvons utiliser des boîtes à moustaches côte à côte. Une <strong>boîte à moustaches</strong> (boxplot) est un type de raccourci visuel pour les mesures de position (percentiles) qui décrivent une distribution. Elle est également utile pour identifier les valeurs aberrantes (outilers) potentielles. Comme indiqué dans la <a href="#fig-eda-boxplot" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>, chaque boîte à moustaches se compose de :</p>
@@ -909,7 +909,7 @@ Figure&nbsp;1.1: Diagramme montrant comment une boîte à moustaches est créée
 </div>
 </div>
 </div>
-<p>Alternativement, nous pouvons faire des courbes de densité avec <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code>.</p>
+<p>Nous pouvons aussi faire des courbes de densité avec <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span>, color <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -961,7 +961,7 @@ Figure&nbsp;1.1: Diagramme montrant comment une boîte à moustaches est créée
 </div>
 </div>
 </div>
-<p>En créant ces diagrammes en barres, nous mappons la variable qui sera séparée en barres à l’esthétique <code>x</code>, et la variable qui changera les couleurs à l’intérieur des barres à l’esthétique <code>fill</code>. Malheureusement, ggplot2 nomme l’axe y avec « count » par défaut, mais nous pouvons le contourner en ajoutant une couche <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> où nous spécifions le nom de l’axe y comme « proportion ».</p>
+<p>En créant ces diagrammes en barres, nous mappons la variable qui sera séparée en barres à l’esthétique <code>x</code>, et la variable qui changera les couleurs à l’intérieur des barres à l’esthétique <code>fill</code>. Malheureusement, ggplot2 nomme l’axe y avec « count » par défaut, mais nous pouvons le modifier en ajoutant une couche <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> où nous spécifions le nom de l’axe y comme « proportion ».</p>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">island</span>, fill <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1012,7 +1012,7 @@ Figure&nbsp;1.1: Diagramme montrant comment une boîte à moustaches est créée
 </div>
 </div>
 </div>
-<p>Vous apprendrez à connaître beaucoup d’autres geoms pour visualiser les distributions de variables et les relations entre elles dans le <a href="layers.html" class="quarto-xref"><span>Chapitre 9</span></a>.</p>
+<p>Vous apprendrez beaucoup d’autres geoms pour visualiser les distributions de variables et les relations entre elles dans le <a href="layers.html" class="quarto-xref"><span>Chapitre 9</span></a>.</p>
 </section><section id="exercices-2" class="level3" data-number="1.5.5"><h3 data-number="1.5.5" class="anchored" data-anchor-id="exercices-2">
 <span class="header-section-number">1.5.5</span> Exercices</h3>
 <ol type="1">
@@ -1071,8 +1071,8 @@ Figure&nbsp;1.1: Diagramme montrant comment une boîte à moustaches est créée
 <li><p>Que devez-vous changer dans le code ci-dessus pour exporter le graphique en tant que PDF au lieu d’un PNG ? Comment pourriez-vous découvrir quels types de fichiers image sont supportés par <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code> ?</p></li>
 </ol></section></section><section id="problèmes-courants" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="problèmes-courants">
 <span class="header-section-number">1.7</span> Problèmes courants</h2>
-<p>Au fur et à mesure que vous commencez à exécuter du code R, vous êtes susceptible de rencontrer des problèmes. Ne vous inquiétez pas — cela arrive à tout le monde. Nous avons tous écrit du code R pendant des années, mais chaque jour, nous écrivons toujours du code qui ne fonctionne pas du premier coup !</p>
-<p>Commencez par comparer soigneusement le code que vous exécutez avec le code du livre. R est extrêmement pointilleux, et un caractère mal placé peut faire toute la différence. Assurez-vous que chaque <code>(</code> est appairé avec un <code>)</code> et chaque <code>"</code> est appairé avec un autre <code>"</code>. Parfois, vous exécutez le code et rien ne se passe. Vérifiez le côté gauche de votre console : si c’est un <code>+</code>, cela signifie que R ne pense pas que vous ayez écrit une expression complète et il attend que vous la terminiez. Dans ce cas, il est généralement facile de recommencer à zéro en appuyant sur ÉCHAP pour abandonner le traitement de la commande actuelle.</p>
+<p>Au fur et à mesure que vous commencez à exécuter du code R, vous êtes susceptible de rencontrer des problèmes. Ne vous inquiétez pas — cela arrive à tout le monde. Nous avons tous écrit du code R pendant des années, mais ça nous arrive encore d’écrire du code qui ne fonctionne pas du premier coup !</p>
+<p>Commencez par comparer soigneusement le code que vous exécutez avec le code du livre. R est extrêmement pointilleux, et un caractère mal placé peut faire toute la différence. Assurez-vous que chaque <code>(</code> est appairé avec <code>)</code> et chaque <code>"</code> est appairé avec un autre <code>"</code>. Parfois, vous exécutez le code et rien ne se passe. Vérifiez le côté gauche de votre console : si c’est un <code>+</code>, cela signifie que R ne pense pas que vous ayez écrit une expression complète et il attend que vous la terminiez. Dans ce cas, il est généralement facile de recommencer à zéro en appuyant sur ÉCHAP pour abandonner le traitement de la commande actuelle.</p>
 <p>Un problème courant lors de la création de graphiques ggplot2 est de mettre le <code>+</code> au mauvais endroit : il doit venir à la fin de la ligne, pas au début. En d’autres termes, assurez-vous que vous n’avez pas accidentellement écrit du code comme ceci :</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> </span>
@@ -1514,8 +1514,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./workflow-basics.html" class="pagination-link" aria-label="Workflow: basics">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Workflow: basics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workflow-basics.html" class="pagination-link" aria-label="Flux de travail : les bases">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Flux de travail : les bases</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

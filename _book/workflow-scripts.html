@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Flux de travail : obtenir de l’aide</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./visualize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Visualize</span></a>
+ <span class="menu-text">Visualiser</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -472,8 +472,8 @@ Figure&nbsp;6.1: L’ouverture de l’éditeur de scripts ajoute un nouveau vole
 </div>
 <p>Si votre curseur est à █, Cmd/Ctrl + Entrée exécutera la commande complète qui génère <code>not_cancelled</code>. Cela déplacera également le curseur vers l’instruction suivante (commençant par <code>not_cancelled |&gt;</code>). Cela permet de parcourir facilement votre script en appuyant à plusieurs reprises sur Cmd/Ctrl + Entrée.</p>
 <p>Au lieu d’exécuter votre code expression par expression, vous pouvez aussi exécuter le script complet en une seule étape avec Cmd/Ctrl + Maj + S. Le faire régulièrement est un excellent moyen de s’assurer que vous avez intégré tous les éléments importants de votre code dans le script.</p>
-<p>Nous vous recommandons de toujours commencer votre script par les packages dont vous avez besoin. De cette façon, si vous partagez votre code avec d’autres, ils peuvent facilement voir quels packages ils doivent installer. Notez cependant que vous ne devez jamais inclure <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> dans un script que vous partagez. C’est malhonnête de remettre un script qui modifiera quelque chose sur l’ordinateur d’une autre personne sans qu’elle ne soit prudente !</p>
-<p>En travaillant les chapitres futurs, nous vous recommandons vivement de commencer dans l’éditeur de scripts et de pratiquer vos raccourcis clavier. Avec le temps, l’envoi de code à la console de cette façon deviendra si naturel que vous n’y penserez même pas.</p>
+<p>Nous vous recommandons de toujours commencer votre script par les packages dont vous avez besoin. De cette façon, si vous partagez votre code avec d’autres, ils peuvent facilement voir quels packages ils doivent installer. Notez cependant que vous ne devez jamais inclure <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> dans un script que vous partagez. C’est malhonnête d’envoyer un script susceptible de modifier quelque chose sur l’ordinateur de quelqu’un d’autre s’il ne fait pas attention !</p>
+<p>En étudiant les chapitres futurs, nous vous recommandons vivement de pratiquer dans l’éditeur de scripts et d’utiliser les raccourcis clavier. Avec le temps, l’envoi de code à la console de cette façon deviendra si naturel que vous n’y penserez même pas.</p>
 </section><section id="diagnostiques-de-rstudio" class="level3" data-number="6.1.2"><h3 data-number="6.1.2" class="anchored" data-anchor-id="diagnostiques-de-rstudio">
 <span class="header-section-number">6.1.2</span> Diagnostiques de RStudio</h3>
 <p>Dans l’éditeur de scripts, RStudio met en évidence les erreurs de syntaxe avec une ligne pointillée rouge et une croix dans la barre latérale :</p>
@@ -506,7 +506,7 @@ Figure&nbsp;6.1: L’ouverture de l’éditeur de scripts ajoute un nouveau vole
 </section><section id="sauvegarde-et-nommage" class="level3" data-number="6.1.3"><h3 data-number="6.1.3" class="anchored" data-anchor-id="sauvegarde-et-nommage">
 <span class="header-section-number">6.1.3</span> Sauvegarde et nommage</h3>
 <p>RStudio enregistre automatiquement le contenu de l’éditeur de scripts quand vous quittez, et le recharge automatiquement quand vous le rouvrez. Néanmoins, c’est mieux d’éviter Untitled1, Untitled2, Untitled3, etc. et de sauvegarder vos scripts avec des noms explicites.</p>
-<p>Il peut être tentant de nommer vos fichiers <code>code.R</code> ou <code>monscript.R</code>, mais vous devriez réfléchir un peu plus avant de choisir un nom pour votre fichier. Trois principes importants pour le nommage des fichiers sont les suivants :</p>
+<p>Il peut être tentant de nommer vos fichiers <code>code.R</code> ou <code>monscript.R</code>, mais vous devriez réfléchir un peu plus avant de choisir un nom pour votre fichier. Les trois principes importants pour le nommage des fichiers sont les suivants :</p>
 <ol type="1">
 <li>Les noms de fichiers doivent être <strong>lisibles par une machine</strong> : évitez les espaces, les symboles et les caractères spéciaux. Ne comptez pas sur la distinction entre majuscules et minuscules pour distinguer les fichiers.</li>
 <li>Les noms de fichiers doivent être <strong>lisibles par un humain</strong> : utilisez les noms de fichiers pour décrire ce qui est dans le fichier.</li>
@@ -536,7 +536,7 @@ report-draft-notes.txt</code></pre>
 <p>Numéroter les scripts clés rend évident l’ordre dans lequel les exécuter, et un schéma de nommage cohérent facilite la visualisation de ce qui varie. En outre, les figures sont étiquetées de façon similaire, les rapports sont distingués par les dates incluses dans les noms de fichiers, et <code>temp</code> est renommé <code>report-draft-notes</code> pour mieux décrire son contenu. Si vous avez beaucoup de fichiers dans un répertoire, il est recommandé d’améliorer un peu plus l’organisation et de placer différents types de fichiers (scripts, figures, etc.) dans des répertoires différents.</p>
 </section></section><section id="projets" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="projets">
 <span class="header-section-number">6.2</span> Projets</h2>
-<p>Un jour, vous devrez quitter R, faire autre chose, et revenir à votre analyse plus tard. Un jour, vous travaillerez sur plusieurs analyses simultanément et vous voudrez les garder séparées. Un jour, vous devrez apporter des données du monde extérieur dans R et envoyer des résultats numériques et des figures de R vers le monde extérieur.</p>
+<p>Un jour, vous devrez quitter R, faire autre chose, et revenir à votre analyse plus tard. Un jour, vous travaillerez sur plusieurs analyses simultanément et vous voudrez les garder séparées. Un jour, vous devrez importer des données du monde extérieur dans R et envoyer des résultats numériques et des figures de R vers le monde extérieur.</p>
 <p>Pour gérer ces situations de la vie réelle, vous devez prendre deux décisions :</p>
 <ol type="1">
 <li><p>Quelle est la référence ? Qu’allez-vous sauvegarder durablement de ce qui s’est passé ?</p></li>
@@ -611,13 +611,12 @@ Serveur RStudio
 <img src="diagrams/new-project.png" class="img-fluid figure-img" alt="Trois captures d'écran du menu Nouveau Projet (New Project). Dans la première  capture d'écran, la fenêtre Créer un Projet (Create Project) est affichée et  Nouveau Répertoire (New Directory) est sélectionné. Dans la deuxième capture  d'écran, la fenêtre Type de Projet (Project Type) est affichée et Projet Vide  (Empty Project) est sélectionné. Dans la troisième capture d'écran, la fenêtre  Créer un Nouveau Projet (Create New Project) est affichée et le nom du  répertoire est donné comme r4ds et le projet est créé comme sous-répertoire  du Bureau (Desktop). " width="1172">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-new-project-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.3: Pour créer un nouveau projet : (en haut) d’abord cliquez sur New Directory, puis (au milieu) cliquez sur New Project, puis (en bas) remplissez le nom du répertoire (du projet), choisissez un bon sous-répertoire pour son emplacement et cliquez sur<br>
-Create Project.
+Figure&nbsp;6.3: Pour créer un nouveau projet : (en haut) d’abord cliquez sur New Directory, puis (au milieu) cliquez sur New Project, puis (en bas) remplissez le nom du répertoire (du projet), choisissez un bon sous-répertoire pour son emplacement et cliquez sur Create Project.
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p>Appelez votre projet <code>r4ds</code> et réfléchissez attentivement au sous-répertoire dans lequel vous placez le projet. Si vous ne le stockez pas quelque part de sensé, il sera difficile de le trouver à l’avenir !</p>
+<p>Appelez votre projet <code>r4ds</code> et réfléchissez attentivement au sous-répertoire dans lequel vous placez le projet. Si vous ne le stockez pas à un endroit sensé, il vous sera difficile de le retrouver !</p>
 <p>Une fois ce processus terminé, vous obtiendrez un nouveau projet RStudio juste pour ce livre. Vérifiez que la « maison » de votre projet est le répertoire de travail actuel :</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -637,9 +636,9 @@ Create Project.
 <p>Si vous cherchez sur votre ordinateur <code>diamonds.png</code>, vous trouverez le PNG (pas de surprise) mais aussi <em>le script qui l’a créé</em> (<code>diamonds.R</code>). C’est une énorme victoire ! Un jour, vous voudrez régénérer une figure ou simplement comprendre d’où elle vient. Si vous enregistrez rigoureusement les figures dans les fichiers <strong>avec du code R</strong> et jamais avec la souris ou en presse-bouton, vous pourrez reproduire du travail ancien avec facilité !</p>
 </section><section id="chemins-relatifs-et-chemins-absolus" class="level3" data-number="6.2.4"><h3 data-number="6.2.4" class="anchored" data-anchor-id="chemins-relatifs-et-chemins-absolus">
 <span class="header-section-number">6.2.4</span> Chemins relatifs et chemins absolus</h3>
-<p>À l’intérieur d’un projet, vous ne devez utiliser que des chemins relatifs, pas des chemins absolus. Quelle est la différence ? Un chemin relatif est relatif au répertoire de travail, c’est-à-dire la maison du projet. Quand Hadley a écrit <code>data/diamonds.csv</code> ci-dessus, c’était un raccourci pour <code>/Users/hadley/Documents/r4ds/data/diamonds.csv</code>. Mais surtout, si Mine exécutait ce code sur son ordinateur, il pointerait vers <code>/Users/Mine/Documents/r4ds/data/diamonds.csv</code>. C’est pourquoi les chemins relatifs sont importants : ils fonctionnent indépendamment de l’endroit où le dossier du projet R se trouve.</p>
+<p>À l’intérieur d’un projet, vous ne devez utiliser que des chemins relatifs, pas des chemins absolus. Quelle est la différence ? Un chemin relatif est relatif au répertoire de travail, c’est-à-dire à la maison du projet. Quand Hadley a écrit <code>data/diamonds.csv</code> ci-dessus, c’était un raccourci pour <code>/Users/hadley/Documents/r4ds/data/diamonds.csv</code>. Mais surtout, si Mine exécutait ce code sur son ordinateur, il pointerait vers <code>/Users/Mine/Documents/r4ds/data/diamonds.csv</code>. C’est pourquoi les chemins relatifs sont importants : ils fonctionnent indépendamment de l’endroit où le dossier du projet R se trouve.</p>
 <p>Les chemins absolus pointent vers le même endroit indépendamment de votre répertoire de travail. Ils sont différents selon votre système d’exploitation. Sur Windows, ils commencent par une lettre de lecteur (par ex., <code>C:</code>) ou deux anti-slashs (par ex., <code>\\servername</code>) et sur Mac/Linux, ils commencent par un slash « / » (par ex., <code>/users/hadley</code>). Vous ne devriez <strong>jamais</strong> utiliser de chemins absolus dans vos scripts, car ils gênent le partage : personne d’autre n’aura exactement la même configuration de répertoires que vous.</p>
-<p>Il y a une autre différence importante entre systèmes d’exploitation : la façon dont vous séparez les composants du chemin. Mac et Linux utilisent des slashs (par ex., <code>data/diamonds.csv</code>) et Windows utilise des anti-slashs (par ex., <code>data\diamonds.csv</code>). R peut fonctionner avec l’un ou l’autre type (peu importe la plateforme sur laquelle vous êtes actuellement), mais malheureusement, les anti-slashs signifient quelque chose différent pour R, et pour obtenir un seul anti-slash dans le chemin, vous devez en écrire deux ! C’est très frustrant, c’est pourquoi nous recommandons d’utiliser toujours le style Linux/Mac avec des slashs.</p>
+<p>Il y a une autre différence importante entre systèmes d’exploitation : la façon dont sont séparés les composants du chemin. Mac et Linux utilisent des slashs (par ex., <code>data/diamonds.csv</code>) et Windows utilise des anti-slashs (par ex., <code>data\diamonds.csv</code>). R peut fonctionner avec l’un ou l’autre type (peu importe la plateforme sur laquelle vous êtes actuellement), mais malheureusement, les anti-slashs signifient quelque chose différent pour R, et pour obtenir un seul anti-slash dans le chemin, vous devez en écrire deux ! C’est très frustrant, c’est pourquoi nous recommandons d’utiliser toujours le style Linux/Mac avec des slashs.</p>
 </section></section><section id="exercices" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="exercices">
 <span class="header-section-number">6.3</span> Exercices</h2>
 <ol type="1">
@@ -660,7 +659,7 @@ Create Project.
 
 </section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
-<li id="fn1"><p>Sans parler du fait que vous tentez le sort en utilisant « final » dans le nom 😆 La bande dessinée Piled Higher and Deeper a une <a href="https://phdcomics.com/comics/archive.php?comicid=1531">vignette amusante à ce sujet</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Sans parler du fait que vous jouez avec le feu en utilisant « final » dans le nom 😆 La bande dessinée Piled Higher and Deeper a une <a href="https://phdcomics.com/comics/archive.php?comicid=1531">vignette amusante à ce sujet</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Si vous n’avez pas usethis installé, vous pouvez l’installer avec <code>install.packages("usethis")</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

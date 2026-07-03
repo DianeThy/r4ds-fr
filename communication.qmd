@@ -7,27 +7,27 @@ source("_common.R")
 
 ## Introduction
 
-In @sec-exploratory-data-analysis, you learned how to use plots as tools for *exploration*.
-When you make exploratory plots, you know---even before looking---which variables the plot will display.
-You made each plot for a purpose, could quickly look at it, and then move on to the next plot.
-In the course of most analyses, you'll produce tens or hundreds of plots, most of which are immediately thrown away.
+Dans la @sec-exploratory-data-analysis, vous avez appris à utiliser les graphiques comme outils d'*exploration*.
+Quand vous créez des graphiques exploratoires, vous savez---même avant de les regarder---quelles variables le graphique affichera.
+Vous avez créé chaque graphique pour un objectif, pouviez le regarder rapidement, puis passer au graphique suivant.
+Au cours de la plupart des analyses, vous produirez des dizaines ou des centaines de graphiques, dont la plupart seront immédiatement jetés.
 
-Now that you understand your data, you need to *communicate* your understanding to others.
-Your audience will likely not share your background knowledge and will not be deeply invested in the data.
-To help others quickly build up a good mental model of the data, you will need to invest considerable effort in making your plots as self-explanatory as possible.
-In this chapter, you'll learn some of the tools that ggplot2 provides to do so.
+Maintenant que vous comprenez vos données, vous devez *communiquer* votre compréhension à d'autres.
+Votre public ne partagera probablement pas vos connaissances de base et ne sera pas profondément investi dans les données.
+Pour aider les autres à construire rapidement un bon modèle mental des données, vous devrez investir un effort considérable pour rendre vos graphiques aussi autoexplicatifs que possible.
+Dans ce chapitre, vous apprendrez certains des outils que ggplot2 fournit pour ce faire.
 
-This chapter focuses on the tools you need to create good graphics.
-We assume that you know what you want, and just need to know how to do it.
-For that reason, we highly recommend pairing this chapter with a good general visualization book.
-We particularly like [The Truthful Art](https://www.amazon.com/gp/product/0321934075/), by Albert Cairo.
-It doesn't teach the mechanics of creating visualizations, but instead focuses on what you need to think about in order to create effective graphics.
+Ce chapitre se concentre sur les outils dont vous avez besoin pour créer de bons graphiques.
+Nous supposons que vous savez ce que vous voulez, et vous avez juste besoin de savoir comment le faire.
+Pour cette raison, nous vous recommandons fortement de coupler ce chapitre avec un bon livre général sur la visualisation.
+Nous aimons particulièrement [The Truthful Art](https://www.amazon.com/gp/product/0321934075/), par Albert Cairo.
+Il n'enseigne pas la mécanique de création de visualisations, mais se concentre plutôt sur ce que vous devez penser pour créer des graphiques efficaces.
 
-### Prerequisites
+### Prérequis
 
-In this chapter, we'll focus once again on ggplot2.
-We'll also use a little dplyr for data manipulation, **scales** to override the default breaks, labels, transformations and palettes, and a few ggplot2 extension packages, including **ggrepel** ([https://ggrepel.slowkow.com](https://ggrepel.slowkow.com/)) by Kamil Slowikowski and **patchwork** ([https://patchwork.data-imaginist.com](https://patchwork.data-imaginist.com/)) by Thomas Lin Pedersen.
-Don't forget that you'll need to install those packages with `install.packages()` if you don't already have them.
+Dans ce chapitre, nous nous concentrerons à nouveau sur ggplot2.
+Nous utiliserons aussi un peu dplyr pour la manipulation des données, **scales** pour remplacer les divisions, étiquettes, transformations et palettes par défaut, et quelques packages d'extension ggplot2, incluant **ggrepel** ([https://ggrepel.slowkow.com](https://ggrepel.slowkow.com/)) par Kamil Slowikowski et **patchwork** ([https://patchwork.data-imaginist.com](https://patchwork.data-imaginist.com/)) par Thomas Lin Pedersen.
+N'oubliez pas que vous devez installer ces packages avec `install.packages()` si vous ne les avez pas déjà.
 
 ```{r}
 #| label: setup
@@ -38,53 +38,55 @@ library(ggrepel)
 library(patchwork)
 ```
 
-## Labels
+## Étiquettes
 
-The easiest place to start when turning an exploratory graphic into an expository graphic is with good labels.
-You add labels with the `labs()` function.
+L'endroit le plus facile pour commencer quand vous transformez un graphique exploratoire en graphique d'exposition est avec de bonnes étiquettes.
+Vous ajoutez des étiquettes avec la fonction `labs()`.
 
 ```{r}
 #| message: false
 #| fig-alt: |
-#|   Scatterplot of highway fuel efficiency versus engine size of cars, where 
-#|   points are colored according to the car class. A smooth curve following 
-#|   the trajectory of the relationship between highway fuel efficiency versus 
-#|   engine size of cars is overlaid. The x-axis is labelled "Engine 
-#|   displacement (L)" and the y-axis is labelled "Highway fuel economy (mpg)". 
-#|   The legend is labelled "Car type". The plot is titled "Fuel efficiency 
-#|   generally decreases with engine size". The subtitle is "Two seaters 
-#|   (sports cars) are an exception because of their light weight" and the 
-#|   caption is "Data from fueleconomy.gov".
+#|   Nuage de points de l'efficacité énergétique sur autoroute par rapport à 
+#|   la cylindrée du moteur, où les points sont colorés selon la classe de 
+#|   voiture. Une courbe lisse suivant la trajectoire de la relation entre 
+#|   l'efficacité énergétique sur autoroute et la cylindrée du moteur est 
+#|   superposée. L'axe x est étiqueté « Cylindrée du moteur (L) » et l'axe y 
+#|   « Efficacité énergétique sur autoroute (mpg) ». La légende est étiquetée 
+#|   « Type de voiture ». Le graphique est intitulé « L'efficacité énergétique 
+#|   diminue généralement avec la cylindrée du moteur ». Le sous-titre est 
+#|   « Les deux places (voitures de sport) sont une exception en raison de 
+#|   leur légèreté » et la note est « Données de fueleconomy.gov ».
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(aes(color = class)) +
   geom_smooth(se = FALSE) +
   labs(
-    x = "Engine displacement (L)",
-    y = "Highway fuel economy (mpg)",
-    color = "Car type",
-    title = "Fuel efficiency generally decreases with engine size",
-    subtitle = "Two seaters (sports cars) are an exception because of their light weight",
-    caption = "Data from fueleconomy.gov"
+    x = "Cylindrée du moteur (L)",
+    y = "Efficacité énergétique sur autoroute (mpg)",
+    color = "Type de voiture",
+    title = "L'efficacité énergétique diminue généralement avec la cylindrée du moteur",
+    subtitle = "Les deux places (voitures de sport) sont une exception en raison de leur légèreté",
+    caption = "Données de fueleconomy.gov"
   )
 ```
 
-The purpose of a plot title is to summarize the main finding.
-Avoid titles that just describe what the plot is, e.g., "A scatterplot of engine displacement vs. fuel economy".
+Le but d'un titre de graphique est de résumer la découverte principale.
+Évitez les titres qui décrivent simplement ce qu'est le graphique, par ex., « Un nuage de points de la cylindrée du moteur par rapport à l'efficacité énergétique ».
 
-If you need to add more text, there are two other useful labels: `subtitle` adds additional detail in a smaller font beneath the title and `caption` adds text at the bottom right of the plot, often used to describe the source of the data.
-You can also use `labs()` to replace the axis and legend titles.
-It's usually a good idea to replace short variable names with more detailed descriptions, and to include the units.
+Si vous devez ajouter plus de texte, il y a deux autres étiquettes utiles : `subtitle` ajoute des détails supplémentaires dans une police plus petite sous le titre et `caption` ajoute du texte en bas à droite du graphique, souvent utilisé pour décrire la source des données.
+Vous pouvez aussi utiliser `labs()` pour remplacer les titres des axes et des légendes.
+C'est généralement une bonne idée de remplacer les noms de variables courts par des descriptions plus détaillées, et d'inclure les unités.
 
-It's possible to use mathematical equations instead of text strings.
-Just switch `""` out for `quote()` and read about the available options in `?plotmath`:
+Il est possible d'utiliser des équations mathématiques à la place de chaînes de texte.
+Remplacez simplement `""` par `quote()` et lisez les options disponibles dans `?plotmath` :
 
 ```{r}
 #| fig-asp: 1
 #| out-width: "50%"
 #| fig-width: 3
 #| fig-alt: |
-#|   Scatterplot with math text on the x and y axis labels. X-axis label 
-#|   says x_i, y-axis label says sum of x_i  squared, for i from 1 to n.
+#|   Nuage de points avec du texte mathématique sur les étiquettes des axes x 
+#|   et y. L'étiquette de l'axe x dit x_i, l'étiquette de l'axe y dit somme 
+#|   de x_i au carré, pour i de 1 à n.
 df <- tibble(
   x = 1:10,
   y = cumsum(x^2)
@@ -98,40 +100,41 @@ ggplot(df, aes(x, y)) +
   )
 ```
 
-### Exercises
+### Exercices
 
-1.  Create one plot on the fuel economy data with customized `title`, `subtitle`, `caption`, `x`, `y`, and `color` labels.
+1.  Créez un graphique sur les données d'efficacité énergétique avec des étiquettes `title`, `subtitle`, `caption`, `x`, `y` et `color` personnalisées.
 
-2.  Recreate the following plot using the fuel economy data.
-    Note that both the colors and shapes of points vary by type of drive train.
+2.  Recréez le graphique suivant en utilisant les données d'efficacité énergétique.
+    Notez que les couleurs et les formes des points varient selon le type de chaîne de transmission.
 
     ```{r}
     #| echo: false
     #| fig-alt: |
-    #|   Scatterplot of highway versus city fuel efficiency. Shapes and 
-    #|   colors of points are determined by type of drive train.
+    #|   Nuage de points de l'efficacité énergétique sur autoroute par rapport 
+    #|   à celle en ville. Les formes et les couleurs des points sont déterminées 
+    #|   par le type de chaîne de transmission.
     ggplot(mpg, aes(x = cty, y = hwy, color = drv, shape = drv)) +
       geom_point() +
       labs(
-        x = "City MPG",
-        y = "Highway MPG",
-        shape = "Type of\ndrive train",
-        color = "Type of\ndrive train"
+        x = "MPG en ville",
+        y = "MPG sur autoroute",
+        shape = "Type de\nchaîne de\ntransmission",
+        color = "Type de\nchaîne de\ntransmission"
       )
     ```
 
-3.  Take an exploratory graphic that you've created in the last month, and add informative titles to make it easier for others to understand.
+3.  Prenez un graphique exploratoire que vous avez créé au cours du dernier mois, et ajoutez des titres informatifs pour faciliter la compréhension des autres.
 
 ## Annotations
 
-In addition to labelling major components of your plot, it's often useful to label individual observations or groups of observations.
-The first tool you have at your disposal is `geom_text()`.
-`geom_text()` is similar to `geom_point()`, but it has an additional aesthetic: `label`.
-This makes it possible to add textual labels to your plots.
+En plus d'étiqueter les composants majeurs de votre graphique, il est souvent utile d'étiqueter les observations individuelles ou les groupes d'observations.
+Le premier outil à votre disposition est `geom_text()`.
+`geom_text()` est similaire à `geom_point()`, mais il a une esthétique supplémentaire : `label`.
+Cela rend possible l'ajout d'étiquettes textuelles à vos graphiques.
 
-There are two possible sources of labels.
-First, you might have a tibble that provides labels.
-In the following plot we pull out the cars with the highest engine size in each drive type and save their information as a new data frame called `label_info`.
+Il existe deux sources possibles d'étiquettes.
+D'abord, vous pourriez avoir un tibble qui fournit des étiquettes.
+Dans le graphique suivant, nous extrayons les voitures avec la plus grande cylindrée du moteur dans chaque type de chaîne de transmission et enregistrons leurs informations dans un nouveau data frame appelé `label_info`.
 
 ```{r}
 label_info <- mpg |>
@@ -140,9 +143,9 @@ label_info <- mpg |>
   slice_head(n = 1) |>
   mutate(
     drive_type = case_when(
-      drv == "f" ~ "front-wheel drive",
-      drv == "r" ~ "rear-wheel drive",
-      drv == "4" ~ "4-wheel drive"
+      drv == "f" ~ "traction avant",
+      drv == "r" ~ "traction arrière",
+      drv == "4" ~ "traction intégrale"
     )
   ) |>
   select(displ, hwy, drv, drive_type)
@@ -150,16 +153,18 @@ label_info <- mpg |>
 label_info
 ```
 
-Then, we use this new data frame to directly label the three groups to replace the legend with labels placed directly on the plot.
-Using the `fontface` and `size` arguments we can customize the look of the text labels.
-They're larger than the rest of the text on the plot and bolded.
-(`theme(legend.position = "none"`) turns all the legends off --- we'll talk about it more shortly.)
+Ensuite, nous utilisons ce nouveau data frame pour étiqueter directement les trois groupes afin de remplacer la légende par des étiquettes placées directement sur le graphique.
+En utilisant les arguments `fontface` et `size`, nous pouvons personnaliser l'apparence des étiquettes textuelles.
+Elles sont plus grandes que le reste du texte sur le graphique et en gras.
+(`theme(legend.position = "none"`) désactive toutes les légendes --- nous en parlerons plus en détail bientôt.)
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway mileage versus engine size where points are colored 
-#|   by drive type. Smooth curves for each drive type are overlaid. 
-#|   Text labels identify the curves as front-wheel, rear-wheel, and 4-wheel.
+#|   Nuage de points du kilométrage sur autoroute par rapport à la cylindrée 
+#|   du moteur où les points sont colorés par type de chaîne de transmission. 
+#|   Les courbes lisses pour chaque type de chaîne de transmission sont 
+#|   superposées. Les étiquettes textuelles identifient les courbes comme 
+#|   traction avant, traction arrière et traction intégrale.
 ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
   geom_point(alpha = 0.3) +
   geom_smooth(se = FALSE) +
@@ -171,19 +176,20 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
   theme(legend.position = "none")
 ```
 
-Note the use of `hjust` (horizontal justification) and `vjust` (vertical justification) to control the alignment of the label.
+Notez l'utilisation de `hjust` (justification horizontale) et `vjust` (justification verticale) pour contrôler l'alignement de l'étiquette.
 
-However, the annotated plot we made above is hard to read because the labels overlap with each other, and with the points.
-We can use the `geom_label_repel()` function from the ggrepel package to address both of these issues.
-This useful package will automatically adjust labels so that they don't overlap:
+Cependant, le graphique annoté que nous avons créé ci-dessus est difficile à lire car les étiquettes se chevauchent les unes les autres et avec les points.
+Nous pouvons utiliser la fonction `geom_label_repel()` du package ggrepel pour résoudre ces deux problèmes.
+Ce package utile ajustera automatiquement les étiquettes pour qu'elles ne se chevauchent pas :
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway mileage versus engine size where points are colored 
-#|   by drive type. Smooth curves for each drive type are overlaid. 
-#|   Text labels identify the curves as front-wheel, rear-wheel, and 4-wheel.
-#|   The labels are box with white background 
-#|   and positioned to not overlap.
+#|   Nuage de points du kilométrage sur autoroute par rapport à la cylindrée 
+#|   du moteur où les points sont colorés par type de chaîne de transmission. 
+#|   Les courbes lisses pour chaque type de chaîne de transmission sont 
+#|   superposées. Les étiquettes textuelles identifient les courbes comme 
+#|   traction avant, traction arrière et traction intégrale. Les étiquettes 
+#|   sont des boîtes avec un fond blanc et positionnées pour ne pas se chevaucher.
 ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
   geom_point(alpha = 0.3) +
   geom_smooth(se = FALSE) +
@@ -195,15 +201,16 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
   theme(legend.position = "none")
 ```
 
-You can also use the same idea to highlight certain points on a plot with `geom_text_repel()` from the ggrepel package.
-Note another handy technique used here: we added a second layer of large, hollow points to further highlight the labelled points.
+Vous pouvez aussi utiliser la même idée pour mettre en évidence certains points sur un graphique avec `geom_text_repel()` du package ggrepel.
+Notez une autre technique utile utilisée ici : nous avons ajouté une deuxième couche de grands points creux pour mettre davantage en évidence les points étiquetés.
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway fuel efficiency versus engine size of cars. Points 
-#|   where highway mileage is above 40 as well as above 20 with engine size 
-#|   above 5 are red, with a hollow red circle, and labelled with model name 
-#|   of the car.
+#|   Nuage de points de l'efficacité énergétique sur autoroute par rapport à 
+#|   la cylindrée du moteur. Les points où le kilométrage sur autoroute est 
+#|   supérieur à 40 ainsi que supérieur à 20 avec une cylindrée supérieure à 
+#|   5 sont rouges, avec un cercle rouge creux, et étiquetés avec le modèle 
+#|   de la voiture.
 potential_outliers <- mpg |>
   filter(hwy > 40 | (hwy > 20 & displ > 5))
   
@@ -217,42 +224,43 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   )
 ```
 
-Remember, in addition to `geom_text()` and `geom_label()`, you have many other geoms in ggplot2 available to help annotate your plot.
-A couple ideas:
+Souvenez-vous, en plus de `geom_text()` et `geom_label()`, vous avez de nombreuses autres geoms dans ggplot2 disponibles pour vous aider à annoter votre graphique.
+Quelques idées :
 
--   Use `geom_hline()` and `geom_vline()` to add reference lines.
-    We often make them thick (`linewidth = 2`) and white (`color = white`), and draw them underneath the primary data layer.
-    That makes them easy to see, without drawing attention away from the data.
+-   Utilisez `geom_hline()` et `geom_vline()` pour ajouter des lignes de référence.
+    Nous les rendons souvent épaisses (`linewidth = 2`) et blanches (`color = white`), et les dessinez sous la couche de données primaire.
+    Cela les rend faciles à voir, sans détourner l'attention des données.
 
--   Use `geom_rect()` to draw a rectangle around points of interest.
-    The boundaries of the rectangle are defined by aesthetics `xmin`, `xmax`, `ymin`, `ymax`.
-    Alternatively, look into the [ggforce package](https://ggforce.data-imaginist.com/index.html), specifically [`geom_mark_hull()`](https://ggforce.data-imaginist.com/reference/geom_mark_hull.html), which allows you to annotate subsets of points with hulls.
+-   Utilisez `geom_rect()` pour dessiner un rectangle autour des points d'intérêt.
+    Les limites du rectangle sont définies par les esthétiques `xmin`, `xmax`, `ymin`, `ymax`.
+    Alternativement, consultez le [package ggforce](https://ggforce.data-imaginist.com/index.html), spécifiquement [`geom_mark_hull()`](https://ggforce.data-imaginist.com/reference/geom_mark_hull.html), qui vous permet d'annoter des sous-ensembles de points avec des enveloppes.
 
--   Use `geom_segment()` with the `arrow` argument to draw attention to a point with an arrow.
-    Use aesthetics `x` and `y` to define the starting location, and `xend` and `yend` to define the end location.
+-   Utilisez `geom_segment()` avec l'argument `arrow` pour attirer l'attention sur un point avec une flèche.
+    Utilisez les esthétiques `x` et `y` pour définir l'emplacement de départ, et `xend` et `yend` pour définir l'emplacement de fin.
 
-Another handy function for adding annotations to plots is `annotate()`.
-As a rule of thumb, geoms are generally useful for highlighting a subset of the data while `annotate()` is useful for adding one or few annotation elements to a plot.
+Une autre fonction pratique pour ajouter des annotations aux graphiques est `annotate()`.
+En règle générale, les geoms sont utiles pour mettre en évidence un sous-ensemble des données tandis que `annotate()` est utile pour ajouter un ou quelques éléments d'annotation à un graphique.
 
-To demonstrate using `annotate()`, let's create some text to add to our plot.
-The text is a bit long, so we'll use `stringr::str_wrap()` to automatically add line breaks to it given the number of characters you want per line:
+Pour démontrer l'utilisation de `annotate()`, créons du texte à ajouter à notre graphique.
+Le texte est un peu long, donc nous utiliserons `stringr::str_wrap()` pour ajouter automatiquement des sauts de ligne en fonction du nombre de caractères que vous voulez par ligne :
 
 ```{r}
-trend_text <- "Larger engine sizes tend to have lower fuel economy." |>
+trend_text <- "Les plus grandes cylindrées tendent à avoir une plus faible efficacité énergétique." |>
   str_wrap(width = 30)
 trend_text
 ```
 
-Then, we add two layers of annotation: one with a label geom and the other with a segment geom.
-The `x` and `y` aesthetics in both define where the annotation should start, and the `xend` and `yend` aesthetics in the segment annotation define the end location of the segment.
-Note also that the segment is styled as an arrow.
+Ensuite, nous ajoutons deux couches d'annotation : une avec une geom label et l'autre avec une geom segment.
+Les esthétiques `x` et `y` dans les deux définissent où l'annotation doit commencer, et les esthétiques `xend` et `yend` dans l'annotation segment définissent l'emplacement de fin du segment.
+Notez aussi que le segment est stylisé comme une flèche.
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway fuel efficiency versus engine size of cars. A red 
-#|   arrow pointing down follows the trend of the points and the annotation 
-#|   placed next to the arrow reads "Larger engine sizes tend to have lower 
-#|   fuel economy". The arrow and the annotation text is red.
+#|   Nuage de points de l'efficacité énergétique sur autoroute par rapport à 
+#|   la cylindrée du moteur. Une flèche rouge pointant vers le bas suit la 
+#|   tendance des points et l'annotation placée à côté de la flèche lit 
+#|   « Les plus grandes cylindrées tendent à avoir une plus faible efficacité 
+#|   énergétique ». La flèche et le texte d'annotation sont rouges.
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point() +
   annotate(
@@ -267,36 +275,36 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   )
 ```
 
-Annotation is a powerful tool for communicating main takeaways and interesting features of your visualizations.
-The only limit is your imagination (and your patience with positioning annotations to be aesthetically pleasing)!
+L'annotation est un outil puissant pour communiquer les conclusions principales et les caractéristiques intéressantes de vos visualisations.
+La seule limite est votre imagination (et votre patience pour positionner les annotations de manière esthétique) !
 
-### Exercises
+### Exercices
 
-1.  Use `geom_text()` with infinite positions to place text at the four corners of the plot.
+1.  Utilisez `geom_text()` avec des positions infinies pour placer le texte dans les quatre coins du graphique.
 
-2.  Use `annotate()` to add a point geom in the middle of your last plot without having to create a tibble.
-    Customize the shape, size, or color of the point.
+2.  Utilisez `annotate()` pour ajouter une geom point au milieu de votre dernier graphique sans avoir à créer un tibble.
+    Personnalisez la forme, la taille ou la couleur du point.
 
-3.  How do labels with `geom_text()` interact with faceting?
-    How can you add a label to a single facet?
-    How can you put a different label in each facet?
-    (Hint: Think about the dataset that is being passed to `geom_text()`.)
+3.  Comment les étiquettes avec `geom_text()` interagissent-elles avec le facettage ?
+    Comment pouvez-vous ajouter une étiquette à une seule facette ?
+    Comment pouvez-vous mettre une étiquette différente dans chaque facette ?
+    (Indice : Pensez au jeu de données qui est transmis à `geom_text()`.)
 
-4.  What arguments to `geom_label()` control the appearance of the background box?
+4.  Quels arguments de `geom_label()` contrôlent l'apparence de la boîte de fond ?
 
-5.  What are the four arguments to `arrow()`?
-    How do they work?
-    Create a series of plots that demonstrate the most important options.
+5.  Quels sont les quatre arguments de `arrow()` ?
+    Comment fonctionnent-ils ?
+    Créez une série de graphiques qui démontrent les options les plus importantes.
 
-## Scales
+## Échelles
 
-The third way you can make your plot better for communication is to adjust the scales.
-Scales control how the aesthetic mappings manifest visually.
+La troisième façon de rendre votre graphique meilleur pour la communication est d'ajuster les échelles.
+Les échelles contrôlent la façon dont les mappages esthétiques se manifestent visuellement.
 
-### Default scales
+### Échelles par défaut
 
-Normally, ggplot2 automatically adds scales for you.
-For example, when you type:
+Normalement, ggplot2 ajoute automatiquement les échelles pour vous.
+Par exemple, quand vous tapez :
 
 ```{r}
 #| label: default-scales
@@ -305,7 +313,7 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(aes(color = class))
 ```
 
-ggplot2 automatically adds default scales behind the scenes:
+ggplot2 ajoute automatiquement les échelles par défaut en coulisse :
 
 ```{r}
 #| fig-show: hide
@@ -316,61 +324,62 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   scale_color_discrete()
 ```
 
-Note the naming scheme for scales: `scale_` followed by the name of the aesthetic, then `_`, then the name of the scale.
-The default scales are named according to the type of variable they align with: continuous, discrete, datetime, or date.
-`scale_x_continuous()` puts the numeric values from `displ` on a continuous number line on the x-axis, `scale_color_discrete()` chooses colors for each of the `class` of car, etc.
-There are lots of non-default scales which you'll learn about below.
+Notez le schéma de nommage pour les échelles : `scale_` suivi du nom de l'esthétique, puis `_`, puis le nom de l'échelle.
+Les échelles par défaut sont nommées selon le type de variable auquel elles s'alignent : continu, discret, datetime ou date.
+`scale_x_continuous()` place les valeurs numériques de `displ` sur une ligne de nombre continu sur l'axe x, `scale_color_discrete()` choisit les couleurs pour chaque `class` de voiture, etc.
+Il y a beaucoup d'échelles non-défaut que vous apprendrez ci-dessous.
 
-The default scales have been carefully chosen to do a good job for a wide range of inputs.
-Nevertheless, you might want to override the defaults for two reasons:
+Les échelles par défaut ont été soigneusement choisies pour bien fonctionner sur une large gamme d'entrées.
+Néanmoins, vous pourriez vouloir remplacer les défauts pour deux raisons :
 
--   You might want to tweak some of the parameters of the default scale.
-    This allows you to do things like change the breaks on the axes, or the key labels on the legend.
+-   Vous pourriez vouloir ajuster certains des paramètres de l'échelle par défaut.
+    Cela vous permet de faire des choses comme changer les divisions sur les axes, ou les étiquettes clés sur la légende.
 
--   You might want to replace the scale altogether, and use a completely different algorithm.
-    Often you can do better than the default because you know more about the data.
+-   Vous pourriez vouloir remplacer complètement l'échelle, et utiliser un algorithme complètement différent.
+    Souvent, vous pouvez faire mieux que le défaut parce que vous savez plus sur les données.
 
-### Axis ticks and legend keys
+### Graduations d'axes et clés de légende
 
-Collectively axes and legends are called **guides**.
-Axes are used for x and y aesthetics; legends are used for everything else.
+Collectivement, les axes et les légendes s'appellent des **guides**.
+Les axes sont utilisés pour les esthétiques x et y ; les légendes sont utilisées pour tout le reste.
 
-There are two primary arguments that affect the appearance of the ticks on the axes and the keys on the legend: `breaks` and `labels`.
-Breaks controls the position of the ticks, or the values associated with the keys.
-Labels controls the text label associated with each tick/key.
-The most common use of `breaks` is to override the default choice:
+Il y a deux arguments principaux qui affectent l'apparence des graduations sur les axes et les clés sur la légende : `breaks` et `labels`.
+Breaks contrôle la position des graduations, ou les valeurs associées aux clés.
+Labels contrôle l'étiquette texte associée à chaque graduation/clé.
+L'utilisation la plus courante de `breaks` est de remplacer le choix par défaut :
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway fuel efficiency versus engine size of cars,
-#|   colored by drive. The y-axis has breaks starting at 15 and ending at 40, 
-#|   increasing by 5.
+#|   Nuage de points de l'efficacité énergétique sur autoroute par rapport 
+#|   à la cylindrée du moteur, coloré par chaîne de transmission. L'axe y a 
+#|   des divisions commençant à 15 et se terminant à 40, augmentant par 5.
 ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
   geom_point() +
   scale_y_continuous(breaks = seq(15, 40, by = 5)) 
 ```
 
-You can use `labels` in the same way (a character vector the same length as `breaks`), but you can also set it to `NULL` to suppress the labels altogether.
-This can be useful for maps, or for publishing plots where you can't share the absolute numbers.
-You can also use `breaks` and `labels` to control the appearance of legends.
-For discrete scales for categorical variables, `labels` can be a named list of the existing level names and the desired labels for them.
+Vous pouvez utiliser `labels` de la même manière (un vecteur de caractères de la même longueur que `breaks`), mais vous pouvez aussi le définir à `NULL` pour supprimer complètement les étiquettes.
+Cela peut être utile pour les cartes, ou pour publier des graphiques où vous ne pouvez pas partager les nombres absolus.
+Vous pouvez aussi utiliser `breaks` et `labels` pour contrôler l'apparence des légendes.
+Pour les échelles discrètes pour les variables catégoques, `labels` peut être une liste nommée des noms de niveaux existants et des étiquettes souhaitées pour eux.
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway fuel efficiency versus engine size of cars, colored 
-#|   by drive. The x and y-axes do not have any labels at the axis ticks. 
-#|   The legend has custom labels: 4-wheel, front, rear.
+#|   Nuage de points de l'efficacité énergétique sur autoroute par rapport 
+#|   à la cylindrée du moteur, coloré par chaîne de transmission. Les axes x 
+#|   et y n'ont pas d'étiquettes aux graduations. La légende a des étiquettes 
+#|   personnalisées : traction intégrale, avant, arrière.
 ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
   geom_point() +
   scale_x_continuous(labels = NULL) +
   scale_y_continuous(labels = NULL) +
-  scale_color_discrete(labels = c("4" = "4-wheel", "f" = "front", "r" = "rear"))
+  scale_color_discrete(labels = c("4" = "traction intégrale", "f" = "traction avant", "r" = "traction arrière"))
 ```
 
-The `labels` argument coupled with labelling functions from the scales package is also useful for formatting numbers as currency, percent, etc.
-The plot on the left shows default labelling with `label_dollar()`, which adds a dollar sign as well as a thousand separator comma.
-The plot on the right adds further customization by dividing dollar values by 1,000 and adding a suffix "K" (for "thousands") as well as adding custom breaks.
-Note that `breaks` is in the original scale of the data.
+L'argument `labels` couplé aux fonctions d'étiquetage du package scales est aussi utile pour formater les nombres en tant que devise, pourcentage, etc.
+Le graphique de gauche montre l'étiquetage par défaut avec `label_dollar()`, qui ajoute un signe dollar ainsi qu'une virgule séparatrice des milliers.
+Le graphique de droite ajoute une personnalisation supplémentaire en divisant les valeurs en dollars par 1 000 et en ajoutant un suffixe « K » (pour « milliers ») ainsi qu'en ajoutant des divisions personnalisées.
+Notez que `breaks` est à l'échelle originale des données.
 
 ```{r}
 #| layout-ncol: 2
@@ -431,26 +440,27 @@ Also note that the specification of breaks and labels for date and datetime scal
 
 -   `date_breaks` (not shown here), takes a string like "2 days" or "1 month".
 
-### Legend layout
+### Disposition de la légende
 
-You will most often use `breaks` and `labels` to tweak the axes.
-While they both also work for legends, there are a few other techniques you are more likely to use.
+Vous utiliserez le plus souvent `breaks` et `labels` pour ajuster les axes.
+Bien qu'ils fonctionnent aussi pour les légendes, il y a quelques autres techniques que vous êtes plus susceptible d'utiliser.
 
-To control the overall position of the legend, you need to use a `theme()` setting.
-We'll come back to themes at the end of the chapter, but in brief, they control the non-data parts of the plot.
-The theme setting `legend.position` controls where the legend is drawn:
+Pour contrôler la position générale de la légende, vous devez utiliser un paramètre `theme()`.
+Nous reviendrons aux thèmes à la fin du chapitre, mais en bref, ils contrôlent les parties non-données du graphique.
+Le paramètre de thème `legend.position` contrôle où la légende est dessinée :
 
 ```{r}
 #| layout-ncol: 2
 #| fig-width: 4
 #| fig-alt: |
-#|   Four scatterplots of highway fuel efficiency versus engine size of cars 
-#|   where points are colored based on class of car. Clockwise, the legend 
-#|   is placed on the right, left, bottom, and top of the plot.
+#|   Quatre nuages de points de l'efficacité énergétique sur autoroute par 
+#|   rapport à la cylindrée du moteur, où les points sont colorés en fonction 
+#|   de la classe de voiture. Dans le sens des aiguilles d'une montre, la 
+#|   légende est placée à droite, à gauche, en bas et en haut du graphique.
 base <- ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(aes(color = class))
 
-base + theme(legend.position = "right") # the default
+base + theme(legend.position = "right") # le défaut
 base + theme(legend.position = "left")
 base + 
   theme(legend.position = "top") +
@@ -460,20 +470,21 @@ base +
   guides(color = guide_legend(nrow = 3))
 ```
 
-If your plot is short and wide, place the legend at the top or bottom, and if it's tall and narrow, place the legend at the left or right.
-You can also use `legend.position = "none"` to suppress the display of the legend altogether.
+Si votre graphique est court et large, placez la légende en haut ou en bas, et s'il est haut et étroit, placez la légende à gauche ou à droite.
+Vous pouvez aussi utiliser `legend.position = "none"` pour supprimer l'affichage de la légende complètement.
 
-To control the display of individual legends, use `guides()` along with `guide_legend()` or `guide_colorbar()`.
-The following example shows two important settings: controlling the number of rows the legend uses with `nrow`, and overriding one of the aesthetics to make the points bigger.
-This is particularly useful if you have used a low `alpha` to display many points on a plot.
+Pour contrôler l'affichage des légendes individuelles, utilisez `guides()` avec `guide_legend()` ou `guide_colorbar()`.
+L'exemple suivant montre deux paramètres importants : contrôler le nombre de lignes que la légende utilise avec `nrow`, et remplacer l'une des esthétiques pour rendre les points plus grands.
+Cela est particulièrement utile si vous avez utilisé un `alpha` faible pour afficher de nombreux points sur un graphique.
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway fuel efficiency versus engine size of cars 
-#|   where points are colored based on class of car. Overlaid on the plot is a 
-#|   smooth curve. The legend is in the bottom and classes are listed 
-#|   horizontally in two rows. The points in the legend are larger than the points 
-#|   in the plot.
+#|   Nuage de points de l'efficacité énergétique sur autoroute par rapport 
+#|   à la cylindrée du moteur, où les points sont colorés en fonction de la 
+#|   classe de voiture. Une courbe lisse est superposée sur le graphique. 
+#|   La légende est en bas et les classes sont listées horizontalement en 
+#|   deux lignes. Les points dans la légende sont plus grands que les points 
+#|   du graphique.
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(aes(color = class)) +
   geom_smooth(se = FALSE) +
@@ -481,66 +492,69 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   guides(color = guide_legend(nrow = 2, override.aes = list(size = 4)))
 ```
 
-Note that the name of the argument in `guides()` matches the name of the aesthetic, just like in `labs()`.
+Notez que le nom de l'argument dans `guides()` correspond au nom de l'esthétique, comme dans `labs()`.
 
-### Replacing a scale
+### Remplacer une échelle
 
-Instead of just tweaking the details a little, you can instead replace the scale altogether.
-There are two types of scales you're mostly likely to want to switch out: continuous position scales and color scales.
-Fortunately, the same principles apply to all the other aesthetics, so once you've mastered position and color, you'll be able to quickly pick up other scale replacements.
+Au lieu de simplement ajuster les détails un peu, vous pouvez plutôt remplacer complètement l'échelle.
+Il y a deux types d'échelles que vous êtes probablement plus susceptible de vouloir changer : les échelles de position continues et les échelles de couleur.
+Heureusement, les mêmes principes s'appliquent à toutes les autres esthétiques, donc une fois que vous maîtrisez la position et la couleur, vous serez en mesure de rapidement maîtriser d'autres remplacements d'échelle.
 
-It's very useful to plot transformations of your variable.
-For example, it's easier to see the precise relationship between `carat` and `price` if we log transform them:
+Il est très utile de tracer les transformations de votre variable.
+Par exemple, il est plus facile de voir la relation précise entre `carat` et `price` si nous les transformons en logarithme :
 
 ```{r}
 #| fig-align: default
 #| layout-ncol: 2
 #| fig-width: 3
 #| fig-alt: |
-#|   Two plots of price versus carat of diamonds. Data binned and the color of 
-#|   the rectangles representing each bin based on the number of points that 
-#|   fall into that bin. In the plot on the right, price and carat values 
-#|   are logged and the axis labels shows the logged values.
-# Left
+#|   Deux graphiques du prix par rapport au carat des diamants. Données 
+#|   regroupées et la couleur des rectangles représentant chaque classe basée 
+#|   sur le nombre de points qui tombent dans cette classe. Dans le graphique 
+#|   à droite, les valeurs de prix et carat sont en logarithme et les étiquettes 
+#|   des axes affichent les valeurs en logarithme.
+# Gauche
 ggplot(diamonds, aes(x = carat, y = price)) +
   geom_bin2d()
 
-# Right
+# Droite
 ggplot(diamonds, aes(x = log10(carat), y = log10(price))) +
   geom_bin2d()
 ```
 
-However, the disadvantage of this transformation is that the axes are now labelled with the transformed values, making it hard to interpret the plot.
-Instead of doing the transformation in the aesthetic mapping, we can instead do it with the scale.
-This is visually identical, except the axes are labelled on the original data scale.
+Cependant, l'inconvénient de cette transformation est que les axes sont maintenant étiquetés avec les valeurs transformées, ce qui rend difficile l'interprétation du graphique.
+Au lieu de faire la transformation dans le mappage esthétique, nous pouvons plutôt le faire avec l'échelle.
+C'est visuellement identique, sauf que les axes sont étiquetés à l'échelle de données originale.
 
 ```{r}
 #| fig-alt: |
-#|   Plot of price versus carat of diamonds. Data binned and the color of 
-#|   the rectangles representing each bin based on the number of points that 
-#|   fall into that bin. The axis labels are on the original data scale.
+#|   Graphique du prix par rapport au carat des diamants. Données regroupées 
+#|   et la couleur des rectangles représentant chaque classe basée sur le 
+#|   nombre de points qui tombent dans cette classe. Les étiquettes des axes 
+#|   sont à l'échelle de données originale.
 ggplot(diamonds, aes(x = carat, y = price)) +
   geom_bin2d() + 
   scale_x_log10() + 
   scale_y_log10()
 ```
 
-Another scale that is frequently customized is color.
-The default categorical scale picks colors that are evenly spaced around the color wheel.
-Useful alternatives are the ColorBrewer scales which have been hand tuned to work better for people with common types of color blindness.
-The two plots below look similar, but there is enough difference in the shades of red and green that the dots on the right can be distinguished even by people with red-green color blindness.[^communication-1]
+Une autre échelle qui est fréquemment personnalisée est la couleur.
+L'échelle catégorique par défaut choisit les couleurs qui sont régulièrement espacées autour de la roue chromatique.
+Les alternatives utiles sont les échelles ColorBrewer qui ont été ajustées à la main pour mieux fonctionner pour les personnes avec des types courants de daltonisme.
+Les deux graphiques ci-dessous se ressemblent, mais il y a assez de différence dans les teintes de rouge et de vert pour que les points à droite puissent être distingués même par les personnes atteintes de daltonisme rouge-vert.[^communication-1]
 
-[^communication-1]: You can use a tool like [SimDaltonism](https://michelf.ca/projects/sim-daltonism/) to simulate color blindness to test these images.
+[^communication-1]: Vous pouvez utiliser un outil comme [SimDaltonism](https://michelf.ca/projects/sim-daltonism/) pour simuler le daltonisme pour tester ces images.
 
 ```{r}
 #| fig-align: default
 #| layout-ncol: 2
 #| fig-width: 3
 #| fig-alt: |
-#|   Two scatterplots of highway mileage versus engine size where points are 
-#|   colored by drive type. The plot on the left uses the default 
-#|   ggplot2 color palette and the plot on the right uses a different color 
-#|   palette.
+#|   Deux nuages de points du kilométrage sur autoroute par rapport à la 
+#|   cylindrée du moteur, où les points sont colorés par type de chaîne de 
+#|   transmission. Le graphique de gauche utilise la palette de couleurs par 
+#|   défaut ggplot2 et le graphique de droite utilise une palette de couleurs 
+#|   différente.
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(aes(color = drv))
 
@@ -549,49 +563,52 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   scale_color_brewer(palette = "Set1")
 ```
 
-Don't forget simpler techniques for improving accessibility.
-If there are just a few colors, you can add a redundant shape mapping.
-This will also help ensure your plot is interpretable in black and white.
+N'oubliez pas les techniques plus simples pour améliorer l'accessibilité.
+S'il n'y a que quelques couleurs, vous pouvez ajouter un mappage de forme redondant.
+Cela aidera également à assurer que votre graphique est interprétable en noir et blanc.
 
 ```{r}
 #| fig-alt: |
-#|   Scatterplot of highway mileage versus engine size where both color 
-#|   and shape of points are based on drive type. The color palette is not 
-#|   the default ggplot2 palette.
+#|   Nuage de points du kilométrage sur autoroute par rapport à la cylindrée 
+#|   du moteur, où la couleur et la forme des points sont basées sur le type 
+#|   de chaîne de transmission. La palette de couleurs n'est pas la palette 
+#|   par défaut ggplot2.
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(aes(color = drv, shape = drv)) +
   scale_color_brewer(palette = "Set1")
 ```
 
-The ColorBrewer scales are documented online at <https://colorbrewer2.org/> and made available in R via the **RColorBrewer** package, by Erich Neuwirth.
-@fig-brewer shows the complete list of all palettes.
-The sequential (top) and diverging (bottom) palettes are particularly useful if your categorical values are ordered, or have a "middle".
-This often arises if you've used `cut()` to make a continuous variable into a categorical variable.
+Les échelles ColorBrewer sont documentées en ligne à <https://colorbrewer2.org/> et rendues disponibles en R via le package **RColorBrewer**, par Erich Neuwirth.
+@fig-brewer montre la liste complète de toutes les palettes.
+Les palettes séquentielles (en haut) et divergentes (en bas) sont particulièrement utiles si vos valeurs catégoques sont ordonnées, ou ont un « milieu ».
+Cela se produit souvent si vous avez utilisé `cut()` pour transformer une variable continue en variable catégorique.
 
 ```{r}
 #| label: fig-brewer
 #| echo: false
-#| fig-cap: All colorBrewer scales.
+#| fig-cap: Toutes les échelles colorBrewer.
 #| fig-asp: 2.5
 #| fig-alt: |
-#|   All colorBrewer scales. One group goes from light to dark colors. 
-#|   Another group is a set of non ordinal colors. And the last group has 
-#|   diverging scales (from dark to light to dark again). Within each set 
-#|   there are a number of palettes.
+#|   Toutes les échelles colorBrewer. Un groupe va des couleurs claires aux 
+#|   couleurs foncées. Un autre groupe est un ensemble de couleurs non 
+#|   ordinales. Et le dernier groupe a des échelles divergentes (du foncé au 
+#|   clair au foncé à nouveau). Au sein de chaque ensemble, il y a un certain 
+#|   nombre de palettes.
 par(mar = c(0, 3, 0, 0))
 RColorBrewer::display.brewer.all()
 ```
 
-When you have a predefined mapping between values and colors, use `scale_color_manual()`.
-For example, if we map presidential party to color, we want to use the standard mapping of red for Republicans and blue for Democrats.
-One approach for assigning these colors is using hex color codes:
+Quand vous avez un mappage prédéfini entre les valeurs et les couleurs, utilisez `scale_color_manual()`.
+Par exemple, si nous mappons le parti présidentiel à la couleur, nous voulons utiliser le mappage standard du rouge pour les Républicains et du bleu pour les Démocrates.
+Une approche pour assigner ces couleurs est l'utilisation de codes de couleur hexadécimaux :
 
 ```{r}
 #| fig-alt: |
-#|   Line plot of id number of presidents versus the year they started their 
-#|   presidency. Start year is marked with a point and a segment that starts 
-#|   there and ends at the end of the presidency. Democratic presidents are 
-#|   represented in blue and Republicans in red.
+#|   Graphique linéaire du numéro d'identité des présidents par rapport à 
+#|   l'année où ils ont commencé leur présidence. L'année de début est marquée 
+#|   avec un point et un segment qui commence là et se termine à la fin de la 
+#|   présidence. Les présidents Démocrates sont représentés en bleu et les 
+#|   Républicains en rouge.
 presidential |>
   mutate(id = 33 + row_number()) |>
   ggplot(aes(x = start, y = id, color = party)) +
@@ -600,14 +617,14 @@ presidential |>
   scale_color_manual(values = c(Republican = "#E81B23", Democratic = "#00AEF3"))
 ```
 
-For continuous color, you can use the built-in `scale_color_gradient()` or `scale_fill_gradient()`.
-If you have a diverging scale, you can use `scale_color_gradient2()`.
-That allows you to give, for example, positive and negative values different colors.
-That's sometimes also useful if you want to distinguish points above or below the mean.
+Pour la couleur continue, vous pouvez utiliser le built-in `scale_color_gradient()` ou `scale_fill_gradient()`.
+Si vous avez une échelle divergente, vous pouvez utiliser `scale_color_gradient2()`.
+Cela vous permet de donner, par exemple, des couleurs différentes aux valeurs positives et négatives.
+C'est parfois aussi utile si vous voulez distinguer les points au-dessus ou au-dessous de la moyenne.
 
-Another option is to use the viridis color scales.
-The designers, Nathaniel Smith and Stéfan van der Walt, carefully tailored continuous color schemes that are perceptible to people with various forms of color blindness as well as perceptually uniform in both color and black and white.
-These scales are available as continuous (`c`), discrete (`d`), and binned (`b`) palettes in ggplot2.
+Une autre option est d'utiliser les échelles de couleur viridis.
+Les concepteurs, Nathaniel Smith et Stéfan van der Walt, ont soigneusement élaboré des schémas de couleur continues qui sont perceptibles aux personnes avec diverses formes de daltonisme ainsi que perceptuellement uniformes à la fois en couleur et en noir et blanc.
+Ces échelles sont disponibles sous forme de palettes continues (`c`), discrètes (`d`) et groupées (`b`) dans ggplot2.
 
 ```{r}
 #| fig-align: default
@@ -644,18 +661,18 @@ ggplot(df, aes(x, y)) +
 
 Note that all color scales come in two varieties: `scale_color_*()` and `scale_fill_*()` for the `color` and `fill` aesthetics respectively (the color scales are available in both UK and US spellings).
 
-### Zooming
+### Zoom
 
-There are three ways to control the plot limits:
+Il y a trois façons de contrôler les limites du graphique :
 
-1.  Adjusting what data are plotted.
-2.  Setting the limits in each scale.
-3.  Setting `xlim` and `ylim` in `coord_cartesian()`.
+1.  Ajuster les données qui sont tracées.
+2.  Définir les limites dans chaque échelle.
+3.  Définir `xlim` et `ylim` dans `coord_cartesian()`.
 
-We'll demonstrate these options in a series of plots.
-The plot on the left shows the relationship between engine size and fuel efficiency, colored by type of drive train.
-The plot on the right shows the same variables, but subsets the data that are plotted.
-Subsetting the data has affected the x and y scales as well as the smooth curve.
+Nous démontrerons ces options dans une série de graphiques.
+Le graphique de gauche montre la relation entre la cylindrée du moteur et l'efficacité énergétique, colorée par type de chaîne de transmission.
+Le graphique de droite montre les mêmes variables, mais en sous-ensemblant les données qui sont tracées.
+Le sous-ensemblage des données a affecté les échelles x et y ainsi que la courbe lisse.
 
 ```{r}
 #| layout-ncol: 2
@@ -812,58 +829,56 @@ In this particular case, you could have simply used faceting, but this technique
       geom_point(aes(color = cut), alpha = 1/20)
     ```
 
-## Themes {#sec-themes}
+## Thèmes {#sec-themes}
 
-Finally, you can customize the non-data elements of your plot with a theme:
+Enfin, vous pouvez personnaliser les éléments non-données de votre graphique avec un thème :
 
 ```{r}
 #| message: false
 #| fig-alt: |
-#|   Scatterplot of highway mileage vs. displacement of cars, colored by class 
-#|   of car. The plot background is white, with gray grid lines.
+#|   Nuage de points du kilométrage sur autoroute par rapport au déplacement 
+#|   des voitures, coloré par classe de voiture. L'arrière-plan du graphique 
+#|   est blanc, avec des lignes de grille grises.
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point(aes(color = class)) +
   geom_smooth(se = FALSE) +
   theme_bw()
 ```
 
-ggplot2 includes the eight themes shown in @fig-themes, with `theme_gray()` as the default.[^communication-2]
-Many more are included in add-on packages like **ggthemes** (<https://jrnold.github.io/ggthemes>), by Jeffrey Arnold.
-You can also create your own themes, if you are trying to match a particular corporate or journal style.
+ggplot2 inclut les huit thèmes montrés dans @fig-themes, avec `theme_gray()` comme défaut.[^communication-2]
+Beaucoup plus sont inclus dans des packages supplémentaires comme **ggthemes** (<https://jrnold.github.io/ggthemes>), par Jeffrey Arnold.
+Vous pouvez aussi créer vos propres thèmes, si vous essayez de correspondre à un style corporatif ou journalistique particulier.
 
-[^communication-2]: Many people wonder why the default theme has a gray background.
-    This was a deliberate choice because it puts the data forward while still making the grid lines visible.
-    The white grid lines are visible (which is important because they significantly aid position judgments), but they have little visual impact and we can easily tune them out.
-    The gray background gives the plot a similar typographic color to the text, ensuring that the graphics fit in with the flow of a document without jumping out with a bright white background.
-    Finally, the gray background creates a continuous field of color which ensures that the plot is perceived as a single visual entity.
+[^communication-2]: Beaucoup de gens se demandent pourquoi le thème par défaut a un arrière-plan gris.
+    C'était un choix délibéré car il met les données en avant tout en rendant les lignes de grille visibles.
+    Les lignes de grille blanches sont visibles (ce qui est important car elles aident considérablement les jugements de position), mais elles ont peu d'impact visuel et nous pouvons facilement les ignorer.
+    L'arrière-plan gris donne au graphique une couleur typographique similaire au texte, assurant que les graphiques s'ajustent au flux d'un document sans jaillir avec un arrière-plan blanc brillant.
+    Enfin, l'arrière-plan gris crée un champ de couleur continu qui assure que le graphique est perçu comme une seule entité visuelle.
 
 ```{r}
 #| label: fig-themes
 #| echo: false
-#| fig-cap: The eight themes built-in to ggplot2.
+#| fig-cap: Les huit thèmes intégrés à ggplot2.
 #| fig-alt: |
-#|   Eight barplots created with ggplot2, each 
-#|   with one of the eight built-in themes: 
-#|   theme_bw() - White background with grid lines,
-#|   theme_light() - Light axes and grid lines,
-#|   theme_classic() - Classic theme, axes but no grid
-#|   lines, theme_linedraw() - Only black lines, 
-#|   theme_dark() - Dark background for contrast, 
-#|   theme_minimal() - Minimal theme, no background,
-#|   theme_gray() - Gray background (default theme),
-#|   theme_void() - Empty theme, only geoms are visible.
+#|   Huit graphiques en barres créés avec ggplot2, chacun avec l'un des 
+#|   huit thèmes intégrés : theme_bw() - Fond blanc avec lignes de grille,
+#|   theme_light() - Axes légers et lignes de grille, theme_classic() - Thème 
+#|   classique, axes mais pas de lignes de grille, theme_linedraw() - Lignes 
+#|   noires seulement, theme_dark() - Fond foncé pour le contraste, 
+#|   theme_minimal() - Thème minimal, pas de fond, theme_gray() - Fond gris 
+#|   (thème par défaut), theme_void() - Thème vide, seules les geoms sont visibles.
 knitr::include_graphics("images/visualization-themes.png")
 ```
 
-It's also possible to control individual components of each theme, like the size and color of the font used for the y axis.
-We've already seen that `legend.position` controls where the legend is drawn.
-There are many other aspects of the legend that can be customized with `theme()`.
-For example, in the plot below we change the direction of the legend as well as put a black border around it.
-Note that customization of the legend box and plot title elements of the theme are done with `element_*()` functions.
-These functions specify the styling of non-data components, e.g., the title text is bolded in the `face` argument of `element_text()` and the legend border color is defined in the `color` argument of `element_rect()`.
-The theme elements that control the position of the title and the caption are `plot.title.position` and `plot.caption.position`, respectively.
-In the following plot these are set to `"plot"` to indicate these elements are aligned to the entire plot area, instead of the plot panel (the default).
-A few other helpful `theme()` components are used to change the placement for format of the title and caption text.
+Il est aussi possible de contrôler les composants individuels de chaque thème, comme la taille et la couleur de la police utilisée pour l'axe y.
+Nous avons déjà vu que `legend.position` contrôle où la légende est dessinée.
+Il y a de nombreux autres aspects de la légende qui peuvent être personnalisés avec `theme()`.
+Par exemple, dans le graphique ci-dessous, nous changeons la direction de la légende ainsi que mettons une bordure noire autour.
+Notez que la personnalisation des éléments de la boîte de légende et du titre du graphique du thème se font avec les fonctions `element_*()`.
+Ces fonctions spécifient le style des composants non-données, par ex., le texte du titre est en gras dans l'argument `face` de `element_text()` et la couleur de la bordure de la légende est définie dans l'argument `color` de `element_rect()`.
+Les éléments de thème qui contrôlent la position du titre et de la note sont respectivement `plot.title.position` et `plot.caption.position`.
+Dans le graphique suivant, ceux-ci sont définis à `"plot"` pour indiquer que ces éléments sont alignés à l'ensemble de la zone du graphique, au lieu du panneau du graphique (par défaut).
+Quelques autres composants `theme()` utiles sont utilisés pour changer le placement du format du texte du titre et de la note.
 
 ```{r}
 #| fig-alt: |
@@ -892,105 +907,111 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
 For an overview of all `theme()` components, see help with `?theme`.
 The [ggplot2 book](https://ggplot2-book.org/) is also a great place to go for the full details on theming.
 
-### Exercises
+### Exercices
 
-1.  Pick a theme offered by the ggthemes package and apply it to the last plot you made.
-2.  Make the axis labels of your plot blue and bolded.
+1.  Choisissez un thème offert par le package ggthemes et appliquez-le au dernier graphique que vous avez créé.
+2.  Rendez les étiquettes des axes de votre graphique bleues et en gras.
 
-## Layout
+## Disposition
 
-So far we talked about how to create and modify a single plot.
-What if you have multiple plots you want to lay out in a certain way?
-The patchwork package allows you to combine separate plots into the same graphic.
-We loaded this package earlier in the chapter.
+Jusqu'à présent, nous avons parlé de la création et de la modification d'un seul graphique.
+Et si vous aviez plusieurs graphiques que vous voulez disposer d'une certaine manière ?
+Le package patchwork vous permet de combiner des graphiques séparés dans le même graphique.
+Nous avons chargé ce package plus tôt dans le chapitre.
 
-To place two plots next to each other, you can simply add them to each other.
-Note that you first need to create the plots and save them as objects (in the following example they're called `p1` and `p2`).
-Then, you place them next to each other with `+`.
+Pour placer deux graphiques côte à côte, vous pouvez simplement les ajouter l'un à l'autre.
+Notez que vous devez d'abord créer les graphiques et les enregistrer en tant qu'objets (dans l'exemple suivant, ils s'appellent `p1` et `p2`).
+Ensuite, vous les placez côte à côte avec `+`.
 
 ```{r}
 #| fig-width: 6
 #| fig-asp: 0.5
 #| fig-alt: |
-#|   Two plots (a scatterplot of highway mileage versus engine size and a 
-#|   side-by-side boxplots of highway mileage versus drive train) placed next 
-#|   to each other.
+#|   Deux graphiques (un nuage de points du kilométrage sur autoroute par 
+#|   rapport à la cylindrée du moteur et des boîtes à moustaches côte à côte 
+#|   du kilométrage sur autoroute par rapport à la chaîne de transmission) 
+#|   placés côte à côte.
 p1 <- ggplot(mpg, aes(x = displ, y = hwy)) + 
   geom_point() + 
-  labs(title = "Plot 1")
+  labs(title = "Graphique 1")
 p2 <- ggplot(mpg, aes(x = drv, y = hwy)) + 
   geom_boxplot() + 
-  labs(title = "Plot 2")
+  labs(title = "Graphique 2")
 p1 + p2
 ```
 
-It's important to note that in the above code chunk we did not use a new function from the patchwork package.
-Instead, the package added a new functionality to the `+` operator.
+Il est important de noter que dans le bloc de code ci-dessus, nous n'avons pas utilisé une nouvelle fonction du package patchwork.
+À la place, le package a ajouté une nouvelle fonctionnalité à l'opérateur `+`.
 
-You can also create complex plot layouts with patchwork.
-In the following, `|` places the `p1` and `p3` next to each other and `/` moves `p2` to the next line.
+Vous pouvez aussi créer des dispositions de graphiques complexes avec patchwork.
+Dans ce qui suit, `|` place les `p1` et `p3` côte à côte et `/` déplace `p2` à la ligne suivante.
 
 ```{r}
 #| fig-width: 6
 #| fig-asp: 0.8
 #| fig-alt: |
-#|   Three plots laid out such that first and third plot are next to each other 
-#|   and the second plot stretched beneath them. The first plot is a 
-#|   scatterplot of highway mileage versus engine size, the third plot is a 
-#|   scatterplot of highway mileage versus city mileage, and the second plot is 
-#|   side-by-side boxplots of highway mileage versus drive train). 
+#|   Trois graphiques disposés de telle sorte que le premier et le troisième 
+#|   graphique sont côte à côte et le deuxième graphique s'étend sous eux. 
+#|   Le premier graphique est un nuage de points du kilométrage sur autoroute 
+#|   par rapport à la cylindrée du moteur, le troisième graphique est un 
+#|   nuage de points du kilométrage sur autoroute par rapport au kilométrage 
+#|   en ville, et le deuxième graphique est des boîtes à moustaches côte à 
+#|   côte du kilométrage sur autoroute par rapport à la chaîne de transmission.
 p3 <- ggplot(mpg, aes(x = cty, y = hwy)) + 
   geom_point() + 
-  labs(title = "Plot 3")
+  labs(title = "Graphique 3")
 (p1 | p3) / p2
 ```
 
-Additionally, patchwork allows you to collect legends from multiple plots into one common legend, customize the placement of the legend as well as dimensions of the plots, and add a common title, subtitle, caption, etc. to your plots.
-Below we create 5 plots.
-We have turned off the legends on the box plots and the scatterplot and collected the legends for the density plots at the top of the plot with `& theme(legend.position = "top")`.
-Note the use of the `&` operator here instead of the usual `+`.
-This is because we're modifying the theme for the patchwork plot as opposed to the individual ggplots.
-The legend is placed on top, inside the `guide_area()`.
-Finally, we have also customized the heights of the various components of our patchwork -- the guide has a height of 1, the box plots 3, density plots 2, and the faceted scatterplot 4.
-Patchwork divides up the area you have allotted for your plot using this scale and places the components accordingly.
+De plus, patchwork vous permet de collecter les légendes de plusieurs graphiques dans une légende commune, de personnaliser le placement de la légende ainsi que les dimensions des graphiques, et d'ajouter un titre commun, un sous-titre, une note, etc. à vos graphiques.
+Ci-dessous, nous créons 5 graphiques.
+Nous avons désactivé les légendes sur les boîtes à moustaches et le nuage de points et avons collecté les légendes pour les graphiques de densité en haut du graphique avec `& theme(legend.position = "top")`.
+Notez l'utilisation de l'opérateur `&` ici au lieu du `+` habituel.
+C'est parce que nous modifions le thème pour le graphique patchwork contrairement aux ggplots individuels.
+La légende est placée en haut, à l'intérieur du `guide_area()`.
+Enfin, nous avons aussi personnalisé les hauteurs des divers composants de notre patchwork -- le guide a une hauteur de 1, les boîtes à moustaches 3, les graphiques de densité 2, et le nuage de points facetté 4.
+Patchwork divise la zone que vous avez allouée pour votre graphique en utilisant cette échelle et place les composants en conséquence.
 
 ```{r}
 #| fig-width: 8
 #| fig-asp: 1
 #| fig-alt: |
-#|   Five plots laid out such that first two plots are next to each other. Plots 
-#|   three and four are underneath them. And the fifth plot stretches under them. 
-#|   The patchworked plot is titled "City and highway mileage for cars with 
-#|   different drive trains" and captioned "Source: https://fueleconomy.gov". 
-#|   The first two plots are side-by-side box plots. Plots 3 and 4 are density 
-#|   plots. And the fifth plot is a faceted scatterplot. Each of these plots show 
-#|   geoms colored by drive train, but the patchworked plot has only one legend 
-#|   that applies to all of them, above the plots and beneath the title.
+#|   Cinq graphiques disposés de telle sorte que les deux premiers graphiques 
+#|   sont côte à côte. Les graphiques trois et quatre sont sous eux. Et le 
+#|   cinquième graphique s'étend sous eux. Le graphique patchwork est intitulé 
+#|   « Kilométrage en ville et sur autoroute pour les voitures avec différentes 
+#|   chaînes de transmission » et légendé « Source : https://fueleconomy.gov ». 
+#|   Les deux premiers graphiques sont des boîtes à moustaches côte à côte. 
+#|   Les graphiques 3 et 4 sont des graphiques de densité. Et le cinquième 
+#|   graphique est un nuage de points facetté. Chacun de ces graphiques montre 
+#|   des geoms colorées par chaîne de transmission, mais le graphique patchwork 
+#|   n'a qu'une seule légende qui s'applique à tous, au-dessus des graphiques 
+#|   et sous le titre.
 p1 <- ggplot(mpg, aes(x = drv, y = cty, color = drv)) + 
   geom_boxplot(show.legend = FALSE) + 
-  labs(title = "Plot 1")
+  labs(title = "Graphique 1")
 
 p2 <- ggplot(mpg, aes(x = drv, y = hwy, color = drv)) + 
   geom_boxplot(show.legend = FALSE) + 
-  labs(title = "Plot 2")
+  labs(title = "Graphique 2")
 
 p3 <- ggplot(mpg, aes(x = cty, color = drv, fill = drv)) + 
   geom_density(alpha = 0.5) + 
-  labs(title = "Plot 3")
+  labs(title = "Graphique 3")
 
 p4 <- ggplot(mpg, aes(x = hwy, color = drv, fill = drv)) + 
   geom_density(alpha = 0.5) + 
-  labs(title = "Plot 4")
+  labs(title = "Graphique 4")
 
 p5 <- ggplot(mpg, aes(x = cty, y = hwy, color = drv)) + 
   geom_point(show.legend = FALSE) + 
   facet_wrap(~drv) +
-  labs(title = "Plot 5")
+  labs(title = "Graphique 5")
 
 (guide_area() / (p1 + p2) / (p3 + p4) / p5) +
   plot_annotation(
-    title = "City and highway mileage for cars with different drive trains",
-    caption = "Source: https://fueleconomy.gov."
+    title = "Kilométrage en ville et sur autoroute pour les voitures avec différentes chaînes de transmission",
+    caption = "Source : https://fueleconomy.gov."
   ) +
   plot_layout(
     guides = "collect",
@@ -999,41 +1020,44 @@ p5 <- ggplot(mpg, aes(x = cty, y = hwy, color = drv)) +
   theme(legend.position = "top")
 ```
 
-If you'd like to learn more about combining and laying out multiple plots with patchwork, we recommend looking through the guides on the package website: <https://patchwork.data-imaginist.com>.
+Si vous aimeriez en savoir plus sur la combinaison et la disposition de plusieurs graphiques avec patchwork, nous vous recommandons de consulter les guides sur le site web du package : <https://patchwork.data-imaginist.com>.
 
-### Exercises
+### Exercices
 
-1.  What happens if you omit the parentheses in the following plot layout.
-    Can you explain why this happens?
+1.  Que se passe-t-il si vous omettez les parenthèses dans la disposition du graphique suivant ?
+    Pouvez-vous expliquer pourquoi cela se produit ?
 
     ```{r}
     #| fig-show: hide
     p1 <- ggplot(mpg, aes(x = displ, y = hwy)) + 
       geom_point() + 
-      labs(title = "Plot 1")
+      labs(title = "Graphique 1")
     p2 <- ggplot(mpg, aes(x = drv, y = hwy)) + 
       geom_boxplot() + 
-      labs(title = "Plot 2")
+      labs(title = "Graphique 2")
     p3 <- ggplot(mpg, aes(x = cty, y = hwy)) + 
       geom_point() + 
-      labs(title = "Plot 3")
+      labs(title = "Graphique 3")
 
     (p1 | p2) / p3
     ```
 
-2.  Using the three plots from the previous exercise, recreate the following patchwork.
+2.  En utilisant les trois graphiques de l'exercice précédent, recréez le patchwork suivant.
 
     ```{r}
     #| fig-width: 7
     #| fig-asp: 0.8
     #| echo: false
     #| fig-alt: |
-    #|   Three plots: Plot 1 is a scatterplot of highway mileage versus engine size. 
-    #|   Plot 2 is side-by-side box plots of highway mileage versus drive train. 
-    #|   Plot 3 is side-by-side box plots of city mileage versus drive train. 
-    #|   Plots 1 is on the first row. Plots 2 and 3 are on the next row, each span 
-    #|   half the width of Plot 1. Plot 1 is labelled "Fig. A", Plot 2 is labelled 
-    #|   "Fig. B", and Plot 3 is labelled "Fig. C".
+    #|   Trois graphiques : Le graphique 1 est un nuage de points du kilométrage 
+    #|   sur autoroute par rapport à la cylindrée du moteur. Le graphique 2 est 
+    #|   des boîtes à moustaches côte à côte du kilométrage sur autoroute par 
+    #|   rapport à la chaîne de transmission. Le graphique 3 est des boîtes à 
+    #|   moustaches côte à côte du kilométrage en ville par rapport à la chaîne 
+    #|   de transmission. Le graphique 1 est sur la première ligne. Les graphiques 
+    #|   2 et 3 sont sur la ligne suivante, chacun s'étirant sur la moitié de la 
+    #|   largeur du graphique 1. Le graphique 1 est étiqueté « Fig. A », le 
+    #|   graphique 2 est étiqueté « Fig. B » et le graphique 3 est étiqueté « Fig. C ».
     p1 / (p2 + p3) +
       plot_annotation(
         tag_levels = c("A"), 
@@ -1042,11 +1066,11 @@ If you'd like to learn more about combining and laying out multiple plots with p
       )
     ```
 
-## Summary
+## Résumé
 
-In this chapter you've learned about adding plot labels such as title, subtitle, caption as well as modifying default axis labels, using annotation to add informational text to your plot or to highlight specific data points, customizing the axis scales, and changing the theme of your plot.
-You've also learned about combining multiple plots in a single graph using both simple and complex plot layouts.
+Dans ce chapitre, vous avez appris à ajouter des étiquettes de graphique telles que le titre, le sous-titre, la note ainsi qu'à modifier les étiquettes des axes par défaut, à utiliser les annotations pour ajouter du texte informatif à votre graphique ou pour mettre en évidence des points de données spécifiques, à personnaliser les échelles des axes et à changer le thème de votre graphique.
+Vous avez aussi appris à combiner plusieurs graphiques dans un seul graphique en utilisant à la fois des dispositions de graphiques simples et complexes.
 
-While you've so far learned about how to make many different types of plots and how to customize them using a variety of techniques, we've barely scratched the surface of what you can create with ggplot2.
-If you want to get a comprehensive understanding of ggplot2, we recommend reading the book, [*ggplot2: Elegant Graphics for Data Analysis*](https://ggplot2-book.org).
-Other useful resources are the [*R Graphics Cookbook*](https://r-graphics.org) by Winston Chang and [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/) by Claus Wilke.
+Bien que vous ayez jusqu'à présent appris à créer de nombreux types différents de graphiques et à les personnaliser en utilisant une variété de techniques, nous avons à peine égratigner la surface de ce que vous pouvez créer avec ggplot2.
+Si vous voulez avoir une compréhension complète de ggplot2, nous vous recommandons de lire le livre, [*ggplot2: Elegant Graphics for Data Analysis*](https://ggplot2-book.org).
+D'autres ressources utiles sont le [*R Graphics Cookbook*](https://r-graphics.org) par Winston Chang et [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/) par Claus Wilke.

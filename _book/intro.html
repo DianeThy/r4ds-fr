@@ -179,37 +179,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-transform.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data transformation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Transformation de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-style.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow: code style</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flux de travail : style de code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data tidying</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Nettoyage de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Workflow: scripts and projects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Flux de travail : scripts et projets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data import</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importation de données</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Workflow: getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Flux de travail : obtenir de l’aide</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./visualize.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Visualize</span></a>
+ <span class="menu-text">Visualiser</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -453,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="diagrams/data-science/base.png" class="img-fluid figure-img" alt="Un diagramme représentant le cycle de la science de données : Importer -> Ordonner -> Comprendre (avec les phases Transformer -> Visualiser -> Modéliser en cycle) -> Communiquer. L'ensemble est entouré de Programmer. " width="535">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ds-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Dans notre modèle du processus de science de données, vous commencez par importer et ordonner vos données. Ensuite, vous les comprenez grâce à un cycle itératif de transformation, visualisation et modélisation. Vous terminez le processus en communiquant vos résultats à d’autres personnes.
+Figure&nbsp;1: Dans notre modèle du processus de science de données, vous commencez par importer et nettoyer vos données. Ensuite, vous les comprenez grâce à un cycle itératif de transformation, visualisation et modélisation. Vous terminez le processus en communiquant vos résultats à d’autres personnes.
 </figcaption></figure>
 </div>
 </div>
@@ -461,14 +461,14 @@ Figure&nbsp;1: Dans notre modèle du processus de science de données, vous comm
 <p>Tout d’abord, vous devez <strong>importer</strong> vos données dans R. Cela signifie généralement que vous prenez des données stockées dans un fichier, une base de données ou une interface de programmation d’application (API) web, et que vous les chargez dans un data frame dans R. Si vous ne pouvez pas importer vos données dans R, vous ne pourrez pas faire de science de données !</p>
 <p>Une fois vos données importées, il est conseillé de les <strong>nettoyer</strong> (rendre propres/tidy). Nettoyer vos données signifie les stocker dans une forme cohérente qui fait correspondre la sémantique du jeu de données et la manière dont il est enregistré. En bref, lorsque vos données sont propres, chaque colonne est une variable et chaque ligne est une observation. Les données propres sont importantes parce que leur structure cohérente vous permet de concentrer vos efforts sur la réponse à vos questions, plutôt que de vous battre pour les mettre dans la forme adaptée à différentes fonctions.</p>
 <p>Une fois que vous disposez de données propres, la prochaine étape habituelle est de les <strong>transformer</strong>. La transformation implique de réduire le jeu de données aux observations utiles (comme toutes les personnes d’une ville particulière ou toutes les données de l’année dernière), de créer de nouvelles variables qui sont des fonctions de variables existantes (comme le calcul de la vitesse à partir de la distance et du temps), et de calculer un ensemble de statistiques résumées (comme des effectifs ou des moyennes). Ensemble, le nettoyage et la transformation sont appelés <strong>manipulation</strong> de données, car mettre vos données dans une forme prête à être utilisée ressemble souvent à un combat !</p>
-<p>Une fois que vous disposez de données propres avec les variables dont vous avez besoin, il existe deux manières principales de créer de la connaissance : la visualisation et la modélisation. Ces deux approches ont des forces et des faiblesses complémentaires, de sorte que toute analyse de données réelle alternera plusieurs fois entre les deux.</p>
-<p><strong>La visualisation</strong> est une activité fondamentalement humaine. Une bonne visualisation vous montrera des choses que vous n’attendiez pas ou soulèvera de nouvelles questions sur les données. Une bonne visualisation peut aussi suggérer que vous posez la mauvaise question ou que vous devez collecter des données différentes. Les visualisations peuvent vous surprendre, mais elles ne passent pas particulièrement bien à l’échelle car elles nécessitent un être humain pour les interpréter.</p>
+<p>Une fois que vous disposez de données propres avec les variables dont vous avez besoin, il existe deux manières principales de créer de la connaissance : la visualisation et la modélisation. Ces deux approches ont chacune leurs forces et leurs faiblesses, de sorte que toute analyse de données réelle alternera plusieurs fois entre les deux.</p>
+<p><strong>La visualisation</strong> est une activité fondamentalement humaine. Une bonne visualisation vous montrera des choses que vous n’attendiez pas, ou soulèvera de nouvelles questions sur les données. Une bonne visualisation peut aussi suggérer que vous posez la mauvaise question ou que vous devez collecter des données différentes. Les visualisations peuvent vous surprendre, mais elles ne passent pas particulièrement bien à l’échelle car elles nécessitent un être humain pour les interpréter.</p>
 <p><strong>Les modèles</strong> sont des outils complémentaires à la visualisation. Une fois que vos questions sont suffisamment précises, vous pouvez utiliser un modèle pour y répondre. Les modèles sont fondamentalement des outils mathématiques ou computationnels, ils passent donc généralement bien à l’échelle. Même quand ce n’est pas le cas, il est généralement moins coûteux d’acheter plus d’ordinateurs que d’acheter plus de cerveaux ! Mais tout modèle repose sur des hypothèses, et par nature, un modèle ne peut pas remettre en question ses propres hypothèses. Cela signifie qu’un modèle ne peut pas fondamentalement vous surprendre.</p>
 <p>La dernière étape de la science de données est la <strong>communication</strong>, une partie absolument essentielle de tout projet d’analyse de données. Peu importe à quel point vos modèles et vos visualisations vous ont aidé à comprendre les données si vous ne pouvez pas communiquer vos résultats à d’autres personnes.</p>
 <p>Tous ces outils s’articulent grâce à la <strong>programmation</strong>. La programmation est un outil transversal que vous utilisez dans presque toutes les parties d’un projet de science de données. Vous n’avez pas besoin d’être un programmeur expert pour réussir en tant que data scientist, mais apprendre davantage la programmation est bénéfique car devenir un meilleur programmeur vous permet d’automatiser les tâches courantes et résoudre de nouveaux problèmes avec plus de facilité.</p>
 <p>Vous utiliserez ces outils dans chaque projet de science de données, mais ils ne seront pas suffisants dans la plupart des cas. Il y a une règle approximative du 80/20 en jeu : vous pouvez traiter environ 80 % de chaque projet avec les outils que vous apprendrez dans ce livre, mais vous aurez besoin d’autres outils pour traiter les 20 % restants. Tout au long de ce livre, nous vous indiquerons des ressources pour en apprendre davantage.</p>
 </section><section id="comment-est-organisé-ce-livre" class="level2"><h2 class="anchored" data-anchor-id="comment-est-organisé-ce-livre">Comment est organisé ce livre ?</h2>
-<p>La description précédente des outils de la science de données est organisée selon l’ordre dans lequel vous les utilisez dans une analyse (même si, bien sûr, vous les parcourrez plusieurs fois de manière itérative). D’après notre expérience, cependant, commencer par l’importation et le nettoyage des données est sous-optimal, car 80 % du temps c’est routinier et ennuyeux, et les 20 % restants c’est étrange et frustrant. C’est une mauvaise façon de commencer à apprendre un nouveau sujet ! À la place, nous commencerons par la visualisation et la transformation de données déjà importées et propres. Ainsi, lorsque vous importerez et nettoierez vos propres données, votre motivation restera élevée car vous saurez que le jeu en vaut la chandelle.</p>
+<p>La description précédente des outils de la science de données est organisée selon l’ordre dans lequel vous les utilisez dans une analyse (même si, bien sûr, vous les parcourrez plusieurs fois de manière itérative). D’après notre expérience, cependant, commencer par l’importation et le nettoyage des données est sous-optimal, car 80 % du temps c’est routinier et ennuyeux, et les 20 % restants c’est étrange et frustrant. Ce n’est pas la bonne façon de commencer à apprendre un nouveau sujet ! À la place, nous commencerons par la visualisation et la transformation de données déjà importées et propres. Ainsi, lorsque vous importerez et nettoierez vos propres données, votre motivation restera élevée car vous saurez que le jeu en vaut la chandelle.</p>
 <p>Dans chaque chapitre, nous essayons de suivre un schéma cohérent : commencer par quelques exemples motivants afin que vous puissiez voir la vue d’ensemble, puis plonger dans les détails. Chaque section du livre est accompagnée d’exercices pour vous aider à pratiquer ce que vous avez appris. Même s’il peut être tentant de sauter les exercices, il n’y a pas de meilleure façon d’apprendre qu’en pratiquant sur des problèmes réels.</p>
 </section><section id="ce-que-vous-nallez-pas-apprendre" class="level2"><h2 class="anchored" data-anchor-id="ce-que-vous-nallez-pas-apprendre">Ce que vous n’allez pas apprendre</h2>
 <p>Il existe plusieurs sujets importants que ce livre ne couvre pas. Nous pensons qu’il est important de rester résolument concentré sur l’essentiel pour vous permettre d’être opérationnel aussi rapidement que possible. Cela signifie que ce livre ne peut pas couvrir tous les sujets importants.</p>
@@ -524,7 +524,7 @@ Figure&nbsp;2: L’IDE RStudio comporte deux zones clés : saisissez du code R d
 <p>Les packages du tidyverse évoluent assez fréquemment. Vous pouvez voir si des mises à jour sont disponibles en exécutant <code><a href="https://tidyverse.tidyverse.org/reference/tidyverse_update.html">tidyverse_update()</a></code>.</p>
 </section><section id="autres-packages" class="level3"><h3 class="anchored" data-anchor-id="autres-packages">Autres packages</h3>
 <p>Il existe de nombreux autres excellents packages qui ne font pas partie du tidyverse, car ils résolvent des problèmes dans un domaine différent ou sont conçus selon un ensemble de principes sous-jacents différents. Cela ne les rend pas meilleurs ou moins bons ; cela les rend simplement différents. En d’autres termes, le complément du tidyverse n’est pas le « messyverse » mais de nombreux autres univers de packages interdépendants. À mesure que vous vous attaquerez à davantage de projets de science de données avec R, vous apprendrez de nouveaux packages et de nouvelles façons de penser les données.</p>
-<p>Nous utiliserons de nombreux packages extérieurs au tidyverse dans ce livre. Par exemple, nous utiliserons les packages suivants car ils fournissent des jeux de données intéressants pour travailler lors de l’apprentissage de R :</p>
+<p>Nous utiliserons de nombreux packages extérieurs au tidyverse dans ce livre. Par exemple, nous utiliserons les packages suivants car ils fournissent des jeux de données intéressants pour travailler en apprenant R :</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"arrow"</span>, <span class="st">"babynames"</span>, <span class="st">"curl"</span>, <span class="st">"duckdb"</span>, <span class="st">"gapminder"</span>, </span>
