@@ -7,15 +7,13 @@ source("_common.R")
 
 ## Introduction
 
-Dans la @sec-exploratory-data-analysis, vous avez appris à utiliser les graphiques comme outils d'*exploration*.
+Dans le @sec-exploratory-data-analysis, vous avez appris à utiliser les graphiques comme outils d'*exploration*.
 Quand vous créez des graphiques exploratoires, vous savez---même avant de les regarder---quelles variables le graphique affichera.
-Vous avez créé chaque graphique pour un objectif, pouviez le regarder rapidement, puis passer au graphique suivant.
-Au cours de la plupart des analyses, vous produirez des dizaines ou des centaines de graphiques, dont la plupart seront immédiatement jetés.
+Vous avez créé chaque graphique dans un but précis, vous pouviez y jeter un coup d'œil rapide, puis passer au suivant. Au cours de la plupart des analyses, vous produirez des dizaines, voire des centaines de graphiques, dont la plupart seront immédiatement mis de côté.
 
 Maintenant que vous comprenez vos données, vous devez *communiquer* votre compréhension à d'autres.
-Votre public ne partagera probablement pas vos connaissances de base et ne sera pas profondément investi dans les données.
-Pour aider les autres à construire rapidement un bon modèle mental des données, vous devrez investir un effort considérable pour rendre vos graphiques aussi autoexplicatifs que possible.
-Dans ce chapitre, vous apprendrez certains des outils que ggplot2 fournit pour ce faire.
+Votre public ne disposera probablement pas des mêmes connaissances de base que vous et ne s'intéressera pas de près aux données. Pour aider vos interlocuteurs à se forger rapidement une bonne représentation mentale des données, vous devrez consacrer beaucoup d'efforts à rendre vos graphiques aussi explicites que possible.
+Dans ce chapitre, vous apprendrez certains des outils que ggplot2 fournit pour faire cela.
 
 Ce chapitre se concentre sur les outils dont vous avez besoin pour créer de bons graphiques.
 Nous supposons que vous savez ce que vous voulez, et vous avez juste besoin de savoir comment le faire.
@@ -40,7 +38,7 @@ library(patchwork)
 
 ## Étiquettes
 
-L'endroit le plus facile pour commencer quand vous transformez un graphique exploratoire en graphique d'exposition est avec de bonnes étiquettes.
+Pour transformer un graphique exploratoire en graphique explicatif, le plus simple est de commencer par ajouter des étiquettes pertinentes.
 Vous ajoutez des étiquettes avec la fonction `labs()`.
 
 ```{r}
@@ -63,8 +61,8 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
     x = "Cylindrée du moteur (L)",
     y = "Efficacité énergétique sur autoroute (mpg)",
     color = "Type de voiture",
-    title = "L'efficacité énergétique diminue généralement avec la cylindrée du moteur",
-    subtitle = "Les deux places (voitures de sport) sont une exception en raison de leur légèreté",
+    title = "L'efficacité énergétique diminue généralement avec la \ncylindrée du moteur",
+    subtitle = "Les voitures biplaces (voitures de sport) font exception en raison de leur \nfaible poids",
     caption = "Données de fueleconomy.gov"
   )
 ```
@@ -74,7 +72,7 @@ Le but d'un titre de graphique est de résumer la découverte principale.
 
 Si vous devez ajouter plus de texte, il y a deux autres étiquettes utiles : `subtitle` ajoute des détails supplémentaires dans une police plus petite sous le titre et `caption` ajoute du texte en bas à droite du graphique, souvent utilisé pour décrire la source des données.
 Vous pouvez aussi utiliser `labs()` pour remplacer les titres des axes et des légendes.
-C'est généralement une bonne idée de remplacer les noms de variables courts par des descriptions plus détaillées, et d'inclure les unités.
+En général, c'est une bonne idée de remplacer les noms de variables courts par des descriptions plus détaillées et d'inclure les unités.
 
 Il est possible d'utiliser des équations mathématiques à la place de chaînes de texte.
 Remplacez simplement `""` par `quote()` et lisez les options disponibles dans `?plotmath` :
@@ -123,17 +121,17 @@ ggplot(df, aes(x, y)) +
       )
     ```
 
-3.  Prenez un graphique exploratoire que vous avez créé au cours du dernier mois, et ajoutez des titres informatifs pour faciliter la compréhension des autres.
+3.  Prenez un graphique exploratoire que vous avez créé au cours du dernier mois, et ajoutez des titres informatifs pour faciliter sa compréhension.
 
 ## Annotations
 
-En plus d'étiqueter les composants majeurs de votre graphique, il est souvent utile d'étiqueter les observations individuelles ou les groupes d'observations.
+En plus d'étiqueter les composants majeurs de votre graphique, il est souvent utile d'étiqueter des observations individuelles ou des groupes d'observations.
 Le premier outil à votre disposition est `geom_text()`.
 `geom_text()` est similaire à `geom_point()`, mais il a une esthétique supplémentaire : `label`.
 Cela rend possible l'ajout d'étiquettes textuelles à vos graphiques.
 
 Il existe deux sources possibles d'étiquettes.
-D'abord, vous pourriez avoir un tibble qui fournit des étiquettes.
+Tout d'abord, vous devez avoir un tibble qui fournit les étiquettes.
 Dans le graphique suivant, nous extrayons les voitures avec la plus grande cylindrée du moteur dans chaque type de chaîne de transmission et enregistrons leurs informations dans un nouveau data frame appelé `label_info`.
 
 ```{r}
@@ -156,7 +154,7 @@ label_info
 Ensuite, nous utilisons ce nouveau data frame pour étiqueter directement les trois groupes afin de remplacer la légende par des étiquettes placées directement sur le graphique.
 En utilisant les arguments `fontface` et `size`, nous pouvons personnaliser l'apparence des étiquettes textuelles.
 Elles sont plus grandes que le reste du texte sur le graphique et en gras.
-(`theme(legend.position = "none"`) désactive toutes les légendes --- nous en parlerons plus en détail bientôt.)
+(`theme(legend.position = "none"`) désactive toutes les légendes --- nous en parlerons bientôt plus en détail.)
 
 ```{r}
 #| fig-alt: |
@@ -202,7 +200,7 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
 ```
 
 Vous pouvez aussi utiliser la même idée pour mettre en évidence certains points sur un graphique avec `geom_text_repel()` du package ggrepel.
-Notez une autre technique utile utilisée ici : nous avons ajouté une deuxième couche de grands points creux pour mettre davantage en évidence les points étiquetés.
+Notez une autre technique utilisée ici : nous avons ajouté une deuxième couche de grands points creux pour mettre davantage en évidence les points étiquetés.
 
 ```{r}
 #| fig-alt: |
@@ -228,12 +226,12 @@ Souvenez-vous, en plus de `geom_text()` et `geom_label()`, vous avez de nombreus
 Quelques idées :
 
 -   Utilisez `geom_hline()` et `geom_vline()` pour ajouter des lignes de référence.
-    Nous les rendons souvent épaisses (`linewidth = 2`) et blanches (`color = white`), et les dessinez sous la couche de données primaire.
-    Cela les rend faciles à voir, sans détourner l'attention des données.
+    Nous les rendons souvent épaisses (`linewidth = 2`) et blanches (`color = white`), et il vaut mieux les mettre sous la couche de données primaire.
+    Cela permet de les repérer facilement, sans pour autant détourner l'attention des données.
 
 -   Utilisez `geom_rect()` pour dessiner un rectangle autour des points d'intérêt.
     Les limites du rectangle sont définies par les esthétiques `xmin`, `xmax`, `ymin`, `ymax`.
-    Alternativement, consultez le [package ggforce](https://ggforce.data-imaginist.com/index.html), spécifiquement [`geom_mark_hull()`](https://ggforce.data-imaginist.com/reference/geom_mark_hull.html), qui vous permet d'annoter des sous-ensembles de points avec des enveloppes.
+    Sinon, consultez le [package ggforce](https://ggforce.data-imaginist.com/index.html) et plus précisement [`geom_mark_hull()`](https://ggforce.data-imaginist.com/reference/geom_mark_hull.html), qui vous permet d'annoter des sous-ensembles de points à l'aide d'enveloppes.
 
 -   Utilisez `geom_segment()` avec l'argument `arrow` pour attirer l'attention sur un point avec une flèche.
     Utilisez les esthétiques `x` et `y` pour définir l'emplacement de départ, et `xend` et `yend` pour définir l'emplacement de fin.
@@ -282,7 +280,7 @@ La seule limite est votre imagination (et votre patience pour positionner les an
 
 1.  Utilisez `geom_text()` avec des positions infinies pour placer le texte dans les quatre coins du graphique.
 
-2.  Utilisez `annotate()` pour ajouter une geom point au milieu de votre dernier graphique sans avoir à créer un tibble.
+2.  Utilisez `annotate()` pour ajouter un geom_point au milieu de votre dernier graphique sans avoir à créer un tibble.
     Personnalisez la forme, la taille ou la couleur du point.
 
 3.  Comment les étiquettes avec `geom_text()` interagissent-elles avec le facettage ?
@@ -298,7 +296,7 @@ La seule limite est votre imagination (et votre patience pour positionner les an
 
 ## Échelles
 
-La troisième façon de rendre votre graphique meilleur pour la communication est d'ajuster les échelles.
+La troisième façon d'améliorer votre graphique pour faciliter la communication est d'ajuster les échelles (scales).
 Les échelles contrôlent la façon dont les mappages esthétiques se manifestent visuellement.
 
 ### Échelles par défaut
@@ -327,16 +325,16 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 Notez le schéma de nommage pour les échelles : `scale_` suivi du nom de l'esthétique, puis `_`, puis le nom de l'échelle.
 Les échelles par défaut sont nommées selon le type de variable auquel elles s'alignent : continu, discret, datetime ou date.
 `scale_x_continuous()` place les valeurs numériques de `displ` sur une ligne de nombre continu sur l'axe x, `scale_color_discrete()` choisit les couleurs pour chaque `class` de voiture, etc.
-Il y a beaucoup d'échelles non-défaut que vous apprendrez ci-dessous.
+Il y a beaucoup d'échelles non standard que vous apprendrez ci-dessous.
 
 Les échelles par défaut ont été soigneusement choisies pour bien fonctionner sur une large gamme d'entrées.
-Néanmoins, vous pourriez vouloir remplacer les défauts pour deux raisons :
+Néanmoins, vous pourriez vouloir remplacer les valeurs par défaut pour deux raisons :
 
--   Vous pourriez vouloir ajuster certains des paramètres de l'échelle par défaut.
+-   Pour ajuster certains des paramètres de l'échelle par défaut.
     Cela vous permet de faire des choses comme changer les divisions sur les axes, ou les étiquettes clés sur la légende.
 
--   Vous pourriez vouloir remplacer complètement l'échelle, et utiliser un algorithme complètement différent.
-    Souvent, vous pouvez faire mieux que le défaut parce que vous savez plus sur les données.
+-   Pour remplacer complètement l'échelle et utiliser un algorithme complètement différent.
+    Souvent, vous pouvez faire mieux que le défaut parce que vous connaissez les données.
 
 ### Graduations d'axes et clés de légende
 
@@ -346,7 +344,7 @@ Les axes sont utilisés pour les esthétiques x et y ; les légendes sont utilis
 Il y a deux arguments principaux qui affectent l'apparence des graduations sur les axes et les clés sur la légende : `breaks` et `labels`.
 Breaks contrôle la position des graduations, ou les valeurs associées aux clés.
 Labels contrôle l'étiquette texte associée à chaque graduation/clé.
-L'utilisation la plus courante de `breaks` est de remplacer le choix par défaut :
+L'utilisation la plus courante de `breaks` est de remplacer la valeur par défaut :
 
 ```{r}
 #| fig-alt: |
@@ -361,7 +359,7 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
 Vous pouvez utiliser `labels` de la même manière (un vecteur de caractères de la même longueur que `breaks`), mais vous pouvez aussi le définir à `NULL` pour supprimer complètement les étiquettes.
 Cela peut être utile pour les cartes, ou pour publier des graphiques où vous ne pouvez pas partager les nombres absolus.
 Vous pouvez aussi utiliser `breaks` et `labels` pour contrôler l'apparence des légendes.
-Pour les échelles discrètes pour les variables catégoques, `labels` peut être une liste nommée des noms de niveaux existants et des étiquettes souhaitées pour eux.
+Pour les échelles discrètes des variables catégoriques, `labels` peut être une liste des noms de niveaux existants et des étiquettes souhaitées.
 
 ```{r}
 #| fig-alt: |
@@ -379,7 +377,7 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
 L'argument `labels` couplé aux fonctions d'étiquetage du package scales est aussi utile pour formater les nombres en tant que devise, pourcentage, etc.
 Le graphique de gauche montre l'étiquetage par défaut avec `label_dollar()`, qui ajoute un signe dollar ainsi qu'une virgule séparatrice des milliers.
 Le graphique de droite ajoute une personnalisation supplémentaire en divisant les valeurs en dollars par 1 000 et en ajoutant un suffixe « K » (pour « milliers ») ainsi qu'en ajoutant des divisions personnalisées.
-Notez que `breaks` est à l'échelle originale des données.
+Notez que `breaks` est dans l'échelle par défaut des données.
 
 ```{r}
 #| layout-ncol: 2
@@ -404,7 +402,7 @@ ggplot(diamonds, aes(x = price, y = cut)) +
   )
 ```
 
-Another handy label function is `label_percent()`:
+Une autre fonction d'étiquetage pratique est `label_percent()`:
 
 ```{r}
 #| fig-alt: |
@@ -416,8 +414,8 @@ ggplot(diamonds, aes(x = cut, fill = clarity)) +
   scale_y_continuous(name = "Percentage", labels = label_percent())
 ```
 
-Another use of `breaks` is when you have relatively few data points and want to highlight exactly where the observations occur.
-For example, take this plot that shows when each US president started and ended their term.
+`breaks` peut également servir lorsque l'on dispose d'un nombre relativement faible de points de données et que l'on souhaite mettre en évidence l'emplacement exact des observations. 
+Prenons par exemple ce graphique qui montre les dates de début et de fin du mandat de chaque président américain.
 
 ```{r}
 #| fig-alt: |
@@ -433,20 +431,20 @@ presidential |>
   scale_x_date(name = NULL, breaks = presidential$start, date_labels = "'%y")
 ```
 
-Note that for the `breaks` argument we pulled out the `start` variable as a vector with `presidential$start` because we can't do an aesthetic mapping for this argument.
-Also note that the specification of breaks and labels for date and datetime scales is a little different:
+Notez que pour l'argument `breaks`, nous avons extrait la variable `start` sous forme de vecteur avec `presidential$start`, car il n'est pas possible d'effectuer un mappage esthétique pour cet argument. 
+Notez également que la spécification des paliers et des étiquettes pour les échelles de date et d'heure est légèrement différente :
 
--   `date_labels` takes a format specification, in the same form as `parse_datetime()`.
+-   `date_labels` prend le même format que la fonction `parse_datetime()`.
 
--   `date_breaks` (not shown here), takes a string like "2 days" or "1 month".
+-   `date_breaks` (non représenté ici) prend une chaîne de caractères telle que "2 days" or "1 month".
 
 ### Disposition de la légende
 
 Vous utiliserez le plus souvent `breaks` et `labels` pour ajuster les axes.
-Bien qu'ils fonctionnent aussi pour les légendes, il y a quelques autres techniques que vous êtes plus susceptible d'utiliser.
+Bien qu'ils fonctionnent aussi pour les légendes, il y a d'autres techniques que vous êtes plus susceptible d'utiliser.
 
 Pour contrôler la position générale de la légende, vous devez utiliser un paramètre `theme()`.
-Nous reviendrons aux thèmes à la fin du chapitre, mais en bref, ils contrôlent les parties non-données du graphique.
+Nous reviendrons aux thèmes à la fin du chapitre, mais en bref, ils contrôlent les parties du graphique qui ne sont pas liées aux données.
 Le paramètre de thème `legend.position` contrôle où la légende est dessinée :
 
 ```{r}
@@ -471,7 +469,7 @@ base +
 ```
 
 Si votre graphique est court et large, placez la légende en haut ou en bas, et s'il est haut et étroit, placez la légende à gauche ou à droite.
-Vous pouvez aussi utiliser `legend.position = "none"` pour supprimer l'affichage de la légende complètement.
+Vous pouvez aussi utiliser `legend.position = "none"` pour supprimer complètement l'affichage de la légende.
 
 Pour contrôler l'affichage des légendes individuelles, utilisez `guides()` avec `guide_legend()` ou `guide_colorbar()`.
 L'exemple suivant montre deux paramètres importants : contrôler le nombre de lignes que la légende utilise avec `nrow`, et remplacer l'une des esthétiques pour rendre les points plus grands.
@@ -496,11 +494,11 @@ Notez que le nom de l'argument dans `guides()` correspond au nom de l'esthétiqu
 
 ### Remplacer une échelle
 
-Au lieu de simplement ajuster les détails un peu, vous pouvez plutôt remplacer complètement l'échelle.
-Il y a deux types d'échelles que vous êtes probablement plus susceptible de vouloir changer : les échelles de position continues et les échelles de couleur.
-Heureusement, les mêmes principes s'appliquent à toutes les autres esthétiques, donc une fois que vous maîtrisez la position et la couleur, vous serez en mesure de rapidement maîtriser d'autres remplacements d'échelle.
+Au lieu de se contenter d'apporter quelques petites modifications aux détails, vous pouvez complètement remplacer l'échelle.
+Il y a deux types d'échelles que vous êtes plus susceptible de vouloir changer : les échelles de position continues et les échelles de couleur.
+Heureusement, les mêmes principes s'appliquent à toutes les autres esthétiques, donc une fois que vous maîtrisez la position et la couleur, vous serez en mesure de maîtriser rapidement d'autres remplacements d'échelle.
 
-Il est très utile de tracer les transformations de votre variable.
+Il est très utile de représenter graphiquement les transformations de votre variable.
 Par exemple, il est plus facile de voir la relation précise entre `carat` et `price` si nous les transformons en logarithme :
 
 ```{r}
@@ -523,8 +521,8 @@ ggplot(diamonds, aes(x = log10(carat), y = log10(price))) +
 ```
 
 Cependant, l'inconvénient de cette transformation est que les axes sont maintenant étiquetés avec les valeurs transformées, ce qui rend difficile l'interprétation du graphique.
-Au lieu de faire la transformation dans le mappage esthétique, nous pouvons plutôt le faire avec l'échelle.
-C'est visuellement identique, sauf que les axes sont étiquetés à l'échelle de données originale.
+Au lieu de faire la transformation dans le mappage esthétique, nous pouvons plutôt le faire avec scale.
+C'est visuellement identique, sauf que les axes sont étiquetés à l'échelle de données d'origine.
 
 ```{r}
 #| fig-alt: |
@@ -579,8 +577,8 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 ```
 
 Les échelles ColorBrewer sont documentées en ligne à <https://colorbrewer2.org/> et rendues disponibles en R via le package **RColorBrewer**, par Erich Neuwirth.
-@fig-brewer montre la liste complète de toutes les palettes.
-Les palettes séquentielles (en haut) et divergentes (en bas) sont particulièrement utiles si vos valeurs catégoques sont ordonnées, ou ont un « milieu ».
+La @fig-brewer montre la liste complète de toutes les palettes.
+Les palettes séquentielles (en haut) et divergentes (en bas) sont particulièrement utiles si vos valeurs catégoriques sont ordonnées, ou ont un « milieu ».
 Cela se produit souvent si vous avez utilisé `cut()` pour transformer une variable continue en variable catégorique.
 
 ```{r}
@@ -600,7 +598,7 @@ RColorBrewer::display.brewer.all()
 
 Quand vous avez un mappage prédéfini entre les valeurs et les couleurs, utilisez `scale_color_manual()`.
 Par exemple, si nous mappons le parti présidentiel à la couleur, nous voulons utiliser le mappage standard du rouge pour les Républicains et du bleu pour les Démocrates.
-Une approche pour assigner ces couleurs est l'utilisation de codes de couleur hexadécimaux :
+Une approche pour assigner ces couleurs est l'utilisation de codes couleur hexadécimaux :
 
 ```{r}
 #| fig-alt: |
@@ -617,13 +615,13 @@ presidential |>
   scale_color_manual(values = c(Republican = "#E81B23", Democratic = "#00AEF3"))
 ```
 
-Pour la couleur continue, vous pouvez utiliser le built-in `scale_color_gradient()` ou `scale_fill_gradient()`.
+Pour les couleurs continues, vous pouvez utiliser le built-in `scale_color_gradient()` ou `scale_fill_gradient()`.
 Si vous avez une échelle divergente, vous pouvez utiliser `scale_color_gradient2()`.
 Cela vous permet de donner, par exemple, des couleurs différentes aux valeurs positives et négatives.
 C'est parfois aussi utile si vous voulez distinguer les points au-dessus ou au-dessous de la moyenne.
 
 Une autre option est d'utiliser les échelles de couleur viridis.
-Les concepteurs, Nathaniel Smith et Stéfan van der Walt, ont soigneusement élaboré des schémas de couleur continues qui sont perceptibles aux personnes avec diverses formes de daltonisme ainsi que perceptuellement uniformes à la fois en couleur et en noir et blanc.
+Les concepteurs, Nathaniel Smith et Stéfan van der Walt, ont soigneusement élaboré des schémas de couleur continues qui sont perceptibles par les personnes atteintes de différentes formes de daltonisme et qui présentent une uniformité perceptuelle tant en couleur qu’en noir et blanc.
 Ces échelles sont disponibles sous forme de palettes continues (`c`), discrètes (`d`) et groupées (`b`) dans ggplot2.
 
 ```{r}
@@ -659,7 +657,7 @@ ggplot(df, aes(x, y)) +
   labs(title = "Viridis, binned", x = NULL, y = NULL)
 ```
 
-Note that all color scales come in two varieties: `scale_color_*()` and `scale_fill_*()` for the `color` and `fill` aesthetics respectively (the color scales are available in both UK and US spellings).
+Notez que toutes les échelles de couleurs existent en deux variantes : `scale_color_*()` et `scale_fill_*()`, respectivement pour les esthétiques `color` et `fill` (les échelles de couleurs sont disponibles aussi bien en orthographe britannique qu'américaine).
 
 ### Zoom
 
@@ -671,8 +669,8 @@ Il y a trois façons de contrôler les limites du graphique :
 
 Nous démontrerons ces options dans une série de graphiques.
 Le graphique de gauche montre la relation entre la cylindrée du moteur et l'efficacité énergétique, colorée par type de chaîne de transmission.
-Le graphique de droite montre les mêmes variables, mais en sous-ensemblant les données qui sont tracées.
-Le sous-ensemblage des données a affecté les échelles x et y ainsi que la courbe lisse.
+Le graphique de droite montre les mêmes variables, mais sur un sous-ensemble des données qui sont tracées.
+Le sous-ensemble des données a affecté les échelles x et y ainsi que la courbe.
 
 ```{r}
 #| layout-ncol: 2
@@ -699,9 +697,9 @@ mpg |>
   geom_smooth()
 ```
 
-Let's compare these to the two plots below where the plot on the left sets the `limits` on individual scales and the plot on the right sets them in `coord_cartesian()`.
-We can see that reducing the limits is equivalent to subsetting the data.
-Therefore, to zoom in on a region of the plot, it's generally best to use `coord_cartesian()`.
+Comparons-les aux deux graphiques ci-dessous où celui de gauche fixe les `limits` sur les échelles individuelles et celui de droite les fixe dans `coord_cartesian()`.
+Nous pouvons voir que réduire les limites équivaut à faire un sous-ensemble de données.
+Par conséquent, pour zoomer sur une région du graphique, il est généralement préférable d'utiliser `coord_cartesian()`.
 
 ```{r}
 #| layout-ncol: 2
@@ -729,8 +727,8 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   coord_cartesian(xlim = c(5, 6), ylim = c(10, 25))
 ```
 
-On the other hand, setting the `limits` on individual scales is generally more useful if you want to *expand* the limits, e.g., to match scales across different plots.
-For example, if we extract two classes of cars and plot them separately, it's difficult to compare the plots because all three scales (the x-axis, the y-axis, and the color aesthetic) have different ranges.
+D'un autre côté, définir les `limits` sur les échelles individuelles est généralement plus utile si vous voulez *élargir* les limites, par exemple pour harmoniser les échelles entre différents graphiques.
+Par exemple, si nous extrayons deux classes de voitures et les traçons séparément, il est difficile de comparer les graphiques parce que les trois échelles (l'axe des x, l'axe des y et l'esthétique couleur) ont des plages différentes.
 
 ```{r}
 #| layout-ncol: 2
@@ -756,7 +754,7 @@ ggplot(compact, aes(x = displ, y = hwy, color = drv)) +
   geom_point()
 ```
 
-One way to overcome this problem is to share scales across multiple plots, training the scales with the `limits` of the full data.
+Une façon de résoudre ce problème est de définir les mêmes échelles sur plusieurs graphiques, en entraînant les échelles avec les `limits` de l'ensemble des données.
 
 ```{r}
 #| layout-ncol: 2
@@ -790,11 +788,11 @@ ggplot(compact, aes(x = displ, y = hwy, color = drv)) +
   col_scale
 ```
 
-In this particular case, you could have simply used faceting, but this technique is useful more generally, if for instance, you want to spread plots over multiple pages of a report.
+Dans ce cas particulier, vous auriez simplement pu utiliser la facettisation, mais cette technique est utile plus largement, par exemple dans le cas où vous voulez répartir des graphiques sur plusieurs pages d'un rapport.
 
-### Exercises
+### Exercices
 
-1.  Why doesn't the following code override the default scale?
+1.  Pourquoi le code suivant ne remplace-t-il pas l'échelle par défaut ?
 
     ```{r}
     #| fig-show: hide
@@ -809,19 +807,19 @@ In this particular case, you could have simply used faceting, but this technique
       coord_fixed()
     ```
 
-2.  What is the first argument to every scale?
-    How does it compare to `labs()`?
+2.  Quel est le premier argument de chaque échelle ?
+    Comment se compare-t-il à `labs()` ?
 
-3.  Change the display of the presidential terms by:
+3.  Modifiez l'affichage des mandats présidentiels en :
 
-    a.  Combining the two variants that customize colors and x axis breaks.
-    b.  Improving the display of the y axis.
-    c.  Labelling each term with the name of the president.
-    d.  Adding informative plot labels.
-    e.  Placing breaks every 4 years (this is trickier than it seems!).
+    a.  Combinant les deux variantes qui personnalisent les couleurs et les coupures de l'axe x.
+    b.  Améliorant l'affichage de l'axe y.
+    c.  Étiquetant chaque mandat avec le nom du président.
+    d.  Ajoutant des étiquettes de graphique informatives.
+    e.  Plaçant des coupures tous les 4 ans (c'est plus difficile qu'il n'y paraît !).
 
-4.  First, create the following plot.
-    Then, modify the code using `override.aes` to make the legend easier to see.
+4.  D'abord, créez le graphique suivant.
+    Ensuite, modifiez le code en utilisant `override.aes` pour rendre la légende plus facile à lire.
 
     ```{r}
     #| fig-show: hide
@@ -831,7 +829,7 @@ In this particular case, you could have simply used faceting, but this technique
 
 ## Thèmes {#sec-themes}
 
-Enfin, vous pouvez personnaliser les éléments non-données de votre graphique avec un thème :
+Enfin, vous pouvez personnaliser les parties de votre graphique qui ne sont pas liées aux données avec un thème :
 
 ```{r}
 #| message: false
@@ -845,9 +843,9 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
   theme_bw()
 ```
 
-ggplot2 inclut les huit thèmes montrés dans @fig-themes, avec `theme_gray()` comme défaut.[^communication-2]
+ggplot2 inclut les huit thèmes montrés en @fig-themes, avec `theme_gray()` comme défaut.[^communication-2]
 Beaucoup plus sont inclus dans des packages supplémentaires comme **ggthemes** (<https://jrnold.github.io/ggthemes>), par Jeffrey Arnold.
-Vous pouvez aussi créer vos propres thèmes, si vous essayez de correspondre à un style corporatif ou journalistique particulier.
+Vous pouvez aussi créer vos propres thèmes, si vous essayez de reproduire un style corporatif ou journalistique particulier.
 
 [^communication-2]: Beaucoup de gens se demandent pourquoi le thème par défaut a un arrière-plan gris.
     C'était un choix délibéré car il met les données en avant tout en rendant les lignes de grille visibles.
@@ -871,14 +869,14 @@ knitr::include_graphics("images/visualization-themes.png")
 ```
 
 Il est aussi possible de contrôler les composants individuels de chaque thème, comme la taille et la couleur de la police utilisée pour l'axe y.
-Nous avons déjà vu que `legend.position` contrôle où la légende est dessinée.
+Nous avons déjà vu que `legend.position` contrôle où la légende est affichée.
 Il y a de nombreux autres aspects de la légende qui peuvent être personnalisés avec `theme()`.
-Par exemple, dans le graphique ci-dessous, nous changeons la direction de la légende ainsi que mettons une bordure noire autour.
+Par exemple, dans le graphique ci-dessous, nous changeons la direction de la légende et mettons une bordure noire autour.
 Notez que la personnalisation des éléments de la boîte de légende et du titre du graphique du thème se font avec les fonctions `element_*()`.
-Ces fonctions spécifient le style des composants non-données, par ex., le texte du titre est en gras dans l'argument `face` de `element_text()` et la couleur de la bordure de la légende est définie dans l'argument `color` de `element_rect()`.
-Les éléments de thème qui contrôlent la position du titre et de la note sont respectivement `plot.title.position` et `plot.caption.position`.
-Dans le graphique suivant, ceux-ci sont définis à `"plot"` pour indiquer que ces éléments sont alignés à l'ensemble de la zone du graphique, au lieu du panneau du graphique (par défaut).
-Quelques autres composants `theme()` utiles sont utilisés pour changer le placement du format du texte du titre et de la note.
+Ces fonctions spécifient le style des composants non liés aux données, par ex., le texte du titre est en gras dans l'argument `face` de `element_text()` et la couleur de la bordure de la légende est définie dans l'argument `color` de `element_rect()`.
+Les éléments de thème qui contrôlent la position du titre et du caption sont respectivement `plot.title.position` et `plot.caption.position`.
+Dans le graphique suivant, ceux-ci sont définis à `"plot"` pour indiquer que ces éléments sont alignés à l'ensemble de la zone du graphique, au lieu de la boîte du graphique (par défaut).
+Quelques autres composants `theme()` pertinents sont utilisés pour changer le placement du format du texte du titre et du caption.
 
 ```{r}
 #| fig-alt: |
@@ -904,19 +902,19 @@ ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
   )
 ```
 
-For an overview of all `theme()` components, see help with `?theme`.
-The [ggplot2 book](https://ggplot2-book.org/) is also a great place to go for the full details on theming.
+Pour un aperçu de tous les composants `theme()`, consultez l'aide avec `?theme`.
+Le [livre ggplot2](https://ggplot2-book.org/) est également un excellent endroit pour trouver tous les détails sur les thèmes.
 
 ### Exercices
 
-1.  Choisissez un thème offert par le package ggthemes et appliquez-le au dernier graphique que vous avez créé.
-2.  Rendez les étiquettes des axes de votre graphique bleues et en gras.
+1.  Choisissez un thème proposé par le package ggthemes et appliquez-le au dernier graphique que vous avez créé.
+2.  Affichez les étiquettes des axes de votre graphique en bleu et en gras.
 
-## Disposition
+## Mise en page
 
 Jusqu'à présent, nous avons parlé de la création et de la modification d'un seul graphique.
-Et si vous aviez plusieurs graphiques que vous voulez disposer d'une certaine manière ?
-Le package patchwork vous permet de combiner des graphiques séparés dans le même graphique.
+Et si vous aviez plusieurs graphiques que vous vouliez organiser d'une certaine manière ?
+Le package patchwork vous permet de combiner des graphiques séparés dans un même graphique.
 Nous avons chargé ce package plus tôt dans le chapitre.
 
 Pour placer deux graphiques côte à côte, vous pouvez simplement les ajouter l'un à l'autre.
@@ -941,10 +939,10 @@ p1 + p2
 ```
 
 Il est important de noter que dans le bloc de code ci-dessus, nous n'avons pas utilisé une nouvelle fonction du package patchwork.
-À la place, le package a ajouté une nouvelle fonctionnalité à l'opérateur `+`.
+À la place, le package a étendu l'opérateur `+` avec une nouvelle fonctionnalité.
 
-Vous pouvez aussi créer des dispositions de graphiques complexes avec patchwork.
-Dans ce qui suit, `|` place les `p1` et `p3` côte à côte et `/` déplace `p2` à la ligne suivante.
+Vous pouvez aussi créer des mises en page complexes de graphiques avec patchwork.
+Dans ce qui suit, `|` place `p1` et `p3` côte à côte et `/` déplace `p2` à la ligne suivante.
 
 ```{r}
 #| fig-width: 6
@@ -963,14 +961,14 @@ p3 <- ggplot(mpg, aes(x = cty, y = hwy)) +
 (p1 | p3) / p2
 ```
 
-De plus, patchwork vous permet de collecter les légendes de plusieurs graphiques dans une légende commune, de personnaliser le placement de la légende ainsi que les dimensions des graphiques, et d'ajouter un titre commun, un sous-titre, une note, etc. à vos graphiques.
+De plus, patchwork vous permet de rassembler les légendes de plusieurs graphiques dans une légende commune, de personnaliser le placement de la légende ainsi que les dimensions des graphiques, et d'ajouter un titre commun, un sous-titre, un caption, etc. à vos graphiques.
 Ci-dessous, nous créons 5 graphiques.
-Nous avons désactivé les légendes sur les boîtes à moustaches et le nuage de points et avons collecté les légendes pour les graphiques de densité en haut du graphique avec `& theme(legend.position = "top")`.
+Nous avons désactivé les légendes sur les boîtes à moustaches et le nuage de points et avons rassemblé les légendes des graphiques de densité en haut du graphique avec `& theme(legend.position = "top")`.
 Notez l'utilisation de l'opérateur `&` ici au lieu du `+` habituel.
-C'est parce que nous modifions le thème pour le graphique patchwork contrairement aux ggplots individuels.
-La légende est placée en haut, à l'intérieur du `guide_area()`.
-Enfin, nous avons aussi personnalisé les hauteurs des divers composants de notre patchwork -- le guide a une hauteur de 1, les boîtes à moustaches 3, les graphiques de densité 2, et le nuage de points facetté 4.
-Patchwork divise la zone que vous avez allouée pour votre graphique en utilisant cette échelle et place les composants en conséquence.
+C'est parce que nous modifions le thème du graphique patchwork, par opposition aux ggplots individuels.
+La légende est placée en haut, à l'intérieur de `guide_area()`.
+Enfin, nous avons aussi personnalisé les hauteurs des différents composants de notre patchwork : le guide a une hauteur de 1, les boîtes à moustaches 3, les graphiques de densité 2, et le nuage de points facetté 4.
+Patchwork divise la zone que vous avez allouée à votre graphique en utilisant cette échelle et place les composants en conséquence.
 
 ```{r}
 #| fig-width: 8
@@ -1020,11 +1018,11 @@ p5 <- ggplot(mpg, aes(x = cty, y = hwy, color = drv)) +
   theme(legend.position = "top")
 ```
 
-Si vous aimeriez en savoir plus sur la combinaison et la disposition de plusieurs graphiques avec patchwork, nous vous recommandons de consulter les guides sur le site web du package : <https://patchwork.data-imaginist.com>.
+Si vous souhaitez en savoir plus sur la combinaison et la mise en page de plusieurs graphiques avec patchwork, nous vous recommandons de consulter les guides sur le site web du package : <https://patchwork.data-imaginist.com>.
 
 ### Exercices
 
-1.  Que se passe-t-il si vous omettez les parenthèses dans la disposition du graphique suivant ?
+1.  Que se passe-t-il si vous omettez les parenthèses dans la mise en page du graphique suivant ?
     Pouvez-vous expliquer pourquoi cela se produit ?
 
     ```{r}
@@ -1042,7 +1040,7 @@ Si vous aimeriez en savoir plus sur la combinaison et la disposition de plusieur
     (p1 | p2) / p3
     ```
 
-2.  En utilisant les trois graphiques de l'exercice précédent, recréez le patchwork suivant.
+2.  En utilisant les trois graphiques de l'exercice précédent, recréez la mise en page patchwork suivante.
 
     ```{r}
     #| fig-width: 7
@@ -1068,9 +1066,10 @@ Si vous aimeriez en savoir plus sur la combinaison et la disposition de plusieur
 
 ## Résumé
 
-Dans ce chapitre, vous avez appris à ajouter des étiquettes de graphique telles que le titre, le sous-titre, la note ainsi qu'à modifier les étiquettes des axes par défaut, à utiliser les annotations pour ajouter du texte informatif à votre graphique ou pour mettre en évidence des points de données spécifiques, à personnaliser les échelles des axes et à changer le thème de votre graphique.
-Vous avez aussi appris à combiner plusieurs graphiques dans un seul graphique en utilisant à la fois des dispositions de graphiques simples et complexes.
+Dans ce chapitre, vous avez appris à ajouter des étiquettes à votre graphique, comme le titre, le sous-titre et le caption, ainsi qu'à modifier les étiquettes des axes par défaut.
+Vous avez découvert comment utiliser les annotations pour ajouter du texte informatif à votre graphique ou pour mettre en évidence des points de données spécifiques, comment personnaliser les échelles des axes et changer le thème de votre graphique.
+Vous avez aussi appris à combiner plusieurs graphiques en un seul graphique en utilisant à la fois des mises en page simples et complexes.
 
-Bien que vous ayez jusqu'à présent appris à créer de nombreux types différents de graphiques et à les personnaliser en utilisant une variété de techniques, nous avons à peine égratigner la surface de ce que vous pouvez créer avec ggplot2.
-Si vous voulez avoir une compréhension complète de ggplot2, nous vous recommandons de lire le livre, [*ggplot2: Elegant Graphics for Data Analysis*](https://ggplot2-book.org).
-D'autres ressources utiles sont le [*R Graphics Cookbook*](https://r-graphics.org) par Winston Chang et [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/) par Claus Wilke.
+Bien que vous ayez appris à créer de nombreux types différents de graphiques et à les personnaliser en utilisant diverses techniques, nous n'avons fait qu'effleurer la surface de ce que vous pouvez créer avec ggplot2.
+Pour une compréhension complète de ggplot2, nous vous recommandons de consulter le livre [*ggplot2: Elegant Graphics for Data Analysis*](https://ggplot2-book.org).
+D'autres ressources utiles sont le [*R Graphics Cookbook*](https://r-graphics.org) de Winston Chang et [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/) de Claus Wilke.

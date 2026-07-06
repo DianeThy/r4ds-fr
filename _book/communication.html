@@ -429,19 +429,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#disposition-de-la-l%C3%A9gende" id="toc-disposition-de-la-légende" class="nav-link" data-scroll-target="#disposition-de-la-l%C3%A9gende"><span class="header-section-number">11.4.3</span> Disposition de la légende</a></li>
   <li><a href="#remplacer-une-%C3%A9chelle" id="toc-remplacer-une-échelle" class="nav-link" data-scroll-target="#remplacer-une-%C3%A9chelle"><span class="header-section-number">11.4.4</span> Remplacer une échelle</a></li>
   <li><a href="#zoom" id="toc-zoom" class="nav-link" data-scroll-target="#zoom"><span class="header-section-number">11.4.5</span> Zoom</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">11.4.6</span> Exercises</a></li>
+  <li><a href="#exercices-2" id="toc-exercices-2" class="nav-link" data-scroll-target="#exercices-2"><span class="header-section-number">11.4.6</span> Exercices</a></li>
   </ul>
 </li>
   <li>
 <a href="#sec-themes" id="toc-sec-themes" class="nav-link" data-scroll-target="#sec-themes"><span class="header-section-number">11.5</span> Thèmes</a>
   <ul class="collapse">
-<li><a href="#exercices-2" id="toc-exercices-2" class="nav-link" data-scroll-target="#exercices-2"><span class="header-section-number">11.5.1</span> Exercices</a></li>
+<li><a href="#exercices-3" id="toc-exercices-3" class="nav-link" data-scroll-target="#exercices-3"><span class="header-section-number">11.5.1</span> Exercices</a></li>
   </ul>
 </li>
   <li>
-<a href="#disposition" id="toc-disposition" class="nav-link" data-scroll-target="#disposition"><span class="header-section-number">11.6</span> Disposition</a>
+<a href="#mise-en-page" id="toc-mise-en-page" class="nav-link" data-scroll-target="#mise-en-page"><span class="header-section-number">11.6</span> Mise en page</a>
   <ul class="collapse">
-<li><a href="#exercices-3" id="toc-exercices-3" class="nav-link" data-scroll-target="#exercices-3"><span class="header-section-number">11.6.1</span> Exercices</a></li>
+<li><a href="#exercices-4" id="toc-exercices-4" class="nav-link" data-scroll-target="#exercices-4"><span class="header-section-number">11.6.1</span> Exercices</a></li>
   </ul>
 </li>
   <li><a href="#r%C3%A9sum%C3%A9" id="toc-résumé" class="nav-link" data-scroll-target="#r%C3%A9sum%C3%A9"><span class="header-section-number">11.7</span> Résumé</a></li>
@@ -465,8 +465,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><section id="introduction" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">11.1</span> Introduction</h2>
-<p>Dans la <a href="EDA.html" class="quarto-xref"><span>Chapitre 10</span></a>, vous avez appris à utiliser les graphiques comme outils d’<em>exploration</em>. Quand vous créez des graphiques exploratoires, vous savez—même avant de les regarder—quelles variables le graphique affichera. Vous avez créé chaque graphique pour un objectif, pouviez le regarder rapidement, puis passer au graphique suivant. Au cours de la plupart des analyses, vous produirez des dizaines ou des centaines de graphiques, dont la plupart seront immédiatement jetés.</p>
-<p>Maintenant que vous comprenez vos données, vous devez <em>communiquer</em> votre compréhension à d’autres. Votre public ne partagera probablement pas vos connaissances de base et ne sera pas profondément investi dans les données. Pour aider les autres à construire rapidement un bon modèle mental des données, vous devrez investir un effort considérable pour rendre vos graphiques aussi autoexplicatifs que possible. Dans ce chapitre, vous apprendrez certains des outils que ggplot2 fournit pour ce faire.</p>
+<p>Dans le <a href="EDA.html" class="quarto-xref"><span>Chapitre 10</span></a>, vous avez appris à utiliser les graphiques comme outils d’<em>exploration</em>. Quand vous créez des graphiques exploratoires, vous savez—même avant de les regarder—quelles variables le graphique affichera. Vous avez créé chaque graphique dans un but précis, vous pouviez y jeter un coup d’œil rapide, puis passer au suivant. Au cours de la plupart des analyses, vous produirez des dizaines, voire des centaines de graphiques, dont la plupart seront immédiatement mis de côté.</p>
+<p>Maintenant que vous comprenez vos données, vous devez <em>communiquer</em> votre compréhension à d’autres. Votre public ne disposera probablement pas des mêmes connaissances de base que vous et ne s’intéressera pas de près aux données. Pour aider vos interlocuteurs à se forger rapidement une bonne représentation mentale des données, vous devrez consacrer beaucoup d’efforts à rendre vos graphiques aussi explicites que possible. Dans ce chapitre, vous apprendrez certains des outils que ggplot2 fournit pour faire cela.</p>
 <p>Ce chapitre se concentre sur les outils dont vous avez besoin pour créer de bons graphiques. Nous supposons que vous savez ce que vous voulez, et vous avez juste besoin de savoir comment le faire. Pour cette raison, nous vous recommandons fortement de coupler ce chapitre avec un bon livre général sur la visualisation. Nous aimons particulièrement <a href="https://www.amazon.com/gp/product/0321934075/">The Truthful Art</a>, par Albert Cairo. Il n’enseigne pas la mécanique de création de visualisations, mais se concentre plutôt sur ce que vous devez penser pour créer des graphiques efficaces.</p>
 <section id="prérequis" class="level3" data-number="11.1.1"><h3 data-number="11.1.1" class="anchored" data-anchor-id="prérequis">
 <span class="header-section-number">11.1.1</span> Prérequis</h3>
@@ -479,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section></section><section id="étiquettes" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="étiquettes">
 <span class="header-section-number">11.2</span> Étiquettes</h2>
-<p>L’endroit le plus facile pour commencer quand vous transformez un graphique exploratoire en graphique d’exposition est avec de bonnes étiquettes. Vous ajoutez des étiquettes avec la fonction <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>.</p>
+<p>Pour transformer un graphique exploratoire en graphique explicatif, le plus simple est de commencer par ajouter des étiquettes pertinentes. Vous ajoutez des étiquettes avec la fonction <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -488,8 +488,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>    x <span class="op">=</span> <span class="st">"Cylindrée du moteur (L)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Efficacité énergétique sur autoroute (mpg)"</span>,</span>
 <span>    color <span class="op">=</span> <span class="st">"Type de voiture"</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"L'efficacité énergétique diminue généralement avec la cylindrée du moteur"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Les deux places (voitures de sport) sont une exception en raison de leur légèreté"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"L'efficacité énergétique diminue généralement avec la \ncylindrée du moteur"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Les voitures biplaces (voitures de sport) font exception en raison de leur \nfaible poids"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Données de fueleconomy.gov"</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -500,7 +500,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Le but d’un titre de graphique est de résumer la découverte principale. Évitez les titres qui décrivent simplement ce qu’est le graphique, par ex., « Un nuage de points de la cylindrée du moteur par rapport à l’efficacité énergétique ».</p>
-<p>Si vous devez ajouter plus de texte, il y a deux autres étiquettes utiles : <code>subtitle</code> ajoute des détails supplémentaires dans une police plus petite sous le titre et <code>caption</code> ajoute du texte en bas à droite du graphique, souvent utilisé pour décrire la source des données. Vous pouvez aussi utiliser <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> pour remplacer les titres des axes et des légendes. C’est généralement une bonne idée de remplacer les noms de variables courts par des descriptions plus détaillées, et d’inclure les unités.</p>
+<p>Si vous devez ajouter plus de texte, il y a deux autres étiquettes utiles : <code>subtitle</code> ajoute des détails supplémentaires dans une police plus petite sous le titre et <code>caption</code> ajoute du texte en bas à droite du graphique, souvent utilisé pour décrire la source des données. Vous pouvez aussi utiliser <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> pour remplacer les titres des axes et des légendes. En général, c’est une bonne idée de remplacer les noms de variables courts par des descriptions plus détaillées et d’inclure les unités.</p>
 <p>Il est possible d’utiliser des équations mathématiques à la place de chaînes de texte. Remplacez simplement <code>""</code> par <code><a href="https://rdrr.io/r/base/substitute.html">quote()</a></code> et lisez les options disponibles dans <code><a href="https://rdrr.io/r/grDevices/plotmath.html">?plotmath</a></code> :</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
@@ -536,11 +536,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </li>
-<li><p>Prenez un graphique exploratoire que vous avez créé au cours du dernier mois, et ajoutez des titres informatifs pour faciliter la compréhension des autres.</p></li>
+<li><p>Prenez un graphique exploratoire que vous avez créé au cours du dernier mois, et ajoutez des titres informatifs pour faciliter sa compréhension.</p></li>
 </ol></section></section><section id="annotations" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="annotations">
 <span class="header-section-number">11.3</span> Annotations</h2>
-<p>En plus d’étiqueter les composants majeurs de votre graphique, il est souvent utile d’étiqueter les observations individuelles ou les groupes d’observations. Le premier outil à votre disposition est <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code>. <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code> est similaire à <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>, mais il a une esthétique supplémentaire : <code>label</code>. Cela rend possible l’ajout d’étiquettes textuelles à vos graphiques.</p>
-<p>Il existe deux sources possibles d’étiquettes. D’abord, vous pourriez avoir un tibble qui fournit des étiquettes. Dans le graphique suivant, nous extrayons les voitures avec la plus grande cylindrée du moteur dans chaque type de chaîne de transmission et enregistrons leurs informations dans un nouveau data frame appelé <code>label_info</code>.</p>
+<p>En plus d’étiqueter les composants majeurs de votre graphique, il est souvent utile d’étiqueter des observations individuelles ou des groupes d’observations. Le premier outil à votre disposition est <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code>. <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code> est similaire à <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>, mais il a une esthétique supplémentaire : <code>label</code>. Cela rend possible l’ajout d’étiquettes textuelles à vos graphiques.</p>
+<p>Il existe deux sources possibles d’étiquettes. Tout d’abord, vous devez avoir un tibble qui fournit les étiquettes. Dans le graphique suivant, nous extrayons les voitures avec la plus grande cylindrée du moteur dans chaque type de chaîne de transmission et enregistrons leurs informations dans un nouveau data frame appelé <code>label_info</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">label_info</span> <span class="op">&lt;-</span> <span class="va">mpg</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">drv</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -564,7 +564,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; 2   5.3    25 f     traction avant    </span></span>
 <span><span class="co">#&gt; 3   7      24 r     traction arrière</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Ensuite, nous utilisons ce nouveau data frame pour étiqueter directement les trois groupes afin de remplacer la légende par des étiquettes placées directement sur le graphique. En utilisant les arguments <code>fontface</code> et <code>size</code>, nous pouvons personnaliser l’apparence des étiquettes textuelles. Elles sont plus grandes que le reste du texte sur le graphique et en gras. (<code>theme(legend.position = "none"</code>) désactive toutes les légendes — nous en parlerons plus en détail bientôt.)</p>
+<p>Ensuite, nous utilisons ce nouveau data frame pour étiqueter directement les trois groupes afin de remplacer la légende par des étiquettes placées directement sur le graphique. En utilisant les arguments <code>fontface</code> et <code>size</code>, nous pouvons personnaliser l’apparence des étiquettes textuelles. Elles sont plus grandes que le reste du texte sur le graphique et en gras. (<code>theme(legend.position = "none"</code>) désactive toutes les légendes — nous en parlerons bientôt plus en détail.)</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
@@ -603,7 +603,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Vous pouvez aussi utiliser la même idée pour mettre en évidence certains points sur un graphique avec <code><a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html">geom_text_repel()</a></code> du package ggrepel. Notez une autre technique utile utilisée ici : nous avons ajouté une deuxième couche de grands points creux pour mettre davantage en évidence les points étiquetés.</p>
+<p>Vous pouvez aussi utiliser la même idée pour mettre en évidence certains points sur un graphique avec <code><a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html">geom_text_repel()</a></code> du package ggrepel. Notez une autre technique utilisée ici : nous avons ajouté une deuxième couche de grands points creux pour mettre davantage en évidence les points étiquetés.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">potential_outliers</span> <span class="op">&lt;-</span> <span class="va">mpg</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">hwy</span> <span class="op">&gt;</span> <span class="fl">40</span> <span class="op">|</span> <span class="op">(</span><span class="va">hwy</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">&amp;</span> <span class="va">displ</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
@@ -625,8 +625,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Souvenez-vous, en plus de <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code> et <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_label()</a></code>, vous avez de nombreuses autres geoms dans ggplot2 disponibles pour vous aider à annoter votre graphique. Quelques idées :</p>
 <ul>
-<li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline()</a></code> et <code><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline()</a></code> pour ajouter des lignes de référence. Nous les rendons souvent épaisses (<code>linewidth = 2</code>) et blanches (<code>color = white</code>), et les dessinez sous la couche de données primaire. Cela les rend faciles à voir, sans détourner l’attention des données.</p></li>
-<li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_rect()</a></code> pour dessiner un rectangle autour des points d’intérêt. Les limites du rectangle sont définies par les esthétiques <code>xmin</code>, <code>xmax</code>, <code>ymin</code>, <code>ymax</code>. Alternativement, consultez le <a href="https://ggforce.data-imaginist.com/index.html">package ggforce</a>, spécifiquement <a href="https://ggforce.data-imaginist.com/reference/geom_mark_hull.html"><code>geom_mark_hull()</code></a>, qui vous permet d’annoter des sous-ensembles de points avec des enveloppes.</p></li>
+<li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline()</a></code> et <code><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline()</a></code> pour ajouter des lignes de référence. Nous les rendons souvent épaisses (<code>linewidth = 2</code>) et blanches (<code>color = white</code>), et il vaut mieux les mettre sous la couche de données primaire. Cela permet de les repérer facilement, sans pour autant détourner l’attention des données.</p></li>
+<li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_rect()</a></code> pour dessiner un rectangle autour des points d’intérêt. Les limites du rectangle sont définies par les esthétiques <code>xmin</code>, <code>xmax</code>, <code>ymin</code>, <code>ymax</code>. Sinon, consultez le <a href="https://ggforce.data-imaginist.com/index.html">package ggforce</a> et plus précisement <a href="https://ggforce.data-imaginist.com/reference/geom_mark_hull.html"><code>geom_mark_hull()</code></a>, qui vous permet d’annoter des sous-ensembles de points à l’aide d’enveloppes.</p></li>
 <li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment()</a></code> avec l’argument <code>arrow</code> pour attirer l’attention sur un point avec une flèche. Utilisez les esthétiques <code>x</code> et <code>y</code> pour définir l’emplacement de départ, et <code>xend</code> et <code>yend</code> pour définir l’emplacement de fin.</p></li>
 </ul>
 <p>Une autre fonction pratique pour ajouter des annotations aux graphiques est <code><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate()</a></code>. En règle générale, les geoms sont utiles pour mettre en évidence un sous-ensemble des données tandis que <code><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate()</a></code> est utile pour ajouter un ou quelques éléments d’annotation à un graphique.</p>
@@ -663,13 +663,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">11.3.1</span> Exercices</h3>
 <ol type="1">
 <li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code> avec des positions infinies pour placer le texte dans les quatre coins du graphique.</p></li>
-<li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate()</a></code> pour ajouter une geom point au milieu de votre dernier graphique sans avoir à créer un tibble. Personnalisez la forme, la taille ou la couleur du point.</p></li>
+<li><p>Utilisez <code><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate()</a></code> pour ajouter un geom_point au milieu de votre dernier graphique sans avoir à créer un tibble. Personnalisez la forme, la taille ou la couleur du point.</p></li>
 <li><p>Comment les étiquettes avec <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code> interagissent-elles avec le facettage ? Comment pouvez-vous ajouter une étiquette à une seule facette ? Comment pouvez-vous mettre une étiquette différente dans chaque facette ? (Indice : Pensez au jeu de données qui est transmis à <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code>.)</p></li>
 <li><p>Quels arguments de <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_label()</a></code> contrôlent l’apparence de la boîte de fond ?</p></li>
 <li><p>Quels sont les quatre arguments de <code><a href="https://rdrr.io/r/grid/arrow.html">arrow()</a></code> ? Comment fonctionnent-ils ? Créez une série de graphiques qui démontrent les options les plus importantes.</p></li>
 </ol></section></section><section id="échelles" class="level2" data-number="11.4"><h2 data-number="11.4" class="anchored" data-anchor-id="échelles">
 <span class="header-section-number">11.4</span> Échelles</h2>
-<p>La troisième façon de rendre votre graphique meilleur pour la communication est d’ajuster les échelles. Les échelles contrôlent la façon dont les mappages esthétiques se manifestent visuellement.</p>
+<p>La troisième façon d’améliorer votre graphique pour faciliter la communication est d’ajuster les échelles (scales). Les échelles contrôlent la façon dont les mappages esthétiques se manifestent visuellement.</p>
 <section id="échelles-par-défaut" class="level3" data-number="11.4.1"><h3 data-number="11.4.1" class="anchored" data-anchor-id="échelles-par-défaut">
 <span class="header-section-number">11.4.1</span> Échelles par défaut</h3>
 <p>Normalement, ggplot2 ajoute automatiquement les échelles pour vous. Par exemple, quand vous tapez :</p>
@@ -685,15 +685,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html">scale_color_discrete</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Notez le schéma de nommage pour les échelles : <code>scale_</code> suivi du nom de l’esthétique, puis <code>_</code>, puis le nom de l’échelle. Les échelles par défaut sont nommées selon le type de variable auquel elles s’alignent : continu, discret, datetime ou date. <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></code> place les valeurs numériques de <code>displ</code> sur une ligne de nombre continu sur l’axe x, <code><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html">scale_color_discrete()</a></code> choisit les couleurs pour chaque <code>class</code> de voiture, etc. Il y a beaucoup d’échelles non-défaut que vous apprendrez ci-dessous.</p>
-<p>Les échelles par défaut ont été soigneusement choisies pour bien fonctionner sur une large gamme d’entrées. Néanmoins, vous pourriez vouloir remplacer les défauts pour deux raisons :</p>
+<p>Notez le schéma de nommage pour les échelles : <code>scale_</code> suivi du nom de l’esthétique, puis <code>_</code>, puis le nom de l’échelle. Les échelles par défaut sont nommées selon le type de variable auquel elles s’alignent : continu, discret, datetime ou date. <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></code> place les valeurs numériques de <code>displ</code> sur une ligne de nombre continu sur l’axe x, <code><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html">scale_color_discrete()</a></code> choisit les couleurs pour chaque <code>class</code> de voiture, etc. Il y a beaucoup d’échelles non standard que vous apprendrez ci-dessous.</p>
+<p>Les échelles par défaut ont été soigneusement choisies pour bien fonctionner sur une large gamme d’entrées. Néanmoins, vous pourriez vouloir remplacer les valeurs par défaut pour deux raisons :</p>
 <ul>
-<li><p>Vous pourriez vouloir ajuster certains des paramètres de l’échelle par défaut. Cela vous permet de faire des choses comme changer les divisions sur les axes, ou les étiquettes clés sur la légende.</p></li>
-<li><p>Vous pourriez vouloir remplacer complètement l’échelle, et utiliser un algorithme complètement différent. Souvent, vous pouvez faire mieux que le défaut parce que vous savez plus sur les données.</p></li>
+<li><p>Pour ajuster certains des paramètres de l’échelle par défaut. Cela vous permet de faire des choses comme changer les divisions sur les axes, ou les étiquettes clés sur la légende.</p></li>
+<li><p>Pour remplacer complètement l’échelle et utiliser un algorithme complètement différent. Souvent, vous pouvez faire mieux que le défaut parce que vous connaissez les données.</p></li>
 </ul></section><section id="graduations-daxes-et-clés-de-légende" class="level3" data-number="11.4.2"><h3 data-number="11.4.2" class="anchored" data-anchor-id="graduations-daxes-et-clés-de-légende">
 <span class="header-section-number">11.4.2</span> Graduations d’axes et clés de légende</h3>
 <p>Collectivement, les axes et les légendes s’appellent des <strong>guides</strong>. Les axes sont utilisés pour les esthétiques x et y ; les légendes sont utilisées pour tout le reste.</p>
-<p>Il y a deux arguments principaux qui affectent l’apparence des graduations sur les axes et les clés sur la légende : <code>breaks</code> et <code>labels</code>. Breaks contrôle la position des graduations, ou les valeurs associées aux clés. Labels contrôle l’étiquette texte associée à chaque graduation/clé. L’utilisation la plus courante de <code>breaks</code> est de remplacer le choix par défaut :</p>
+<p>Il y a deux arguments principaux qui affectent l’apparence des graduations sur les axes et les clés sur la légende : <code>breaks</code> et <code>labels</code>. Breaks contrôle la position des graduations, ou les valeurs associées aux clés. Labels contrôle l’étiquette texte associée à chaque graduation/clé. L’utilisation la plus courante de <code>breaks</code> est de remplacer la valeur par défaut :</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -705,7 +705,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Vous pouvez utiliser <code>labels</code> de la même manière (un vecteur de caractères de la même longueur que <code>breaks</code>), mais vous pouvez aussi le définir à <code>NULL</code> pour supprimer complètement les étiquettes. Cela peut être utile pour les cartes, ou pour publier des graphiques où vous ne pouvez pas partager les nombres absolus. Vous pouvez aussi utiliser <code>breaks</code> et <code>labels</code> pour contrôler l’apparence des légendes. Pour les échelles discrètes pour les variables catégoques, <code>labels</code> peut être une liste nommée des noms de niveaux existants et des étiquettes souhaitées pour eux.</p>
+<p>Vous pouvez utiliser <code>labels</code> de la même manière (un vecteur de caractères de la même longueur que <code>breaks</code>), mais vous pouvez aussi le définir à <code>NULL</code> pour supprimer complètement les étiquettes. Cela peut être utile pour les cartes, ou pour publier des graphiques où vous ne pouvez pas partager les nombres absolus. Vous pouvez aussi utiliser <code>breaks</code> et <code>labels</code> pour contrôler l’apparence des légendes. Pour les échelles discrètes des variables catégoriques, <code>labels</code> peut être une liste des noms de niveaux existants et des étiquettes souhaitées.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -719,7 +719,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>L’argument <code>labels</code> couplé aux fonctions d’étiquetage du package scales est aussi utile pour formater les nombres en tant que devise, pourcentage, etc. Le graphique de gauche montre l’étiquetage par défaut avec <code><a href="https://scales.r-lib.org/reference/dollar_format.html">label_dollar()</a></code>, qui ajoute un signe dollar ainsi qu’une virgule séparatrice des milliers. Le graphique de droite ajoute une personnalisation supplémentaire en divisant les valeurs en dollars par 1 000 et en ajoutant un suffixe « K » (pour « milliers ») ainsi qu’en ajoutant des divisions personnalisées. Notez que <code>breaks</code> est à l’échelle originale des données.</p>
+<p>L’argument <code>labels</code> couplé aux fonctions d’étiquetage du package scales est aussi utile pour formater les nombres en tant que devise, pourcentage, etc. Le graphique de gauche montre l’étiquetage par défaut avec <code><a href="https://scales.r-lib.org/reference/dollar_format.html">label_dollar()</a></code>, qui ajoute un signe dollar ainsi qu’une virgule séparatrice des milliers. Le graphique de droite ajoute une personnalisation supplémentaire en divisant les valeurs en dollars par 1 000 et en ajoutant un suffixe « K » (pour « milliers ») ainsi qu’en ajoutant des divisions personnalisées. Notez que <code>breaks</code> est dans l’échelle par défaut des données.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Left</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span>, y <span class="op">=</span> <span class="va">cut</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">+</span></span>
@@ -742,7 +742,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Another handy label function is <code><a href="https://scales.r-lib.org/reference/label_percent.html">label_percent()</a></code>:</p>
+<p>Une autre fonction d’étiquetage pratique est <code><a href="https://scales.r-lib.org/reference/label_percent.html">label_percent()</a></code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>, fill <span class="op">=</span> <span class="va">clarity</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -754,7 +754,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Another use of <code>breaks</code> is when you have relatively few data points and want to highlight exactly where the observations occur. For example, take this plot that shows when each US president started and ended their term.</p>
+<p><code>breaks</code> peut également servir lorsque l’on dispose d’un nombre relativement faible de points de données et que l’on souhaite mettre en évidence l’emplacement exact des observations. Prenons par exemple ce graphique qui montre les dates de début et de fin du mandat de chaque président américain.</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">presidential</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">33</span> <span class="op">+</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -769,14 +769,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Note that for the <code>breaks</code> argument we pulled out the <code>start</code> variable as a vector with <code>presidential$start</code> because we can’t do an aesthetic mapping for this argument. Also note that the specification of breaks and labels for date and datetime scales is a little different:</p>
+<p>Notez que pour l’argument <code>breaks</code>, nous avons extrait la variable <code>start</code> sous forme de vecteur avec <code>presidential$start</code>, car il n’est pas possible d’effectuer un mappage esthétique pour cet argument. Notez également que la spécification des paliers et des étiquettes pour les échelles de date et d’heure est légèrement différente :</p>
 <ul>
-<li><p><code>date_labels</code> takes a format specification, in the same form as <code><a href="https://readr.tidyverse.org/reference/parse_datetime.html">parse_datetime()</a></code>.</p></li>
-<li><p><code>date_breaks</code> (not shown here), takes a string like “2 days” or “1 month”.</p></li>
+<li><p><code>date_labels</code> prend le même format que la fonction <code><a href="https://readr.tidyverse.org/reference/parse_datetime.html">parse_datetime()</a></code>.</p></li>
+<li><p><code>date_breaks</code> (non représenté ici) prend une chaîne de caractères telle que “2 days” or “1 month”.</p></li>
 </ul></section><section id="disposition-de-la-légende" class="level3" data-number="11.4.3"><h3 data-number="11.4.3" class="anchored" data-anchor-id="disposition-de-la-légende">
 <span class="header-section-number">11.4.3</span> Disposition de la légende</h3>
-<p>Vous utiliserez le plus souvent <code>breaks</code> et <code>labels</code> pour ajuster les axes. Bien qu’ils fonctionnent aussi pour les légendes, il y a quelques autres techniques que vous êtes plus susceptible d’utiliser.</p>
-<p>Pour contrôler la position générale de la légende, vous devez utiliser un paramètre <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code>. Nous reviendrons aux thèmes à la fin du chapitre, mais en bref, ils contrôlent les parties non-données du graphique. Le paramètre de thème <code>legend.position</code> contrôle où la légende est dessinée :</p>
+<p>Vous utiliserez le plus souvent <code>breaks</code> et <code>labels</code> pour ajuster les axes. Bien qu’ils fonctionnent aussi pour les légendes, il y a d’autres techniques que vous êtes plus susceptible d’utiliser.</p>
+<p>Pour contrôler la position générale de la légende, vous devez utiliser un paramètre <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code>. Nous reviendrons aux thèmes à la fin du chapitre, mais en bref, ils contrôlent les parties du graphique qui ne sont pas liées aux données. Le paramètre de thème <code>legend.position</code> contrôle où la légende est dessinée :</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -806,7 +806,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Si votre graphique est court et large, placez la légende en haut ou en bas, et s’il est haut et étroit, placez la légende à gauche ou à droite. Vous pouvez aussi utiliser <code>legend.position = "none"</code> pour supprimer l’affichage de la légende complètement.</p>
+<p>Si votre graphique est court et large, placez la légende en haut ou en bas, et s’il est haut et étroit, placez la légende à gauche ou à droite. Vous pouvez aussi utiliser <code>legend.position = "none"</code> pour supprimer complètement l’affichage de la légende.</p>
 <p>Pour contrôler l’affichage des légendes individuelles, utilisez <code><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides()</a></code> avec <code><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend()</a></code> ou <code><a href="https://ggplot2.tidyverse.org/reference/guide_colourbar.html">guide_colorbar()</a></code>. L’exemple suivant montre deux paramètres importants : contrôler le nombre de lignes que la légende utilise avec <code>nrow</code>, et remplacer l’une des esthétiques pour rendre les points plus grands. Cela est particulièrement utile si vous avez utilisé un <code>alpha</code> faible pour afficher de nombreux points sur un graphique.</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -825,8 +825,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Notez que le nom de l’argument dans <code><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides()</a></code> correspond au nom de l’esthétique, comme dans <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>.</p>
 </section><section id="remplacer-une-échelle" class="level3" data-number="11.4.4"><h3 data-number="11.4.4" class="anchored" data-anchor-id="remplacer-une-échelle">
 <span class="header-section-number">11.4.4</span> Remplacer une échelle</h3>
-<p>Au lieu de simplement ajuster les détails un peu, vous pouvez plutôt remplacer complètement l’échelle. Il y a deux types d’échelles que vous êtes probablement plus susceptible de vouloir changer : les échelles de position continues et les échelles de couleur. Heureusement, les mêmes principes s’appliquent à toutes les autres esthétiques, donc une fois que vous maîtrisez la position et la couleur, vous serez en mesure de rapidement maîtriser d’autres remplacements d’échelle.</p>
-<p>Il est très utile de tracer les transformations de votre variable. Par exemple, il est plus facile de voir la relation précise entre <code>carat</code> et <code>price</code> si nous les transformons en logarithme :</p>
+<p>Au lieu de se contenter d’apporter quelques petites modifications aux détails, vous pouvez complètement remplacer l’échelle. Il y a deux types d’échelles que vous êtes plus susceptible de vouloir changer : les échelles de position continues et les échelles de couleur. Heureusement, les mêmes principes s’appliquent à toutes les autres esthétiques, donc une fois que vous maîtrisez la position et la couleur, vous serez en mesure de maîtriser rapidement d’autres remplacements d’échelle.</p>
+<p>Il est très utile de représenter graphiquement les transformations de votre variable. Par exemple, il est plus facile de voir la relation précise entre <code>carat</code> et <code>price</code> si nous les transformons en logarithme :</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gauche</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bin_2d.html">geom_bin2d</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -846,7 +846,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Cependant, l’inconvénient de cette transformation est que les axes sont maintenant étiquetés avec les valeurs transformées, ce qui rend difficile l’interprétation du graphique. Au lieu de faire la transformation dans le mappage esthétique, nous pouvons plutôt le faire avec l’échelle. C’est visuellement identique, sauf que les axes sont étiquetés à l’échelle de données originale.</p>
+<p>Cependant, l’inconvénient de cette transformation est que les axes sont maintenant étiquetés avec les valeurs transformées, ce qui rend difficile l’interprétation du graphique. Au lieu de faire la transformation dans le mappage esthétique, nous pouvons plutôt le faire avec scale. C’est visuellement identique, sauf que les axes sont étiquetés à l’échelle de données d’origine.</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bin_2d.html">geom_bin2d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -889,7 +889,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Les échelles ColorBrewer sont documentées en ligne à <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a> et rendues disponibles en R via le package <strong>RColorBrewer</strong>, par Erich Neuwirth. <a href="#fig-brewer" class="quarto-xref">Figure&nbsp;<span>11.1</span></a> montre la liste complète de toutes les palettes. Les palettes séquentielles (en haut) et divergentes (en bas) sont particulièrement utiles si vos valeurs catégoques sont ordonnées, ou ont un « milieu ». Cela se produit souvent si vous avez utilisé <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> pour transformer une variable continue en variable catégorique.</p>
+<p>Les échelles ColorBrewer sont documentées en ligne à <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a> et rendues disponibles en R via le package <strong>RColorBrewer</strong>, par Erich Neuwirth. La <a href="#fig-brewer" class="quarto-xref">Figure&nbsp;<span>11.1</span></a> montre la liste complète de toutes les palettes. Les palettes séquentielles (en haut) et divergentes (en bas) sont particulièrement utiles si vos valeurs catégoriques sont ordonnées, ou ont un « milieu ». Cela se produit souvent si vous avez utilisé <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> pour transformer une variable continue en variable catégorique.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-brewer" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Toutes les échelles colorBrewer. Un groupe va des couleurs claires aux  couleurs foncées. Un autre groupe est un ensemble de couleurs non  ordinales. Et le dernier groupe a des échelles divergentes (du foncé au  clair au foncé à nouveau). Au sein de chaque ensemble, il y a un certain  nombre de palettes.">
@@ -902,7 +902,7 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 </div>
 </div>
 </div>
-<p>Quand vous avez un mappage prédéfini entre les valeurs et les couleurs, utilisez <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual()</a></code>. Par exemple, si nous mappons le parti présidentiel à la couleur, nous voulons utiliser le mappage standard du rouge pour les Républicains et du bleu pour les Démocrates. Une approche pour assigner ces couleurs est l’utilisation de codes de couleur hexadécimaux :</p>
+<p>Quand vous avez un mappage prédéfini entre les valeurs et les couleurs, utilisez <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual()</a></code>. Par exemple, si nous mappons le parti présidentiel à la couleur, nous voulons utiliser le mappage standard du rouge pour les Républicains et du bleu pour les Démocrates. Une approche pour assigner ces couleurs est l’utilisation de codes couleur hexadécimaux :</p>
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">presidential</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">33</span> <span class="op">+</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -917,8 +917,8 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 </div>
 </div>
 </div>
-<p>Pour la couleur continue, vous pouvez utiliser le built-in <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_color_gradient()</a></code> ou <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient()</a></code>. Si vous avez une échelle divergente, vous pouvez utiliser <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_color_gradient2()</a></code>. Cela vous permet de donner, par exemple, des couleurs différentes aux valeurs positives et négatives. C’est parfois aussi utile si vous voulez distinguer les points au-dessus ou au-dessous de la moyenne.</p>
-<p>Une autre option est d’utiliser les échelles de couleur viridis. Les concepteurs, Nathaniel Smith et Stéfan van der Walt, ont soigneusement élaboré des schémas de couleur continues qui sont perceptibles aux personnes avec diverses formes de daltonisme ainsi que perceptuellement uniformes à la fois en couleur et en noir et blanc. Ces échelles sont disponibles sous forme de palettes continues (<code>c</code>), discrètes (<code>d</code>) et groupées (<code>b</code>) dans ggplot2.</p>
+<p>Pour les couleurs continues, vous pouvez utiliser le built-in <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_color_gradient()</a></code> ou <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient()</a></code>. Si vous avez une échelle divergente, vous pouvez utiliser <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_color_gradient2()</a></code>. Cela vous permet de donner, par exemple, des couleurs différentes aux valeurs positives et négatives. C’est parfois aussi utile si vous voulez distinguer les points au-dessus ou au-dessous de la moyenne.</p>
+<p>Une autre option est d’utiliser les échelles de couleur viridis. Les concepteurs, Nathaniel Smith et Stéfan van der Walt, ont soigneusement élaboré des schémas de couleur continues qui sont perceptibles par les personnes atteintes de différentes formes de daltonisme et qui présentent une uniformité perceptuelle tant en couleur qu’en noir et blanc. Ces échelles sont disponibles sous forme de palettes continues (<code>c</code>), discrètes (<code>d</code>) et groupées (<code>b</code>) dans ggplot2.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span>,</span>
 <span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span></span>
@@ -955,7 +955,7 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 </div>
 </div>
 </div>
-<p>Note that all color scales come in two varieties: <code>scale_color_*()</code> and <code>scale_fill_*()</code> for the <code>color</code> and <code>fill</code> aesthetics respectively (the color scales are available in both UK and US spellings).</p>
+<p>Notez que toutes les échelles de couleurs existent en deux variantes : <code>scale_color_*()</code> et <code>scale_fill_*()</code>, respectivement pour les esthétiques <code>color</code> et <code>fill</code> (les échelles de couleurs sont disponibles aussi bien en orthographe britannique qu’américaine).</p>
 </section><section id="zoom" class="level3" data-number="11.4.5"><h3 data-number="11.4.5" class="anchored" data-anchor-id="zoom">
 <span class="header-section-number">11.4.5</span> Zoom</h3>
 <p>Il y a trois façons de contrôler les limites du graphique :</p>
@@ -964,7 +964,7 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 <li>Définir les limites dans chaque échelle.</li>
 <li>Définir <code>xlim</code> et <code>ylim</code> dans <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian()</a></code>.</li>
 </ol>
-<p>Nous démontrerons ces options dans une série de graphiques. Le graphique de gauche montre la relation entre la cylindrée du moteur et l’efficacité énergétique, colorée par type de chaîne de transmission. Le graphique de droite montre les mêmes variables, mais en sous-ensemblant les données qui sont tracées. Le sous-ensemblage des données a affecté les échelles x et y ainsi que la courbe lisse.</p>
+<p>Nous démontrerons ces options dans une série de graphiques. Le graphique de gauche montre la relation entre la cylindrée du moteur et l’efficacité énergétique, colorée par type de chaîne de transmission. Le graphique de droite montre les mêmes variables, mais sur un sous-ensemble des données qui sont tracées. Le sous-ensemble des données a affecté les échelles x et y ainsi que la courbe.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Left</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -986,7 +986,7 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 </div>
 </div>
 </div>
-<p>Let’s compare these to the two plots below where the plot on the left sets the <code>limits</code> on individual scales and the plot on the right sets them in <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian()</a></code>. We can see that reducing the limits is equivalent to subsetting the data. Therefore, to zoom in on a region of the plot, it’s generally best to use <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian()</a></code>.</p>
+<p>Comparons-les aux deux graphiques ci-dessous où celui de gauche fixe les <code>limits</code> sur les échelles individuelles et celui de droite les fixe dans <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian()</a></code>. Nous pouvons voir que réduire les limites équivaut à faire un sous-ensemble de données. Par conséquent, pour zoomer sur une région du graphique, il est généralement préférable d’utiliser <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian()</a></code>.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Left</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1009,7 +1009,7 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 </div>
 </div>
 </div>
-<p>On the other hand, setting the <code>limits</code> on individual scales is generally more useful if you want to <em>expand</em> the limits, e.g., to match scales across different plots. For example, if we extract two classes of cars and plot them separately, it’s difficult to compare the plots because all three scales (the x-axis, the y-axis, and the color aesthetic) have different ranges.</p>
+<p>D’un autre côté, définir les <code>limits</code> sur les échelles individuelles est généralement plus utile si vous voulez <em>élargir</em> les limites, par exemple pour harmoniser les échelles entre différents graphiques. Par exemple, si nous extrayons deux classes de voitures et les traçons séparément, il est difficile de comparer les graphiques parce que les trois échelles (l’axe des x, l’axe des y et l’esthétique couleur) ont des plages différentes.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">suv</span> <span class="op">&lt;-</span> <span class="va">mpg</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"suv"</span><span class="op">)</span></span>
 <span><span class="va">compact</span> <span class="op">&lt;-</span> <span class="va">mpg</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"compact"</span><span class="op">)</span></span>
 <span></span>
@@ -1030,7 +1030,7 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 </div>
 </div>
 </div>
-<p>One way to overcome this problem is to share scales across multiple plots, training the scales with the <code>limits</code> of the full data.</p>
+<p>Une façon de surmonter ce problème est de partager les échelles sur plusieurs graphiques, en entraînant les échelles avec les <code>limits</code> de l’ensemble des données.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x_scale</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">displ</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">y_scale</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">col_scale</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html">scale_color_discrete</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">drv</span><span class="op">)</span><span class="op">)</span></span>
@@ -1058,12 +1058,12 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 </div>
 </div>
 </div>
-<p>In this particular case, you could have simply used faceting, but this technique is useful more generally, if for instance, you want to spread plots over multiple pages of a report.</p>
-</section><section id="exercises" class="level3" data-number="11.4.6"><h3 data-number="11.4.6" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">11.4.6</span> Exercises</h3>
+<p>Dans ce cas particulier, vous auriez simplement pu utiliser la facettisation, mais cette technique est utile plus généralement, si par exemple vous voulez distribuer des graphiques sur plusieurs pages d’un rapport.</p>
+</section><section id="exercices-2" class="level3" data-number="11.4.6"><h3 data-number="11.4.6" class="anchored" data-anchor-id="exercices-2">
+<span class="header-section-number">11.4.6</span> Exercices</h3>
 <ol type="1">
 <li>
-<p>Why doesn’t the following code override the default scale?</p>
+<p>Pourquoi le code suivant ne remplace-t-il pas l’échelle par défaut ?</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span>,</span>
@@ -1076,19 +1076,19 @@ Figure&nbsp;11.1: Toutes les échelles colorBrewer.
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </li>
-<li><p>What is the first argument to every scale? How does it compare to <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>?</p></li>
+<li><p>Quel est le premier argument de chaque échelle ? Comment se compare-t-il à <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> ?</p></li>
 <li>
-<p>Change the display of the presidential terms by:</p>
+<p>Modifiez l’affichage des mandats présidentiels en :</p>
 <ol type="a">
-<li>Combining the two variants that customize colors and x axis breaks.</li>
-<li>Improving the display of the y axis.</li>
-<li>Labelling each term with the name of the president.</li>
-<li>Adding informative plot labels.</li>
-<li>Placing breaks every 4 years (this is trickier than it seems!).</li>
+<li>Combinant les deux variantes qui personnalisent les couleurs et les coupures de l’axe x.</li>
+<li>Améliorant l’affichage de l’axe y.</li>
+<li>Étiquetant chaque mandat avec le nom du président.</li>
+<li>Ajoutant des étiquettes de graphique informatives.</li>
+<li>Plaçant des coupures tous les 4 ans (c’est plus difficile qu’il n’y paraît !).</li>
 </ol>
 </li>
 <li>
-<p>First, create the following plot. Then, modify the code using <code>override.aes</code> to make the legend easier to see.</p>
+<p>D’abord, créez le graphique suivant. Ensuite, modifiez le code en utilisant <code>override.aes</code> pour rendre la légende plus facile à lire.</p>
 <div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">carat</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">cut</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">20</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1146,15 +1146,15 @@ Figure&nbsp;11.2: Les huit thèmes intégrés à ggplot2.
 </div>
 </div>
 </div>
-<p>For an overview of all <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code> components, see help with <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">?theme</a></code>. The <a href="https://ggplot2-book.org/">ggplot2 book</a> is also a great place to go for the full details on theming.</p>
-<section id="exercices-2" class="level3" data-number="11.5.1"><h3 data-number="11.5.1" class="anchored" data-anchor-id="exercices-2">
+<p>Pour un aperçu de tous les composants <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code>, consultez l’aide avec <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">?theme</a></code>. Le <a href="https://ggplot2-book.org/">livre ggplot2</a> est également un excellent endroit pour trouver tous les détails sur les thèmes.</p>
+<section id="exercices-3" class="level3" data-number="11.5.1"><h3 data-number="11.5.1" class="anchored" data-anchor-id="exercices-3">
 <span class="header-section-number">11.5.1</span> Exercices</h3>
 <ol type="1">
-<li>Choisissez un thème offert par le package ggthemes et appliquez-le au dernier graphique que vous avez créé.</li>
+<li>Choisissez un thème proposé par le package ggthemes et appliquez-le au dernier graphique que vous avez créé.</li>
 <li>Rendez les étiquettes des axes de votre graphique bleues et en gras.</li>
-</ol></section></section><section id="disposition" class="level2" data-number="11.6"><h2 data-number="11.6" class="anchored" data-anchor-id="disposition">
-<span class="header-section-number">11.6</span> Disposition</h2>
-<p>Jusqu’à présent, nous avons parlé de la création et de la modification d’un seul graphique. Et si vous aviez plusieurs graphiques que vous voulez disposer d’une certaine manière ? Le package patchwork vous permet de combiner des graphiques séparés dans le même graphique. Nous avons chargé ce package plus tôt dans le chapitre.</p>
+</ol></section></section><section id="mise-en-page" class="level2" data-number="11.6"><h2 data-number="11.6" class="anchored" data-anchor-id="mise-en-page">
+<span class="header-section-number">11.6</span> Mise en page</h2>
+<p>Jusqu’à présent, nous avons parlé de la création et de la modification d’un seul graphique. Et si vous aviez plusieurs graphiques que vous voulez organiser d’une certaine manière ? Le package patchwork vous permet de combiner des graphiques séparés dans un même graphique. Nous avons chargé ce package plus tôt dans le chapitre.</p>
 <p>Pour placer deux graphiques côte à côte, vous pouvez simplement les ajouter l’un à l’autre. Notez que vous devez d’abord créer les graphiques et les enregistrer en tant qu’objets (dans l’exemple suivant, ils s’appellent <code>p1</code> et <code>p2</code>). Ensuite, vous les placez côte à côte avec <code>+</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1171,8 +1171,8 @@ Figure&nbsp;11.2: Les huit thèmes intégrés à ggplot2.
 </div>
 </div>
 </div>
-<p>Il est important de noter que dans le bloc de code ci-dessus, nous n’avons pas utilisé une nouvelle fonction du package patchwork. À la place, le package a ajouté une nouvelle fonctionnalité à l’opérateur <code>+</code>.</p>
-<p>Vous pouvez aussi créer des dispositions de graphiques complexes avec patchwork. Dans ce qui suit, <code>|</code> place les <code>p1</code> et <code>p3</code> côte à côte et <code>/</code> déplace <code>p2</code> à la ligne suivante.</p>
+<p>Il est important de noter que dans le bloc de code ci-dessus, nous n’avons pas utilisé une nouvelle fonction du package patchwork. À la place, le package a étendu l’opérateur <code>+</code> avec une nouvelle fonctionnalité.</p>
+<p>Vous pouvez aussi créer des mises en page complexes de graphiques avec patchwork. Dans ce qui suit, <code>|</code> place <code>p1</code> et <code>p3</code> côte à côte et <code>/</code> déplace <code>p2</code> à la ligne suivante.</p>
 <div class="cell">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cty</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1185,7 +1185,7 @@ Figure&nbsp;11.2: Les huit thèmes intégrés à ggplot2.
 </div>
 </div>
 </div>
-<p>De plus, patchwork vous permet de collecter les légendes de plusieurs graphiques dans une légende commune, de personnaliser le placement de la légende ainsi que les dimensions des graphiques, et d’ajouter un titre commun, un sous-titre, une note, etc. à vos graphiques. Ci-dessous, nous créons 5 graphiques. Nous avons désactivé les légendes sur les boîtes à moustaches et le nuage de points et avons collecté les légendes pour les graphiques de densité en haut du graphique avec <code>&amp; theme(legend.position = "top")</code>. Notez l’utilisation de l’opérateur <code>&amp;</code> ici au lieu du <code>+</code> habituel. C’est parce que nous modifions le thème pour le graphique patchwork contrairement aux ggplots individuels. La légende est placée en haut, à l’intérieur du <code><a href="https://patchwork.data-imaginist.com/reference/guide_area.html">guide_area()</a></code>. Enfin, nous avons aussi personnalisé les hauteurs des divers composants de notre patchwork – le guide a une hauteur de 1, les boîtes à moustaches 3, les graphiques de densité 2, et le nuage de points facetté 4. Patchwork divise la zone que vous avez allouée pour votre graphique en utilisant cette échelle et place les composants en conséquence.</p>
+<p>De plus, patchwork vous permet de rassembler les légendes de plusieurs graphiques dans une légende commune, de personnaliser le placement de la légende ainsi que les dimensions des graphiques, et d’ajouter un titre commun, un sous-titre, une note, etc. à vos graphiques. Ci-dessous, nous créons 5 graphiques. Nous avons désactivé les légendes sur les boîtes à moustaches et le nuage de points et avons rassemblé les légendes des graphiques de densité en haut du graphique avec <code>&amp; theme(legend.position = "top")</code>. Notez l’utilisation de l’opérateur <code>&amp;</code> ici au lieu du <code>+</code> habituel. C’est parce que nous modifions le thème du graphique patchwork, par opposition aux ggplots individuels. La légende est placée en haut, à l’intérieur de <code><a href="https://patchwork.data-imaginist.com/reference/guide_area.html">guide_area()</a></code>. Enfin, nous avons aussi personnalisé les hauteurs des différents composants de notre patchwork : le guide a une hauteur de 1, les boîtes à moustaches 3, les graphiques de densité 2, et le nuage de points facetté 4. Patchwork divise la zone que vous avez allouée à votre graphique en utilisant cette échelle et place les composants en conséquence.</p>
 <div class="cell">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">drv</span>, y <span class="op">=</span> <span class="va">cty</span>, color <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1225,12 +1225,12 @@ Figure&nbsp;11.2: Les huit thèmes intégrés à ggplot2.
 </div>
 </div>
 </div>
-<p>Si vous aimeriez en savoir plus sur la combinaison et la disposition de plusieurs graphiques avec patchwork, nous vous recommandons de consulter les guides sur le site web du package : <a href="https://patchwork.data-imaginist.com" class="uri">https://patchwork.data-imaginist.com</a>.</p>
-<section id="exercices-3" class="level3" data-number="11.6.1"><h3 data-number="11.6.1" class="anchored" data-anchor-id="exercices-3">
+<p>Si vous souhaitez en savoir plus sur la combinaison et la mise en page de plusieurs graphiques avec patchwork, nous vous recommandons de consulter les guides sur le site web du package : <a href="https://patchwork.data-imaginist.com" class="uri">https://patchwork.data-imaginist.com</a>.</p>
+<section id="exercices-4" class="level3" data-number="11.6.1"><h3 data-number="11.6.1" class="anchored" data-anchor-id="exercices-4">
 <span class="header-section-number">11.6.1</span> Exercices</h3>
 <ol type="1">
 <li>
-<p>Que se passe-t-il si vous omettez les parenthèses dans la disposition du graphique suivant ? Pouvez-vous expliquer pourquoi cela se produit ?</p>
+<p>Que se passe-t-il si vous omettez les parenthèses dans la mise en page du graphique suivant ? Pouvez-vous expliquer pourquoi cela se produit ?</p>
 <div class="cell">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1246,7 +1246,7 @@ Figure&nbsp;11.2: Les huit thèmes intégrés à ggplot2.
 </div>
 </li>
 <li>
-<p>En utilisant les trois graphiques de l’exercice précédent, recréez le patchwork suivant.</p>
+<p>En utilisant les trois graphiques de l’exercice précédent, recréez la mise en page patchwork suivante.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1258,8 +1258,8 @@ Figure&nbsp;11.2: Les huit thèmes intégrés à ggplot2.
 </li>
 </ol></section></section><section id="résumé" class="level2" data-number="11.7"><h2 data-number="11.7" class="anchored" data-anchor-id="résumé">
 <span class="header-section-number">11.7</span> Résumé</h2>
-<p>Dans ce chapitre, vous avez appris à ajouter des étiquettes de graphique telles que le titre, le sous-titre, la note ainsi qu’à modifier les étiquettes des axes par défaut, à utiliser les annotations pour ajouter du texte informatif à votre graphique ou pour mettre en évidence des points de données spécifiques, à personnaliser les échelles des axes et à changer le thème de votre graphique. Vous avez aussi appris à combiner plusieurs graphiques dans un seul graphique en utilisant à la fois des dispositions de graphiques simples et complexes.</p>
-<p>Bien que vous ayez jusqu’à présent appris à créer de nombreux types différents de graphiques et à les personnaliser en utilisant une variété de techniques, nous avons à peine égratigner la surface de ce que vous pouvez créer avec ggplot2. Si vous voulez avoir une compréhension complète de ggplot2, nous vous recommandons de lire le livre, <a href="https://ggplot2-book.org"><em>ggplot2: Elegant Graphics for Data Analysis</em></a>. D’autres ressources utiles sont le <a href="https://r-graphics.org"><em>R Graphics Cookbook</em></a> par Winston Chang et <a href="https://clauswilke.com/dataviz/"><em>Fundamentals of Data Visualization</em></a> par Claus Wilke.</p>
+<p>Dans ce chapitre, vous avez appris à ajouter des étiquettes à votre graphique, comme le titre, le sous-titre et la note, ainsi qu’à modifier les étiquettes des axes par défaut. Vous avez découvert comment utiliser les annotations pour ajouter du texte informatif à votre graphique ou pour mettre en évidence des points de données spécifiques, comment personnaliser les échelles des axes et changer le thème de votre graphique. Vous avez aussi appris à combiner plusieurs graphiques en un seul graphique en utilisant à la fois des mises en page simples et complexes.</p>
+<p>Bien que vous ayez appris à créer de nombreux types différents de graphiques et à les personnaliser en utilisant diverses techniques, nous n’avons fait qu’effleurer la surface de ce que vous pouvez créer avec ggplot2. Pour une compréhension complète de ggplot2, nous vous recommandons de consulter le livre <a href="https://ggplot2-book.org"><em>ggplot2: Elegant Graphics for Data Analysis</em></a>. D’autres ressources utiles sont le <a href="https://r-graphics.org"><em>R Graphics Cookbook</em></a> de Winston Chang et <a href="https://clauswilke.com/dataviz/"><em>Fundamentals of Data Visualization</em></a> de Claus Wilke.</p>
 
 
 </section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
